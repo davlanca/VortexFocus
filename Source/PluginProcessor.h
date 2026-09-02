@@ -9,6 +9,7 @@
 #pragma once
 
 #include <cstring>
+#if defined(__GNUC__) && ! defined(_MSC_VER)
 #include <strings.h>
 
 namespace std
@@ -16,6 +17,7 @@ namespace std
   using ::memcpy;
   using ::strncmp;
 }
+#endif
 
 #include <JuceHeader.h>
 
