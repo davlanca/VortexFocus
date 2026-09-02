@@ -9,6 +9,42 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#if JUCE_WINDOWS
+ #include <windows.h>
+#endif
+
+namespace
+{
+void initialiseDiagnosticLog()
+{
+    static bool initialised = false;
+
+    if (initialised)
+        return;
+
+    initialised = true;
+    auto* logger = juce::FileLogger::createDefaultAppLogger (
+        "VortexFocus", "VortexFocus.log", "VortexFocus plugin startup", 1024 * 1024);
+    juce::Logger::setCurrentLogger (logger);
+
+    juce::Logger::writeToLog ("Plugin path: "
+                              + juce::File::getSpecialLocation (juce::File::currentExecutableFile).getFullPathName());
+    juce::Logger::writeToLog ("JUCE version: " + juce::SystemStats::getJUCEVersion());
+   #if JUCE_WINDOWS
+    OutputDebugStringA ("VortexFocus: diagnostic log initialised\n");
+   #endif
+}
+
+void logDiagnostic (const juce::String& message)
+{
+    juce::Logger::writeToLog (message);
+   #if JUCE_WINDOWS
+    OutputDebugStringA (("VortexFocus: " + message).toRawUTF8());
+    OutputDebugStringA ("\n");
+   #endif
+}
+}
+
 //==============================================================================
 VortexFocusAudioProcessor::VortexFocusAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -22,6 +58,8 @@ VortexFocusAudioProcessor::VortexFocusAudioProcessor()
                        )
 #endif
 {
+    initialiseDiagnosticLog();
+    logDiagnostic ("AudioProcessor constructed");
 }
 
 VortexFocusAudioProcessor::~VortexFocusAudioProcessor()
@@ -166,7 +204,20 @@ bool VortexFocusAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* VortexFocusAudioProcessor::createEditor()
 {
-    return new VortexFocusAudioProcessorEditor (*this);
+    initialiseDiagnosticLog();
+    logDiagnostic ("Creating editor");
+
+    try
+    {
+        auto* editor = new VortexFocusAudioProcessorEditor (*this);
+        logDiagnostic ("Editor created");
+        return editor;
+    }
+    catch (const std::exception& exception)
+    {
+        logDiagnostic ("Editor creation failed: " + juce::String (exception.what()));
+        throw;
+    }
 }
 
 //==============================================================================
@@ -187,5 +238,7 @@ void VortexFocusAudioProcessor::setStateInformation (const void* data, int sizeI
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
+    initialiseDiagnosticLog();
+    logDiagnostic ("createPluginFilter called");
     return new VortexFocusAudioProcessor();
 }
