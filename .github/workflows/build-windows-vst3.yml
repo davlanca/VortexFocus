@@ -22,8 +22,16 @@ jobs:
           if (-not $vs) { throw "Visual Studio C++ workload was not found" }
           Write-Host "Using Visual Studio at $vs"
 
+      - name: Install WebView2 SDK
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.3485.44" -OutFile webview2.zip
+          Expand-Archive webview2.zip -DestinationPath webview2
+
       - name: Configure
-        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+        run: >-
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+          -DJUCE_WEBVIEW2_PACKAGE_LOCATION=${{ github.workspace }}\webview2
 
       - name: Build VST3
         run: cmake --build build --config Release --target VortexFocus_VST3 --parallel

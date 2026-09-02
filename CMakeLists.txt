@@ -15,7 +15,7 @@ juce_add_plugin(VortexFocus
     PLUGIN_NAME "VortexFocus"
     FORMATS VST3
     PRODUCT_NAME "VortexFocus"
-    NEEDS_WEBVIEW2 FALSE
+    NEEDS_WEBVIEW2 TRUE
 )
 
 juce_generate_juce_header(VortexFocus)
@@ -36,7 +36,7 @@ target_sources(VortexFocus
 target_compile_definitions(VortexFocus
     PUBLIC
         JUCE_WEB_BROWSER=1
-        JUCE_USE_WIN_WEBVIEW2=0
+        JUCE_USE_WIN_WEBVIEW2=1
         $<$<CXX_COMPILER_ID:GNU>:JUCE_64BIT=1>
         $<$<CXX_COMPILER_ID:GNU>:stricmp=strcasecmp>
         JUCE_VST3_CAN_REPLACE_VST2=0

@@ -26,7 +26,7 @@ VortexFocusAudioProcessorEditor::VortexFocusAudioProcessorEditor (VortexFocusAud
     setSize(920, 820);
 
    #if JUCE_WEB_BROWSER_RESOURCE_PROVIDER_AVAILABLE
-    webBrowser.goToURL("http://localhost/index.html");
+    webBrowser.goToURL (juce::WebBrowserComponent::getResourceProviderRoot());
    #else
     webBrowser.goToURL("data:text/html," + juce::URL::addEscapeChars(
         juce::String::fromUTF8(BinaryData::index_html, BinaryData::index_htmlSize), true));
