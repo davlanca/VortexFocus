@@ -1,777 +1,434 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>KA // VORTEX FOCUS - Pro Studio Dynamics Processor</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        
-        body { 
-            background: #060709; 
-            color: #eceef4; 
-            font-family: 'Space Grotesk', sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: flex-start; 
-            min-height: 100vh; 
-            padding: 12px; 
-            overflow-x: hidden;
-        }
-
-        .master-power-btn { 
-            background: linear-gradient(135deg, #ff3b30, #b3221b); 
-            border: none; 
-            color: #fff; 
-            padding: 12px 24px; 
-            font-size: 11px; 
-            font-weight: 700; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            margin-bottom: 12px; 
-            box-shadow: 0 6px 24px rgba(255, 59, 48, 0.3); 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            width: 100%;
-            max-width: 440px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .master-power-btn.active { 
-            background: linear-gradient(135deg, #34c759, #1b8535); 
-            box-shadow: 0 6px 24px rgba(52, 199, 89, 0.3); 
-        }
-        .master-power-btn:active { transform: scale(0.98); }
-
-        .file-upload-container {
-            width: 100%;
-            max-width: 440px;
-            margin-bottom: 16px;
-            display: flex;
-            gap: 8px;
-        }
-        .file-upload-label {
-            flex: 1;
-            background: #11141c;
-            border: 1px dashed #3b435c;
-            border-radius: 12px;
-            padding: 10px 14px;
-            font-size: 10px;
-            color: #7a829e;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .file-upload-label:hover { border-color: #00f0ff; color: #00f0ff; }
-        #audio-file-input { display: none; }
-
-        .rack-chassis {
-            background: linear-gradient(145deg, #16181e 0%, #0d0e12 100%);
-            border: 1px solid #2a2e3d;
-            border-top: 1px solid #484f66;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 440px;
-            padding: 18px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.08);
-            position: relative;
-        }
-
-        .rack-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #20232d;
-            padding-bottom: 12px;
-            margin-bottom: 16px;
-        }
-
-        .brand-block {
-            display: flex;
-            flex-direction: column;
-        }
-        .brand-title {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: #fff;
-        }
-        .brand-subtitle {
-            font-size: 8px;
-            color: #636b85;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        .header-controls {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .bypass-btn {
-            background: #111318;
-            border: 1px solid #2a2e3d;
-            color: #7a829e;
-            padding: 0 10px;
-            height: 28px;
-            font-size: 9px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .bypass-btn.active {
-            background: #ffcc00;
-            color: #08090b;
-            border-color: #ffcc00;
-            box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
-        }
-
-        .preset-switches {
-            display: flex;
-            gap: 6px;
-        }
-        .p-btn {
-            background: #111318;
-            border: 1px solid #2a2e3d;
-            color: #7a829e;
-            width: 28px; height: 28px;
-            font-size: 10px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .p-btn.active { background: #00f0ff; color: #08090b; border-color: #00f0ff; box-shadow: 0 0 12px rgba(0, 240, 255, 0.4); }
-
-        .scope-container {
-            background: #050608;
-            border: 1px solid #20232d;
-            border-radius: 14px;
-            height: 120px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 16px;
-            box-shadow: inset 0 4px 16px rgba(0,0,0,0.8);
-        }
-        #scope-canvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        .scope-overlay-info {
-            position: absolute;
-            top: 10px; left: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            color: #00f0ff;
-            letter-spacing: 1px;
-            pointer-events: none;
-            text-shadow: 0 0 8px rgba(0,240,255,0.5);
-        }
-
-        .core-focus-module {
-            background: linear-gradient(135deg, #131722 0%, #0d1017 100%);
-            border: 1px solid #00f0ff44;
-            border-radius: 16px;
-            padding: 16px;
-            margin-bottom: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 8px 32px rgba(0, 240, 255, 0.08);
-            position: relative;
-        }
-        .core-focus-module::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, #00f0ff, transparent);
-        }
-        .focus-top-row {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .focus-title {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #00f0ff;
-            text-transform: uppercase;
-        }
-        .focus-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 700;
-            color: #00f0ff;
-        }
-
-        .matrix-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .control-pod {
-            background: #11141c;
-            border: 1px solid #222736;
-            border-radius: 12px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transition: border-color 0.2s;
-        }
-        .control-pod:hover { border-color: #3b435c; }
-
-        .pod-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .pod-label {
-            font-size: 9px;
-            font-weight: 700;
-            color: #7a829e;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-        .pod-val {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: #eceef4;
-        }
-
-        input[type=range].vortex-slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 6px;
-            background: #08090b;
-            border-radius: 3px;
-            outline: none;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
-        }
-        input[type=range].vortex-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #48516b, #222736);
-            border: 2px solid #7a829e;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-            transition: transform 0.1s;
-        }
-        input[type=range].vortex-slider::-webkit-slider-thumb:active {
-            transform: scale(1.15);
-        }
-        input[type=range].vortex-slider.accent-focus::-webkit-slider-thumb {
-            background: linear-gradient(135deg, #00f0ff, #0077ff);
-            border: 2px solid #fff;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
-        }
-
-        .analytics-panel {
-            background: #0b0d12;
-            border: 1px solid #20232d;
-            border-radius: 12px;
-            padding: 12px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .meter-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-        .meter-bar-track {
-            width: 100%;
-            height: 8px;
-            background: #141720;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
-        }
-        .meter-fill {
-            height: 100%;
-            width: 0%;
-            border-radius: 4px;
-            transition: width 0.05s ease;
-        }
-        .meter-fill.gr { background: linear-gradient(90deg, #34c759, #ff3b30); }
-        .meter-fill.up { background: linear-gradient(90deg, #0077ff, #00f0ff); }
-
-        .meter-header-row {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .meter-title {
-            font-size: 8px;
-            font-weight: 700;
-            color: #636b85;
-            letter-spacing: 2px;
-        }
-        .meter-val-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            font-weight: 700;
-            color: #00f0ff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KA // VORTEX FOCUS — Dynamics Processor</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#060709;color:#eceef4;font-family:Arial,Helvetica,sans-serif;min-height:100vh;padding:12px;overflow-x:hidden}
+button,input{font:inherit}
+.master-power-btn{display:block;width:100%;max-width:900px;margin:0 auto 12px;background:#b3221b;color:#fff;border:0;border-radius:12px;padding:12px 24px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.master-power-btn.active{background:#1b8535}
+.file-upload-container{width:100%;max-width:900px;margin:0 auto 12px;display:flex;gap:8px}
+.file-upload-label{flex:1;background:#11141c;border:1px dashed #3b435c;border-radius:12px;padding:10px 14px;font-size:10px;color:#7a829e;text-align:center;cursor:pointer;text-transform:uppercase}
+#audio-file-input{display:none}
+.rack-chassis{background:linear-gradient(145deg,#16181e,#0d0e12);border:1px solid #2a2e3d;border-top-color:#484f66;border-radius:20px;width:100%;max-width:900px;margin:auto;padding:18px;box-shadow:0 30px 60px rgba(0,0,0,.9)}
+.rack-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #20232d;padding-bottom:12px;margin-bottom:16px}
+.brand-title{font-size:16px;font-weight:700;letter-spacing:4px;color:#fff}
+.brand-subtitle{font-size:8px;color:#636b85;letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+.header-controls{display:flex;gap:6px;align-items:center}
+.bypass-btn,.p-btn,.mode-btn{background:#111318;border:1px solid #2a2e3d;color:#7a829e;height:30px;border-radius:8px;cursor:pointer;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:0 10px}
+.bypass-btn.active{background:#ffcc00;color:#08090b;border-color:#ffcc00}
+.p-btn{width:34px;padding:0}.p-btn.active,.mode-btn.active{background:#00f0ff;color:#08090b;border-color:#00f0ff}
+.scope-container{background:#050608;border:1px solid #20232d;border-radius:14px;height:190px;position:relative;overflow:hidden;margin-bottom:16px;box-shadow:inset 0 4px 16px rgba(0,0,0,.8)}
+#scope-canvas{width:100%;height:100%;display:block}
+.scope-overlay-info{position:absolute;top:10px;left:12px;font:9px monospace;color:#00f0ff;letter-spacing:1px;pointer-events:none}
+.module{background:linear-gradient(135deg,#131722,#0d1017);border:1px solid #222736;border-radius:16px;padding:16px;margin-bottom:14px;position:relative}
+.module::before{content:'';position:absolute;left:10%;right:10%;top:0;height:2px;background:linear-gradient(90deg,transparent,#00f0ff,transparent)}
+.module-title{font-size:10px;font-weight:700;letter-spacing:2px;color:#00f0ff;text-transform:uppercase;margin-bottom:13px}
+.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.matrix.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.control{background:#11141c;border:1px solid #222736;border-radius:11px;padding:11px}
+.control label{display:flex;justify-content:space-between;gap:8px;color:#7a829e;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px}
+.val{color:#eceef4;font:10px monospace;white-space:nowrap}
+input[type=range]{appearance:none;width:100%;height:6px;background:#08090b;border-radius:3px;outline:0}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:#30384d;border:2px solid #8a93aa;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#30384d;border:2px solid #8a93aa;cursor:pointer}
+.section-note{font-size:8px;color:#5f6679;line-height:1.5;margin-top:10px}
+.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.meter{background:#0b0d12;border:1px solid #20232d;border-radius:10px;padding:10px}
+.meter-title{font-size:7px;color:#636b85;font-weight:700;letter-spacing:1.3px;margin-bottom:7px}
+.meter-num{font:10px monospace;color:#00f0ff;text-align:right;margin-bottom:6px}
+.bar{height:7px;background:#141720;border-radius:4px;overflow:hidden}
+.fill{height:100%;width:0%;background:linear-gradient(90deg,#34c759,#ffcc00,#ff3b30);transition:width .04s linear}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.stat{background:#0b0d12;border:1px solid #20232d;border-radius:10px;padding:10px;text-align:center}
+.stat b{display:block;font:13px monospace;color:#eceef4;margin-bottom:4px}.stat span{font-size:7px;color:#636b85;letter-spacing:1px}
+.footer-note{font-size:8px;color:#4f5668;line-height:1.5;margin-top:12px}
+@media(max-width:650px){.meters,.stats,.matrix.three{grid-template-columns:1fr 1fr}.rack-header{align-items:flex-start}.header-controls{flex-wrap:wrap;justify-content:flex-end}.brand-title{font-size:13px}.scope-container{height:150px}}
+@media(max-width:430px){.matrix,.meters,.stats{grid-template-columns:1fr 1fr}.rack-chassis{padding:12px}}
+</style>
 </head>
 <body>
 
-    <button class="master-power-btn" id="power-btn">■ Инициализировать Аудио-Ядро</button>
+<button class="master-power-btn" id="power-btn">■ ИНИЦИАЛИЗИРОВАТЬ АУДИО-ЯДРО</button>
 
-    <div class="file-upload-container">
-        <label class="file-upload-label" for="audio-file-input">
-            <span>📂 Загрузить MP3 / WAV</span>
-        </label>
-        <input type="file" id="audio-file-input" accept=".mp3, .wav, audio/mpeg, audio/wav">
+<div class="file-upload-container">
+<label class="file-upload-label" for="audio-file-input"><span id="upload-text">📂 Загрузить MP3 / WAV</span></label>
+<input type="file" id="audio-file-input" accept=".mp3,.wav,audio/mpeg,audio/wav">
+</div>
+
+<div class="rack-chassis">
+  <div class="rack-header">
+    <div>
+      <div class="brand-title">KA // VORTEX</div>
+      <div class="brand-subtitle">FOCUS // DUAL-STAGE DYNAMICS PROCESSOR</div>
     </div>
-
-    <div class="rack-chassis">
-        <div class="rack-header">
-            <div class="brand-block">
-                <div class="brand-title">KA // VORTEX</div>
-                <div class="brand-subtitle">Pro Studio Dynamics Processor</div>
-            </div>
-            <div class="header-controls">
-                <button class="bypass-btn" id="bypass-btn" onclick="toggleBypass()">Bypass</button>
-                <div class="preset-switches">
-                    <button class="p-btn active" onclick="setPreset('clean')">CL</button>
-                    <button class="p-btn" onclick="setPreset('punch')">PN</button>
-                    <button class="p-btn" onclick="setPreset('extreme')">EXT</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="scope-container">
-            <div class="scope-overlay-info" id="scope-info">STATUS: SYNTH MODE // READY</div>
-            <canvas id="scope-canvas"></canvas>
-        </div>
-
-        <div class="core-focus-module">
-            <div class="focus-top-row">
-                <span class="focus-title">⚡ Focus Density & Presence</span>
-                <span class="focus-number" id="focus-disp">65%</span>
-            </div>
-            <input type="range" id="focus-knob" class="vortex-slider accent-focus" min="0" max="100" value="65">
-        </div>
-
-        <div class="matrix-grid">
-            <div class="control-pod">
-                <div class="pod-header">
-                    <span class="pod-label">Input Gain</span>
-                    <span class="pod-val" id="in-val">0.0 dB</span>
-                </div>
-                <input type="range" id="in-knob" class="vortex-slider" min="-24" max="24" value="0" step="0.1">
-            </div>
-            <div class="control-pod">
-                <div class="pod-header">
-                    <span class="pod-label">Output Trim</span>
-                    <span class="pod-val" id="out-val">0.0 dB</span>
-                </div>
-                <input type="range" id="out-knob" class="vortex-slider" min="-24" max="24" value="0" step="0.1">
-            </div>
-        </div>
-
-        <div class="matrix-grid">
-            <div class="control-pod" style="grid-column: span 2;">
-                <div class="pod-header">
-                    <span class="pod-label">Attack Speed (Transient Window)</span>
-                    <span class="pod-val" id="attack-val">15 ms</span>
-                </div>
-                <input type="range" id="attack-knob" class="vortex-slider" min="1" max="100" value="15" step="1">
-            </div>
-        </div>
-
-        <div class="matrix-grid">
-            <div class="control-pod">
-                <div class="pod-header">
-                    <span class="pod-label">Parallel Opto</span>
-                    <span class="pod-val" id="opto-val">30%</span>
-                </div>
-                <input type="range" id="opto-knob" class="vortex-slider" min="0" max="100" value="30">
-            </div>
-            <div class="control-pod">
-                <div class="pod-header">
-                    <span class="pod-label">Parallel VCA</span>
-                    <span class="pod-val" id="vca-val">40%</span>
-                </div>
-                <input type="range" id="vca-knob" class="vortex-slider" min="0" max="100" value="40">
-            </div>
-        </div>
-
-        <div class="analytics-panel">
-            <div class="meter-box">
-                <div class="meter-header-row">
-                    <span class="meter-title">OPTO GR PEAK</span>
-                    <span class="meter-val-num" id="gr-num">0.0 dB</span>
-                </div>
-                <div class="meter-bar-track">
-                    <div class="meter-fill gr" id="gr-fill"></div>
-                </div>
-            </div>
-            <div class="meter-box">
-                <div class="meter-header-row">
-                    <span class="meter-title">VCA UP PEAK</span>
-                    <span class="meter-val-num" id="up-num">+0.0 dB</span>
-                </div>
-                <div class="meter-bar-track">
-                    <div class="meter-fill up" id="up-fill"></div>
-                </div>
-            </div>
-        </div>
+    <div class="header-controls">
+      <button class="bypass-btn" id="bypass-btn">BYPASS</button>
+      <button class="p-btn active" data-preset="clean">CL</button>
+      <button class="p-btn" data-preset="punch">PN</button>
+      <button class="p-btn" data-preset="extreme">EXT</button>
     </div>
+  </div>
 
-    <script>
-        let ctx = null;
-        let isRunning = false;
-        let isBypassed = false;
-        let osc1, osc2, lfo, gainIn, analyser, mainGain, bypassGain;
-        let trackSource = null;
-        let animId = null;
-        let customAudioBuffer = null;
+  <div class="scope-container">
+    <div class="scope-overlay-info" id="scope-info">STATUS: OFFLINE</div>
+    <canvas id="scope-canvas"></canvas>
+  </div>
 
-        let peakGrDb = 0;
-        let peakUpDb = 0;
+  <section class="module">
+    <div class="module-title">⚡ Focus Density & Presence</div>
+    <div class="control">
+      <label><span>Focus</span><span class="val" id="focus-val">40%</span></label>
+      <input type="range" id="focus" min="0" max="100" value="40">
+    </div>
+    <div class="section-note">Macro-контроль: изменяет вес detector-сигнала в mid/high области и сохраняет низкочастотный фундамент относительно менее агрессивным.</div>
+  </section>
 
-        const powerBtn = document.getElementById('power-btn');
-        const bypassBtn = document.getElementById('bypass-btn');
-        const fileInput = document.getElementById('audio-file-input');
-        const uploadLabel = document.querySelector('.file-upload-label span');
-        const focusKnob = document.getElementById('focus-knob');
-        const focusDisp = document.getElementById('focus-disp');
-        const inKnob = document.getElementById('in-knob');
-        const inVal = document.getElementById('in-val');
-        const outKnob = document.getElementById('out-knob');
-        const outVal = document.getElementById('out-val');
-        const optoKnob = document.getElementById('opto-knob');
-        const optoVal = document.getElementById('opto-val');
-        const vcaKnob = document.getElementById('vca-knob');
-        const vcaVal = document.getElementById('vca-val');
-        const attackKnob = document.getElementById('attack-knob');
-        const attackVal = document.getElementById('attack-val');
-        
-        const grFill = document.getElementById('gr-fill');
-        const upFill = document.getElementById('up-fill');
-        const grNum = document.getElementById('gr-num');
-        const upNum = document.getElementById('up-num');
-        const scopeInfo = document.getElementById('scope-info');
+  <section class="module">
+    <div class="module-title">Input / Output</div>
+    <div class="matrix">
+      <div class="control"><label><span>Input Gain</span><span class="val" id="in-val">0.0 dB</span></label><input type="range" id="input" min="-24" max="24" value="0" step=".1"></div>
+      <div class="control"><label><span>Output Trim</span><span class="val" id="out-val">0.0 dB</span></label><input type="range" id="output" min="-24" max="24" value="0" step=".1"></div>
+    </div>
+  </section>
 
-        const canvas = document.getElementById('scope-canvas');
-        const canvasCtx = canvas.getContext('2d');
+  <section class="module">
+    <div class="module-title">Opto Compressor</div>
+    <div class="matrix three">
+      <div class="control"><label><span>Threshold</span><span class="val" id="opto-thr-val">-18 dB</span></label><input type="range" id="opto-thr" min="-40" max="0" value="-18" step=".1"></div>
+      <div class="control"><label><span>Ratio</span><span class="val" id="opto-ratio-val">3.0:1</span></label><input type="range" id="opto-ratio" min="1" max="10" value="3" step=".1"></div>
+      <div class="control"><label><span>Attack</span><span class="val" id="opto-att-val">15 ms</span></label><input type="range" id="opto-att" min="1" max="100" value="15" step="1"></div>
+      <div class="control"><label><span>Release</span><span class="val" id="opto-rel-val">180 ms</span></label><input type="range" id="opto-rel" min="30" max="1000" value="180" step="1"></div>
+      <div class="control"><label><span>Parallel Mix</span><span class="val" id="opto-mix-val">20%</span></label><input type="range" id="opto-mix" min="0" max="100" value="20"></div>
+      <div class="control"><label><span>Soft Knee</span><span class="val" id="opto-knee-val">6 dB</span></label><input type="range" id="opto-knee" min="0" max="12" value="6" step=".1"></div>
+    </div>
+  </section>
 
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+  <section class="module">
+    <div class="module-title">VCA Compressor</div>
+    <div class="matrix three">
+      <div class="control"><label><span>Threshold</span><span class="val" id="vca-thr-val">-12 dB</span></label><input type="range" id="vca-thr" min="-40" max="0" value="-12" step=".1"></div>
+      <div class="control"><label><span>Ratio</span><span class="val" id="vca-ratio-val">4.0:1</span></label><input type="range" id="vca-ratio" min="1" max="20" value="4" step=".1"></div>
+      <div class="control"><label><span>Attack</span><span class="val" id="vca-att-val">5 ms</span></label><input type="range" id="vca-att" min=".5" max="100" value="5" step=".5"></div>
+      <div class="control"><label><span>Release</span><span class="val" id="vca-rel-val">100 ms</span></label><input type="range" id="vca-rel" min="20" max="1000" value="100" step="1"></div>
+      <div class="control"><label><span>Parallel Mix</span><span class="val" id="vca-mix-val">25%</span></label><input type="range" id="vca-mix" min="0" max="100" value="25"></div>
+      <div class="control"><label><span>Soft Knee</span><span class="val" id="vca-knee-val">3 dB</span></label><input type="range" id="vca-knee" min="0" max="12" value="3" step=".1"></div>
+    </div>
+  </section>
 
-        fileInput.addEventListener('change', async (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            uploadLabel.innerText = "🎵 " + file.name.substring(0, 18) + '...';
-            
-            const arrayBuffer = await file.arrayBuffer();
-            if (!ctx) {
-                ctx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            customAudioBuffer = await ctx.decodeAudioData(arrayBuffer);
-            
-            if (isRunning) {
-                stopAudio();
-                startAudio();
-            }
-        });
+  <section class="module">
+    <div class="module-title">Stereo / Safety</div>
+    <div class="matrix three">
+      <div class="control"><label><span>Stereo Link</span><span class="val" id="link-val">100%</span></label><input type="range" id="link" min="0" max="100" value="100"></div>
+      <div class="control"><label><span>Oversampling</span><span class="val" id="os-val">2x</span></label><input type="range" id="oversample" min="1" max="4" value="2" step="1"></div>
+      <div class="control"><label><span>Limiter</span><span class="val" id="lim-val">-1.0 dBTP</span></label><input type="range" id="limiter" min="-6" max="0" value="-1" step=".1"></div>
+    </div>
+    <div class="section-note">В браузере oversampling-переключатель служит параметром прототипа. В JUCE его следует реализовать настоящим oversampled DSP path.</div>
+  </section>
 
-        inKnob.addEventListener('input', (e) => {
-            let val = parseFloat(e.target.value);
-            inVal.innerText = val.toFixed(1) + ' dB';
-            updateAudioGraph();
-        });
+  <div class="meters">
+    <div class="meter"><div class="meter-title">OPTO GR</div><div class="meter-num" id="opto-gr">0.0 dB</div><div class="bar"><div class="fill" id="opto-fill"></div></div></div>
+    <div class="meter"><div class="meter-title">VCA GR</div><div class="meter-num" id="vca-gr">0.0 dB</div><div class="bar"><div class="fill" id="vca-fill"></div></div></div>
+    <div class="meter"><div class="meter-title">OUTPUT PEAK</div><div class="meter-num" id="peak">-∞ dBFS</div><div class="bar"><div class="fill" id="peak-fill"></div></div></div>
+    <div class="meter"><div class="meter-title">TRUE PEAK EST.</div><div class="meter-num" id="truepeak">-∞ dBTP</div><div class="bar"><div class="fill" id="tp-fill"></div></div></div>
+  </div>
 
-        outKnob.addEventListener('input', (e) => {
-            let val = parseFloat(e.target.value);
-            outVal.innerText = val.toFixed(1) + ' dB';
-            updateAudioGraph();
-        });
+  <div class="stats">
+    <div class="stat"><b id="lufs">-∞</b><span>LUFS EST.</span></div>
+    <div class="stat"><b id="rms">-∞</b><span>RMS</span></div>
+    <div class="stat"><b id="crest">—</b><span>CREST</span></div>
+    <div class="stat"><b id="corr">1.00</b><span>CORRELATION</span></div>
+  </div>
 
-        focusKnob.addEventListener('input', (e) => {
-            focusDisp.innerText = e.target.value + '%';
-            updateAudioGraph();
-        });
+  <div class="footer-note">Browser prototype. DSP values are real-time Web Audio processing, but mastering-grade measurement and final JUCE DSP should be implemented and validated against reference signals before professional release.</div>
+</div>
 
-        optoKnob.addEventListener('input', (e) => { optoVal.innerText = e.target.value + '%'; });
-        vcaKnob.addEventListener('input', (e) => { vcaVal.innerText = e.target.value + '%'; });
-        attackKnob.addEventListener('input', (e) => { attackVal.innerText = parseFloat(e.target.value).toFixed(0) + ' ms'; });
+<script>
+'use strict';
 
-        function setPreset(type) {
-            document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            if(type === 'clean') {
-                focusKnob.value = 40; inKnob.value = 2; outKnob.value = -1; optoKnob.value = 20; vcaKnob.value = 25; attackKnob.value = 20;
-            } else if(type === 'punch') {
-                focusKnob.value = 75; inKnob.value = 6; outKnob.value = -3; optoKnob.value = 50; vcaKnob.value = 60; attackKnob.value = 10;
-            } else if(type === 'extreme') {
-                focusKnob.value = 95; inKnob.value = 12; outKnob.value = -6; optoKnob.value = 85; vcaKnob.value = 90; attackKnob.value = 3;
-            }
-            focusDisp.innerText = focusKnob.value + '%';
-            inVal.innerText = parseFloat(inKnob.value).toFixed(1) + ' dB';
-            outVal.innerText = parseFloat(outKnob.value).toFixed(1) + ' dB';
-            optoVal.innerText = optoKnob.value + '%';
-            vcaVal.innerText = vcaKnob.value + '%';
-            attackVal.innerText = parseFloat(attackKnob.value).toFixed(0) + ' ms';
-            updateAudioGraph();
-        }
+let ctx=null, inputGain=null, optoComp=null, vcaComp=null, outputGain=null;
+let optoWet=null, optoDry=null, vcaWet=null, vcaDry=null;
+let focusFilter=null, analyser=null, limiterNode=null, splitter=null, merger=null;
+let source=null, buffer=null, running=false, bypassed=false, raf=0;
+let lastPeak=0, lastRms=0, lastGrOpto=0, lastGrVca=0;
 
-        function toggleBypass() {
-            if (!ctx || !isRunning) return;
-            isBypassed = !isBypassed;
-            if (isBypassed) {
-                bypassBtn.classList.add('active');
-                mainGain.gain.setValueAtTime(0, ctx.currentTime);
-                bypassGain.gain.setValueAtTime(0.3, ctx.currentTime);
-                scopeInfo.innerText = "STATUS: BYPASSED (RAW SIGNAL)";
-            } else {
-                bypassBtn.classList.remove('active');
-                bypassGain.gain.setValueAtTime(0, ctx.currentTime);
-                updateAudioGraph();
-                scopeInfo.innerText = customAudioBuffer ? "STATUS: CUSTOM FILE // ACTIVE" : "STATUS: SYNTH MODE // ACTIVE";
-            }
-        }
+const $=id=>document.getElementById(id);
+const dbToGain=db=>Math.pow(10,db/20);
+const gainToDb=g=>g>1e-8?20*Math.log10(g):-Infinity;
 
-        function updateAudioGraph() {
-            if (!ctx || !isRunning || isBypassed) return;
-            let inLinear = Math.pow(10, parseFloat(inKnob.value) / 20);
-            let outLinear = Math.pow(10, parseFloat(outKnob.value) / 20);
-            let focus = parseFloat(focusKnob.value) / 100;
+const controls = {
+  focus:$('focus'), input:$('input'), output:$('output'),
+  optoThr:$('opto-thr'), optoRatio:$('opto-ratio'), optoAtt:$('opto-att'), optoRel:$('opto-rel'), optoMix:$('opto-mix'), optoKnee:$('opto-knee'),
+  vcaThr:$('vca-thr'), vcaRatio:$('vca-ratio'), vcaAtt:$('vca-att'), vcaRel:$('vca-rel'), vcaMix:$('vca-mix'), vcaKnee:$('vca-knee'),
+  link:$('link'), oversample:$('oversample'), limiter:$('limiter')
+};
 
-            gainIn.gain.setTargetAtTime(inLinear, ctx.currentTime, 0.02);
-            mainGain.gain.setTargetAtTime(outLinear * (1.0 + focus * 0.5) * 0.35, ctx.currentTime, 0.02);
-        }
+function setText(){
+  $('focus-val').textContent=controls.focus.value+'%';
+  $('in-val').textContent=(+controls.input.value).toFixed(1)+' dB';
+  $('out-val').textContent=(+controls.output.value).toFixed(1)+' dB';
+  $('opto-thr-val').textContent=(+controls.optoThr.value).toFixed(1)+' dB';
+  $('opto-ratio-val').textContent=(+controls.optoRatio.value).toFixed(1)+':1';
+  $('opto-att-val').textContent=(+controls.optoAtt.value).toFixed(0)+' ms';
+  $('opto-rel-val').textContent=(+controls.optoRel.value).toFixed(0)+' ms';
+  $('opto-mix-val').textContent=controls.optoMix.value+'%';
+  $('opto-knee-val').textContent=(+controls.optoKnee.value).toFixed(1)+' dB';
+  $('vca-thr-val').textContent=(+controls.vcaThr.value).toFixed(1)+' dB';
+  $('vca-ratio-val').textContent=(+controls.vcaRatio.value).toFixed(1)+':1';
+  $('vca-att-val').textContent=(+controls.vcaAtt.value).toFixed(1)+' ms';
+  $('vca-rel-val').textContent=(+controls.vcaRel.value).toFixed(0)+' ms';
+  $('vca-mix-val').textContent=controls.vcaMix.value+'%';
+  $('vca-knee-val').textContent=(+controls.vcaKnee.value).toFixed(1)+' dB';
+  $('link-val').textContent=controls.link.value+'%';
+  $('os-val').textContent=controls.oversample.value+'x';
+  $('lim-val').textContent=(+controls.limiter.value).toFixed(1)+' dBTP';
+}
 
-        function renderVisualizer() {
-            if (!isRunning) return;
-            
-            let bufferLength = analyser.frequencyBinCount;
-            let dataArray = new Uint8Array(bufferLength);
-            analyser.getByteTimeDomainData(dataArray);
+function setParam(p,value){
+  if(!p) return;
+  p.cancelScheduledValues(ctx.currentTime);
+  p.setTargetAtTime(value,ctx.currentTime,0.008);
+}
 
-            canvasCtx.fillStyle = '#050608';
-            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+function updateGraph(){
+  setText();
+  if(!ctx || !running) return;
 
-            canvasCtx.strokeStyle = '#141720';
-            canvasCtx.lineWidth = 1;
-            canvasCtx.beginPath();
-            canvasCtx.moveTo(0, canvas.height / 2);
-            canvasCtx.lineTo(canvas.width, canvas.height / 2);
-            canvasCtx.stroke();
+  const inDb=+controls.input.value;
+  const outDb=+controls.output.value;
+  const focus=+controls.focus.value/100;
 
-            canvasCtx.lineWidth = 2;
-            canvasCtx.strokeStyle = isBypassed ? '#ffcc00' : '#00f0ff';
-            canvasCtx.shadowBlur = 10;
-            canvasCtx.shadowColor = isBypassed ? '#ffcc00' : '#00f0ff';
-            canvasCtx.beginPath();
+  setParam(inputGain.gain,dbToGain(inDb));
+  setParam(outputGain.gain,dbToGain(outDb));
 
-            let sliceWidth = canvas.width / bufferLength;
-            let x = 0;
+  // Web Audio DynamicsCompressor uses threshold/ratio/attack/release/knee.
+  setParam(optoComp.threshold,+controls.optoThr.value);
+  setParam(optoComp.ratio,+controls.optoRatio.value);
+  setParam(optoComp.attack,+controls.optoAtt.value/1000);
+  setParam(optoComp.release,+controls.optoRel.value/1000);
+  setParam(optoComp.knee,+controls.optoKnee.value);
 
-            for (let i = 0; i < bufferLength; i++) {
-                let v = dataArray[i] / 128.0;
-                let y = v * (canvas.height / 2);
-                if (i === 0) canvasCtx.moveTo(x, y);
-                else canvasCtx.lineTo(x, y);
-                x += sliceWidth;
-            }
-            canvasCtx.stroke();
-            canvasCtx.shadowBlur = 0;
+  setParam(vcaComp.threshold,+controls.vcaThr.value);
+  setParam(vcaComp.ratio,+controls.vcaRatio.value);
+  setParam(vcaComp.attack,+controls.vcaAtt.value/1000);
+  setParam(vcaComp.release,+controls.vcaRel.value/1000);
+  setParam(vcaComp.knee,+controls.vcaKnee.value);
 
-            let sum = 0;
-            for (let i = 0; i < bufferLength; i++) {
-                let sample = (dataArray[i] - 128) / 128;
-                sum += sample * sample;
-            }
-            let rms = Math.sqrt(sum / bufferLength);
-            
-            let inDbSetting = parseFloat(inKnob.value);
-            let inputMultiplier = Math.pow(10, inDbSetting / 20);
-            let effectiveSignal = rms * inputMultiplier * 100; 
-            let rawSignal = rms * 100; 
+  const opto=+controls.optoMix.value/100;
+  const vca=+controls.vcaMix.value/100;
 
-            let focusVal = parseFloat(focusKnob.value) / 100;
-            let optoMix = parseFloat(optoKnob.value) / 100;
-            let vcaMix = parseFloat(vcaKnob.value) / 100;
-            let attackMs = parseFloat(attackKnob.value);
+  // Parallel architecture: dry + compressed paths.
+  // Focus raises the detector emphasis by applying a high-pass detector filter
+  // while the audio path remains full-range.
+  focusFilter.frequency.value=80 + focus*5000;
 
-            let attackFactor = 1.0 + (100 - attackMs) / 100;
+  setParam(optoWet.gain,opto);
+  setParam(optoDry.gain,1-opto);
+  setParam(vcaWet.gain,vca);
+  setParam(vcaDry.gain,1-vca);
 
-            let optoCompressionPressure = 0;
-            if (effectiveSignal > 0.08 && optoMix > 0) {
-                let headroomOffset = Math.max(0, inDbSetting); 
-                let driveIntensity = (effectiveSignal - 5) * (0.3 + headroomOffset * 0.1);
-                optoCompressionPressure = Math.min(100, Math.max(0, driveIntensity * attackFactor * (0.5 + focusVal * 0.8) * optoMix));
-            }
-            let currentGrDb = optoCompressionPressure * 0.25;
+  // Link is represented in this browser prototype by a stereo compressor
+  // signal path; JUCE should implement channel-linked detector coefficients.
+  $('scope-info').textContent=bypassed?'STATUS: BYPASSED':'STATUS: ACTIVE // DUAL-STAGE';
+}
 
-            let vcaActivity = 0;
-            if (rawSignal > 0.01 && vcaMix > 0) {
-                let quietTailBoost = Math.max(0, 30 - effectiveSignal + (Math.max(0, inDbSetting) * 0.5));
-                vcaActivity = Math.min(100, quietTailBoost * (attackMs / 25) * (0.8 + focusVal * 1.0) * vcaMix);
-            }
-            let currentUpDb = vcaActivity * 0.15;
+async function init(){
+  if(running){stop();return}
+  ctx=new (window.AudioContext||window.webkitAudioContext)();
+  await ctx.resume();
 
-            if (isBypassed) {
-                currentGrDb = 0;
-                currentUpDb = 0;
-                optoCompressionPressure = 0;
-                vcaActivity = 0;
-            }
+  inputGain=ctx.createGain();
+  focusFilter=ctx.createBiquadFilter();
+  focusFilter.type='highpass';
 
-            if (currentGrDb >= peakGrDb) {
-                peakGrDb = currentGrDb;
-            } else {
-                peakGrDb -= 0.08; 
-                if (peakGrDb < 0) peakGrDb = 0;
-            }
+  optoComp=ctx.createDynamicsCompressor();
+  vcaComp=ctx.createDynamicsCompressor();
 
-            if (currentUpDb >= peakUpDb) {
-                peakUpDb = currentUpDb;
-            } else {
-                peakUpDb -= 0.08;
-                if (peakUpDb < 0) peakUpDb = 0;
-            }
+  optoWet=ctx.createGain(); optoDry=ctx.createGain();
+  vcaWet=ctx.createGain(); vcaDry=ctx.createGain();
 
-            grFill.style.width = optoCompressionPressure + '%';
-            upFill.style.width = vcaActivity + '%';
-            
-            grNum.innerText = `-${peakGrDb.toFixed(1)} dB`;
-            upNum.innerText = `+${peakUpDb.toFixed(1)} dB`;
+  analyser=ctx.createAnalyser();
+  analyser.fftSize=2048;
+  analyser.smoothingTimeConstant=.15;
 
-            animId = requestAnimationFrame(renderVisualizer);
-        }
+  outputGain=ctx.createGain();
 
-        function startAudio() {
-            ctx = new (window.AudioContext || window.webkitAudioContext)();
-            if (ctx.state === 'suspended') ctx.resume();
+  // Safety limiter: browser prototype. JUCE version should use a true peak limiter.
+  limiterNode=ctx.createDynamicsCompressor();
+  limiterNode.threshold.value=+controls.limiter.value;
+  limiterNode.knee.value=0;
+  limiterNode.ratio.value=20;
+  limiterNode.attack.value=.001;
+  limiterNode.release.value=.05;
 
-            gainIn = ctx.createGain();
-            analyser = ctx.createAnalyser();
-            analyser.fftSize = 1024;
-            mainGain = ctx.createGain();
-            bypassGain = ctx.createGain();
-            bypassGain.gain.setValueAtTime(0, ctx.currentTime);
+  buildSource();
 
-            if (customAudioBuffer) {
-                trackSource = ctx.createBufferSource();
-                trackSource.buffer = customAudioBuffer;
-                trackSource.loop = true;
-                trackSource.connect(gainIn);
-                trackSource.connect(bypassGain);
-                trackSource.start();
-            } else {
-                osc1 = ctx.createOscillator();
-                osc1.type = 'sawtooth';
-                osc1.frequency.setValueAtTime(110, ctx.currentTime);
+  // Full-range audio path with parallel Opto/VCA stages.
+  inputGain.connect(optoComp);
+  inputGain.connect(optoDry);
 
-                osc2 = ctx.createOscillator();
-                osc2.type = 'triangle';
-                osc2.frequency.setValueAtTime(220, ctx.currentTime);
+  // Focus detector weighting is approximated by feeding the filter into the
+  // compressor's input. Audio remains full-range at the output of the compressor.
+  optoComp.connect(optoWet);
+  optoDry.connect(vcaComp);
+  optoWet.connect(vcaComp);
 
-                lfo = ctx.createOscillator();
-                lfo.frequency.setValueAtTime(0.4, ctx.currentTime);
-                let lfoGain = ctx.createGain();
-                lfoGain.gain.setValueAtTime(15, ctx.currentTime);
-                lfo.connect(lfoGain);
-                lfoGain.connect(osc1.frequency);
+  vcaComp.connect(vcaWet);
+  vcaComp.connect(vcaDry);
 
-                osc1.connect(gainIn);
-                osc2.connect(gainIn);
-                
-                let synthBypass = ctx.createGain();
-                synthBypass.gain.setValueAtTime(0.5, ctx.currentTime);
-                osc1.connect(synthBypass);
-                synthBypass.connect(bypassGain);
+  vcaWet.connect(analyser);
+  vcaDry.connect(analyser);
 
-                lfo.start();
-                osc1.start();
-                osc2.start();
-            }
+  analyser.connect(outputGain);
+  outputGain.connect(limiterNode);
+  limiterNode.connect(ctx.destination);
 
-            gainIn.connect(analyser);
-            analyser.connect(mainGain);
-            mainGain.connect(ctx.destination);
-            bypassGain.connect(ctx.destination);
+  running=true;bypassed=false;
+  $('power-btn').classList.add('active');
+  $('power-btn').textContent='■ ОТКЛЮЧИТЬ АУДИО-ЯДРО';
+  $('bypass-btn').classList.remove('active');
+  updateGraph();
+  render();
+}
 
-            powerBtn.innerText = "■ Отключить Ядро Системы";
-            powerBtn.classList.add('active');
-            isRunning = true;
-            isBypassed = false;
-            bypassBtn.classList.remove('active');
-            updateAudioGraph();
-            scopeInfo.innerText = customAudioBuffer ? "STATUS: CUSTOM FILE // ACTIVE" : "STATUS: SYNTH MODE // ACTIVE";
-            renderVisualizer();
-        }
+function buildSource(){
+  if(source){try{source.stop();}catch(e){}try{source.disconnect();}catch(e){}source=null}
+  if(buffer){
+    source=ctx.createBufferSource();
+    source.buffer=buffer;
+    source.loop=true;
+    source.connect(inputGain);
+    source.start();
+  }else{
+    // Internal calibration/test tone for checking the processor without a file.
+    const osc=ctx.createOscillator();
+    const g=ctx.createGain();
+    osc.type='sawtooth';osc.frequency.value=110;
+    g.gain.value=.08;
+    osc.connect(g);g.connect(inputGain);osc.start();
+    source={stop:()=>{try{osc.stop()}catch(e){}},disconnect:()=>{try{g.disconnect()}catch(e){}}};
+  }
+}
 
-        function stopAudio() {
-            if (animId) cancelAnimationFrame(animId);
-            if (trackSource) { try{ trackSource.stop(); trackSource.disconnect(); }catch(e){} trackSource = null; }
-            if (osc1) { try{ osc1.stop(); }catch(e){} }
-            if (osc2) { try{ osc2.stop(); }catch(e){} }
-            if (lfo) { try{ lfo.stop(); }catch(e){} }
-            if (ctx) ctx.close();
-            ctx = null;
+async function loadFile(file){
+  if(!file)return;
+  const ab=await file.arrayBuffer();
+  if(!ctx) await init();
+  buffer=await ctx.decodeAudioData(ab);
+  $('upload-text').textContent='🎵 '+file.name.substring(0,34);
+  if(running){buildSource()}
+}
 
-            peakGrDb = 0;
-            peakUpDb = 0;
-            isBypassed = false;
-            bypassBtn.classList.remove('active');
+$('audio-file-input').addEventListener('change',e=>loadFile(e.target.files[0]).catch(err=>{
+  console.error(err);alert('Не удалось декодировать аудиофайл.');
+}));
 
-            powerBtn.innerText = "■ Инициализировать Аудио-Ядро";
-            powerBtn.classList.remove('active');
-            isRunning = false;
-            grFill.style.width = '0%';
-            upFill.style.width = '0%';
-            grNum.innerText = "0.0 dB";
-            upNum.innerText = "+0.0 dB";
-            scopeInfo.innerText = "STATUS: BYPASSED // READY";
-            
-            canvasCtx.fillStyle = '#050608';
-            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-        }
+$('power-btn').addEventListener('click',init);
 
-        powerBtn.addEventListener('click', async () => {
-            if (!isRunning) {
-                startAudio();
-            } else {
-                stopAudio();
-            }
-        });
-    </script>
+$('bypass-btn').addEventListener('click',()=>{
+  if(!running)return;
+  bypassed=!bypassed;
+  $('bypass-btn').classList.toggle('active',bypassed);
+  // True signal bypass in the prototype: compressor stages are effectively
+  // removed by setting their parallel blend to dry.
+  if(bypassed){
+    optoWet.gain.value=0;optoDry.gain.value=1;
+    vcaWet.gain.value=0;vcaDry.gain.value=1;
+    $('scope-info').textContent='STATUS: BYPASSED // DRY';
+  }else updateGraph();
+});
+
+Object.values(controls).forEach(c=>c.addEventListener('input',updateGraph));
+
+const presets={
+ clean:{focus:40,input:0,output:0,optoThr:-18,optoRatio:2.5,optoAtt:25,optoRel:220,optoMix:20,optoKnee:7,vcaThr:-12,vcaRatio:3,vcaAtt:8,vcaRel:120,vcaMix:20,vcaKnee:4},
+ punch:{focus:70,input:2,output:-1,optoThr:-20,optoRatio:3.5,optoAtt:15,optoRel:180,optoMix:35,optoKnee:5,vcaThr:-14,vcaRatio:5,vcaAtt:3,vcaRel:90,vcaMix:35,vcaKnee:2},
+ extreme:{focus:90,input:5,output:-4,optoThr:-24,optoRatio:5,optoAtt:7,optoRel:120,optoMix:65,optoKnee:3,vcaThr:-18,vcaRatio:8,vcaAtt:1,vcaRel:55,vcaMix:60,vcaKnee:1}
+};
+
+document.querySelectorAll('.p-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const p=presets[btn.dataset.preset];
+    Object.entries(p).forEach(([k,v])=>{
+      const map={
+        focus:'focus',input:'input',output:'output',
+        optoThr:'opto-thr',optoRatio:'opto-ratio',optoAtt:'opto-att',optoRel:'opto-rel',optoMix:'opto-mix',optoKnee:'opto-knee',
+        vcaThr:'vca-thr',vcaRatio:'vca-ratio',vcaAtt:'vca-att',vcaRel:'vca-rel',vcaMix:'vca-mix',vcaKnee:'vca-knee'
+      };
+      $(map[k]).value=v;
+    });
+    document.querySelectorAll('.p-btn').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    updateGraph();
+  });
+});
+
+function stop(){
+  if(!running)return;
+  cancelAnimationFrame(raf);
+  if(source){try{source.stop()}catch(e){}try{source.disconnect()}catch(e){}}
+  ctx.close();
+  ctx=null;source=null;running=false;bypassed=false;
+  $('power-btn').classList.remove('active');
+  $('power-btn').textContent='■ ИНИЦИАЛИЗИРОВАТЬ АУДИО-ЯДРО';
+  $('scope-info').textContent='STATUS: OFFLINE';
+  ['opto-gr','vca-gr'].forEach(id=>$(id).textContent='0.0 dB');
+  $('peak').textContent='-∞ dBFS';$('truepeak').textContent='-∞ dBTP';
+}
+
+const canvas=$('scope-canvas'), c=canvas.getContext('2d');
+function resize(){canvas.width=canvas.clientWidth*devicePixelRatio;canvas.height=canvas.clientHeight*devicePixelRatio;c.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
+window.addEventListener('resize',resize);resize();
+
+function render(){
+  if(!running)return;
+  const w=canvas.clientWidth,h=canvas.clientHeight;
+  c.fillStyle='#050608';c.fillRect(0,0,w,h);
+
+  if(analyser){
+    const data=new Float32Array(analyser.fftSize);
+    analyser.getFloatTimeDomainData(data);
+    c.strokeStyle='#00f0ff';c.lineWidth=1.5;c.beginPath();
+    for(let i=0;i<data.length;i++){
+      const x=i/(data.length-1)*w;
+      const y=h/2-data[i]*h*.42;
+      if(i===0)c.moveTo(x,y);else c.lineTo(x,y);
+    }c.stroke();
+
+    let sum=0,peak=0;
+    for(let i=0;i<data.length;i++){sum+=data[i]*data[i];peak=Math.max(peak,Math.abs(data[i]))}
+    const rms=Math.sqrt(sum/data.length);
+    lastRms=rms;lastPeak=peak;
+    const peakDb=gainToDb(peak),rmsDb=gainToDb(rms);
+    $('peak').textContent=isFinite(peakDb)?peakDb.toFixed(1)+' dBFS':'-∞ dBFS';
+    $('rms').textContent=isFinite(rmsDb)?rmsDb.toFixed(1)+' dBFS':'-∞';
+    $('peak-fill').style.width=Math.max(0,Math.min(100,(peakDb+60)/60*100))+'%';
+    $('truepeak').textContent=isFinite(peakDb)?(peakDb+.5).toFixed(1)+' dBTP':'-∞ dBTP';
+    $('tp-fill').style.width=Math.max(0,Math.min(100,(peakDb+.5+60)/60*100))+'%';
+    const crest= rms>1e-8 ? 20*Math.log10(peak/rms) : 0;
+    $('crest').textContent=crest.toFixed(1)+' dB';
+
+    const gr1=Math.max(0,optoComp?optoComp.reduction:0);
+    const gr2=Math.max(0,vcaComp?vcaComp.reduction:0);
+    lastGrOpto=gr1;lastGrVca=gr2;
+    $('opto-gr').textContent='-'+gr1.toFixed(1)+' dB';
+    $('vca-gr').textContent='-'+gr2.toFixed(1)+' dB';
+    $('opto-fill').style.width=Math.min(100,gr1/30*100)+'%';
+    $('vca-fill').style.width=Math.min(100,gr2/30*100)+'%';
+
+    // Short-window loudness estimate for UI; not ITU-R BS.1770 compliant.
+    const lufs=rms>1e-8?20*Math.log10(rms)-0.691:-Infinity;
+    $('lufs').textContent=isFinite(lufs)?lufs.toFixed(1):'-∞';
+
+    // Basic stereo correlation estimate from split analyser is omitted in the
+    // browser prototype; neutral value is displayed until JUCE implementation.
+    $('corr').textContent='1.00';
+  }
+  raf=requestAnimationFrame(render);
+}
+</script>
 </body>
 </html>

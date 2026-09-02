@@ -8,6 +8,15 @@
 
 #pragma once
 
+#include <cstring>
+#include <strings.h>
+
+namespace std
+{
+  using ::memcpy;
+  using ::strncmp;
+}
+
 #include <JuceHeader.h>
 
 //==============================================================================
