@@ -37,6 +37,7 @@ target_compile_definitions(VortexFocus
     PUBLIC
         JUCE_WEB_BROWSER=1
         JUCE_USE_WIN_WEBVIEW2=1
+        JUCE_USE_WIN_WEBVIEW2_WITH_STATIC_LINKING=1
         $<$<CXX_COMPILER_ID:GNU>:JUCE_64BIT=1>
         $<$<CXX_COMPILER_ID:GNU>:stricmp=strcasecmp>
         JUCE_VST3_CAN_REPLACE_VST2=0
