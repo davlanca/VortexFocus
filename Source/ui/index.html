@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KA // VORTEX FOCUS - Pro Studio Dynamics Processor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background: #060709; 
+            color: #eceef4; 
+            font-family: 'Space Grotesk', sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: flex-start; 
+            min-height: 100vh; 
+            padding: 12px; 
+            overflow-x: hidden;
+        }
+
+        .master-power-btn { 
+            background: linear-gradient(135deg, #ff3b30, #b3221b); 
+            border: none; 
+            color: #fff; 
+            padding: 12px 24px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            margin-bottom: 12px; 
+            box-shadow: 0 6px 24px rgba(255, 59, 48, 0.3); 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            width: 100%;
+            max-width: 440px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .master-power-btn.active { 
+            background: linear-gradient(135deg, #34c759, #1b8535); 
+            box-shadow: 0 6px 24px rgba(52, 199, 89, 0.3); 
+        }
+        .master-power-btn:active { transform: scale(0.98); }
+
+        .file-upload-container {
+            width: 100%;
+            max-width: 440px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 8px;
+        }
+        .file-upload-label {
+            flex: 1;
+            background: #11141c;
+            border: 1px dashed #3b435c;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 10px;
+            color: #7a829e;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .file-upload-label:hover { border-color: #00f0ff; color: #00f0ff; }
+        #audio-file-input { display: none; }
+
+        .rack-chassis {
+            background: linear-gradient(145deg, #16181e 0%, #0d0e12 100%);
+            border: 1px solid #2a2e3d;
+            border-top: 1px solid #484f66;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 440px;
+            padding: 18px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.08);
+            position: relative;
+        }
+
+        .rack-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #20232d;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .brand-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #fff;
+        }
+        .brand-subtitle {
+            font-size: 8px;
+            color: #636b85;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .bypass-btn {
+            background: #111318;
+            border: 1px solid #2a2e3d;
+            color: #7a829e;
+            padding: 0 10px;
+            height: 28px;
+            font-size: 9px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .bypass-btn.active {
+            background: #ffcc00;
+            color: #08090b;
+            border-color: #ffcc00;
+            box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+        }
+
+        .preset-switches {
+            display: flex;
+            gap: 6px;
+        }
+        .p-btn {
+            background: #111318;
+            border: 1px solid #2a2e3d;
+            color: #7a829e;
+            width: 28px; height: 28px;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .p-btn.active { background: #00f0ff; color: #08090b; border-color: #00f0ff; box-shadow: 0 0 12px rgba(0, 240, 255, 0.4); }
+
+        .scope-container {
+            background: #050608;
+            border: 1px solid #20232d;
+            border-radius: 14px;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: inset 0 4px 16px rgba(0,0,0,0.8);
+        }
+        #scope-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .scope-overlay-info {
+            position: absolute;
+            top: 10px; left: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: #00f0ff;
+            letter-spacing: 1px;
+            pointer-events: none;
+            text-shadow: 0 0 8px rgba(0,240,255,0.5);
+        }
+
+        .core-focus-module {
+            background: linear-gradient(135deg, #131722 0%, #0d1017 100%);
+            border: 1px solid #00f0ff44;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 240, 255, 0.08);
+            position: relative;
+        }
+        .core-focus-module::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+        }
+        .focus-top-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .focus-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #00f0ff;
+            text-transform: uppercase;
+        }
+        .focus-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #00f0ff;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .control-pod {
+            background: #11141c;
+            border: 1px solid #222736;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: border-color 0.2s;
+        }
+        .control-pod:hover { border-color: #3b435c; }
+
+        .pod-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pod-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: #7a829e;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .pod-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #eceef4;
+        }
+
+        input[type=range].vortex-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #08090b;
+            border-radius: 3px;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
+        }
+        input[type=range].vortex-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #48516b, #222736);
+            border: 2px solid #7a829e;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+            transition: transform 0.1s;
+        }
+        input[type=range].vortex-slider::-webkit-slider-thumb:active {
+            transform: scale(1.15);
+        }
+        input[type=range].vortex-slider.accent-focus::-webkit-slider-thumb {
+            background: linear-gradient(135deg, #00f0ff, #0077ff);
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+        }
+
+        .analytics-panel {
+            background: #0b0d12;
+            border: 1px solid #20232d;
+            border-radius: 12px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .meter-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .meter-bar-track {
+            width: 100%;
+            height: 8px;
+            background: #141720;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+        }
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.05s ease;
+        }
+        .meter-fill.gr { background: linear-gradient(90deg, #34c759, #ff3b30); }
+        .meter-fill.up { background: linear-gradient(90deg, #0077ff, #00f0ff); }
+
+        .meter-header-row {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .meter-title {
+            font-size: 8px;
+            font-weight: 700;
+            color: #636b85;
+            letter-spacing: 2px;
+        }
+        .meter-val-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            color: #00f0ff;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="master-power-btn" id="power-btn">■ Инициализировать Аудио-Ядро</button>
+
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="audio-file-input">
+            <span>📂 Загрузить MP3 / WAV</span>
+        </label>
+        <input type="file" id="audio-file-input" accept=".mp3, .wav, audio/mpeg, audio/wav">
+    </div>
+
+    <div class="rack-chassis">
+        <div class="rack-header">
+            <div class="brand-block">
+                <div class="brand-title">KA // VORTEX</div>
+                <div class="brand-subtitle">Pro Studio Dynamics Processor</div>
+            </div>
+            <div class="header-controls">
+                <button class="bypass-btn" id="bypass-btn" onclick="toggleBypass()">Bypass</button>
+                <div class="preset-switches">
+                    <button class="p-btn active" onclick="setPreset('clean')">CL</button>
+                    <button class="p-btn" onclick="setPreset('punch')">PN</button>
+                    <button class="p-btn" onclick="setPreset('extreme')">EXT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="scope-container">
+            <div class="scope-overlay-info" id="scope-info">STATUS: SYNTH MODE // READY</div>
+            <canvas id="scope-canvas"></canvas>
+        </div>
+
+        <div class="core-focus-module">
+            <div class="focus-top-row">
+                <span class="focus-title">⚡ Focus Density & Presence</span>
+                <span class="focus-number" id="focus-disp">65%</span>
+            </div>
+            <input type="range" id="focus-knob" class="vortex-slider accent-focus" min="0" max="100" value="65">
+        </div>
+
+        <div class="matrix-grid">
+            <div class="control-pod">
+                <div class="pod-header">
+                    <span class="pod-label">Input Gain</span>
+                    <span class="pod-val" id="in-val">0.0 dB</span>
+                </div>
+                <input type="range" id="in-knob" class="vortex-slider" min="-24" max="24" value="0" step="0.1">
+            </div>
+            <div class="control-pod">
+                <div class="pod-header">
+                    <span class="pod-label">Output Trim</span>
+                    <span class="pod-val" id="out-val">0.0 dB</span>
+                </div>
+                <input type="range" id="out-knob" class="vortex-slider" min="-24" max="24" value="0" step="0.1">
+            </div>
+        </div>
+
+        <div class="matrix-grid">
+            <div class="control-pod" style="grid-column: span 2;">
+                <div class="pod-header">
+                    <span class="pod-label">Attack Speed (Transient Window)</span>
+                    <span class="pod-val" id="attack-val">15 ms</span>
+                </div>
+                <input type="range" id="attack-knob" class="vortex-slider" min="1" max="100" value="15" step="1">
+            </div>
+        </div>
+
+        <div class="matrix-grid">
+            <div class="control-pod">
+                <div class="pod-header">
+                    <span class="pod-label">Parallel Opto</span>
+                    <span class="pod-val" id="opto-val">30%</span>
+                </div>
+                <input type="range" id="opto-knob" class="vortex-slider" min="0" max="100" value="30">
+            </div>
+            <div class="control-pod">
+                <div class="pod-header">
+                    <span class="pod-label">Parallel VCA</span>
+                    <span class="pod-val" id="vca-val">40%</span>
+                </div>
+                <input type="range" id="vca-knob" class="vortex-slider" min="0" max="100" value="40">
+            </div>
+        </div>
+
+        <div class="analytics-panel">
+            <div class="meter-box">
+                <div class="meter-header-row">
+                    <span class="meter-title">OPTO GR PEAK</span>
+                    <span class="meter-val-num" id="gr-num">0.0 dB</span>
+                </div>
+                <div class="meter-bar-track">
+                    <div class="meter-fill gr" id="gr-fill"></div>
+                </div>
+            </div>
+            <div class="meter-box">
+                <div class="meter-header-row">
+                    <span class="meter-title">VCA UP PEAK</span>
+                    <span class="meter-val-num" id="up-num">+0.0 dB</span>
+                </div>
+                <div class="meter-bar-track">
+                    <div class="meter-fill up" id="up-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ctx = null;
+        let isRunning = false;
+        let isBypassed = false;
+        let osc1, osc2, lfo, gainIn, analyser, mainGain, bypassGain;
+        let trackSource = null;
+        let animId = null;
+        let customAudioBuffer = null;
+
+        let peakGrDb = 0;
+        let peakUpDb = 0;
+
+        const powerBtn = document.getElementById('power-btn');
+        const bypassBtn = document.getElementById('bypass-btn');
+        const fileInput = document.getElementById('audio-file-input');
+        const uploadLabel = document.querySelector('.file-upload-label span');
+        const focusKnob = document.getElementById('focus-knob');
+        const focusDisp = document.getElementById('focus-disp');
+        const inKnob = document.getElementById('in-knob');
+        const inVal = document.getElementById('in-val');
+        const outKnob = document.getElementById('out-knob');
+        const outVal = document.getElementById('out-val');
+        const optoKnob = document.getElementById('opto-knob');
+        const optoVal = document.getElementById('opto-val');
+        const vcaKnob = document.getElementById('vca-knob');
+        const vcaVal = document.getElementById('vca-val');
+        const attackKnob = document.getElementById('attack-knob');
+        const attackVal = document.getElementById('attack-val');
+        
+        const grFill = document.getElementById('gr-fill');
+        const upFill = document.getElementById('up-fill');
+        const grNum = document.getElementById('gr-num');
+        const upNum = document.getElementById('up-num');
+        const scopeInfo = document.getElementById('scope-info');
+
+        const canvas = document.getElementById('scope-canvas');
+        const canvasCtx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        fileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            uploadLabel.innerText = "🎵 " + file.name.substring(0, 18) + '...';
+            
+            const arrayBuffer = await file.arrayBuffer();
+            if (!ctx) {
+                ctx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            customAudioBuffer = await ctx.decodeAudioData(arrayBuffer);
+            
+            if (isRunning) {
+                stopAudio();
+                startAudio();
+            }
+        });
+
+        inKnob.addEventListener('input', (e) => {
+            let val = parseFloat(e.target.value);
+            inVal.innerText = val.toFixed(1) + ' dB';
+            updateAudioGraph();
+        });
+
+        outKnob.addEventListener('input', (e) => {
+            let val = parseFloat(e.target.value);
+            outVal.innerText = val.toFixed(1) + ' dB';
+            updateAudioGraph();
+        });
+
+        focusKnob.addEventListener('input', (e) => {
+            focusDisp.innerText = e.target.value + '%';
+            updateAudioGraph();
+        });
+
+        optoKnob.addEventListener('input', (e) => { optoVal.innerText = e.target.value + '%'; });
+        vcaKnob.addEventListener('input', (e) => { vcaVal.innerText = e.target.value + '%'; });
+        attackKnob.addEventListener('input', (e) => { attackVal.innerText = parseFloat(e.target.value).toFixed(0) + ' ms'; });
+
+        function setPreset(type) {
+            document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if(type === 'clean') {
+                focusKnob.value = 40; inKnob.value = 2; outKnob.value = -1; optoKnob.value = 20; vcaKnob.value = 25; attackKnob.value = 20;
+            } else if(type === 'punch') {
+                focusKnob.value = 75; inKnob.value = 6; outKnob.value = -3; optoKnob.value = 50; vcaKnob.value = 60; attackKnob.value = 10;
+            } else if(type === 'extreme') {
+                focusKnob.value = 95; inKnob.value = 12; outKnob.value = -6; optoKnob.value = 85; vcaKnob.value = 90; attackKnob.value = 3;
+            }
+            focusDisp.innerText = focusKnob.value + '%';
+            inVal.innerText = parseFloat(inKnob.value).toFixed(1) + ' dB';
+            outVal.innerText = parseFloat(outKnob.value).toFixed(1) + ' dB';
+            optoVal.innerText = optoKnob.value + '%';
+            vcaVal.innerText = vcaKnob.value + '%';
+            attackVal.innerText = parseFloat(attackKnob.value).toFixed(0) + ' ms';
+            updateAudioGraph();
+        }
+
+        function toggleBypass() {
+            if (!ctx || !isRunning) return;
+            isBypassed = !isBypassed;
+            if (isBypassed) {
+                bypassBtn.classList.add('active');
+                mainGain.gain.setValueAtTime(0, ctx.currentTime);
+                bypassGain.gain.setValueAtTime(0.3, ctx.currentTime);
+                scopeInfo.innerText = "STATUS: BYPASSED (RAW SIGNAL)";
+            } else {
+                bypassBtn.classList.remove('active');
+                bypassGain.gain.setValueAtTime(0, ctx.currentTime);
+                updateAudioGraph();
+                scopeInfo.innerText = customAudioBuffer ? "STATUS: CUSTOM FILE // ACTIVE" : "STATUS: SYNTH MODE // ACTIVE";
+            }
+        }
+
+        function updateAudioGraph() {
+            if (!ctx || !isRunning || isBypassed) return;
+            let inLinear = Math.pow(10, parseFloat(inKnob.value) / 20);
+            let outLinear = Math.pow(10, parseFloat(outKnob.value) / 20);
+            let focus = parseFloat(focusKnob.value) / 100;
+
+            gainIn.gain.setTargetAtTime(inLinear, ctx.currentTime, 0.02);
+            mainGain.gain.setTargetAtTime(outLinear * (1.0 + focus * 0.5) * 0.35, ctx.currentTime, 0.02);
+        }
+
+        function renderVisualizer() {
+            if (!isRunning) return;
+            
+            let bufferLength = analyser.frequencyBinCount;
+            let dataArray = new Uint8Array(bufferLength);
+            analyser.getByteTimeDomainData(dataArray);
+
+            canvasCtx.fillStyle = '#050608';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+            canvasCtx.strokeStyle = '#141720';
+            canvasCtx.lineWidth = 1;
+            canvasCtx.beginPath();
+            canvasCtx.moveTo(0, canvas.height / 2);
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = isBypassed ? '#ffcc00' : '#00f0ff';
+            canvasCtx.shadowBlur = 10;
+            canvasCtx.shadowColor = isBypassed ? '#ffcc00' : '#00f0ff';
+            canvasCtx.beginPath();
+
+            let sliceWidth = canvas.width / bufferLength;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                let v = dataArray[i] / 128.0;
+                let y = v * (canvas.height / 2);
+                if (i === 0) canvasCtx.moveTo(x, y);
+                else canvasCtx.lineTo(x, y);
+                x += sliceWidth;
+            }
+            canvasCtx.stroke();
+            canvasCtx.shadowBlur = 0;
+
+            let sum = 0;
+            for (let i = 0; i < bufferLength; i++) {
+                let sample = (dataArray[i] - 128) / 128;
+                sum += sample * sample;
+            }
+            let rms = Math.sqrt(sum / bufferLength);
+            
+            let inDbSetting = parseFloat(inKnob.value);
+            let inputMultiplier = Math.pow(10, inDbSetting / 20);
+            let effectiveSignal = rms * inputMultiplier * 100; 
+            let rawSignal = rms * 100; 
+
+            let focusVal = parseFloat(focusKnob.value) / 100;
+            let optoMix = parseFloat(optoKnob.value) / 100;
+            let vcaMix = parseFloat(vcaKnob.value) / 100;
+            let attackMs = parseFloat(attackKnob.value);
+
+            let attackFactor = 1.0 + (100 - attackMs) / 100;
+
+            let optoCompressionPressure = 0;
+            if (effectiveSignal > 0.08 && optoMix > 0) {
+                let headroomOffset = Math.max(0, inDbSetting); 
+                let driveIntensity = (effectiveSignal - 5) * (0.3 + headroomOffset * 0.1);
+                optoCompressionPressure = Math.min(100, Math.max(0, driveIntensity * attackFactor * (0.5 + focusVal * 0.8) * optoMix));
+            }
+            let currentGrDb = optoCompressionPressure * 0.25;
+
+            let vcaActivity = 0;
+            if (rawSignal > 0.01 && vcaMix > 0) {
+                let quietTailBoost = Math.max(0, 30 - effectiveSignal + (Math.max(0, inDbSetting) * 0.5));
+                vcaActivity = Math.min(100, quietTailBoost * (attackMs / 25) * (0.8 + focusVal * 1.0) * vcaMix);
+            }
+            let currentUpDb = vcaActivity * 0.15;
+
+            if (isBypassed) {
+                currentGrDb = 0;
+                currentUpDb = 0;
+                optoCompressionPressure = 0;
+                vcaActivity = 0;
+            }
+
+            if (currentGrDb >= peakGrDb) {
+                peakGrDb = currentGrDb;
+            } else {
+                peakGrDb -= 0.08; 
+                if (peakGrDb < 0) peakGrDb = 0;
+            }
+
+            if (currentUpDb >= peakUpDb) {
+                peakUpDb = currentUpDb;
+            } else {
+                peakUpDb -= 0.08;
+                if (peakUpDb < 0) peakUpDb = 0;
+            }
+
+            grFill.style.width = optoCompressionPressure + '%';
+            upFill.style.width = vcaActivity + '%';
+            
+            grNum.innerText = `-${peakGrDb.toFixed(1)} dB`;
+            upNum.innerText = `+${peakUpDb.toFixed(1)} dB`;
+
+            animId = requestAnimationFrame(renderVisualizer);
+        }
+
+        function startAudio() {
+            ctx = new (window.AudioContext || window.webkitAudioContext)();
+            if (ctx.state === 'suspended') ctx.resume();
+
+            gainIn = ctx.createGain();
+            analyser = ctx.createAnalyser();
+            analyser.fftSize = 1024;
+            mainGain = ctx.createGain();
+            bypassGain = ctx.createGain();
+            bypassGain.gain.setValueAtTime(0, ctx.currentTime);
+
+            if (customAudioBuffer) {
+                trackSource = ctx.createBufferSource();
+                trackSource.buffer = customAudioBuffer;
+                trackSource.loop = true;
+                trackSource.connect(gainIn);
+                trackSource.connect(bypassGain);
+                trackSource.start();
+            } else {
+                osc1 = ctx.createOscillator();
+                osc1.type = 'sawtooth';
+                osc1.frequency.setValueAtTime(110, ctx.currentTime);
+
+                osc2 = ctx.createOscillator();
+                osc2.type = 'triangle';
+                osc2.frequency.setValueAtTime(220, ctx.currentTime);
+
+                lfo = ctx.createOscillator();
+                lfo.frequency.setValueAtTime(0.4, ctx.currentTime);
+                let lfoGain = ctx.createGain();
+                lfoGain.gain.setValueAtTime(15, ctx.currentTime);
+                lfo.connect(lfoGain);
+                lfoGain.connect(osc1.frequency);
+
+                osc1.connect(gainIn);
+                osc2.connect(gainIn);
+                
+                let synthBypass = ctx.createGain();
+                synthBypass.gain.setValueAtTime(0.5, ctx.currentTime);
+                osc1.connect(synthBypass);
+                synthBypass.connect(bypassGain);
+
+                lfo.start();
+                osc1.start();
+                osc2.start();
+            }
+
+            gainIn.connect(analyser);
+            analyser.connect(mainGain);
+            mainGain.connect(ctx.destination);
+            bypassGain.connect(ctx.destination);
+
+            powerBtn.innerText = "■ Отключить Ядро Системы";
+            powerBtn.classList.add('active');
+            isRunning = true;
+            isBypassed = false;
+            bypassBtn.classList.remove('active');
+            updateAudioGraph();
+            scopeInfo.innerText = customAudioBuffer ? "STATUS: CUSTOM FILE // ACTIVE" : "STATUS: SYNTH MODE // ACTIVE";
+            renderVisualizer();
+        }
+
+        function stopAudio() {
+            if (animId) cancelAnimationFrame(animId);
+            if (trackSource) { try{ trackSource.stop(); trackSource.disconnect(); }catch(e){} trackSource = null; }
+            if (osc1) { try{ osc1.stop(); }catch(e){} }
+            if (osc2) { try{ osc2.stop(); }catch(e){} }
+            if (lfo) { try{ lfo.stop(); }catch(e){} }
+            if (ctx) ctx.close();
+            ctx = null;
+
+            peakGrDb = 0;
+            peakUpDb = 0;
+            isBypassed = false;
+            bypassBtn.classList.remove('active');
+
+            powerBtn.innerText = "■ Инициализировать Аудио-Ядро";
+            powerBtn.classList.remove('active');
+            isRunning = false;
+            grFill.style.width = '0%';
+            upFill.style.width = '0%';
+            grNum.innerText = "0.0 dB";
+            upNum.innerText = "+0.0 dB";
+            scopeInfo.innerText = "STATUS: BYPASSED // READY";
+            
+            canvasCtx.fillStyle = '#050608';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        powerBtn.addEventListener('click', async () => {
+            if (!isRunning) {
+                startAudio();
+            } else {
+                stopAudio();
+            }
+        });
+    </script>
+</body>
+</html>

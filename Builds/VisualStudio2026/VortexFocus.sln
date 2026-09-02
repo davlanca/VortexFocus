@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio Version 18
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VortexFocus - Standalone Plugin", "VortexFocus_StandalonePlugin.vcxproj", "{D04A33D7-3FFF-9E7C-5B71-69A23A9CEAD2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EE12DDE-7257-AFD0-699B-8031C211630F} = {2EE12DDE-7257-AFD0-699B-8031C211630F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VortexFocus - VST3", "VortexFocus_VST3.vcxproj", "{F806EFD9-0D74-7564-A06A-5CA4750164D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2EE12DDE-7257-AFD0-699B-8031C211630F} = {2EE12DDE-7257-AFD0-699B-8031C211630F}
+		{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B} = {6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VortexFocus - Shared Code", "VortexFocus_SharedCode.vcxproj", "{2EE12DDE-7257-AFD0-699B-8031C211630F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VortexFocus - VST3 Manifest Helper", "VortexFocus_VST3ManifestHelper.vcxproj", "{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F806EFD9-0D74-7564-A06A-5CA4750164D9}.Debug|x64.ActiveCfg = Debug|x64
+		{F806EFD9-0D74-7564-A06A-5CA4750164D9}.Debug|x64.Build.0 = Debug|x64
+		{F806EFD9-0D74-7564-A06A-5CA4750164D9}.Release|x64.ActiveCfg = Release|x64
+		{F806EFD9-0D74-7564-A06A-5CA4750164D9}.Release|x64.Build.0 = Release|x64
+		{D04A33D7-3FFF-9E7C-5B71-69A23A9CEAD2}.Debug|x64.ActiveCfg = Debug|x64
+		{D04A33D7-3FFF-9E7C-5B71-69A23A9CEAD2}.Debug|x64.Build.0 = Debug|x64
+		{D04A33D7-3FFF-9E7C-5B71-69A23A9CEAD2}.Release|x64.ActiveCfg = Release|x64
+		{D04A33D7-3FFF-9E7C-5B71-69A23A9CEAD2}.Release|x64.Build.0 = Release|x64
+		{2EE12DDE-7257-AFD0-699B-8031C211630F}.Debug|x64.ActiveCfg = Debug|x64
+		{2EE12DDE-7257-AFD0-699B-8031C211630F}.Debug|x64.Build.0 = Debug|x64
+		{2EE12DDE-7257-AFD0-699B-8031C211630F}.Release|x64.ActiveCfg = Release|x64
+		{2EE12DDE-7257-AFD0-699B-8031C211630F}.Release|x64.Build.0 = Release|x64
+		{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}.Debug|x64.ActiveCfg = Debug|Win32
+		{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}.Debug|x64.Build.0 = Debug|Win32
+		{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}.Release|x64.ActiveCfg = Release|Win32
+		{6BF97EC8-FB06-0A31-1F3F-27B75B4AAB6B}.Release|x64.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
