@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 
 project(VortexFocus VERSION 0.0.1)
 
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
 include(FetchContent)
 FetchContent_Declare(
     JUCE
