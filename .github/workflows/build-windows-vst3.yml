@@ -26,7 +26,12 @@ jobs:
         shell: pwsh
         run: |
           Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.3485.44" -OutFile webview2.zip
-          Expand-Archive webview2.zip -DestinationPath webview2
+          Expand-Archive webview2.zip -DestinationPath webview2-package
+          New-Item -ItemType Directory -Path webview2 -Force | Out-Null
+          Move-Item webview2-package webview2\Microsoft.Web.WebView2
+          if (-not (Test-Path "webview2\Microsoft.Web.WebView2\build\native\include\WebView2.h")) {
+            throw "WebView2.h was not found after extracting the SDK"
+          }
 
       - name: Configure
         run: >-
