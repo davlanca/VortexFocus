@@ -6,16 +6,19 @@ include(FetchContent)
 FetchContent_Declare(
     JUCE
     GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
-    GIT_TAG        9.0.1
+        GIT_TAG        8.0.10
 )
 FetchContent_MakeAvailable(JUCE)
 
 juce_add_plugin(VortexFocus
-    COMPANY_NAME "Vortex"
+    COMPANY_NAME "KA"
     PLUGIN_NAME "VortexFocus"
     FORMATS VST3
     PRODUCT_NAME "VortexFocus"
+    NEEDS_WEBVIEW2 FALSE
 )
+
+juce_generate_juce_header(VortexFocus)
 
 juce_add_binary_data(VortexFocusData
     SOURCES
@@ -33,7 +36,9 @@ target_sources(VortexFocus
 target_compile_definitions(VortexFocus
     PUBLIC
         JUCE_WEB_BROWSER=1
-        JUCE_USE_CURL=0
+        JUCE_USE_WIN_WEBVIEW2=0
+        $<$<CXX_COMPILER_ID:GNU>:JUCE_64BIT=1>
+        $<$<CXX_COMPILER_ID:GNU>:stricmp=strcasecmp>
         JUCE_VST3_CAN_REPLACE_VST2=0
 )
 
@@ -42,6 +47,11 @@ target_link_libraries(VortexFocus
         VortexFocusData
         juce::juce_audio_utils
         juce::juce_gui_extra
+        juce::juce_audio_processors
+        juce::juce_core
+        juce::juce_events
+        juce::juce_graphics
+        juce::juce_gui_basics
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_warning_flags
