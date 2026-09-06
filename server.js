@@ -45,9 +45,9 @@ const MARKET_CURRENCIES = {
   "LIS-SKINS": "RUB",
   "AVAN.MARKET": "RUB",
   "STEAM": "RUB",
-  "LOOT.FARM": "USD",
-  "CS.MONEY": "USD",
-  "BUFF.163": "USD"
+  "LOOT.FARM": "RUB",
+  "CS.MONEY": "RUB",
+  "BUFF.163": "RUB"
 };
 
 const DEFAULT_FEES = {
@@ -70,6 +70,9 @@ const BROWSER_HEADERS = {
   "Cache-Control": "no-cache"
 };
 const PRICEMPIRE_API_KEY = process.env.PRICEMPIRE_API_KEY || "";
+const RUB_PER_USD = Number(process.env.RUB_PER_USD || 95);
+const GITHUB_JSON_API = "https://api.github.com/repos/davlanca/VortexFocus/contents/json";
+const STEAM_CURRENCY_URL = "https://steam-currency.ru/?pair=USD%3ARUB";
 
 /* =========================================================
    CENTRAL PRICE DATABASE & DIAGNOSTICS LOGS
@@ -79,6 +82,7 @@ const PRICEMPIRE_API_KEY = process.env.PRICEMPIRE_API_KEY || "";
 const priceDatabase = new Map();
 const endpointDiagnostics = {};
 let refreshPromise = null;
+let currentRubPerUsd = RUB_PER_USD;
 
 /* =========================================================
    DIAGNOSTIC NETWORK INSPECTOR
@@ -163,6 +167,46 @@ async function inspectedFetch(endpointName, url, options = {}) {
   }
 }
 
+async function parseCurrentRubPerUsd() {
+  const startTime = Date.now();
+  try {
+    const response = await fetch(STEAM_CURRENCY_URL, {
+      headers: BROWSER_HEADERS,
+      signal: AbortSignal.timeout(10000)
+    });
+    const html = await response.text();
+    const match = html.match(/id=["']currentRate["'][^>]*data-raw=["']([0-9.,]+)["']/i);
+    const rate = Number((match?.[1] || "").replace(",", "."));
+    if (!response.ok || !Number.isFinite(rate) || rate <= 0) {
+      throw new Error(`Курс не найден (HTTP ${response.status})`);
+    }
+    currentRubPerUsd = rate;
+    endpointDiagnostics["USD.RUB"] = {
+      endpointName: "USD.RUB",
+      url: STEAM_CURRENCY_URL,
+      status: response.status,
+      duration: `${Date.now() - startTime}ms`,
+      rate,
+      timestamp: new Date().toISOString(),
+      ok: true
+    };
+    logInfo("CURRENCY", `Текущий курс USD/RUB: ${rate}`);
+    return rate;
+  } catch (error) {
+    endpointDiagnostics["USD.RUB"] = {
+      endpointName: "USD.RUB",
+      url: STEAM_CURRENCY_URL,
+      error: error.message,
+      duration: `${Date.now() - startTime}ms`,
+      rate: currentRubPerUsd,
+      timestamp: new Date().toISOString(),
+      ok: false
+    };
+    logWarn("CURRENCY", `Не удалось получить курс, используется ${currentRubPerUsd}: ${error.message}`);
+    return currentRubPerUsd;
+  }
+}
+
 /* =========================================================
    TOP LIQUID CS2 CATALOG
 ========================================================= */
@@ -198,10 +242,10 @@ function initDatabase() {
     priceDatabase.set(item.name, {
       isLiquid: true,
       prices: {
-        "MARKET.CSGO": { value: item.market_rub, currency: "RUB", source: "Market.CSGO Резерв", isLive: false },
-        "LIS-SKINS": { value: item.lis_rub, currency: "RUB", source: "Lis-Skins Резерв", isLive: false },
-        "AVAN.MARKET": { value: item.avan_rub, currency: "RUB", source: "Avan.Market Резерв", isLive: false },
-        "STEAM": { value: item.steam_rub, currency: "RUB", source: "Steam Резерв", isLive: false },
+        "MARKET.CSGO": { value: item.market_rub / RUB_PER_USD, currency: "USD", source: "Market.CSGO Резерв", isLive: false },
+        "LIS-SKINS": { value: item.lis_rub / RUB_PER_USD, currency: "USD", source: "Lis-Skins Резерв", isLive: false },
+        "AVAN.MARKET": { value: item.avan_rub / RUB_PER_USD, currency: "USD", source: "Avan.Market Резерв", isLive: false },
+        "STEAM": { value: item.steam_rub / RUB_PER_USD, currency: "USD", source: "Steam Резерв", isLive: false },
         "LOOT.FARM": { value: item.lootfarm_usd, currency: "USD", source: "Loot.Farm Резерв", isLive: false },
         "CS.MONEY": { value: item.csmoney_usd, currency: "USD", source: "CS.Money Резерв", isLive: false },
         "BUFF.163": { value: item.buff_usd, currency: "USD", source: "Buff.163 Резерв", isLive: false }
@@ -215,7 +259,7 @@ function initDatabase() {
    PARSERS
 ========================================================= */
 
-// 1. MARKET.CSGO (Рублевый дамп)
+// 1. MARKET.CSGO (RUB-дамп, совпадает с ценой на странице магазина)
 async function parseMarketCSGO() {
   const url = "https://market.csgo.com/api/v2/prices/RUB.json";
   try {
@@ -229,9 +273,9 @@ async function parseMarketCSGO() {
         if (name && rub > 0.5) {
           const entry = priceDatabase.get(name) || { isLiquid: false, prices: {} };
           entry.prices["MARKET.CSGO"] = {
-            value: rub,
+            value: Number(rub.toFixed(2)),
             currency: "RUB",
-            source: "Market.CSGO Live API",
+            source: "Market.CSGO RUB Live API",
             isLive: true,
             fetchedAt: new Date().toISOString()
           };
@@ -240,7 +284,7 @@ async function parseMarketCSGO() {
         }
       });
     }
-    logInfo("PARSER: MARKET.CSGO", `Успешно спарсено ${count} цен в рублях`);
+    logInfo("PARSER: MARKET.CSGO", `Успешно спарсено ${count} цен в RUB`);
     return true;
   } catch (err) {
     return false;
@@ -330,7 +374,84 @@ async function parsePriceEmpire() {
   }
 }
 
-// 4. STEAM (Точечный запрос в RUB: currency=5)
+function getLatestDataFileName(fileNames) {
+  return fileNames
+    .filter(name => /^data_\d{4}-\d{2}-\d{2}\.json$/.test(name))
+    .sort((left, right) => right.localeCompare(left))[0] || null;
+}
+
+function applySteamJsonItem(item, source, updatedAt) {
+  const weapon = String(item.weapon || "").trim();
+  const name = String(item.name || "").trim();
+  const usd = Number(item.price?.min?.value);
+  const stattrakUsd = Number(item.price?.min?.stattrak_value);
+  if (!weapon || !name || !Number.isFinite(usd) || usd <= 0) {
+    return false;
+  }
+
+  const marketName = `${weapon} | ${name}`;
+  const value = Number(usd.toFixed(2));
+  const price = {
+    value,
+    currency: "USD",
+    source: `${source} (минимум)`,
+    isLive: true,
+    fetchedAt: updatedAt || new Date().toISOString()
+  };
+  const entry = priceDatabase.get(marketName) || { isLiquid: false, prices: {} };
+  entry.prices.STEAM = price;
+  priceDatabase.set(marketName, entry);
+
+  const normalized = marketName.toLowerCase();
+  for (const [existingName, existingEntry] of priceDatabase.entries()) {
+    const existingBase = existingName.toLowerCase().replace(/ \((factory new|minimal wear|field-tested|well-worn|battle-scarred)\)$/, "");
+    if (existingBase === normalized && existingName !== marketName) {
+      const isStatTrak = existingName.startsWith("StatTrak™ ");
+      const variantUsd = isStatTrak && Number.isFinite(stattrakUsd) && stattrakUsd > 0 ? stattrakUsd : usd;
+      existingEntry.prices.STEAM = {
+        ...price,
+        value: Number(variantUsd.toFixed(2)),
+        source: `${source} (${isStatTrak ? "StatTrak минимум" : "минимум"})`
+      };
+    }
+  }
+  return true;
+}
+
+async function parseLatestGithubSteamJson() {
+  try {
+    const listing = await inspectedFetch("STEAM.JSON.INDEX", GITHUB_JSON_API, {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: AbortSignal.timeout(10000)
+    });
+    const latestName = getLatestDataFileName(
+      Array.isArray(listing.data) ? listing.data.map(file => file.name) : []
+    );
+    if (!latestName) {
+      throw new Error("В GitHub не найден data_YYYY-MM-DD.json");
+    }
+
+    const latestFile = listing.data.find(file => file.name === latestName);
+    const dataUrl = latestFile?.download_url || `https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/${latestName}`;
+    const dataResponse = await inspectedFetch("STEAM.JSON.DATA", dataUrl, {
+      signal: AbortSignal.timeout(30000)
+    });
+    const items = Array.isArray(dataResponse.data?.Skins) ? dataResponse.data.Skins : [];
+    let count = 0;
+    items.forEach(item => {
+      if (applySteamJsonItem(item, `VortexFocus ${latestName}`, item.price?.updated_at)) {
+        count++;
+      }
+    });
+    logInfo("PARSER: STEAM.JSON", `Файл ${latestName}: ${count} предметов в USD`);
+    return true;
+  } catch (error) {
+    logWarn("PARSER: STEAM.JSON", `GitHub недоступен: ${error.message}`);
+    return false;
+  }
+}
+
+// 5. STEAM (Точечный запрос в RUB: currency=5)
 async function fetchSteamLivePrice(marketHashName) {
   const url = `https://steamcommunity.com/market/priceoverview/?appid=730&currency=5&market_hash_name=${encodeURIComponent(
     marketHashName
@@ -347,9 +468,9 @@ async function fetchSteamLivePrice(marketHashName) {
       if (numRub > 0) {
         logInfo("STEAM LIVE", `"${marketHashName}" = ${numRub} ₽`);
         return {
-          value: numRub,
-          currency: "RUB",
-          source: "Steam Live API (Обычный)",
+          value: Number((numRub / currentRubPerUsd).toFixed(2)),
+          currency: "USD",
+          source: "Steam Live API (Обычный, отображение в RUB)",
           isLive: true,
           fetchedAt: new Date().toISOString()
         };
@@ -388,16 +509,18 @@ async function fetchCSMoneyLivePrice(marketHashName) {
 async function masterInit() {
   logInfo("INIT", "=== Старт фонового сбора данных по 7 магазинам ===");
   for (const entry of priceDatabase.values()) {
-    for (const market of ["MARKET.CSGO", "LOOT.FARM", "BUFF.163"]) {
+    for (const market of ["MARKET.CSGO", "LOOT.FARM", "STEAM", "BUFF.163"]) {
       if (entry.prices[market]?.isLive) {
         delete entry.prices[market];
       }
     }
   }
+  await parseCurrentRubPerUsd();
   await Promise.allSettled([
     parseMarketCSGO(),
     parseLootFarm(),
-    parsePriceEmpire()
+    parsePriceEmpire(),
+    parseLatestGithubSteamJson()
   ]);
   logInfo("INIT COMPLETE", `Всего скинов в базе: ${priceDatabase.size}`);
 }
@@ -431,32 +554,30 @@ function calculateTrade({ buyPrice, sellPrice, buyCurrency, sellCurrency, buyMar
 
   const sellFeeVal = sellPrice * (sellFee / 100);
   const sellNet = sellPrice - sellFeeVal;
+  const toRub = (value, currency) => currency === "USD" ? value * currentRubPerUsd : value;
 
-  let profitVal = sellNet - buyTotal;
+  const buyInUsd = buyCurrency === "RUB" ? buyTotal / currentRubPerUsd : buyTotal;
+  const sellInUsd = sellCurrency === "RUB" ? sellNet / currentRubPerUsd : sellNet;
+  let profitVal = sellInUsd - buyInUsd;
   let profitPercent = 0;
 
   if (buyCurrency === sellCurrency) {
-    profitPercent = buyTotal > 0 ? (profitVal / buyTotal) * 100 : 0;
+    profitPercent = buyInUsd > 0 ? (profitVal / buyInUsd) * 100 : 0;
   } else {
-    // Внутренний срез кросс-курса для расчета процентов
-    const rubToUsd = buyCurrency === "RUB" ? 1 / 95 : 95;
-    const normBuy = buyCurrency === "RUB" ? buyTotal * rubToUsd : buyTotal;
-    const normSell = sellCurrency === "RUB" ? sellNet * (1 / 95) : sellNet;
-    profitVal = sellNet - (buyCurrency === "RUB" && sellCurrency === "USD" ? buyTotal / 95 : buyTotal * 95);
-    profitPercent = normBuy > 0 ? ((normSell - normBuy) / normBuy) * 100 : 0;
+    profitPercent = buyInUsd > 0 ? (profitVal / buyInUsd) * 100 : 0;
   }
 
   return {
-    buyPrice,
-    buyCurrency,
-    buyFeeVal,
-    depositFeeVal,
-    buyTotal,
-    sellPrice,
-    sellCurrency,
-    sellFeeVal,
-    sellNet,
-    profitVal,
+    buyPrice: Number(toRub(buyPrice, buyCurrency).toFixed(2)),
+    buyCurrency: "RUB",
+    buyFeeVal: Number(toRub(buyFeeVal, buyCurrency).toFixed(2)),
+    depositFeeVal: Number(toRub(depositFeeVal, buyCurrency).toFixed(2)),
+    buyTotal: Number(toRub(buyTotal, buyCurrency).toFixed(2)),
+    sellPrice: Number(toRub(sellPrice, sellCurrency).toFixed(2)),
+    sellCurrency: "RUB",
+    sellFeeVal: Number(toRub(sellFeeVal, sellCurrency).toFixed(2)),
+    sellNet: Number(toRub(sellNet, sellCurrency).toFixed(2)),
+    profitVal: Number((profitVal * currentRubPerUsd).toFixed(2)),
     profitPercent
   };
 }
@@ -470,6 +591,7 @@ app.get("/api/config", (req, res) => {
     success: true,
     markets: MARKETS,
     currencies: MARKET_CURRENCIES,
+    rubPerUsd: currentRubPerUsd,
     fees,
     totalItems: priceDatabase.size
   });
@@ -478,6 +600,7 @@ app.get("/api/config", (req, res) => {
 app.get("/api/diagnostic", (req, res) => {
   res.json({
     success: true,
+    rubPerUsd: currentRubPerUsd,
     diagnostics: endpointDiagnostics,
     totalItems: priceDatabase.size,
     sampleSkins: [...priceDatabase.entries()].slice(0, 5).map(([name, data]) => ({
