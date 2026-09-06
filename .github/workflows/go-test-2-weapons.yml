@@ -1,0 +1,58 @@
+name: CS2 Price Scraper Test (2 Weapons)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cs2-price-scraper
+  cancel-in-progress: false
+
+jobs:
+  scrape-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.24'
+
+    - name: Install Chromium and dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium fonts-liberation
+
+    - name: Install Go dependencies
+      run: go mod tidy
+
+    - name: Run Scraper (2 weapons)
+      run: go run . --delay=3 --workers=2 --max-weapons=2
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    - name: Upload test JSON
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cs2-prices-test-2-weapons-${{ github.run_number }}
+        path: json/data.json
+        if-no-files-found: ignore
+
+    - name: Commit and Push test data
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add json/data.json
+        if git diff-index --quiet HEAD -- json/data.json; then
+          echo "No data.json changes to commit, skipping push."
+          exit 0
+        fi
+        git commit -m "Тестовое обновление цен: 2 оружия"
+        git push
