@@ -42,8 +42,8 @@ func main() {
 		Agents: agents,
 	}
 
-	if len(skins) == 0 {
-		log.Fatalf("\033[31m[!]\033[0m No skins were scraped! Exiting...")
+	if len(skins) == 0 && len(agents) == 0 {
+		log.Fatalf("\033[31m[!]\033[0m No items were scraped! Exiting...")
 	}
 
 	jsonData, err := json.MarshalIndent(combinedData, "", "  ")
@@ -54,6 +54,11 @@ func main() {
 	// generate filename with current date
 	timestamp := time.Now().Format("2006-01-02")
 	filename := fmt.Sprintf("json/data_%s.json", timestamp)
+
+	// Ensure json directory exists
+	if err := os.MkdirAll("json", 0755); err != nil {
+		log.Fatalf("\033[31m[!]\033[0m Error creating json folder: %v", err)
+	}
 
 	err = os.WriteFile(filename, jsonData, 0644)
 	if err != nil {

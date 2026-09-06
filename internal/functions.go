@@ -1,171 +1,124 @@
 package internal
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
-	"regexp"
-	"strconv"
 	"strings"
 	"time"
 
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
 )
 
-func RemoveDuplicates(skins []config.Skin) []config.Skin {
-	seen := make(map[string]bool)
-	var unique []config.Skin
-
-	for _, s := range skins {
-		key := s.Name + "|" + s.Weapon + "|" + s.Rarity
-		if !seen[key] {
-			seen[key] = true
-			unique = append(unique, s)
+// Humanize converts a-slug-style-string to A Slug Style String.
+func Humanize(slug string) string {
+	out := make([]byte, 0, len(slug)+5)
+	upper := true
+	for i := 0; i < len(slug); i++ {
+		c := slug[i]
+		if c == '-' {
+			out = append(out, ' ')
+			upper = true
+			continue
 		}
-	}
-
-	// temporary filter to remove souvenir packages as scraper can't handle them without separating each souvenir by subdomain
-	//FIX: handle souvenirs
-	var filtered []config.Skin
-	for _, skin := range unique {
-		if skin.Weapon != "Souvenir Package" {
-			filtered = append(filtered, skin)
+		if upper && c >= 'a' && c <= 'z' {
+			out = append(out, c-32)
+			upper = false
+			continue
 		}
+		out = append(out, c)
+		upper = false
 	}
-	return filtered
+	return string(out)
 }
 
-func RemoveAgentDuplicates(agents []config.Agent) []config.Agent {
-	seen := make(map[string]bool)
-	var unique []config.Agent
-
-	for _, a := range agents {
-		key := a.Name + "|" + a.Affiliation + "|" + a.Side
-		if !seen[key] {
-			seen[key] = true
-			unique = append(unique, a)
-		}
+// ConvertToSkin maps a universal Item to the legacy Skin struct.
+func ConvertToSkin(item config.Item) config.Skin {
+	return config.Skin{
+		Name:       item.Name,
+		Weapon:     item.Weapon,
+		Rarity:     item.Rarity,
+		Collection: item.Collection,
+		URL:        item.URL,
+		Price:      SummarizePrices(item.Prices),
 	}
-	return unique
 }
 
-func detectCurrency(values ...string) string {
-	currencies := map[string]string{
-		"$": "USD",
-		"€": "EUR",
-		"£": "GBP",
-		"₽": "RUB",
+// ConvertToAgent maps a universal Item to the legacy Agent struct.
+func ConvertToAgent(item config.Item) config.Agent {
+	side := "Unknown"
+	if strings.Contains(item.Name, "FBI") || strings.Contains(item.Name, "Seal") || strings.Contains(item.Name, "SWAT") {
+		side = "CT"
+	} else if strings.Contains(item.Name, "Guerrilla") || strings.Contains(item.Name, "Professional") || strings.Contains(item.Name, "Phoenix") {
+		side = "T"
 	}
 
-	for _, v := range values {
-		for symbol, code := range currencies {
-			if strings.Contains(v, symbol) {
-				return code
-			}
-		}
+	return config.Agent{
+		Name:       item.Name,
+		Side:       side,
+		Rarity:     item.Rarity,
+		Collection: item.Collection,
+		URL:        item.URL,
+		Price:      SummarizePriceSimple(item.Prices),
 	}
-	return "UNKNOWN"
 }
 
-func ParsePrice(raw, stattRaw string) config.Price {
-	raw = strings.TrimSpace(raw)
-	stattrakRaw := strings.TrimSpace(stattRaw)
+// SummarizePrices builds a Price range from multiple market entries.
+func SummarizePrices(mps []config.MarketPrice) config.Price {
+	var min, max float64
+	var currency string = "USD"
+	first := true
 
-	currency := detectCurrency(raw, stattrakRaw)
-
-	price := config.Price{
-		PriceString:         raw,
-		PriceStattrakString: stattrakRaw,
-		Currency:            currency,
-		Min:                 config.PriceValue{Value: 0, StattrakValue: 0, Unit: currency},
-		Max:                 config.PriceValue{Value: 0, StattrakValue: 0, Unit: currency},
-		UpdatedAt:           time.Now().Format(time.RFC3339),
-	}
-
-	re := regexp.MustCompile(`[\d.,]+`)
-	if raw != "" {
-		parts := strings.Split(raw, "-")
-		if len(parts) == 1 {
-			v, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-			price.Min.Value = v
-			price.Max.Value = v
-		} else if len(parts) >= 2 {
-			v1, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-			v2, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[1]), ",", ""), 64)
-			price.Min.Value = v1
-			price.Max.Value = v2
+	for _, mp := range mps {
+		if !mp.HasPrice || mp.Price <= 0 {
+			continue
+		}
+		if first {
+			min = mp.Price
+			max = mp.Price
+			currency = mp.Currency
+			first = false
+			continue
+		}
+		if mp.Price < min {
+			min = mp.Price
+		}
+		if mp.Price > max {
+			max = mp.Price
 		}
 	}
 
-	if stattrakRaw != "" {
-		parts := strings.Split(stattrakRaw, "-")
-		if len(parts) == 1 {
-			v, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-			price.Min.StattrakValue = v
-			price.Max.StattrakValue = v
-		} else if len(parts) >= 2 {
-			v1, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-			v2, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[1]), ",", ""), 64)
-			price.Min.StattrakValue = v1
-			price.Max.StattrakValue = v2
-		}
-	}
-
-	return price
-}
-
-func ParseAgentPrice(raw string) config.PriceSimple {
-	raw = strings.TrimSpace(raw)
-
-	currency := detectCurrency(raw, "")
-
-	price := config.PriceSimple{
-		PriceString: raw,
+	return config.Price{
+		PriceString: fmt.Sprintf("$%.2f - $%.2f", min, max),
 		Currency:    currency,
-		From:        config.PriceValue{Value: 0, StattrakValue: 0, Unit: currency},
-		UpdatedAt:   time.Now().Format(time.RFC3339),
+		Min: config.PriceValue{
+			Value: min,
+			Unit:  currency,
+		},
+		Max: config.PriceValue{
+			Value: max,
+			Unit:  currency,
+		},
+		UpdatedAt: time.Now().Format(time.RFC3339),
 	}
-
-	if raw == "" {
-		return price
-	}
-
-	re := regexp.MustCompile(`[\d.,]+`)
-	parts := strings.Split(raw, "-")
-
-	if len(parts) == 1 {
-		v, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-		price.From.Value = v
-	} else if len(parts) >= 2 {
-		v1, _ := strconv.ParseFloat(strings.ReplaceAll(re.FindString(parts[0]), ",", ""), 64)
-		price.From.Value = v1
-	}
-
-	return price
 }
 
-func SpecialMark(weapon string) string {
-	keywords := []string{"Knife", "Gloves", "Wraps"}
-	for _, keyword := range keywords {
-		if strings.Contains(weapon, keyword) {
-			return "★ " + weapon
+// SummarizePriceSimple builds a single PriceSimple entry.
+func SummarizePriceSimple(mps []config.MarketPrice) config.PriceSimple {
+	var val float64
+	var currency string = "USD"
+	for _, mp := range mps {
+		if mp.HasPrice && mp.Price > 0 {
+			val = mp.Price
+			currency = mp.Currency
+			break
 		}
 	}
-	return weapon
-}
-
-func SaveJSON(path string, data interface{}) {
-	file, err := json.MarshalIndent(data, "", "  ")
-	if err != nil {
-		fmt.Printf("\033[31m[!]\033[0m Failed to marshal JSON: %v\n", err)
-		return
+	return config.PriceSimple{
+		PriceString: fmt.Sprintf("$%.2f", val),
+		Currency:    currency,
+		From: config.PriceValue{
+			Value: val,
+			Unit:  currency,
+		},
+		UpdatedAt: time.Now().Format(time.RFC3339),
 	}
-
-	err = os.WriteFile(path, file, 0644)
-	if err != nil {
-		fmt.Printf("\033[31m[!]\033[0m Failed to write file %s: %v\n", path, err)
-		return
-	}
-
-	fmt.Printf("\033[32m[+]\033[0m Saved: %s\n", path)
 }

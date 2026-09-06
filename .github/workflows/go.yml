@@ -6,6 +6,9 @@ on:
     - cron: '*/30 * * * *'
   workflow_dispatch: # Добавляет кнопку "Run workflow" для ручного запуска
 
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version: '1.25.5' # Оставил версию из вашего шаблона
+        go-version: '1.23'
 
     # 3. Устанавливаем системные зависимости для Chrome (libnss3, libxss1, и т.д.)
     #    Это обязательно для Ubuntu 24.04 runner, иначе Chrome падает на старте.
@@ -46,8 +49,10 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        # Добавляем ВСЕ json-файлы рекурсивно (cases/, agents/, collections/, data_*.json)
-        git add -A json/
+        # Создаем папку json, если она не существует (на всякий случай)
+        mkdir -p json
+        # Добавляем ВСЕ json-файлы рекурсивно
+        git add json/
         # Коммитим только если в папке json/ реально есть изменения
         if git diff-index --quiet HEAD -- json/; then
           echo "No JSON changes to commit, skipping push."
