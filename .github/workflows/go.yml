@@ -3,7 +3,7 @@ name: CS2 Price Scraper
 on:
   schedule:
     # Запуск каждые 5 минут
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch: # Добавляет кнопку "Run workflow" для ручного запуска
 
 jobs:
