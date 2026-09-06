@@ -589,7 +589,6 @@ tr:hover td{ background:#151a23; }
 
 <script>
 let markets = [];
-let currencies = {};
 let fees = {};
 let sortBy = "profitPercent";
 let sortDirection = "desc";
@@ -613,10 +612,9 @@ function getMarketUrl(marketName, skinName){
   return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
 }
 
-function formatPrice(value, curr){
+function formatPrice(value){
   if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
-  const num = Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  return curr === "USD" ? `$ ${num}` : `${num} ₽`;
+  return "$ " + Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function percent(value){
@@ -735,11 +733,11 @@ function renderResults(results){
       return `<tr>
         <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div></td>
         <td><a class="marketLinkBtn" href="${buyUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.buyMarket)}</a><div class="itemMeta">${escapeHtml(item.buySource)}</div></td>
-        <td class="price">${formatPrice(item.buyPrice, item.buyCurrency)}</td>
+        <td class="price">${formatPrice(item.buyPrice)}</td>
         <td><a class="marketLinkBtn marketLinkBtnSell" href="${sellUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.sellMarket)}</a><div class="itemMeta">${escapeHtml(item.sellSource)}</div></td>
-        <td class="price">${formatPrice(item.sellPrice, item.sellCurrency)}</td>
-        <td class="price">${formatPrice(item.sellNet, item.sellCurrency)}</td>
-        <td class="${item.profitVal >= 0 ? "profit" : "loss"}">${formatPrice(item.profitVal, item.sellCurrency)}</td>
+        <td class="price">${formatPrice(item.sellPrice)}</td>
+        <td class="price">${formatPrice(item.sellNet)}</td>
+        <td class="${item.profitVal >= 0 ? "profit" : "loss"}">${formatPrice(item.profitVal)}</td>
         <td class="${item.profitPercent >= 0 ? "profit" : "loss"}">${percent(item.profitPercent)}</td>
       </tr>`;
     }).join("");
@@ -793,7 +791,6 @@ async function init(){
     const response = await fetch("/api/config");
     const config = await response.json();
     markets = config.markets || [];
-    currencies = config.currencies || {};
     fees = config.fees || {};
 
     fillMarkets();
@@ -812,18 +809,21 @@ function fillMarkets(){
   sell.innerHTML = "";
 
   markets.forEach(m =>{
-    const curr = currencies[m] === "USD" ? "$" : "₽";
     const oB = document.createElement("option");
-    oB.value = m; oB.textContent = `${m} (${curr})`;
+    oB.value = m; oB.textContent = `${m} ($)`;
     buy.appendChild(oB);
 
     const oS = document.createElement("option");
-    oS.value = m; oS.textContent = `${m} (${curr})`;
+    oS.value = m; oS.textContent = `${m} ($)`;
     sell.appendChild(oS);
   });
 
-  buy.value = localStorage.getItem("buyMarket") || "MARKET.CSGO";
-  sell.value = localStorage.getItem("sellMarket") || "LOOT.FARM";
+  const savedBuy = localStorage.getItem("buyMarket");
+  const savedSell = localStorage.getItem("sellMarket");
+  buy.value = markets.includes(savedBuy) ? savedBuy : (markets[0] || "");
+  sell.value = markets.includes(savedSell) && savedSell !== buy.value
+    ? savedSell
+    : (markets.find(market => market !== buy.value) || "");
 }
 
 init();

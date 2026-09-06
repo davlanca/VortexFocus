@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require("fs/promises");
 const path = require("path");
 
 const app = express();
@@ -28,7 +27,7 @@ function logError(tag, message) {
 }
 
 /* =========================================================
-   7 MARKETS & NATIVE CURRENCIES & FEES
+   MARKETS & FEES
 ========================================================= */
 
 const DEFAULT_MARKETS = [
@@ -43,16 +42,6 @@ const DEFAULT_MARKETS = [
 
 let MARKETS = [...DEFAULT_MARKETS];
 
-const MARKET_CURRENCIES = {
-  "MARKET.CSGO": "RUB",
-  "LIS-SKINS": "RUB",
-  "AVAN.MARKET": "RUB",
-  "STEAM": "RUB",
-  "LOOT.FARM": "RUB",
-  "CS.MONEY": "RUB",
-  "BUFF.163": "RUB"
-};
-
 const DEFAULT_FEES = {
   "MARKET.CSGO": { sell: 5.0, buy: 0, deposit: 0 },
   "LIS-SKINS": { sell: 0.0, buy: 0, deposit: 0 },
@@ -65,24 +54,18 @@ const DEFAULT_FEES = {
 
 let fees = JSON.parse(JSON.stringify(DEFAULT_FEES));
 
-function registerMarket(name, currency = "USD") {
+function normalizeMarketName(name) {
   const rawMarket = String(name || "").trim();
   const aliases = {
-    "STEAM": "STEAM",
-    "MARKET.CSGO": "MARKET.CSGO",
-    "LIS-SKINS": "LIS-SKINS",
+    "MARKET.CSGO": "Market.CSGO",
+    "STEAM MARKET": "Steam",
+    "STEAM": "Steam",
+    "SKINPORT.COM": "Skinport",
     "CS.MONEY": "CS.MONEY",
+    "LIS-SKINS": "LIS-SKINS",
     "BUFF.163": "BUFF.163"
   };
-  const market = aliases[rawMarket.toUpperCase()] || rawMarket;
-  if (!market) return "";
-
-  if (!MARKETS.includes(market)) {
-    MARKETS.push(market);
-  }
-  MARKET_CURRENCIES[market] = currency || MARKET_CURRENCIES[market] || "USD";
-  fees[market] ||= { sell: 0, buy: 0, deposit: 0 };
-  return market;
+  return aliases[rawMarket.toUpperCase()] || rawMarket;
 }
 
 const BROWSER_HEADERS = {
@@ -92,58 +75,16 @@ const BROWSER_HEADERS = {
   "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
   "Cache-Control": "no-cache"
 };
-const PRICEMPIRE_API_KEY = process.env.PRICEMPIRE_API_KEY || "";
-const RUB_PER_USD = Number(process.env.RUB_PER_USD || 95);
 const GITHUB_JSON_API = "https://api.github.com/repos/davlanca/VortexFocus/contents/json";
-const STEAM_CURRENCY_URL = "https://steam-currency.ru/?pair=USD%3ARUB";
 
 /* =========================================================
    CENTRAL PRICE DATABASE & DIAGNOSTICS LOGS
 ========================================================= */
 
-// Map: market_hash_name -> { isLiquid: boolean, prices: { [market]: { value, currency, source } } }
+// Map: market_hash_name -> { isLiquid: boolean, prices: { [market]: { value, source } } }
 const priceDatabase = new Map();
 const endpointDiagnostics = {};
 let refreshPromise = null;
-let currentRubPerUsd = RUB_PER_USD;
-const LIVE_JSON_DIR = path.join(__dirname, "json");
-
-async function saveLivePricesJson() {
-  const skins = [];
-
-  for (const [name, itemData] of priceDatabase.entries()) {
-    const livePrices = Object.entries(itemData.prices || {})
-      .filter(([, price]) => price?.isLive === true && Number(price.value) > 0)
-      .map(([market, price]) => ({
-        market,
-        price: Number(price.value.toFixed(2)),
-        currency: price.currency || "USD",
-        has_price: true,
-        url: price.url || "",
-        source: price.source || "",
-        fetched_at: price.fetchedAt || new Date().toISOString()
-      }));
-
-    if (!livePrices.length) continue;
-
-    skins.push({
-      name,
-      prices: livePrices
-    });
-  }
-
-  await fs.mkdir(LIVE_JSON_DIR, { recursive: true });
-  const filename = `live_prices_${new Date().toISOString().slice(0, 10)}.json`;
-  const outputPath = path.join(LIVE_JSON_DIR, filename);
-  await fs.writeFile(outputPath, JSON.stringify({
-    generated_at: new Date().toISOString(),
-    rub_per_usd: currentRubPerUsd,
-    sources: [...new Set(skins.flatMap(skin => skin.prices.map(price => price.market)))],
-    skins
-  }, null, 2), "utf8");
-
-  logInfo("JSON", `Сохранены реальные цены: ${skins.length} предметов в ${filename}`);
-}
 
 /* =========================================================
    DIAGNOSTIC NETWORK INSPECTOR
@@ -228,211 +169,44 @@ async function inspectedFetch(endpointName, url, options = {}) {
   }
 }
 
-async function parseCurrentRubPerUsd() {
-  const startTime = Date.now();
-  try {
-    const response = await fetch(STEAM_CURRENCY_URL, {
-      headers: BROWSER_HEADERS,
-      signal: AbortSignal.timeout(10000)
-    });
-    const html = await response.text();
-    const match = html.match(/id=["']currentRate["'][^>]*data-raw=["']([0-9.,]+)["']/i);
-    const rate = Number((match?.[1] || "").replace(",", "."));
-    if (!response.ok || !Number.isFinite(rate) || rate <= 0) {
-      throw new Error(`Курс не найден (HTTP ${response.status})`);
-    }
-    currentRubPerUsd = rate;
-    endpointDiagnostics["USD.RUB"] = {
-      endpointName: "USD.RUB",
-      url: STEAM_CURRENCY_URL,
-      status: response.status,
-      duration: `${Date.now() - startTime}ms`,
-      rate,
-      timestamp: new Date().toISOString(),
-      ok: true
-    };
-    logInfo("CURRENCY", `Текущий курс USD/RUB: ${rate}`);
-    return rate;
-  } catch (error) {
-    endpointDiagnostics["USD.RUB"] = {
-      endpointName: "USD.RUB",
-      url: STEAM_CURRENCY_URL,
-      error: error.message,
-      duration: `${Date.now() - startTime}ms`,
-      rate: currentRubPerUsd,
-      timestamp: new Date().toISOString(),
-      ok: false
-    };
-    logWarn("CURRENCY", `Не удалось получить курс, используется ${currentRubPerUsd}: ${error.message}`);
-    return currentRubPerUsd;
-  }
-}
-
 /* =========================================================
-   TOP LIQUID CS2 CATALOG
+   LIQUID CATALOG
 ========================================================= */
 
 const LIQUID_CATALOG = [
-  { name: "AK-47 | Redline (Field-Tested)", market_rub: 1650, lis_rub: 1520, avan_rub: 1510, steam_rub: 2180, lootfarm_usd: 16.80, csmoney_usd: 17.50, buff_usd: 16.90 },
-  { name: "AK-47 | Slate (Field-Tested)", market_rub: 330, lis_rub: 300, avan_rub: 295, steam_rub: 435, lootfarm_usd: 3.30, csmoney_usd: 3.45, buff_usd: 3.30 },
-  { name: "AK-47 | Asiimov (Field-Tested)", market_rub: 2520, lis_rub: 2310, avan_rub: 2290, steam_rub: 3350, lootfarm_usd: 25.20, csmoney_usd: 26.10, buff_usd: 25.50 },
-  { name: "AK-47 | Ice Coaled (Factory New)", market_rub: 1540, lis_rub: 1420, avan_rub: 1400, steam_rub: 2050, lootfarm_usd: 15.50, csmoney_usd: 16.10, buff_usd: 15.70 },
-  { name: "AK-47 | Vulcan (Field-Tested)", market_rub: 13800, lis_rub: 12600, avan_rub: 12500, steam_rub: 18000, lootfarm_usd: 136.00, csmoney_usd: 141.00, buff_usd: 138.00 },
-  { name: "AWP | Asiimov (Field-Tested)", market_rub: 8750, lis_rub: 8050, avan_rub: 8000, steam_rub: 11500, lootfarm_usd: 87.00, csmoney_usd: 90.50, buff_usd: 88.00 },
-  { name: "AWP | Neo-Noir (Factory New)", market_rub: 2840, lis_rub: 2600, avan_rub: 2580, steam_rub: 3750, lootfarm_usd: 28.20, csmoney_usd: 29.30, buff_usd: 28.50 },
-  { name: "AWP | Atheris (Field-Tested)", market_rub: 230, lis_rub: 210, avan_rub: 205, steam_rub: 305, lootfarm_usd: 2.25, csmoney_usd: 2.40, buff_usd: 2.30 },
-  { name: "M4A1-S | Printstream (Field-Tested)", market_rub: 10600, lis_rub: 9650, avan_rub: 9600, steam_rub: 14000, lootfarm_usd: 105.00, csmoney_usd: 109.50, buff_usd: 106.00 },
-  { name: "M4A1-S | Decimator (Field-Tested)", market_rub: 1310, lis_rub: 1200, avan_rub: 1190, steam_rub: 1750, lootfarm_usd: 13.10, csmoney_usd: 13.70, buff_usd: 13.30 },
-  { name: "M4A1-S | Hyper Beast (Field-Tested)", market_rub: 1960, lis_rub: 1790, avan_rub: 1770, steam_rub: 2600, lootfarm_usd: 19.50, csmoney_usd: 20.40, buff_usd: 19.80 },
-  { name: "M4A4 | The Emperor (Field-Tested)", market_rub: 1130, lis_rub: 1030, avan_rub: 1020, steam_rub: 1500, lootfarm_usd: 11.20, csmoney_usd: 11.80, buff_usd: 11.40 },
-  { name: "USP-S | Printstream (Field-Tested)", market_rub: 3550, lis_rub: 3250, avan_rub: 3220, steam_rub: 4700, lootfarm_usd: 35.20, csmoney_usd: 36.80, buff_usd: 35.80 },
-  { name: "USP-S | Cortex (Factory New)", market_rub: 755, lis_rub: 690, avan_rub: 680, steam_rub: 995, lootfarm_usd: 7.45, csmoney_usd: 7.85, buff_usd: 7.60 },
-  { name: "USP-S | Kill Confirmed (Field-Tested)", market_rub: 4650, lis_rub: 4250, avan_rub: 4220, steam_rub: 6150, lootfarm_usd: 46.20, csmoney_usd: 48.20, buff_usd: 46.80 },
-  { name: "Desert Eagle | Printstream (Field-Tested)", market_rub: 3300, lis_rub: 3020, avan_rub: 2990, steam_rub: 4350, lootfarm_usd: 32.80, csmoney_usd: 34.20, buff_usd: 33.20 },
-  { name: "★ Karambit | Doppler (Factory New)", market_rub: 81000, lis_rub: 74000, avan_rub: 73500, steam_rub: 106000, lootfarm_usd: 800.00, csmoney_usd: 840.00, buff_usd: 810.00 },
-  { name: "★ Butterfly Knife | Doppler (Factory New)", market_rub: 139000, lis_rub: 127000, avan_rub: 126000, steam_rub: 182000, lootfarm_usd: 1370.00, csmoney_usd: 1430.00, buff_usd: 1390.00 },
-  { name: "Recoil Case", market_rub: 25.0, lis_rub: 22.5, avan_rub: 22.0, steam_rub: 33.0, lootfarm_usd: 0.25, csmoney_usd: 0.26, buff_usd: 0.25 },
-  { name: "Revolution Case", market_rub: 30.0, lis_rub: 27.0, avan_rub: 26.5, steam_rub: 40.0, lootfarm_usd: 0.30, csmoney_usd: 0.31, buff_usd: 0.30 },
-  { name: "Dreams & Nightmares Case", market_rub: 85.0, lis_rub: 76.5, avan_rub: 75.5, steam_rub: 112.0, lootfarm_usd: 0.84, csmoney_usd: 0.88, buff_usd: 0.85 },
-  { name: "Fracture Case", market_rub: 34.5, lis_rub: 31.0, avan_rub: 30.5, steam_rub: 45.5, lootfarm_usd: 0.34, csmoney_usd: 0.36, buff_usd: 0.35 },
-  { name: "Clutch Case", market_rub: 63.0, lis_rub: 57.0, avan_rub: 56.0, steam_rub: 83.5, lootfarm_usd: 0.62, csmoney_usd: 0.65, buff_usd: 0.63 }
+  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 },
+  { name: "AK-47 | Slate (Field-Tested)", usd: 3.30 },
+  { name: "AK-47 | Asiimov (Field-Tested)", usd: 25.20 },
+  { name: "AK-47 | Ice Coaled (Factory New)", usd: 15.50 },
+  { name: "AK-47 | Vulcan (Field-Tested)", usd: 136.00 },
+  { name: "AWP | Asiimov (Field-Tested)", usd: 87.00 },
+  { name: "AWP | Neo-Noir (Factory New)", usd: 28.20 },
+  { name: "AWP | Atheris (Field-Tested)", usd: 2.25 },
+  { name: "M4A1-S | Printstream (Field-Tested)", usd: 105.00 },
+  { name: "M4A1-S | Decimator (Field-Tested)", usd: 13.10 },
+  { name: "M4A1-S | Hyper Beast (Field-Tested)", usd: 19.50 },
+  { name: "M4A4 | The Emperor (Field-Tested)", usd: 11.20 },
+  { name: "USP-S | Printstream (Field-Tested)", usd: 35.20 },
+  { name: "USP-S | Cortex (Factory New)", usd: 7.45 },
+  { name: "USP-S | Kill Confirmed (Field-Tested)", usd: 46.20 },
+  { name: "Desert Eagle | Printstream (Field-Tested)", usd: 32.80 },
+  { name: "★ Karambit | Doppler (Factory New)", usd: 800.00 },
+  { name: "★ Butterfly Knife | Doppler (Factory New)", usd: 1370.00 },
+  { name: "Recoil Case", usd: 0.25 },
+  { name: "Revolution Case", usd: 0.30 },
+  { name: "Dreams & Nightmares Case", usd: 0.84 },
+  { name: "Fracture Case", usd: 0.34 },
+  { name: "Clutch Case", usd: 0.62 }
 ];
 
 function initDatabase() {
   LIQUID_CATALOG.forEach(item => {
     priceDatabase.set(item.name, {
       isLiquid: true,
-      prices: {
-        "MARKET.CSGO": { value: item.market_rub / RUB_PER_USD, currency: "USD", source: "Market.CSGO Резерв", isLive: false },
-        "LIS-SKINS": { value: item.lis_rub / RUB_PER_USD, currency: "USD", source: "Lis-Skins Резерв", isLive: false },
-        "AVAN.MARKET": { value: item.avan_rub / RUB_PER_USD, currency: "USD", source: "Avan.Market Резерв", isLive: false },
-        "STEAM": { value: item.steam_rub / RUB_PER_USD, currency: "USD", source: "Steam Резерв", isLive: false },
-        "LOOT.FARM": { value: item.lootfarm_usd, currency: "USD", source: "Loot.Farm Резерв", isLive: false },
-        "CS.MONEY": { value: item.csmoney_usd, currency: "USD", source: "CS.Money Резерв", isLive: false },
-        "BUFF.163": { value: item.buff_usd, currency: "USD", source: "Buff.163 Резерв", isLive: false }
-      }
+      prices: {}
     });
   });
-  logInfo("INIT", `База инициализирована (${priceDatabase.size} ликвидных скинов для 7 магазинов)`);
-}
-
-/* =========================================================
-   PARSERS
-========================================================= */
-
-// 1. MARKET.CSGO (RUB-дамп, совпадает с ценой на странице магазина)
-async function parseMarketCSGO() {
-  const url = "https://market.csgo.com/api/v2/prices/RUB.json";
-  try {
-    const res = await inspectedFetch("MARKET.CSGO", url, { signal: AbortSignal.timeout(12000) });
-    let count = 0;
-
-    if (res.data?.items && Array.isArray(res.data.items)) {
-      res.data.items.forEach(item => {
-        const name = item.market_hash_name;
-        const rub = Number(item.price);
-        if (name && rub > 0.5) {
-          const entry = priceDatabase.get(name) || { isLiquid: false, prices: {} };
-          entry.prices["MARKET.CSGO"] = {
-            value: Number(rub.toFixed(2)),
-            currency: "RUB",
-            source: "Market.CSGO RUB Live API",
-            isLive: true,
-            fetchedAt: new Date().toISOString()
-          };
-          priceDatabase.set(name, entry);
-          count++;
-        }
-      });
-    }
-    logInfo("PARSER: MARKET.CSGO", `Успешно спарсено ${count} цен в RUB`);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-
-// 2. LOOT.FARM (USD центы дамп)
-async function parseLootFarm() {
-  const url = "https://loot.farm/fullprice.json";
-  try {
-    const res = await inspectedFetch("LOOT.FARM", url, { signal: AbortSignal.timeout(12000) });
-    let count = 0;
-
-    if (Array.isArray(res.data)) {
-      res.data.forEach(item => {
-        const name = item.name;
-        const usd = Number((item.price / 100).toFixed(2));
-        if (name && usd > 0.05) {
-          const entry = priceDatabase.get(name) || { isLiquid: false, prices: {} };
-          entry.prices["LOOT.FARM"] = {
-            value: usd,
-            currency: "USD",
-            source: "Loot.Farm Live API",
-            isLive: true,
-            fetchedAt: new Date().toISOString()
-          };
-          priceDatabase.set(name, entry);
-          count++;
-        }
-      });
-    }
-    logInfo("PARSER: LOOT.FARM", `Успешно спарсено ${count} цен в USD`);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-
-// 3. PRICEEMPIRE (Buff.163 и skins.com)
-async function parsePriceEmpire() {
-  if (!PRICEMPIRE_API_KEY) {
-    logWarn("PARSER: PRICEEMPIRE", "PRICEMPIRE_API_KEY не задан, импорт пропущен");
-    return false;
-  }
-
-  const query = new URLSearchParams({
-    api_key: PRICEMPIRE_API_KEY,
-    app_id: "730",
-    sources: "buff163,skins",
-    currency: "USD"
-  });
-  const url = `https://api.pricempire.com/v4/trader/items/prices?${query}`;
-
-  try {
-    const res = await inspectedFetch("PRICEEMPIRE", url, { signal: AbortSignal.timeout(30000) });
-    let count = 0;
-    let skipped = 0;
-
-    if (Array.isArray(res.data)) {
-      res.data.forEach(item => {
-        const name = item.market_hash_name;
-        const buffPrice = item.prices?.find(price => price.provider_key === "buff163");
-        const usd = Number(buffPrice?.price) / 100;
-
-        if (!name || !Number.isFinite(usd) || usd <= 0) {
-          skipped++;
-          return;
-        }
-
-        const entry = priceDatabase.get(name) || { isLiquid: false, prices: {} };
-        entry.prices["BUFF.163"] = {
-          value: usd,
-          currency: "USD",
-          source: "Pricempire / Buff.163 Live API",
-          isLive: true,
-          fetchedAt: buffPrice.updated_at || new Date().toISOString()
-        };
-        priceDatabase.set(name, entry);
-        count++;
-      });
-    }
-
-    logInfo("PARSER: PRICEEMPIRE", `Buff.163: ${count} цен, пропущено: ${skipped}; skins.com оставлен отдельным источником`);
-    return true;
-  } catch (err) {
-    return false;
-  }
+  logInfo("INIT", `База инициализирована (${priceDatabase.size} ликвидных скинов)`);
 }
 
 function applyScraperJsonItem(item, source, updatedAt) {
@@ -457,7 +231,7 @@ function applyScraperJsonItem(item, source, updatedAt) {
     const value = Number(priceItem.price);
     if (!priceItem.has_price || !Number.isFinite(value) || value <= 0) return;
 
-    const market = registerMarket(priceItem.market, priceItem.currency);
+    const market = normalizeMarketName(priceItem.market);
     if (!market) return;
     const wear = wearNames[priceItem.wear] || priceItem.wear || "";
     const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
@@ -520,11 +294,19 @@ async function parseLatestGithubSteamJson() {
 
     const items = Array.isArray(data?.skins) ? data.skins : [];
     let count = 0;
+    const availableMarkets = new Set();
     items.forEach(item => {
       if (applyGithubItem(item, `VortexFocus ${latestName}`, item.price?.updated_at)) {
         count++;
       }
+      for (const price of item.prices || []) {
+        const market = normalizeMarketName(price.market);
+        if (market && price.has_price && Number(price.price) > 0) {
+          availableMarkets.add(market);
+        }
+      }
     });
+    MARKETS = [...availableMarkets];
     logInfo("PARSER: STEAM.JSON", `Файл ${latestName}: ${count} предметов в USD`);
     return true;
   } catch (error) {
@@ -533,9 +315,9 @@ async function parseLatestGithubSteamJson() {
   }
 }
 
-// 5. STEAM (Точечный запрос в RUB: currency=5)
+// 5. STEAM (Точечный запрос в USD: currency=1)
 async function fetchSteamLivePrice(marketHashName) {
-  const url = `https://steamcommunity.com/market/priceoverview/?appid=730&currency=5&market_hash_name=${encodeURIComponent(
+  const url = `https://steamcommunity.com/market/priceoverview/?appid=730&currency=1&market_hash_name=${encodeURIComponent(
     marketHashName
   )}`;
   try {
@@ -546,13 +328,13 @@ async function fetchSteamLivePrice(marketHashName) {
         .replace("pуб.", "")
         .replace("руб.", "")
         .replace(",", ".");
-      const numRub = Number(clean);
-      if (numRub > 0) {
-        logInfo("STEAM LIVE", `"${marketHashName}" = ${numRub} ₽`);
+      const numUsd = Number(clean);
+      if (numUsd > 0) {
+        logInfo("STEAM LIVE", `"${marketHashName}" = $${numUsd}`);
         return {
-          value: Number((numRub / currentRubPerUsd).toFixed(2)),
+          value: Number(numUsd.toFixed(2)),
           currency: "USD",
-          source: "Steam Live API (Обычный, отображение в RUB)",
+          source: "Steam Live API (Обычный, отображение в USD)",
           isLive: true,
           fetchedAt: new Date().toISOString()
         };
@@ -612,7 +394,7 @@ function getFee(market, type) {
   return Math.max(0, Number(data[type]) || 0);
 }
 
-function calculateTrade({ buyPrice, sellPrice, buyCurrency, sellCurrency, buyMarket, sellMarket }) {
+function calculateTrade({ buyPrice, sellPrice, buyMarket, sellMarket }) {
   const buyFee = getFee(buyMarket, "buy");
   const depositFee = getFee(buyMarket, "deposit");
   const sellFee = getFee(sellMarket, "sell");
@@ -623,30 +405,21 @@ function calculateTrade({ buyPrice, sellPrice, buyCurrency, sellCurrency, buyMar
 
   const sellFeeVal = sellPrice * (sellFee / 100);
   const sellNet = sellPrice - sellFeeVal;
-  const toRub = (value, currency) => currency === "USD" ? value * currentRubPerUsd : value;
 
-  const buyInUsd = buyCurrency === "RUB" ? buyTotal / currentRubPerUsd : buyTotal;
-  const sellInUsd = sellCurrency === "RUB" ? sellNet / currentRubPerUsd : sellNet;
-  let profitVal = sellInUsd - buyInUsd;
-  let profitPercent = 0;
-
-  if (buyCurrency === sellCurrency) {
-    profitPercent = buyInUsd > 0 ? (profitVal / buyInUsd) * 100 : 0;
-  } else {
-    profitPercent = buyInUsd > 0 ? (profitVal / buyInUsd) * 100 : 0;
-  }
+  const profitVal = sellNet - buyTotal;
+  const profitPercent = buyTotal > 0 ? (profitVal / buyTotal) * 100 : 0;
 
   return {
-    buyPrice: Number(toRub(buyPrice, buyCurrency).toFixed(2)),
-    buyCurrency: "RUB",
-    buyFeeVal: Number(toRub(buyFeeVal, buyCurrency).toFixed(2)),
-    depositFeeVal: Number(toRub(depositFeeVal, buyCurrency).toFixed(2)),
-    buyTotal: Number(toRub(buyTotal, buyCurrency).toFixed(2)),
-    sellPrice: Number(toRub(sellPrice, sellCurrency).toFixed(2)),
-    sellCurrency: "RUB",
-    sellFeeVal: Number(toRub(sellFeeVal, sellCurrency).toFixed(2)),
-    sellNet: Number(toRub(sellNet, sellCurrency).toFixed(2)),
-    profitVal: Number((profitVal * currentRubPerUsd).toFixed(2)),
+    buyPrice: Number(buyPrice.toFixed(2)),
+    buyCurrency: "USD",
+    buyFeeVal: Number(buyFeeVal.toFixed(2)),
+    depositFeeVal: Number(depositFeeVal.toFixed(2)),
+    buyTotal: Number(buyTotal.toFixed(2)),
+    sellPrice: Number(sellPrice.toFixed(2)),
+    sellCurrency: "USD",
+    sellFeeVal: Number(sellFeeVal.toFixed(2)),
+    sellNet: Number(sellNet.toFixed(2)),
+    profitVal: Number(profitVal.toFixed(2)),
     profitPercent
   };
 }
@@ -659,8 +432,6 @@ app.get("/api/config", (req, res) => {
   res.json({
     success: true,
     markets: MARKETS,
-    currencies: MARKET_CURRENCIES,
-    rubPerUsd: currentRubPerUsd,
     fees,
     totalItems: priceDatabase.size
   });
@@ -669,7 +440,6 @@ app.get("/api/config", (req, res) => {
 app.get("/api/diagnostic", (req, res) => {
   res.json({
     success: true,
-    rubPerUsd: currentRubPerUsd,
     diagnostics: endpointDiagnostics,
     totalItems: priceDatabase.size,
     sampleSkins: [...priceDatabase.entries()].slice(0, 5).map(([name, data]) => ({
@@ -716,8 +486,8 @@ app.post("/api/arbitrage", async (req, res) => {
       await refreshPromise;
     }
     const body = req.body || {};
-    const buyMarket = String(body.buyMarket || "").trim();
-    const sellMarket = String(body.sellMarket || "").trim();
+    const buyMarket = normalizeMarketName(body.buyMarket);
+    const sellMarket = normalizeMarketName(body.sellMarket);
     const onlyLiquid = Boolean(body.onlyLiquid);
 
     const minProfit =
@@ -774,9 +544,7 @@ app.post("/api/arbitrage", async (req, res) => {
 
       const calc = calculateTrade({
         buyPrice: buyEntry.value,
-        buyCurrency: buyEntry.currency,
         sellPrice: sellEntry.value,
-        sellCurrency: sellEntry.currency,
         buyMarket,
         sellMarket
       });
