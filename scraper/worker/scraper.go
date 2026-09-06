@@ -14,7 +14,7 @@ import (
 	"github.com/eovacius/csgodatabase-scraper/scraper/discovery"
 )
 
-// ScrapeSkins runs the scraper and returns skins and agents in the format expected by main.go.
+// ScrapeSkins runs the scraper and returns skins in the format expected by main.go.
 func ScrapeSkins() ([]config.Skin, []config.Agent, error) {
 	items, err := Scrape()
 	if err != nil {
@@ -22,20 +22,17 @@ func ScrapeSkins() ([]config.Skin, []config.Agent, error) {
 	}
 
 	var skins []config.Skin
+	// Agents are empty in this focused version
 	var agents []config.Agent
 
 	for _, it := range items {
-		if it.Category == "agents" {
-			agents = append(agents, internal.ConvertToAgent(it))
-		} else {
-			skins = append(skins, internal.ConvertToSkin(it))
-		}
+		skins = append(skins, internal.ConvertToSkin(it))
 	}
 
 	return skins, agents, nil
 }
 
-// Scrape runs all configured category scrapers in parallel browser tabs.
+// Scrape runs the focused weapons scraper.
 func Scrape() ([]config.Item, error) {
 	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), config.Opts...)
 	defer cancel()
@@ -56,111 +53,73 @@ func Scrape() ([]config.Item, error) {
 		wg  sync.WaitGroup
 	)
 
-	for _, cat := range config.AllCategories {
-		wg.Add(1)
-		go func(c config.Category) {
-			defer wg.Done()
-			var items []config.Item
+	// In this version, we only care about Weapons
+	cat := config.AllCategories[0] // Weapons
 
-			if c.Slug == "skins" {
-				items = runSkinsCategory(browserCtx, c)
-			} else {
-				items = runCategory(browserCtx, c)
-			}
+	wg.Add(1)
+	go func(c config.Category) {
+		defer wg.Done()
+		items := runWeaponsFlow(browserCtx, c)
 
-			mu.Lock()
-			all = append(all, items...)
-			mu.Unlock()
+		mu.Lock()
+		all = append(all, items...)
+		mu.Unlock()
 
-			fmt.Printf("\033[32m[+]\033[0m Done %s (%d items)\n", c.DisplayName, len(items))
-		}(cat)
-	}
+		fmt.Printf("\033[32m[+]\033[0m Done Weapons flow (%d total items)\n", len(items))
+	}(cat)
 
 	wg.Wait()
 	return all, nil
 }
 
-// runSkinsCategory implements the nested flow: /skins/ -> Collections -> Skins
-func runSkinsCategory(parent context.Context, cat config.Category) []config.Item {
+// runWeaponsFlow implements: /weapons/ -> Weapon -> Skins -> Prices
+func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
 
-	fmt.Printf("\n\033[36m[*] Discovering Collections for /skins/...\033[0m\n")
-	colls, err := discovery.Discover(ictx, discovery.Options{
-		Category: "skins",
+	fmt.Printf("\n\033[36m[*] Step 1: Discovering all Weapons from /weapons/...\033[0m\n")
+	weapons, err := discovery.Discover(ictx, discovery.Options{
+		Category: "weapons",
 	})
 	if err != nil {
-		fmt.Printf("\033[31m[!]\033[0m Collection discovery failed: %v\n", err)
+		fmt.Printf("\033[31m[!]\033[0m Weapon discovery failed: %v\n", err)
 		return nil
 	}
 
-	var allSkins []config.Item
-	for _, col := range colls {
-		fmt.Printf("\033[36m   -> Collection: %s\033[0m\n", col.Name)
+	var allItems []config.Item
+	for _, w := range weapons {
+		fmt.Printf("\033[36m[*] Step 2: Discovering all Skins for weapon: %s\033[0m\n", w.Name)
+
+		// Each weapon page contains a list of skins
 		skinSlugs, err := discovery.Discover(ictx, discovery.Options{
-			Category: col.URL, // Use the full URL discovered
+			Category: w.URL,
 		})
 		if err != nil {
+			fmt.Printf("\033[31m[!]\033[0m Skin discovery failed for %s: %v\n", w.Name, err)
 			continue
 		}
+
+		fmt.Printf("\033[36m[*] Step 3: Scraping prices for %d skins of %s...\033[0m\n", len(skinSlugs), w.Name)
 
 		optsList := make([]common.FetchOptions, 0, len(skinSlugs))
 		for _, s := range skinSlugs {
 			optsList = append(optsList, common.FetchOptions{
-				URL:        s.URL,
-				Category:   "skins",
-				HasWear:    true,
-				Slug:       s.Slug,
-				Name:       s.Name,
-				Collection: col.Name,
+				URL:      s.URL,
+				Category: "weapons",
+				HasWear:  true,
+				Slug:     s.Slug,
+				Name:     s.Name,
+				Weapon:   w.Name,
 			})
 		}
-		items := common.FetchManyItems(ictx, optsList)
-		allSkins = append(allSkins, items...)
+
+		// Use a local context for fetching many items to avoid session bloat
+		fetchCtx, fCancel := chromedp.NewContext(ictx)
+		items := common.FetchManyItems(fetchCtx, optsList)
+		fCancel()
+
+		allItems = append(allItems, items...)
 	}
 
-	return allSkins
-}
-
-// runCategory scrapes a single category.
-func runCategory(parent context.Context, cat config.Category) []config.Item {
-	ictx, cancel := chromedp.NewContext(parent)
-	defer cancel()
-
-	slugs := cat.SlugList
-	if slugs == nil {
-		fmt.Printf("\n\033[36m[*] Discovering items for /%s/ via pagination...\033[0m\n", cat.Slug)
-		discovered, err := discovery.Discover(ictx, discovery.Options{
-			Category: cat.Slug,
-		})
-		if err != nil {
-			fmt.Printf("\033[31m[!]\033[0m Discovery failed for %s: %v\n", cat.Slug, err)
-			return nil
-		}
-
-		optsList := make([]common.FetchOptions, 0, len(discovered))
-		for _, it := range discovered {
-			optsList = append(optsList, common.FetchOptions{
-				URL:      it.URL,
-				Category: cat.Slug,
-				HasWear:  cat.HasWear,
-				Slug:     it.Slug,
-				Name:     it.Name,
-			})
-		}
-		return common.FetchManyItems(ictx, optsList)
-	}
-
-	optsList := make([]common.FetchOptions, 0, len(slugs))
-	for _, s := range slugs {
-		optsList = append(optsList, common.FetchOptions{
-			URL:      fmt.Sprintf("%s/%s/%s/", config.Target, cat.Slug, s),
-			Category: cat.Slug,
-			HasWear:  cat.HasWear,
-			Slug:     s,
-			Name:     internal.Humanize(s),
-		})
-	}
-
-	return common.FetchManyItems(ictx, optsList)
+	return allItems
 }

@@ -1,5 +1,4 @@
-// main configuration file where you can set options for scraper,
-// add/remove subdomains, change constants for scraper settings etc.
+// main configuration file where you can set options for scraper.
 package config
 
 import (
@@ -11,7 +10,7 @@ import (
 // Scraper-wide settings.
 var (
 	Target   = "https://www.csgodatabase.com"
-	DeadLine = 30 * time.Minute
+	DeadLine = 60 * time.Minute // Increased for deep weapon/skin scraping
 	Delay    = 1500 * time.Millisecond
 	Workers  = 4
 	Headless = true
@@ -32,83 +31,24 @@ var Opts = append(chromedp.DefaultExecAllocatorOptions[:],
 	chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"),
 )
 
-// Category describes one of the 12 categories to scrape.
+// Category describes a scraper category.
 type Category struct {
 	Slug        string
 	DisplayName string
 	HasWear     bool
 	HasWeapon   bool
-	// SlugList is the hardcoded list of slugs. If empty, scraper will
-	// auto-discover slugs by crawling the category page.
-	SlugList []string
+	SlugList    []string
 }
 
-// AllCategories is the list of 12 categories.
+// AllCategories now focuses exclusively on Weapons.
 var AllCategories = []Category{
 	{
-		Slug: "cases", DisplayName: "Cases",
-		HasWear: false, HasWeapon: true,
-		SlugList: []string{
-			"kilowatt-case", "revolution-case", "recoil-case", "dreams-nightmares-case",
-			"snakebite-case", "fracture-case", "prisma-2-case", "cs20-case",
-			"prisma-case", "danger-zone-case", "horizon-case", "clutch-case",
-			"spectrum-2-case", "operation-hydra-case", "spectrum-case", "glove-case",
-			"gamma-2-case", "gamma-case", "chroma-3-case", "operation-wildfire-case",
-			"revolver-case", "shadow-case", "falchion-case", "chroma-2-case",
-			"chroma-case", "operation-vanguard-weapon-case", "operation-breakout-weapon-case",
-			"huntsman-weapon-case", "operation-phoenix-weapon-case", "csgo-weapon-case-3",
-			"winter-offensive-weapon-case", "csgo-weapon-case-2", "operation-bravo-case",
-			"csgo-weapon-case", "fever-case", "gallery-case", "operation-riptide-case",
-			"operation-broken-fang-case", "shattered-web-case", "esports-2014-summer-case",
-			"esports-2013-winter-case", "esports-2013-case", "anubis-collection-package",
-			"x-ray-p250-package",
-		},
+		Slug:        "weapons",
+		DisplayName: "Weapons",
+		HasWear:     true,
+		HasWeapon:   true,
+		SlugList:    nil,
 	},
-	{
-		Slug: "collections", DisplayName: "Collections",
-		HasWear: false, HasWeapon: true,
-		SlugList: []string{
-			"the-2018-inferno-collection", "the-2018-nuke-collection", "the-ascent-collection",
-			"the-boreal-collection", "the-dust-2-collection", "the-radiant-collection",
-			"the-safehouse-collection", "limited-edition-item", "the-graphic-design-collection",
-			"the-overpass-2024-collection", "the-sport-field-collection",
-			"the-train-2025-collection", "the-2021-dust-2-collection", "the-2021-mirage-collection",
-			"the-2021-train-collection", "the-2021-vertigo-collection", "the-ancient-collection",
-			"the-control-collection", "the-havoc-collection", "the-canals-collection",
-			"the-norse-collection", "the-st-marc-collection", "the-cache-collection",
-			"the-chop-shop-collection", "the-cobblestone-collection", "the-gods-and-monsters-collection",
-			"the-overpass-collection", "the-rising-sun-collection", "the-anubis-collection",
-			"the-assault-collection", "the-aztec-collection", "the-baggage-collection",
-			"the-bank-collection", "the-dust-collection", "the-inferno-collection",
-			"the-italy-collection", "the-lake-collection", "the-militia-collection",
-			"the-mirage-collection", "the-nuke-collection", "the-office-collection",
-			"the-train-collection", "the-vertigo-collection", "the-alpha-collection",
-			"the-blacksite-collection",
-		},
-	},
-	{
-		Slug: "agents", DisplayName: "Agents",
-		HasWear: false, HasWeapon: false,
-		SlugList: []string{
-			"chef-descadron-rouchard-gendarmerie-nationale", "medium-rare-crasswater-guerrilla-warfare",
-			"cmdr-frank-wet-sox-baroud-seal-frogman", "bloody-darryl-the-strapped-the-professionals",
-			"lieutenant-tree-hugger-farlow-swat", "primeiro-tenente-brazilian-1st-battalion",
-			"mr-muhlik-elite-crew", "d-squadron-officer-nzsas", "rezan-the-redshirt-sabre",
-			"two-times-mccoy-tacp-cavalry", "blueberries-buckshot-nswc-seal",
-			"street-soldier-phoenix", "dragomir-sabre-footsoldier", "special-agent-ava-fbi",
-			"two-times-mccoy-usaf-tacp", "michael-syfers-fbi-sniper", "markus-delrow-fbi-hrt",
-			"3rd-commando-company-ksk", "b-squadron-officer-sas", "operator-fbi-swat",
-		},
-	},
-	{Slug: "terminals", DisplayName: "Terminals", HasWear: false, HasWeapon: false, SlugList: nil},
-	{Slug: "gloves", DisplayName: "Gloves", HasWear: true, HasWeapon: false, SlugList: nil},
-	{Slug: "patches", DisplayName: "Patches", HasWear: false, HasWeapon: false, SlugList: nil},
-	{Slug: "collectible-pins", DisplayName: "Collectible Pins", HasWear: false, HasWeapon: false, SlugList: nil},
-	{Slug: "skins", DisplayName: "Skins", HasWear: true, HasWeapon: true, SlugList: nil},
-	{Slug: "souvenir-packages", DisplayName: "Souvenir Packages", HasWear: false, HasWeapon: true, SlugList: nil},
-	{Slug: "stickers", DisplayName: "Stickers", HasWear: false, HasWeapon: false, SlugList: nil},
-	{Slug: "sticker-capsules", DisplayName: "Sticker Capsules", HasWear: false, HasWeapon: false, SlugList: nil},
-	{Slug: "weapons", DisplayName: "Weapons", HasWear: true, HasWeapon: true, SlugList: nil},
 }
 
 // CategoryBySlug returns the Category struct for the given URL slug.
