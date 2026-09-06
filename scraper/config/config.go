@@ -16,11 +16,15 @@ var (
 	DeadLine    = 120 * time.Minute
 	Delay       = 2 * time.Second
 	Workers     = 2
+	MaxWeapons  = 0
 	Headless    = false
 	Interactive = false
 )
 
 func NextDelay() time.Duration {
+	if Delay <= 0 {
+		return 0
+	}
 	return time.Duration(1+rand.Intn(3)) * time.Second
 }
 

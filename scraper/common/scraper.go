@@ -8,6 +8,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 	"github.com/eovacius/csgodatabase-scraper/scraper"
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
@@ -59,7 +60,11 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 		var res PriceTableResult
 
 		err := chromedp.Run(ctx,
-			chromedp.Navigate(opts.URL),
+			chromedp.ActionFunc(func(ctx context.Context) error {
+				_, _, _, _, err := page.Navigate(opts.URL).Do(ctx)
+				return err
+			}),
+			chromedp.WaitReady(`body`, chromedp.ByQuery),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
 			chromedp.Sleep(config.NextDelay()),
 			chromedp.Title(&pageTitle),

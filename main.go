@@ -20,6 +20,7 @@ func main() {
 	interactive := flag.Bool("interactive", false, "Pause for manual Cloudflare verification in visible Chrome")
 	delaySeconds := flag.Int("delay", int(config.Delay/time.Second), "Delay between page requests in seconds")
 	workers := flag.Int("workers", config.Workers, "Number of concurrent item pages")
+	maxWeapons := flag.Int("max-weapons", config.MaxWeapons, "Limit weapon count for a partial test run; 0 means all")
 
 	flag.Parse()
 
@@ -28,6 +29,9 @@ func main() {
 	}
 	if *workers > 0 {
 		config.Workers = *workers
+	}
+	if *maxWeapons >= 0 {
+		config.MaxWeapons = *maxWeapons
 	}
 	if *aggressive {
 		config.Delay = 0
@@ -60,9 +64,7 @@ func main() {
 		log.Fatalf("\033[31m[!]\033[0m Error marshaling JSON: %v", err)
 	}
 
-	// generate filename with current date
-	timestamp := time.Now().Format("2006-01-02")
-	filename := fmt.Sprintf("json/data_%s.json", timestamp)
+	filename := "json/data.json"
 
 	// Ensure json directory exists
 	if err := os.MkdirAll("json", 0755); err != nil {

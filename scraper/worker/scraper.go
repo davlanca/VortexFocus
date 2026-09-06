@@ -104,7 +104,10 @@ func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 	}
 
 	var allItems []config.Item
-	for _, w := range weapons {
+	for weaponIndex, w := range weapons {
+		if config.MaxWeapons > 0 && weaponIndex >= config.MaxWeapons {
+			break
+		}
 		fmt.Printf("\033[36m[*] Step 2: Discovering all Skins for weapon: %s\033[0m\n", w.Name)
 
 		skinSlugs, err := discovery.Discover(ictx, discovery.Options{

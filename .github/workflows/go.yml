@@ -35,7 +35,7 @@ jobs:
       run: go mod tidy
 
     - name: Run Scraper
-      run: go run . --delay=3 --workers=1
+      run: go run . --delay=3 --workers=2
       env:
         CHROME_PATH: /usr/bin/chromium
 

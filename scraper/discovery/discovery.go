@@ -7,6 +7,7 @@ import (
 	"strings"
 	"time"
 
+	cdpage "github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 	"github.com/eovacius/csgodatabase-scraper/scraper"
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
@@ -60,7 +61,10 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 		fmt.Printf("   -> [Page %d] Discovery navigating to: %s\n", page, pageURL)
 
 		err := chromedp.Run(ctx,
-			chromedp.Navigate(pageURL),
+			chromedp.ActionFunc(func(ctx context.Context) error {
+				_, _, _, _, err := cdpage.Navigate(pageURL).Do(ctx)
+				return err
+			}),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
 			chromedp.Title(&title),
 			// Wait for the body and try to wait for some links to be present
@@ -83,7 +87,10 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 		if config.Interactive && blocked {
 			fmt.Println("      [!] Cloudflare verification is open in Chrome. Complete it manually, then press Enter here.")
 			_, _ = fmt.Scanln()
-			if err := chromedp.Run(ctx, chromedp.Navigate(pageURL), chromedp.Sleep(config.NextDelay()), chromedp.Evaluate(string(scraper.DiscoveryJS), &res)); err != nil {
+			if err := chromedp.Run(ctx, chromedp.ActionFunc(func(ctx context.Context) error {
+				_, _, _, _, err := cdpage.Navigate(pageURL).Do(ctx)
+				return err
+			}), chromedp.WaitReady(`body`, chromedp.ByQuery), chromedp.Sleep(config.NextDelay()), chromedp.Evaluate(string(scraper.DiscoveryJS), &res)); err != nil {
 				return all, fmt.Errorf("page %d after manual verification: %w", page, err)
 			}
 		}

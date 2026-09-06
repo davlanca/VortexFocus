@@ -2,7 +2,20 @@
     window.extractPrices = function(kind = 'normal') {
         function parseNum(text) {
             if (!text) return NaN;
-            const cleaned = text.replace(/[^\d.,]/g, '').replace(',', '.');
+            let cleaned = text.replace(/[^\d.,]/g, '').trim();
+            const lastComma = cleaned.lastIndexOf(',');
+            const lastDot = cleaned.lastIndexOf('.');
+
+            if (lastComma >= 0 && lastDot >= 0) {
+                cleaned = lastComma > lastDot
+                    ? cleaned.replace(/\./g, '').replace(',', '.')
+                    : cleaned.replace(/,/g, '');
+            } else if (lastComma >= 0) {
+                cleaned = /,\d{1,2}$/.test(cleaned)
+                    ? cleaned.replace(',', '.')
+                    : cleaned.replace(/,/g, '');
+            }
+
             return parseFloat(cleaned);
         }
 
@@ -15,6 +28,54 @@
         }
 
         const markets = [];
+        const wearCodes = {
+            'Factory New': 'FN',
+            'Minimal Wear': 'MW',
+            'Field-Tested': 'FT',
+            'Well-Worn': 'WW',
+            'Battle-Scarred': 'BS'
+        };
+        const panel = document.querySelector(`.skin-price-panel[data-price-panel="${kind}"]`);
+        const priceRoot = panel || document;
+        const cards = priceRoot.querySelectorAll('.skin-price-cards .skin-price-card');
+
+        if (cards.length > 0) {
+            cards.forEach(card => {
+                const title = card.querySelector('.sr-only')?.textContent.trim();
+                const image = card.querySelector('h3 img');
+                const marketName = title || (image?.getAttribute('alt') || '').replace(/ logo$/i, '').trim();
+                if (!marketName) return;
+
+                const cardText = card.textContent || '';
+                const cardLinks = Array.from(card.querySelectorAll('a[href]'))
+                    .map(link => link.getAttribute('href') || '')
+                    .join(' ');
+                const isStatTrakCard = /StatTrak(?:™|%E2%84%A2)|stattrak-/i.test(`${cardText} ${cardLinks}`);
+                if ((kind === 'stattrak') !== isStatTrakCard) return;
+
+                card.querySelectorAll('.skin-price-card-row').forEach(row => {
+                    const wearName = row.querySelector('dt')?.textContent.trim() || '';
+                    const wear = wearCodes[wearName] || wearName;
+                    const pill = row.querySelector('.price-pill:not(.price-pill--empty)');
+                    if (!pill) return;
+
+                    const text = pill.textContent.trim();
+                    const value = parseNum(text);
+                    if (Number.isNaN(value)) return;
+
+                    markets.push({
+                        market: marketName,
+                        currency: detectCurrency(text),
+                        wear,
+                        wearPrices: { [wear]: value },
+                        urls: { [wear]: pill.getAttribute('href') || '' }
+                    });
+                });
+            });
+
+            return markets;
+        }
+
         const shareBoxes = document.querySelectorAll('a.share-box');
         if (shareBoxes.length > 0) {
             shareBoxes.forEach(box => {
@@ -48,9 +109,8 @@
         }
 
         if (markets.length === 0) {
-            const panel = document.querySelector(`.skin-price-panel[data-price-panel="${kind}"]`);
             if (!panel && kind !== 'normal') return markets;
-            const table = panel ? panel.querySelector('.skin-price-table') : document.querySelector('.skin-price-table');
+            const table = priceRoot.querySelector('.skin-price-table');
             if (table) {
                 table.querySelectorAll('tbody tr').forEach(row => {
                     const th = row.querySelector('th, .market-col');

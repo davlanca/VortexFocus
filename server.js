@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs/promises");
 const path = require("path");
 
 const app = express();
@@ -30,7 +31,7 @@ function logError(tag, message) {
    7 MARKETS & NATIVE CURRENCIES & FEES
 ========================================================= */
 
-const MARKETS = [
+const DEFAULT_MARKETS = [
   "MARKET.CSGO",
   "LIS-SKINS",
   "AVAN.MARKET",
@@ -39,6 +40,8 @@ const MARKETS = [
   "CS.MONEY",
   "BUFF.163"
 ];
+
+let MARKETS = [...DEFAULT_MARKETS];
 
 const MARKET_CURRENCIES = {
   "MARKET.CSGO": "RUB",
@@ -62,6 +65,26 @@ const DEFAULT_FEES = {
 
 let fees = JSON.parse(JSON.stringify(DEFAULT_FEES));
 
+function registerMarket(name, currency = "USD") {
+  const rawMarket = String(name || "").trim();
+  const aliases = {
+    "STEAM": "STEAM",
+    "MARKET.CSGO": "MARKET.CSGO",
+    "LIS-SKINS": "LIS-SKINS",
+    "CS.MONEY": "CS.MONEY",
+    "BUFF.163": "BUFF.163"
+  };
+  const market = aliases[rawMarket.toUpperCase()] || rawMarket;
+  if (!market) return "";
+
+  if (!MARKETS.includes(market)) {
+    MARKETS.push(market);
+  }
+  MARKET_CURRENCIES[market] = currency || MARKET_CURRENCIES[market] || "USD";
+  fees[market] ||= { sell: 0, buy: 0, deposit: 0 };
+  return market;
+}
+
 const BROWSER_HEADERS = {
   "User-Agent":
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -83,6 +106,44 @@ const priceDatabase = new Map();
 const endpointDiagnostics = {};
 let refreshPromise = null;
 let currentRubPerUsd = RUB_PER_USD;
+const LIVE_JSON_DIR = path.join(__dirname, "json");
+
+async function saveLivePricesJson() {
+  const skins = [];
+
+  for (const [name, itemData] of priceDatabase.entries()) {
+    const livePrices = Object.entries(itemData.prices || {})
+      .filter(([, price]) => price?.isLive === true && Number(price.value) > 0)
+      .map(([market, price]) => ({
+        market,
+        price: Number(price.value.toFixed(2)),
+        currency: price.currency || "USD",
+        has_price: true,
+        url: price.url || "",
+        source: price.source || "",
+        fetched_at: price.fetchedAt || new Date().toISOString()
+      }));
+
+    if (!livePrices.length) continue;
+
+    skins.push({
+      name,
+      prices: livePrices
+    });
+  }
+
+  await fs.mkdir(LIVE_JSON_DIR, { recursive: true });
+  const filename = `live_prices_${new Date().toISOString().slice(0, 10)}.json`;
+  const outputPath = path.join(LIVE_JSON_DIR, filename);
+  await fs.writeFile(outputPath, JSON.stringify({
+    generated_at: new Date().toISOString(),
+    rub_per_usd: currentRubPerUsd,
+    sources: [...new Set(skins.flatMap(skin => skin.prices.map(price => price.market)))],
+    skins
+  }, null, 2), "utf8");
+
+  logInfo("JSON", `Сохранены реальные цены: ${skins.length} предметов в ${filename}`);
+}
 
 /* =========================================================
    DIAGNOSTIC NETWORK INSPECTOR
@@ -374,72 +435,93 @@ async function parsePriceEmpire() {
   }
 }
 
-function getLatestDataFileName(fileNames) {
-  return fileNames
-    .filter(name => /^data_\d{4}-\d{2}-\d{2}\.json$/.test(name))
-    .sort((left, right) => right.localeCompare(left))[0] || null;
-}
-
-function applySteamJsonItem(item, source, updatedAt) {
+function applyScraperJsonItem(item, source, updatedAt) {
   const weapon = String(item.weapon || "").trim();
   const name = String(item.name || "").trim();
-  const usd = Number(item.price?.min?.value);
-  const stattrakUsd = Number(item.price?.min?.stattrak_value);
-  if (!weapon || !name || !Number.isFinite(usd) || usd <= 0) {
+  const prices = Array.isArray(item.prices) ? item.prices : [];
+  if (!name || !prices.length) {
     return false;
   }
 
+  const wearNames = {
+    FN: "Factory New",
+    MW: "Minimal Wear",
+    FT: "Field-Tested",
+    WW: "Well-Worn",
+    BS: "Battle-Scarred"
+  };
+  const quality = item.type === "StatTrak" ? "StatTrak™ " : "";
+  const baseName = name.includes("|") ? name : `${weapon} | ${name}`;
+
+  prices.forEach(priceItem => {
+    const value = Number(priceItem.price);
+    if (!priceItem.has_price || !Number.isFinite(value) || value <= 0) return;
+
+    const market = registerMarket(priceItem.market, priceItem.currency);
+    if (!market) return;
+    const wear = wearNames[priceItem.wear] || priceItem.wear || "";
+    const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
+    const entry = priceDatabase.get(marketHashName) || { isLiquid: false, prices: {} };
+    entry.prices[market] = {
+      value: Number(value.toFixed(2)),
+      currency: priceItem.currency || "USD",
+      source: `${source} (${item.type || "Normal"})`,
+      url: priceItem.url || "",
+      isLive: true,
+      fetchedAt: updatedAt || new Date().toISOString()
+    };
+    priceDatabase.set(marketHashName, entry);
+  });
+
+  return prices.some(priceItem => priceItem.has_price && Number(priceItem.price) > 0);
+}
+
+function applyLegacySteamJsonItem(item, source, updatedAt) {
+  const weapon = String(item.weapon || "").trim();
+  const name = String(item.name || "").trim();
+  const usd = Number(item.price?.min?.value);
+  if (!weapon || !name || !Number.isFinite(usd) || usd <= 0) return false;
   const marketName = `${weapon} | ${name}`;
-  const value = Number(usd.toFixed(2));
-  const price = {
-    value,
-    currency: "USD",
-    source: `${source} (минимум)`,
-    isLive: true,
+  const entry = priceDatabase.get(marketName) || { isLiquid: false, prices: {} };
+  entry.prices.STEAM = {
+    value: Number(usd.toFixed(2)), currency: "USD",
+    source: `${source} (минимум)`, isLive: true,
     fetchedAt: updatedAt || new Date().toISOString()
   };
-  const entry = priceDatabase.get(marketName) || { isLiquid: false, prices: {} };
-  entry.prices.STEAM = price;
   priceDatabase.set(marketName, entry);
-
-  const normalized = marketName.toLowerCase();
-  for (const [existingName, existingEntry] of priceDatabase.entries()) {
-    const existingBase = existingName.toLowerCase().replace(/ \((factory new|minimal wear|field-tested|well-worn|battle-scarred)\)$/, "");
-    if (existingBase === normalized && existingName !== marketName) {
-      const isStatTrak = existingName.startsWith("StatTrak™ ");
-      const variantUsd = isStatTrak && Number.isFinite(stattrakUsd) && stattrakUsd > 0 ? stattrakUsd : usd;
-      existingEntry.prices.STEAM = {
-        ...price,
-        value: Number(variantUsd.toFixed(2)),
-        source: `${source} (${isStatTrak ? "StatTrak минимум" : "минимум"})`
-      };
-    }
-  }
   return true;
+}
+
+function applyGithubItem(item, source, updatedAt) {
+  if (Array.isArray(item.prices) && item.prices.length) {
+    return applyScraperJsonItem(item, source, updatedAt);
+  }
+  return applyLegacySteamJsonItem(item, source, updatedAt);
 }
 
 async function parseLatestGithubSteamJson() {
   try {
-    const listing = await inspectedFetch("STEAM.JSON.INDEX", GITHUB_JSON_API, {
+    const listing = await inspectedFetch("GITHUB.JSON.INDEX", GITHUB_JSON_API, {
       headers: { Accept: "application/vnd.github+json" },
       signal: AbortSignal.timeout(10000)
     });
-    const latestName = getLatestDataFileName(
-      Array.isArray(listing.data) ? listing.data.map(file => file.name) : []
-    );
-    if (!latestName) {
-      throw new Error("В GitHub не найден data_YYYY-MM-DD.json");
+    const latestName = "data.json";
+    const remoteFiles = Array.isArray(listing.data) ? listing.data : [];
+    if (!remoteFiles.some(file => file.name === latestName)) {
+      throw new Error("Файл data.json не найден в GitHub");
     }
 
-    const latestFile = listing.data.find(file => file.name === latestName);
+    const latestFile = remoteFiles.find(file => file.name === latestName);
     const dataUrl = latestFile?.download_url || `https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/${latestName}`;
-    const dataResponse = await inspectedFetch("STEAM.JSON.DATA", dataUrl, {
+    const dataResponse = await inspectedFetch("GITHUB.JSON.DATA", dataUrl, {
       signal: AbortSignal.timeout(30000)
     });
-    const items = Array.isArray(dataResponse.data?.Skins) ? dataResponse.data.Skins : [];
+    const data = dataResponse.data;
+
+    const items = Array.isArray(data?.skins) ? data.skins : [];
     let count = 0;
     items.forEach(item => {
-      if (applySteamJsonItem(item, `VortexFocus ${latestName}`, item.price?.updated_at)) {
+      if (applyGithubItem(item, `VortexFocus ${latestName}`, item.price?.updated_at)) {
         count++;
       }
     });
@@ -507,21 +589,8 @@ async function fetchCSMoneyLivePrice(marketHashName) {
 }
 
 async function masterInit() {
-  logInfo("INIT", "=== Старт фонового сбора данных по 7 магазинам ===");
-  for (const entry of priceDatabase.values()) {
-    for (const market of ["MARKET.CSGO", "LOOT.FARM", "STEAM", "BUFF.163"]) {
-      if (entry.prices[market]?.isLive) {
-        delete entry.prices[market];
-      }
-    }
-  }
-  await parseCurrentRubPerUsd();
-  await Promise.allSettled([
-    parseMarketCSGO(),
-    parseLootFarm(),
-    parsePriceEmpire(),
-    parseLatestGithubSteamJson()
-  ]);
+  logInfo("INIT", "=== Загрузка готового файла цен из GitHub ===");
+  await parseLatestGithubSteamJson();
   logInfo("INIT COMPLETE", `Всего скинов в базе: ${priceDatabase.size}`);
 }
 
@@ -675,22 +744,6 @@ app.post("/api/arbitrage", async (req, res) => {
       return res.status(400).json({ success: false, error: "Площадки покупки и продажи должны отличаться." });
     }
 
-    // Живой опрос Steam / CSMoney при поиске
-    if (search && search.length >= 3) {
-      const matchKey = [...priceDatabase.keys()].find(k => k.toLowerCase().includes(search));
-      const skinNameToQuery = matchKey || search;
-
-      const [steamLive, csmoneyLive] = await Promise.all([
-        buyMarket === "STEAM" || sellMarket === "STEAM" ? fetchSteamLivePrice(skinNameToQuery) : null,
-        buyMarket === "CS.MONEY" || sellMarket === "CS.MONEY" ? fetchCSMoneyLivePrice(skinNameToQuery) : null
-      ]);
-
-      const entry = priceDatabase.get(skinNameToQuery) || { isLiquid: true, prices: {} };
-      if (steamLive) entry.prices["STEAM"] = steamLive;
-      if (csmoneyLive) entry.prices["CS.MONEY"] = csmoneyLive;
-      priceDatabase.set(skinNameToQuery, entry);
-    }
-
     const results = [];
     let matchedBothCount = 0;
 
@@ -736,6 +789,8 @@ app.post("/api/arbitrage", async (req, res) => {
         market_name: skinName,
         buyMarket,
         sellMarket,
+        buyUrl: buyEntry.url || "",
+        sellUrl: sellEntry.url || "",
         buySource: buyEntry.source,
         sellSource: sellEntry.source,
         isLiquid: Boolean(itemData.isLiquid),

@@ -730,8 +730,8 @@ function renderResults(results){
   }else{
     body.innerHTML = results.map(item => {
       const itemName = escapeHtml(item.market_name);
-      const buyUrl = getMarketUrl(item.buyMarket, item.market_name);
-      const sellUrl = getMarketUrl(item.sellMarket, item.market_name);
+      const buyUrl = item.buyUrl || getMarketUrl(item.buyMarket, item.market_name);
+      const sellUrl = item.sellUrl || getMarketUrl(item.sellMarket, item.market_name);
       return `<tr>
         <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div></td>
         <td><a class="marketLinkBtn" href="${buyUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.buyMarket)}</a><div class="itemMeta">${escapeHtml(item.buySource)}</div></td>
