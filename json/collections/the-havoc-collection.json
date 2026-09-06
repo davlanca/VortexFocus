@@ -1,0 +1,439 @@
+[
+  {
+    "name": "X-Ray",
+    "weapon": "AK-47",
+    "rarity": "Covert Rifle",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$1145.16 - $7005.31",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 1145.16,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7005.31,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_X-Ray.png"
+  },
+  {
+    "name": "Hot Snakes",
+    "weapon": "MAC-10",
+    "rarity": "Classified SMG",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$228.19 - $808.30",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 228.19,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 808.3,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAC-10_Hot_Snakes.png"
+  },
+  {
+    "name": "Silk Tiger",
+    "weapon": "AWP",
+    "rarity": "Classified Sniper Rifle",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$510.75 - $21905.82",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 510.75,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 21905.82,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AWP_Silk_Tiger.png"
+  },
+  {
+    "name": "Hypnotic",
+    "weapon": "SG 553",
+    "rarity": "Restricted Rifle",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$92.28 - $147.85",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 92.28,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 147.85,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SG_553_Hypnotic.png"
+  },
+  {
+    "name": "Phoenix Blacklight",
+    "weapon": "Galil AR",
+    "rarity": "Restricted Rifle",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$92.00 - $477.86",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 92,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 477.86,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Galil_AR_Phoenix_Blacklight.png"
+  },
+  {
+    "name": "Franklin",
+    "weapon": "Glock-18",
+    "rarity": "Restricted Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$99.64 - $421.94",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 99.64,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 421.94,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Franklin.png"
+  },
+  {
+    "name": "Bengal Tiger",
+    "weapon": "P250",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$22.06 - $118.09",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 22.06,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 118.09,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P250_Bengal_Tiger.png"
+  },
+  {
+    "name": "Tiger Pit",
+    "weapon": "P90",
+    "rarity": "Mil-spec SMG",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$21.10 - $45.50",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 21.1,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 45.5,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Tiger_Pit.png"
+  },
+  {
+    "name": "Phoenix Stencil",
+    "weapon": "Negev",
+    "rarity": "Mil-spec Machine Gun",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$24.41 - $70000.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 24.41,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 70000,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Negev_Phoenix_Stencil.png"
+  },
+  {
+    "name": "Night Heist",
+    "weapon": "Desert Eagle",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$15.25 - $131.51",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 15.25,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 131.51,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Desert_Eagle_Night_Heist.png"
+  },
+  {
+    "name": "Rust Coat",
+    "weapon": "Nova",
+    "rarity": "Industrial Shotgun",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$2.68 - $14.59",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.68,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 14.59,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Nova_Rust_Coat.png"
+  },
+  {
+    "name": "Phoenix Marker",
+    "weapon": "R8 Revolver",
+    "rarity": "Industrial Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$2.99 - $31.71",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.99,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 31.71,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/R8_Revolver_Phoenix_Marker.png"
+  },
+  {
+    "name": "Houndstooth",
+    "weapon": "UMP-45",
+    "rarity": "Industrial SMG",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$3.91 - $22.27",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.91,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 22.27,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/UMP-45_Houndstooth.png"
+  },
+  {
+    "name": "Vault Heist",
+    "weapon": "MP7",
+    "rarity": "Industrial SMG",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$4.38 - $10.42",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 4.38,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10.42,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Vault_Heist.png"
+  },
+  {
+    "name": "Predator",
+    "weapon": "M249",
+    "rarity": "Consumer Machine Gun",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$0.45 - $16.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 0.45,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M249_Predator.png"
+  },
+  {
+    "name": "Death Rattle",
+    "weapon": "PP-Bizon",
+    "rarity": "Consumer SMG",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$0.47 - $33.84",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 0.47,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 33.84,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/PP-Bizon_Death_Rattle.png"
+  },
+  {
+    "name": "Clay Ambush",
+    "weapon": "Sawed-Off",
+    "rarity": "Consumer Shotgun",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$0.47 - $17.90",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 0.47,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 17.9,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Sawed-Off_Clay_Ambush.png"
+  },
+  {
+    "name": "Phoenix Chalk",
+    "weapon": "Tec-9",
+    "rarity": "Consumer Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$0.47 - $16.35",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 0.47,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16.35,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Phoenix_Chalk.png"
+  },
+  {
+    "name": "Heist",
+    "weapon": "Dual Berettas",
+    "rarity": "Consumer Pistol",
+    "collection": "The Havoc Collection",
+    "price": {
+      "price_string": "$0.44 - $15.42",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 0.44,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 15.42,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Dual_Berettas_Heist.png"
+  }
+]

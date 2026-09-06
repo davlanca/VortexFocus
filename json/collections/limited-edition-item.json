@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Aphrodite",
+    "weapon": "AK-47",
+    "rarity": "Covert Rifle",
+    "collection": "Limited Edition Item",
+    "price": {
+      "price_string": "$9.14 - $509.46",
+      "price_stattrak_string": "$38.18 - $3991.00",
+      "currency": "USD",
+      "min": {
+        "value": 9.14,
+        "stattrak_value": 38.18,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 509.46,
+        "stattrak_value": 3991,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:15+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Aphrodite.png"
+  },
+  {
+    "name": "Heat Treated",
+    "weapon": "Desert Eagle",
+    "rarity": "Classified Pistol",
+    "collection": "Limited Edition Item",
+    "price": {
+      "price_string": "$0.92 - $80.57",
+      "price_stattrak_string": "$2.88 - $400.07",
+      "currency": "USD",
+      "min": {
+        "value": 0.92,
+        "stattrak_value": 2.88,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 80.57,
+        "stattrak_value": 400.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:15+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Desert_Eagle_Heat_Treated.png"
+  },
+  {
+    "name": "Solitude",
+    "weapon": "M4A1-S",
+    "rarity": "Classified Rifle",
+    "collection": "Limited Edition Item",
+    "price": {
+      "price_string": "$1.04 - $31.93",
+      "price_stattrak_string": "$23.14 - $341.07",
+      "currency": "USD",
+      "min": {
+        "value": 1.04,
+        "stattrak_value": 23.14,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 31.93,
+        "stattrak_value": 341.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:15+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A1-S_Solitude.png"
+  },
+  {
+    "name": "Solitude",
+    "weapon": "XM1014",
+    "rarity": "Restricted Shotgun",
+    "collection": "Limited Edition Item",
+    "price": {
+      "price_string": "$0.54 - $77.36",
+      "price_stattrak_string": "$1.43 - $362.07",
+      "currency": "USD",
+      "min": {
+        "value": 0.54,
+        "stattrak_value": 1.43,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 77.36,
+        "stattrak_value": 362.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:15+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/XM1014_Solitude.png"
+  }
+]

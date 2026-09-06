@@ -1,0 +1,20 @@
+[
+  {
+    "name": "'Two Times' McCoy",
+    "affiliation": "USAF TACP",
+    "side": "CT",
+    "collection": "Shattered Web Agents",
+    "rarity": "Superior Agent",
+    "price": {
+      "price_string": "$6.14",
+      "currency": "USD",
+      "starts_from": {
+        "value": 6.14,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:28+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/'Two_Times'_McCoy_USAF_TACP.png"
+  }
+]

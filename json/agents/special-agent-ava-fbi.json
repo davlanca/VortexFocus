@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Special Agent Ava",
+    "affiliation": "FBI",
+    "side": "CT",
+    "collection": "Shattered Web Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$16.94",
+      "currency": "USD",
+      "starts_from": {
+        "value": 16.94,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:26+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Special_Agent_Ava_FBI.png"
+  }
+]

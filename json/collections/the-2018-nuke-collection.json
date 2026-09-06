@@ -1,0 +1,623 @@
+[
+  {
+    "name": "Control Panel",
+    "weapon": "M4A1-S",
+    "rarity": "Classified Rifle",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$4.49 - $309.98",
+      "price_stattrak_string": "$24.94 - $684.24",
+      "currency": "USD",
+      "min": {
+        "value": 4.49,
+        "stattrak_value": 24.94,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 309.98,
+        "stattrak_value": 684.24,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A1-S_Control_Panel.png"
+  },
+  {
+    "name": "Remote Control",
+    "weapon": "Tec-9",
+    "rarity": "Classified Pistol",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$1.77 - $55.02",
+      "price_stattrak_string": "$15.57 - $110.16",
+      "currency": "USD",
+      "min": {
+        "value": 1.77,
+        "stattrak_value": 15.57,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 55.02,
+        "stattrak_value": 110.16,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Remote_Control.png"
+  },
+  {
+    "name": "Nuclear Garden",
+    "weapon": "Glock-18",
+    "rarity": "Restricted Pistol",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$1.22 - $87.81",
+      "price_stattrak_string": "$13.82 - $155.95",
+      "currency": "USD",
+      "min": {
+        "value": 1.22,
+        "stattrak_value": 13.82,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 87.81,
+        "stattrak_value": 155.95,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Nuclear_Garden.png"
+  },
+  {
+    "name": "Core Breach",
+    "weapon": "MAG-7",
+    "rarity": "Restricted Shotgun",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$1.20 - $17.59",
+      "price_stattrak_string": "$2.30 - $63.45",
+      "currency": "USD",
+      "min": {
+        "value": 1.2,
+        "stattrak_value": 2.3,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 17.59,
+        "stattrak_value": 63.45,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAG-7_Core_Breach.png"
+  },
+  {
+    "name": "Random Access",
+    "weapon": "AUG",
+    "rarity": "Restricted Rifle",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$1.26 - $13.91",
+      "price_stattrak_string": "$2.17 - $70.64",
+      "currency": "USD",
+      "min": {
+        "value": 1.26,
+        "stattrak_value": 2.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 13.91,
+        "stattrak_value": 70.64,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Random_Access.png"
+  },
+  {
+    "name": "Acheron",
+    "weapon": "AWP",
+    "rarity": "Mil-spec Sniper Rifle",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.67 - $29.04",
+      "price_stattrak_string": "$3.61 - $35.25",
+      "currency": "USD",
+      "min": {
+        "value": 0.67,
+        "stattrak_value": 3.61,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 29.04,
+        "stattrak_value": 35.25,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AWP_Acheron.png"
+  },
+  {
+    "name": "Exchanger",
+    "weapon": "P250",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.14 - $4.07",
+      "price_stattrak_string": "$0.35 - $14.13",
+      "currency": "USD",
+      "min": {
+        "value": 0.14,
+        "stattrak_value": 0.35,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 4.07,
+        "stattrak_value": 14.13,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P250_Exchanger.png"
+  },
+  {
+    "name": "Co-Processor",
+    "weapon": "MP5-SD",
+    "rarity": "Mil-spec SMG",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.09 - $5.00",
+      "price_stattrak_string": "$0.24 - $29.85",
+      "currency": "USD",
+      "min": {
+        "value": 0.09,
+        "stattrak_value": 0.24,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 5,
+        "stattrak_value": 29.85,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP5-SD_Co-Processor.png"
+  },
+  {
+    "name": "Facility Negative",
+    "weapon": "P90",
+    "rarity": "Mil-spec SMG",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.12 - $4.83",
+      "price_stattrak_string": "$0.34 - $25.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.12,
+        "stattrak_value": 0.34,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 4.83,
+        "stattrak_value": 25,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Facility_Negative.png"
+  },
+  {
+    "name": "Cold Fusion",
+    "weapon": "Galil AR",
+    "rarity": "Industrial Rifle",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $3.04",
+      "price_stattrak_string": "$0.26 - $11.42",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.26,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.04,
+        "stattrak_value": 11.42,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Galil_AR_Cold_Fusion.png"
+  },
+  {
+    "name": "Bulkhead",
+    "weapon": "Negev",
+    "rarity": "Industrial Machine Gun",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $1.00",
+      "price_stattrak_string": "$0.30 - $10.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.3,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1,
+        "stattrak_value": 10,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Negev_Bulkhead.png"
+  },
+  {
+    "name": "Motherboard",
+    "weapon": "MP7",
+    "rarity": "Industrial SMG",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $0.59",
+      "price_stattrak_string": "$0.13 - $15.17",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.13,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 0.59,
+        "stattrak_value": 15.17,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Motherboard.png"
+  },
+  {
+    "name": "Mainframe",
+    "weapon": "M4A4",
+    "rarity": "Industrial Rifle",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $3.04",
+      "price_stattrak_string": "$0.32 - $20.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.32,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.04,
+        "stattrak_value": 20,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A4_Mainframe.png"
+  },
+  {
+    "name": "Mandrel",
+    "weapon": "Nova",
+    "rarity": "Consumer Shotgun",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $5.66",
+      "price_stattrak_string": "$0.04 - $4.17",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.04,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 5.66,
+        "stattrak_value": 4.17,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Nova_Mandrel.png"
+  },
+  {
+    "name": "Coolant",
+    "weapon": "Five-SeveN",
+    "rarity": "Consumer Pistol",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $30.04",
+      "price_stattrak_string": "$0.06 - $5.31",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.06,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 30.04,
+        "stattrak_value": 5.31,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Coolant.png"
+  },
+  {
+    "name": "Facility Dark",
+    "weapon": "UMP-45",
+    "rarity": "Consumer SMG",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $0.99",
+      "price_stattrak_string": "$0.05 - $5.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.05,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 0.99,
+        "stattrak_value": 5,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/UMP-45_Facility_Dark.png"
+  },
+  {
+    "name": "Facility Draft",
+    "weapon": "P250",
+    "rarity": "Consumer Pistol",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.01 - $7.41",
+      "price_stattrak_string": "$0.04 - $15.17",
+      "currency": "USD",
+      "min": {
+        "value": 0.01,
+        "stattrak_value": 0.04,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.41,
+        "stattrak_value": 15.17,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P250_Facility_Draft.png"
+  },
+  {
+    "name": "Facility Sketch",
+    "weapon": "PP-Bizon",
+    "rarity": "Consumer SMG",
+    "collection": "The 2018 Nuke Collection",
+    "price": {
+      "price_string": "$0.02 - $2.67",
+      "price_stattrak_string": "$0.06 - $2.31",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.06,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.67,
+        "stattrak_value": 2.31,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/PP-Bizon_Facility_Sketch.png"
+  },
+  {
+    "name": "Shanghai 2024 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 27 November 2024",
+    "price": {
+      "price_string": "$2.85",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.85,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.85,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Shanghai_2024_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Copenhagen 2024 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 14 March 2024",
+    "price": {
+      "price_string": "$2.64",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.64,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.64,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Copenhagen_2024_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Paris 2023 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 05 May 2023",
+    "price": {
+      "price_string": "$1.79",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 1.79,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1.79,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Paris_2023_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Rio 2022 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 21 October 2022",
+    "price": {
+      "price_string": "$3.62",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Rio_2022_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Antwerp 2022 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 03 May 2022",
+    "price": {
+      "price_string": "$2.94",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.94,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.94,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Antwerp_2022_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Stockholm 2021 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 22 October 2021",
+    "price": {
+      "price_string": "$3.38",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.38,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.38,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Stockholm_2021_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Berlin 2019 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced:",
+    "price": {
+      "price_string": "$12.77",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 12.77,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.77,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Berlin_2019_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "Katowice 2019 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced:",
+    "price": {
+      "price_string": "$12.57",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 12.57,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.57,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Katowice_2019_Nuke_Souvenir_Package.png"
+  },
+  {
+    "name": "London 2018 Nuke Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced:",
+    "price": {
+      "price_string": "$23.62",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 23.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 23.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:02+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/London_2018_Nuke_Souvenir_Package.png"
+  }
+]

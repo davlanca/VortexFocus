@@ -1,0 +1,92 @@
+[
+  {
+    "name": "The Elite Mr. Muhlik",
+    "affiliation": "Elite Crew",
+    "side": "T",
+    "collection": "Shattered Web Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$12.68",
+      "currency": "USD",
+      "starts_from": {
+        "value": 12.68,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:18+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/The_Elite_Mr._Muhlik_Elite_Crew.png"
+  },
+  {
+    "name": "Prof. Shahmat",
+    "affiliation": "Elite Crew",
+    "side": "T",
+    "collection": "Shattered Web Agents",
+    "rarity": "Superior Agent",
+    "price": {
+      "price_string": "$9.55",
+      "currency": "USD",
+      "starts_from": {
+        "value": 9.55,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:18+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Prof._Shahmat_Elite_Crew.png"
+  },
+  {
+    "name": "Osiris",
+    "affiliation": "Elite Crew",
+    "side": "T",
+    "collection": "Shattered Web Agents",
+    "rarity": "Exceptional Agent",
+    "price": {
+      "price_string": "$11.60",
+      "currency": "USD",
+      "starts_from": {
+        "value": 11.6,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:18+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Osiris_Elite_Crew.png"
+  },
+  {
+    "name": "Ground Rebel",
+    "affiliation": "Elite Crew",
+    "side": "T",
+    "collection": "Shattered Web Agents",
+    "rarity": "Distinguished Agent",
+    "price": {
+      "price_string": "",
+      "currency": "UNKNOWN",
+      "starts_from": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "updated_at": "2026-01-09T21:42:18+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Ground_Rebel_Elite_Crew.png"
+  },
+  {
+    "name": "Mr. Muhlik",
+    "affiliation": "Elite Crew",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Distinguished Agent",
+    "price": {
+      "price_string": "",
+      "currency": "UNKNOWN",
+      "starts_from": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "updated_at": "2026-01-09T21:42:18+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Mr._Muhlik_Elite_Crew.png"
+  }
+]

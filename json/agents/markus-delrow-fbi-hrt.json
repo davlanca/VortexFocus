@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Markus Delrow",
+    "affiliation": "FBI HRT",
+    "side": "CT",
+    "collection": "Shattered Web Agents",
+    "rarity": "Exceptional Agent",
+    "price": {
+      "price_string": "$10.04",
+      "currency": "USD",
+      "starts_from": {
+        "value": 10.04,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:21+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Markus_Delrow_FBI_HRT.png"
+  }
+]

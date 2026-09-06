@@ -1,0 +1,347 @@
+[
+  {
+    "name": "Nitro",
+    "weapon": "M4A1-S",
+    "rarity": "Restricted Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.36 - $32.52",
+      "price_stattrak_string": "$8.41 - $919.99",
+      "currency": "USD",
+      "min": {
+        "value": 0.36,
+        "stattrak_value": 8.41,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 32.52,
+        "stattrak_value": 919.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A1-S_Nitro.png"
+  },
+  {
+    "name": "Silver Quartz",
+    "weapon": "Five-SeveN",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.10 - $1.46",
+      "price_stattrak_string": "$5.86 - $135.75",
+      "currency": "USD",
+      "min": {
+        "value": 0.1,
+        "stattrak_value": 5.86,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1.46,
+        "stattrak_value": 135.75,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Silver_Quartz.png"
+  },
+  {
+    "name": "Teardown",
+    "weapon": "FAMAS",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.12 - $2.13",
+      "price_stattrak_string": "$7.63 - $33395.52",
+      "currency": "USD",
+      "min": {
+        "value": 0.12,
+        "stattrak_value": 7.63,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.13,
+        "stattrak_value": 33395.52,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Teardown.png"
+  },
+  {
+    "name": "Acid Fade",
+    "weapon": "SSG 08",
+    "rarity": "Mil-spec Sniper Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.66 - $2.77",
+      "price_stattrak_string": "$13.48 - $44.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.66,
+        "stattrak_value": 13.48,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.77,
+        "stattrak_value": 44,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Acid_Fade.png"
+  },
+  {
+    "name": "Forest Leaves",
+    "weapon": "USP-S",
+    "rarity": "Industrial Pistol",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.04 - $13.05",
+      "price_stattrak_string": "$2.83 - $1119.43",
+      "currency": "USD",
+      "min": {
+        "value": 0.04,
+        "stattrak_value": 2.83,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 13.05,
+        "stattrak_value": 1119.43,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/USP-S_Forest_Leaves.png"
+  },
+  {
+    "name": "Gator Mesh",
+    "weapon": "M249",
+    "rarity": "Industrial Machine Gun",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $0.98",
+      "price_stattrak_string": "$2.22 - $454.96",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 2.22,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 0.98,
+        "stattrak_value": 454.96,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M249_Gator_Mesh.png"
+  },
+  {
+    "name": "Condemned",
+    "weapon": "AUG",
+    "rarity": "Industrial Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $15.44",
+      "price_stattrak_string": "$2.19 - $265.74",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 2.19,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 15.44,
+        "stattrak_value": 265.74,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Condemned.png"
+  },
+  {
+    "name": "VariCamo",
+    "weapon": "G3SG1",
+    "rarity": "Industrial Sniper Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.03 - $0.47",
+      "price_stattrak_string": "$1.80 - $2313.09",
+      "currency": "USD",
+      "min": {
+        "value": 0.03,
+        "stattrak_value": 1.8,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 0.47,
+        "stattrak_value": 2313.09,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/G3SG1_VariCamo.png"
+  },
+  {
+    "name": "VariCamo",
+    "weapon": "Galil AR",
+    "rarity": "Industrial Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.03 - $4.55",
+      "price_stattrak_string": "$1.86 - $193.08",
+      "currency": "USD",
+      "min": {
+        "value": 0.03,
+        "stattrak_value": 1.86,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 4.55,
+        "stattrak_value": 193.08,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Galil_AR_VariCamo.png"
+  },
+  {
+    "name": "Orange Peel",
+    "weapon": "MP9",
+    "rarity": "Industrial SMG",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.03 - $12.60",
+      "price_stattrak_string": "$2.04 - $153.62",
+      "currency": "USD",
+      "min": {
+        "value": 0.03,
+        "stattrak_value": 2.04,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.6,
+        "stattrak_value": 153.62,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP9_Orange_Peel.png"
+  },
+  {
+    "name": "Contractor",
+    "weapon": "SCAR-20",
+    "rarity": "Consumer Sniper Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $30.88",
+      "price_stattrak_string": "$3.15 - $137.43",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 3.15,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 30.88,
+        "stattrak_value": 137.43,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SCAR-20_Contractor.png"
+  },
+  {
+    "name": "Army Mesh",
+    "weapon": "Tec-9",
+    "rarity": "Consumer Pistol",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $12.96",
+      "price_stattrak_string": "$1.77 - $394.98",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 1.77,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.96,
+        "stattrak_value": 394.98,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Army_Mesh.png"
+  },
+  {
+    "name": "Contractor",
+    "weapon": "Dual Berettas",
+    "rarity": "Consumer Pistol",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $7.28",
+      "price_stattrak_string": "$2.61 - $76.53",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 2.61,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.28,
+        "stattrak_value": 76.53,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Dual_Berettas_Contractor.png"
+  },
+  {
+    "name": "Blue Spruce",
+    "weapon": "SSG 08",
+    "rarity": "Consumer Sniper Rifle",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.02 - $3.04",
+      "price_stattrak_string": "$0.94 - $470.22",
+      "currency": "USD",
+      "min": {
+        "value": 0.02,
+        "stattrak_value": 0.94,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.04,
+        "stattrak_value": 470.22,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Blue_Spruce.png"
+  },
+  {
+    "name": "Army Recon",
+    "weapon": "MP7",
+    "rarity": "Consumer SMG",
+    "collection": "The Safehouse Collection",
+    "price": {
+      "price_string": "$0.01 - $15.02",
+      "price_stattrak_string": "$2.96 - $469.36",
+      "currency": "USD",
+      "min": {
+        "value": 0.01,
+        "stattrak_value": 2.96,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 15.02,
+        "stattrak_value": 469.36,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:13+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Army_Recon.png"
+  }
+]

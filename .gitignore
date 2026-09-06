@@ -1,0 +1,7 @@
+.idea
+mem.prof
+scraper.test
+node_modules/
+.env
+.env.*
+!.env.example

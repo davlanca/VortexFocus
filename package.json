@@ -1,0 +1,12 @@
+{
+  "name": "cs2-arbitrage-table",
+  "version": "2.0.0",
+  "description": "CS2 skin arbitrage trading terminal using SteamAnalyst marketplace data",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

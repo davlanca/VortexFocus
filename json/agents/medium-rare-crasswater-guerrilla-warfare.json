@@ -1,0 +1,146 @@
+[
+  {
+    "name": "'Medium Rare' Crasswater",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$23.15",
+      "currency": "USD",
+      "starts_from": {
+        "value": 23.15,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/'Medium_Rare'_Crasswater_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Vypa Sista of the Revolution",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$40.77",
+      "currency": "USD",
+      "starts_from": {
+        "value": 40.77,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Vypa_Sista_of_the_Revolution_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Crasswater The Forgotten",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$19.70",
+      "currency": "USD",
+      "starts_from": {
+        "value": 19.7,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Crasswater_The_Forgotten_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Elite Trapper Solman",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Superior Agent",
+    "price": {
+      "price_string": "$30.40",
+      "currency": "USD",
+      "starts_from": {
+        "value": 30.4,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Elite_Trapper_Solman_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Arno The Overgrown",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Superior Agent",
+    "price": {
+      "price_string": "$16.37",
+      "currency": "USD",
+      "starts_from": {
+        "value": 16.37,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Arno_The_Overgrown_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Col. Mangos Dabisi",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Exceptional Agent",
+    "price": {
+      "price_string": "$25.97",
+      "currency": "USD",
+      "starts_from": {
+        "value": 25.97,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Col._Mangos_Dabisi_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Trapper",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Exceptional Agent",
+    "price": {
+      "price_string": "$26.90",
+      "currency": "USD",
+      "starts_from": {
+        "value": 26.9,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Trapper_Guerrilla_Warfare.png"
+  },
+  {
+    "name": "Trapper Aggressor",
+    "affiliation": "Guerrilla Warfare",
+    "side": "T",
+    "collection": "Riptide Agents",
+    "rarity": "Distinguished Agent",
+    "price": {
+      "price_string": "$22.00",
+      "currency": "USD",
+      "starts_from": {
+        "value": 22,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:01+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Trapper_Aggressor_Guerrilla_Warfare.png"
+  }
+]

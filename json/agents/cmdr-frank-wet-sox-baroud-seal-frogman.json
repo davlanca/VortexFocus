@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Cmdr. Frank 'Wet Sox' Baroud",
+    "affiliation": "SEAL Frogman",
+    "side": "CT",
+    "collection": "Riptide Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$37.50",
+      "currency": "USD",
+      "starts_from": {
+        "value": 37.5,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:03+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Cmdr._Frank_'Wet_Sox'_Baroud_SEAL_Frogman.png"
+  },
+  {
+    "name": "Cmdr. Davida 'Goggles' Fernandez",
+    "affiliation": "SEAL Frogman",
+    "side": "CT",
+    "collection": "Riptide Agents",
+    "rarity": "Master Agent",
+    "price": {
+      "price_string": "$41.76",
+      "currency": "USD",
+      "starts_from": {
+        "value": 41.76,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:03+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Cmdr._Davida_'Goggles'_Fernandez_SEAL_Frogman.png"
+  },
+  {
+    "name": "Lieutenant Rex Krikey",
+    "affiliation": "SEAL Frogman",
+    "side": "CT",
+    "collection": "Riptide Agents",
+    "rarity": "Superior Agent",
+    "price": {
+      "price_string": "$20.53",
+      "currency": "USD",
+      "starts_from": {
+        "value": 20.53,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:03+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/agents/Lieutenant_Rex_Krikey_SEAL_Frogman.png"
+  }
+]

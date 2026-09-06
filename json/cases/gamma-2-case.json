@@ -1,0 +1,1083 @@
+[
+  {
+    "name": "Neon Revolution",
+    "weapon": "AK-47",
+    "rarity": "Covert Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$104.83 - $791.19",
+      "price_stattrak_string": "$72.36 - $356.77",
+      "currency": "USD",
+      "min": {
+        "value": 104.83,
+        "stattrak_value": 72.36,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 791.19,
+        "stattrak_value": 356.77,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Neon_Revolution.png"
+  },
+  {
+    "name": "Roll Cage",
+    "weapon": "FAMAS",
+    "rarity": "Covert Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$99.26 - $350.31",
+      "price_stattrak_string": "$80.66 - $169.60",
+      "currency": "USD",
+      "min": {
+        "value": 99.26,
+        "stattrak_value": 80.66,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 350.31,
+        "stattrak_value": 169.6,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Roll_Cage.png"
+  },
+  {
+    "name": "Syd Mead",
+    "weapon": "AUG",
+    "rarity": "Classified Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$10.58 - $1250.00",
+      "price_stattrak_string": "$4.10 - $48.52",
+      "currency": "USD",
+      "min": {
+        "value": 10.58,
+        "stattrak_value": 4.1,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1250,
+        "stattrak_value": 48.52,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Syd_Mead.png"
+  },
+  {
+    "name": "Airlock",
+    "weapon": "MP9",
+    "rarity": "Classified SMG",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$10.00 - $90.00",
+      "price_stattrak_string": "$3.11 - $999.00",
+      "currency": "USD",
+      "min": {
+        "value": 10,
+        "stattrak_value": 3.11,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 90,
+        "stattrak_value": 999,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP9_Airlock.png"
+  },
+  {
+    "name": "Fuel Injector",
+    "weapon": "Tec-9",
+    "rarity": "Classified Pistol",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$8.73 - $87.64",
+      "price_stattrak_string": "$5.24 - $9999.00",
+      "currency": "USD",
+      "min": {
+        "value": 8.73,
+        "stattrak_value": 5.24,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 87.64,
+        "stattrak_value": 9999,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Fuel_Injector.png"
+  },
+  {
+    "name": "Directive",
+    "weapon": "Desert Eagle",
+    "rarity": "Restricted Pistol",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.88 - $81.74",
+      "price_stattrak_string": "$1.92 - $100.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.88,
+        "stattrak_value": 1.92,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 81.74,
+        "stattrak_value": 100,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Desert_Eagle_Directive.png"
+  },
+  {
+    "name": "Weasel",
+    "weapon": "Glock-18",
+    "rarity": "Restricted Pistol",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$1.00 - $16.92",
+      "price_stattrak_string": "$1.27 - $18.18",
+      "currency": "USD",
+      "min": {
+        "value": 1,
+        "stattrak_value": 1.27,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16.92,
+        "stattrak_value": 18.18,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Weasel.png"
+  },
+  {
+    "name": "Petroglyph",
+    "weapon": "MAG-7",
+    "rarity": "Restricted Shotgun",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$1.12 - $5.97",
+      "price_stattrak_string": "$0.61 - $30.00",
+      "currency": "USD",
+      "min": {
+        "value": 1.12,
+        "stattrak_value": 0.61,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 5.97,
+        "stattrak_value": 30,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAG-7_Petroglyph.png"
+  },
+  {
+    "name": "Powercore",
+    "weapon": "SCAR-20",
+    "rarity": "Restricted Sniper Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$1.06 - $12.26",
+      "price_stattrak_string": "$0.70 - $11.65",
+      "currency": "USD",
+      "min": {
+        "value": 1.06,
+        "stattrak_value": 0.7,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.26,
+        "stattrak_value": 11.65,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SCAR-20_Powercore.png"
+  },
+  {
+    "name": "Triarch",
+    "weapon": "SG 553",
+    "rarity": "Restricted Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$1.08 - $16.00",
+      "price_stattrak_string": "$0.91 - $11.73",
+      "currency": "USD",
+      "min": {
+        "value": 1.08,
+        "stattrak_value": 0.91,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16,
+        "stattrak_value": 11.73,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SG_553_Triarch.png"
+  },
+  {
+    "name": "Imprint",
+    "weapon": "CZ75-Auto",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.15 - $3.50",
+      "price_stattrak_string": "$0.17 - $8.07",
+      "currency": "USD",
+      "min": {
+        "value": 0.15,
+        "stattrak_value": 0.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.5,
+        "stattrak_value": 8.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/CZ75-Auto_Imprint.png"
+  },
+  {
+    "name": "Scumbria",
+    "weapon": "Five-SeveN",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.16 - $2.63",
+      "price_stattrak_string": "$0.20 - $4.97",
+      "currency": "USD",
+      "min": {
+        "value": 0.16,
+        "stattrak_value": 0.2,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.63,
+        "stattrak_value": 4.97,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Scumbria.png"
+  },
+  {
+    "name": "Ventilator",
+    "weapon": "G3SG1",
+    "rarity": "Mil-spec Sniper Rifle",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.17 - $1.17",
+      "price_stattrak_string": "$0.17 - $3.50",
+      "currency": "USD",
+      "min": {
+        "value": 0.17,
+        "stattrak_value": 0.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1.17,
+        "stattrak_value": 3.5,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/G3SG1_Ventilator.png"
+  },
+  {
+    "name": "Dazzle",
+    "weapon": "Negev",
+    "rarity": "Mil-spec Machine Gun",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.16 - $21.00",
+      "price_stattrak_string": "$0.18 - $6.98",
+      "currency": "USD",
+      "min": {
+        "value": 0.16,
+        "stattrak_value": 0.18,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 21,
+        "stattrak_value": 6.98,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Negev_Dazzle.png"
+  },
+  {
+    "name": "Grim",
+    "weapon": "P90",
+    "rarity": "Mil-spec SMG",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.20 - $3.62",
+      "price_stattrak_string": "$0.20 - $4.15",
+      "currency": "USD",
+      "min": {
+        "value": 0.2,
+        "stattrak_value": 0.2,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.62,
+        "stattrak_value": 4.15,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Grim.png"
+  },
+  {
+    "name": "Briefing",
+    "weapon": "UMP-45",
+    "rarity": "Mil-spec SMG",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.15 - $1.95",
+      "price_stattrak_string": "$0.14 - $2.57",
+      "currency": "USD",
+      "min": {
+        "value": 0.15,
+        "stattrak_value": 0.14,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1.95,
+        "stattrak_value": 2.57,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/UMP-45_Briefing.png"
+  },
+  {
+    "name": "Slipstream",
+    "weapon": "XM1014",
+    "rarity": "Mil-spec Shotgun",
+    "collection": "The Gamma 2 Collection",
+    "price": {
+      "price_string": "$0.16 - $3.09",
+      "price_stattrak_string": "$0.30 - $2.99",
+      "currency": "USD",
+      "min": {
+        "value": 0.16,
+        "stattrak_value": 0.3,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.09,
+        "stattrak_value": 2.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/XM1014_Slipstream.png"
+  },
+  {
+    "name": "Autotronic",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$255.00 - $2150.70",
+      "price_stattrak_string": "$307.69 - $1515.00",
+      "currency": "USD",
+      "min": {
+        "value": 255,
+        "stattrak_value": 307.69,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2150.7,
+        "stattrak_value": 1515,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Autotronic.png"
+  },
+  {
+    "name": "Black Laminate",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$170.44 - $1175.25",
+      "price_stattrak_string": "$205.00 - $992.58",
+      "currency": "USD",
+      "min": {
+        "value": 170.44,
+        "stattrak_value": 205,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1175.25,
+        "stattrak_value": 992.58,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Black_Laminate.png"
+  },
+  {
+    "name": "Bright Water",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$178.59 - $798.67",
+      "price_stattrak_string": "$203.70 - $921.71",
+      "currency": "USD",
+      "min": {
+        "value": 178.59,
+        "stattrak_value": 203.7,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 798.67,
+        "stattrak_value": 921.71,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Bright_Water.png"
+  },
+  {
+    "name": "Freehand",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$180.92 - $760.49",
+      "price_stattrak_string": "$212.27 - $612.48",
+      "currency": "USD",
+      "min": {
+        "value": 180.92,
+        "stattrak_value": 212.27,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 760.49,
+        "stattrak_value": 612.48,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Freehand.png"
+  },
+  {
+    "name": "Gamma Doppler",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$586.00 - $13925.16",
+      "price_stattrak_string": "$661.17 - $3502.07",
+      "currency": "USD",
+      "min": {
+        "value": 586,
+        "stattrak_value": 661.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 13925.16,
+        "stattrak_value": 3502.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Gamma_Doppler.png"
+  },
+  {
+    "name": "Lore",
+    "weapon": "Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$223.74 - $2755.45",
+      "price_stattrak_string": "$392.27 - $1634.85",
+      "currency": "USD",
+      "min": {
+        "value": 223.74,
+        "stattrak_value": 392.27,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2755.45,
+        "stattrak_value": 1634.85,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bayonet_Lore.png"
+  },
+  {
+    "name": "Autotronic",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$168.56 - $365.33",
+      "price_stattrak_string": "$203.07 - $756.39",
+      "currency": "USD",
+      "min": {
+        "value": 168.56,
+        "stattrak_value": 203.07,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 365.33,
+        "stattrak_value": 756.39,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Autotronic.png"
+  },
+  {
+    "name": "Black Laminate",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$119.98 - $398.04",
+      "price_stattrak_string": "$139.90 - $348.06",
+      "currency": "USD",
+      "min": {
+        "value": 119.98,
+        "stattrak_value": 139.9,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 398.04,
+        "stattrak_value": 348.06,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Black_Laminate.png"
+  },
+  {
+    "name": "Bright Water",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$125.69 - $230.78",
+      "price_stattrak_string": "$147.92 - $265.00",
+      "currency": "USD",
+      "min": {
+        "value": 125.69,
+        "stattrak_value": 147.92,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 230.78,
+        "stattrak_value": 265,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Bright_Water.png"
+  },
+  {
+    "name": "Freehand",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$128.20 - $219.04",
+      "price_stattrak_string": "$145.02 - $485.17",
+      "currency": "USD",
+      "min": {
+        "value": 128.2,
+        "stattrak_value": 145.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 219.04,
+        "stattrak_value": 485.17,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Freehand.png"
+  },
+  {
+    "name": "Gamma Doppler",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$462.80 - $3625.59",
+      "price_stattrak_string": "$503.99 - $3328.46",
+      "currency": "USD",
+      "min": {
+        "value": 462.8,
+        "stattrak_value": 503.99,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3625.59,
+        "stattrak_value": 3328.46,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Gamma_Doppler.png"
+  },
+  {
+    "name": "Lore",
+    "weapon": "★ Flip Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$176.61 - $478.26",
+      "price_stattrak_string": "$201.61 - $705.87",
+      "currency": "USD",
+      "min": {
+        "value": 176.61,
+        "stattrak_value": 201.61,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 478.26,
+        "stattrak_value": 705.87,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Flip_Knife_Lore.png"
+  },
+  {
+    "name": "Autotronic",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$100.99 - $316.89",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 100.99,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 316.89,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Autotronic.png"
+  },
+  {
+    "name": "Black Laminate",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$62.00 - $179.23",
+      "price_stattrak_string": "$80.25 - $168.69",
+      "currency": "USD",
+      "min": {
+        "value": 62,
+        "stattrak_value": 80.25,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 179.23,
+        "stattrak_value": 168.69,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Black_Laminate.png"
+  },
+  {
+    "name": "Bright Water",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$58.93 - $163.48",
+      "price_stattrak_string": "$94.63 - $183.92",
+      "currency": "USD",
+      "min": {
+        "value": 58.93,
+        "stattrak_value": 94.63,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 163.48,
+        "stattrak_value": 183.92,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Bright_Water.png"
+  },
+  {
+    "name": "Freehand",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$65.61 - $163.02",
+      "price_stattrak_string": "$73.87 - $273.15",
+      "currency": "USD",
+      "min": {
+        "value": 65.61,
+        "stattrak_value": 73.87,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 163.02,
+        "stattrak_value": 273.15,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Freehand.png"
+  },
+  {
+    "name": "Gamma Doppler",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$163.99 - $782.39",
+      "price_stattrak_string": "$195.06 - $330.00",
+      "currency": "USD",
+      "min": {
+        "value": 163.99,
+        "stattrak_value": 195.06,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 782.39,
+        "stattrak_value": 330,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Gamma_Doppler.png"
+  },
+  {
+    "name": "Lore",
+    "weapon": "★ Gut Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$89.03 - $234.22",
+      "price_stattrak_string": "$101.41 - $300.00",
+      "currency": "USD",
+      "min": {
+        "value": 89.03,
+        "stattrak_value": 101.41,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 234.22,
+        "stattrak_value": 300,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Gut_Knife_Lore.png"
+  },
+  {
+    "name": "Autotronic",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$128.87 - $3072.44",
+      "price_stattrak_string": "$954.00 - $2335.49",
+      "currency": "USD",
+      "min": {
+        "value": 128.87,
+        "stattrak_value": 954,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3072.44,
+        "stattrak_value": 2335.49,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Autotronic.png"
+  },
+  {
+    "name": "Black Laminate",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$718.37 - $1400.13",
+      "price_stattrak_string": "$744.19 - $2484.57",
+      "currency": "USD",
+      "min": {
+        "value": 718.37,
+        "stattrak_value": 744.19,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1400.13,
+        "stattrak_value": 2484.57,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Black_Laminate.png"
+  },
+  {
+    "name": "Bright Water",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$519.99 - $1133.40",
+      "price_stattrak_string": "$515.86 - $972.93",
+      "currency": "USD",
+      "min": {
+        "value": 519.99,
+        "stattrak_value": 515.86,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1133.4,
+        "stattrak_value": 972.93,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Bright_Water.png"
+  },
+  {
+    "name": "Freehand",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$522.10 - $1012.66",
+      "price_stattrak_string": "$606.95 - $1269.14",
+      "currency": "USD",
+      "min": {
+        "value": 522.1,
+        "stattrak_value": 606.95,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1012.66,
+        "stattrak_value": 1269.14,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Freehand.png"
+  },
+  {
+    "name": "Gamma Doppler",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$95.70 - $16932.33",
+      "price_stattrak_string": "$1710.10 - $12845.20",
+      "currency": "USD",
+      "min": {
+        "value": 95.7,
+        "stattrak_value": 1710.1,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16932.33,
+        "stattrak_value": 12845.2,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Gamma_Doppler.png"
+  },
+  {
+    "name": "Lore",
+    "weapon": "Karambit",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$600.00 - $3725.11",
+      "price_stattrak_string": "$668.42 - $1015.94",
+      "currency": "USD",
+      "min": {
+        "value": 600,
+        "stattrak_value": 668.42,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3725.11,
+        "stattrak_value": 1015.94,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Karambit_Lore.png"
+  },
+  {
+    "name": "Autotronic",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$671.00 - $2150.70",
+      "price_stattrak_string": "$795.83 - $1515.00",
+      "currency": "USD",
+      "min": {
+        "value": 671,
+        "stattrak_value": 795.83,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2150.7,
+        "stattrak_value": 1515,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Autotronic.png"
+  },
+  {
+    "name": "Black Laminate",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$525.97 - $1175.25",
+      "price_stattrak_string": "$536.08 - $992.58",
+      "currency": "USD",
+      "min": {
+        "value": 525.97,
+        "stattrak_value": 536.08,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1175.25,
+        "stattrak_value": 992.58,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Black_Laminate.png"
+  },
+  {
+    "name": "Bright Water",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$369.99 - $798.67",
+      "price_stattrak_string": "$465.98 - $921.71",
+      "currency": "USD",
+      "min": {
+        "value": 369.99,
+        "stattrak_value": 465.98,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 798.67,
+        "stattrak_value": 921.71,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Bright_Water.png"
+  },
+  {
+    "name": "Freehand",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$404.23 - $760.49",
+      "price_stattrak_string": "$391.88 - $612.48",
+      "currency": "USD",
+      "min": {
+        "value": 404.23,
+        "stattrak_value": 391.88,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 760.49,
+        "stattrak_value": 612.48,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Freehand.png"
+  },
+  {
+    "name": "Gamma Doppler",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$1739.99 - $13925.16",
+      "price_stattrak_string": "$1699.99 - $3502.07",
+      "currency": "USD",
+      "min": {
+        "value": 1739.99,
+        "stattrak_value": 1699.99,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 13925.16,
+        "stattrak_value": 3502.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Gamma_Doppler.png"
+  },
+  {
+    "name": "Lore",
+    "weapon": "M9 Bayonet",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$438.00 - $2755.45",
+      "price_stattrak_string": "$474.29 - $1634.85",
+      "currency": "USD",
+      "min": {
+        "value": 438,
+        "stattrak_value": 474.29,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2755.45,
+        "stattrak_value": 1634.85,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/M9_Bayonet_Lore.png"
+  }
+]

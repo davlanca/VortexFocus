@@ -1,0 +1,577 @@
+[
+  {
+    "name": "Welcome to the Jungle",
+    "weapon": "M4A1-S",
+    "rarity": "Covert Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$669.99 - $7057.32",
+      "price_stattrak_string": "$744.47 - $2307.44",
+      "currency": "USD",
+      "min": {
+        "value": 669.99,
+        "stattrak_value": 744.47,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7057.32,
+        "stattrak_value": 2307.44,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A1-S_Welcome_to_the_Jungle.png"
+  },
+  {
+    "name": "Panthera onca",
+    "weapon": "AK-47",
+    "rarity": "Classified Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$189.69 - $1866.51",
+      "price_stattrak_string": "$128.00 - $1339.69",
+      "currency": "USD",
+      "min": {
+        "value": 189.69,
+        "stattrak_value": 128,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1866.51,
+        "stattrak_value": 1339.69,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Panthera_onca.png"
+  },
+  {
+    "name": "Run and Hide",
+    "weapon": "P90",
+    "rarity": "Classified SMG",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$15.98 - $269.16",
+      "price_stattrak_string": "$15.98 - $269.16",
+      "currency": "USD",
+      "min": {
+        "value": 15.98,
+        "stattrak_value": 15.98,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 269.16,
+        "stattrak_value": 269.16,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Run_and_Hide.png"
+  },
+  {
+    "name": "Ancient Visions",
+    "weapon": "USP-S",
+    "rarity": "Restricted Pistol",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$64.03 - $209.33",
+      "price_stattrak_string": "$5.45 - $44.60",
+      "currency": "USD",
+      "min": {
+        "value": 64.03,
+        "stattrak_value": 5.45,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 209.33,
+        "stattrak_value": 44.6,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/USP-S_Ancient_Visions.png"
+  },
+  {
+    "name": "Gold Brick",
+    "weapon": "MAC-10",
+    "rarity": "Restricted SMG",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$53.69 - $191.81",
+      "price_stattrak_string": "$9.10 - $99.08",
+      "currency": "USD",
+      "min": {
+        "value": 53.69,
+        "stattrak_value": 9.1,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 191.81,
+        "stattrak_value": 99.08,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAC-10_Gold_Brick.png"
+  },
+  {
+    "name": "Ancient Lore",
+    "weapon": "XM1014",
+    "rarity": "Restricted Shotgun",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$42.31 - $285.51",
+      "price_stattrak_string": "$0.70 - $25.00",
+      "currency": "USD",
+      "min": {
+        "value": 42.31,
+        "stattrak_value": 0.7,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 285.51,
+        "stattrak_value": 25,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/XM1014_Ancient_Lore.png"
+  },
+  {
+    "name": "Dark Water",
+    "weapon": "FAMAS",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$14.44 - $31.57",
+      "price_stattrak_string": "$0.76 - $3.14",
+      "currency": "USD",
+      "min": {
+        "value": 14.44,
+        "stattrak_value": 0.76,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 31.57,
+        "stattrak_value": 3.14,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Dark_Water.png"
+  },
+  {
+    "name": "Dusk Ruins",
+    "weapon": "Galil AR",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$17.52 - $84.02",
+      "price_stattrak_string": "$2.28 - $165.84",
+      "currency": "USD",
+      "min": {
+        "value": 17.52,
+        "stattrak_value": 2.28,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 84.02,
+        "stattrak_value": 165.84,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Galil_AR_Dusk_Ruins.png"
+  },
+  {
+    "name": "Carved Jade",
+    "weapon": "AUG",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$18.39 - $54.18",
+      "price_stattrak_string": "$3.33 - $9.93",
+      "currency": "USD",
+      "min": {
+        "value": 18.39,
+        "stattrak_value": 3.33,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 54.18,
+        "stattrak_value": 9.93,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Carved_Jade.png"
+  },
+  {
+    "name": "Blast From the Past",
+    "weapon": "Tec-9",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$14.41 - $49.00",
+      "price_stattrak_string": "$0.38 - $7.50",
+      "currency": "USD",
+      "min": {
+        "value": 14.41,
+        "stattrak_value": 0.38,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 49,
+        "stattrak_value": 7.5,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Blast_From_the_Past.png"
+  },
+  {
+    "name": "Silver",
+    "weapon": "CZ75-Auto",
+    "rarity": "Industrial Pistol",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$3.56 - $10.15",
+      "price_stattrak_string": "$0.18 - $2.14",
+      "currency": "USD",
+      "min": {
+        "value": 3.56,
+        "stattrak_value": 0.18,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10.15,
+        "stattrak_value": 2.14,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/CZ75-Auto_Silver.png"
+  },
+  {
+    "name": "Ancient Ritual",
+    "weapon": "G3SG1",
+    "rarity": "Industrial Sniper Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$2.64 - $52.55",
+      "price_stattrak_string": "$0.02 - $4.50",
+      "currency": "USD",
+      "min": {
+        "value": 2.64,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 52.55,
+        "stattrak_value": 4.5,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/G3SG1_Ancient_Ritual.png"
+  },
+  {
+    "name": "Tall Grass",
+    "weapon": "MP7",
+    "rarity": "Industrial SMG",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$2.53 - $29.18",
+      "price_stattrak_string": "$0.05 - $2.32",
+      "currency": "USD",
+      "min": {
+        "value": 2.53,
+        "stattrak_value": 0.05,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 29.18,
+        "stattrak_value": 2.32,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Tall_Grass.png"
+  },
+  {
+    "name": "Panther Camo",
+    "weapon": "P2000",
+    "rarity": "Industrial Pistol",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$2.94 - $7.77",
+      "price_stattrak_string": "$0.06 - $2.00",
+      "currency": "USD",
+      "min": {
+        "value": 2.94,
+        "stattrak_value": 0.06,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.77,
+        "stattrak_value": 2,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P2000_Panther_Camo.png"
+  },
+  {
+    "name": "Night",
+    "weapon": "R8 Revolver",
+    "rarity": "Consumer Pistol",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$0.52 - $9.80",
+      "price_stattrak_string": "$0.02 - $2.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.52,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 9.8,
+        "stattrak_value": 2,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/R8_Revolver_Night.png"
+  },
+  {
+    "name": "Jungle Dashed",
+    "weapon": "SSG 08",
+    "rarity": "Consumer Sniper Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$0.44 - $13.64",
+      "price_stattrak_string": "$0.02 - $2.36",
+      "currency": "USD",
+      "min": {
+        "value": 0.44,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 13.64,
+        "stattrak_value": 2.36,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Jungle_Dashed.png"
+  },
+  {
+    "name": "Army Sheen",
+    "weapon": "Nova",
+    "rarity": "Consumer Shotgun",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$0.49 - $2.04",
+      "price_stattrak_string": "$0.02 - $0.99",
+      "currency": "USD",
+      "min": {
+        "value": 0.49,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.04,
+        "stattrak_value": 0.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Nova_Army_Sheen.png"
+  },
+  {
+    "name": "Lush Ruins",
+    "weapon": "SG 553",
+    "rarity": "Consumer Rifle",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$0.44 - $17.10",
+      "price_stattrak_string": "$0.02 - $0.99",
+      "currency": "USD",
+      "min": {
+        "value": 0.44,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 17.1,
+        "stattrak_value": 0.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SG_553_Lush_Ruins.png"
+  },
+  {
+    "name": "Ancient Earth",
+    "weapon": "P90",
+    "rarity": "Consumer SMG",
+    "collection": "The Ancient Collection",
+    "price": {
+      "price_string": "$0.50 - $20.48",
+      "price_stattrak_string": "$0.02 - $2.00",
+      "currency": "USD",
+      "min": {
+        "value": 0.5,
+        "stattrak_value": 0.02,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 20.48,
+        "stattrak_value": 2,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Ancient_Earth.png"
+  },
+  {
+    "name": "Shanghai 2024 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 27 November 2024",
+    "price": {
+      "price_string": "$3.41",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.41,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.41,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Shanghai_2024_Ancient_Souvenir_Package.png"
+  },
+  {
+    "name": "Copenhagen 2024 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 14 March 2024",
+    "price": {
+      "price_string": "$2.84",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.84,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.84,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Copenhagen_2024_Ancient_Souvenir_Package.png"
+  },
+  {
+    "name": "Paris 2023 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 05 May 2023",
+    "price": {
+      "price_string": "$2.62",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.62,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Paris_2023_Ancient_Souvenir_Package.png"
+  },
+  {
+    "name": "Rio 2022 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 21 October 2022",
+    "price": {
+      "price_string": "$3.56",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.56,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.56,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Rio_2022_Ancient_Souvenir_Package.png"
+  },
+  {
+    "name": "Antwerp 2022 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 03 May 2022",
+    "price": {
+      "price_string": "$5.10",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 5.1,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 5.1,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Antwerp_2022_Ancient_Souvenir_Package.png"
+  },
+  {
+    "name": "Stockholm 2021 Ancient Souvenir Package",
+    "weapon": "Souvenir Package",
+    "rarity": "Consumer Grade Container",
+    "collection": "Introduced: 22 October 2021",
+    "price": {
+      "price_string": "$2.11",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.11,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.11,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:20+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/containers/Stockholm_2021_Ancient_Souvenir_Package.png"
+  }
+]

@@ -1,0 +1,40 @@
+name: CS2 Price Scraper
+
+on:
+  schedule:
+    # Запуск каждые 5 минут
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # Добавляет кнопку "Run workflow" для ручного запуска
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Скачиваем код вашего репозитория
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Устанавливаем язык Go
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.25.5' # Оставил версию из вашего шаблона
+
+    # 3. Подтягиваем нужные библиотеки
+    - name: Install dependencies
+      run: go mod tidy
+
+    # 4. Запускаем сам парсер в режиме скрытности
+    - name: Run Scraper
+      run: go run main.go -stealth
+
+    # 5. Пушим созданный JSON обратно в репозиторий
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add *.json
+        # Скрипт проверит, изменился ли файл. Если изменился — запушит
+        git diff-index --quiet HEAD || git commit -m "Авто-обновление цен: $(date -u +'%Y-%m-%d %H:%M:%S') UTC"
+        git push

@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Ossified",
+    "weapon": "Tec-9",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$4.76 - $45.61",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 4.76,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 45.61,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Ossified.png"
+  },
+  {
+    "name": "Jungle Tiger",
+    "weapon": "M4A4",
+    "rarity": "Industrial Rifle",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$7.24 - $175.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 7.24,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 175,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A4_Jungle_Tiger.png"
+  },
+  {
+    "name": "Jungle Spray",
+    "weapon": "AK-47",
+    "rarity": "Industrial Rifle",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$5.52 - $399.99",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 5.52,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 399.99,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Jungle_Spray.png"
+  },
+  {
+    "name": "Lichen Dashed",
+    "weapon": "SSG 08",
+    "rarity": "Consumer Sniper Rifle",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$1.40 - $74.72",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 1.4,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 74.72,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Lichen_Dashed.png"
+  },
+  {
+    "name": "Jungle",
+    "weapon": "Five-SeveN",
+    "rarity": "Consumer Pistol",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$2.01 - $74.49",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.01,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 74.49,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Jungle.png"
+  },
+  {
+    "name": "Forest Leaves",
+    "weapon": "Nova",
+    "rarity": "Consumer Shotgun",
+    "collection": "The Aztec Collection",
+    "price": {
+      "price_string": "$1.48 - $99.92",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 1.48,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 99.92,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:24+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Nova_Forest_Leaves.png"
+  }
+]

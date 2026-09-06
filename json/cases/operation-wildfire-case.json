@@ -1,0 +1,669 @@
+[
+  {
+    "name": "Fuel Injector",
+    "weapon": "AK-47",
+    "rarity": "Covert Rifle",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$121.30 - $1195.86",
+      "price_stattrak_string": "$239.75 - $1756.72",
+      "currency": "USD",
+      "min": {
+        "value": 121.3,
+        "stattrak_value": 239.75,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1195.86,
+        "stattrak_value": 1756.72,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Fuel_Injector.png"
+  },
+  {
+    "name": "The Battlestar",
+    "weapon": "M4A4",
+    "rarity": "Covert Rifle",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$36.83 - $427.64",
+      "price_stattrak_string": "$38.99 - $209.99",
+      "currency": "USD",
+      "min": {
+        "value": 36.83,
+        "stattrak_value": 38.99,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 427.64,
+        "stattrak_value": 209.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A4_The_Battlestar.png"
+  },
+  {
+    "name": "Elite Build",
+    "weapon": "AWP",
+    "rarity": "Classified Sniper Rifle",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$15.57 - $599.06",
+      "price_stattrak_string": "$23.93 - $153.16",
+      "currency": "USD",
+      "min": {
+        "value": 15.57,
+        "stattrak_value": 23.93,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 599.06,
+        "stattrak_value": 153.16,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AWP_Elite_Build.png"
+  },
+  {
+    "name": "Hyper Beast",
+    "weapon": "Nova",
+    "rarity": "Classified Shotgun",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$14.00 - $65.82",
+      "price_stattrak_string": "$29.31 - $61.13",
+      "currency": "USD",
+      "min": {
+        "value": 14,
+        "stattrak_value": 29.31,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 65.82,
+        "stattrak_value": 61.13,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Nova_Hyper_Beast.png"
+  },
+  {
+    "name": "Kumicho Dragon",
+    "weapon": "Desert Eagle",
+    "rarity": "Classified Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$20.44 - $153.09",
+      "price_stattrak_string": "$39.77 - $153.44",
+      "currency": "USD",
+      "min": {
+        "value": 20.44,
+        "stattrak_value": 39.77,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 153.09,
+        "stattrak_value": 153.44,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Desert_Eagle_Kumicho_Dragon.png"
+  },
+  {
+    "name": "Praetorian",
+    "weapon": "MAG-7",
+    "rarity": "Restricted Shotgun",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$2.10 - $4980.36",
+      "price_stattrak_string": "$3.42 - $30.00",
+      "currency": "USD",
+      "min": {
+        "value": 2.1,
+        "stattrak_value": 3.42,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 4980.36,
+        "stattrak_value": 30,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAG-7_Praetorian.png"
+  },
+  {
+    "name": "Triumvirate",
+    "weapon": "Five-SeveN",
+    "rarity": "Restricted Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$1.98 - $15.70",
+      "price_stattrak_string": "$2.98 - $19.22",
+      "currency": "USD",
+      "min": {
+        "value": 1.98,
+        "stattrak_value": 2.98,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 15.7,
+        "stattrak_value": 19.22,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Triumvirate.png"
+  },
+  {
+    "name": "Royal Legion",
+    "weapon": "Glock-18",
+    "rarity": "Restricted Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$2.21 - $88.00",
+      "price_stattrak_string": "$3.07 - $66.61",
+      "currency": "USD",
+      "min": {
+        "value": 2.21,
+        "stattrak_value": 3.07,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 88,
+        "stattrak_value": 66.61,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Royal_Legion.png"
+  },
+  {
+    "name": "Valence",
+    "weapon": "FAMAS",
+    "rarity": "Restricted Rifle",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$3.73 - $26.78",
+      "price_stattrak_string": "$6.52 - $41.48",
+      "currency": "USD",
+      "min": {
+        "value": 3.73,
+        "stattrak_value": 6.52,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 26.78,
+        "stattrak_value": 41.48,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Valence.png"
+  },
+  {
+    "name": "Impire",
+    "weapon": "MP7",
+    "rarity": "Restricted SMG",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$2.10 - $25.00",
+      "price_stattrak_string": "$3.42 - $10.86",
+      "currency": "USD",
+      "min": {
+        "value": 2.1,
+        "stattrak_value": 3.42,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 25,
+        "stattrak_value": 10.86,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Impire.png"
+  },
+  {
+    "name": "Lead Conduit",
+    "weapon": "USP-S",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.63 - $21.82",
+      "price_stattrak_string": "$2.06 - $35.34",
+      "currency": "USD",
+      "min": {
+        "value": 0.63,
+        "stattrak_value": 2.06,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 21.82,
+        "stattrak_value": 35.34,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/USP-S_Lead_Conduit.png"
+  },
+  {
+    "name": "Jambiya",
+    "weapon": "Tec-9",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.34 - $21.99",
+      "price_stattrak_string": "$0.47 - $14.14",
+      "currency": "USD",
+      "min": {
+        "value": 0.34,
+        "stattrak_value": 0.47,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 21.99,
+        "stattrak_value": 14.14,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Jambiya.png"
+  },
+  {
+    "name": "Cartel",
+    "weapon": "Dual Berettas",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.34 - $6.29",
+      "price_stattrak_string": "$0.49 - $12.49",
+      "currency": "USD",
+      "min": {
+        "value": 0.34,
+        "stattrak_value": 0.49,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 6.29,
+        "stattrak_value": 12.49,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Dual_Berettas_Cartel.png"
+  },
+  {
+    "name": "Necropos",
+    "weapon": "SSG 08",
+    "rarity": "Mil-spec Sniper Rifle",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.40 - $3.71",
+      "price_stattrak_string": "$0.57 - $13.28",
+      "currency": "USD",
+      "min": {
+        "value": 0.4,
+        "stattrak_value": 0.57,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 3.71,
+        "stattrak_value": 13.28,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Necropos.png"
+  },
+  {
+    "name": "Lapis Gator",
+    "weapon": "MAC-10",
+    "rarity": "Mil-spec SMG",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.47 - $10.00",
+      "price_stattrak_string": "$0.84 - $11.98",
+      "currency": "USD",
+      "min": {
+        "value": 0.47,
+        "stattrak_value": 0.84,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10,
+        "stattrak_value": 11.98,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAC-10_Lapis_Gator.png"
+  },
+  {
+    "name": "Photic Zone",
+    "weapon": "PP-Bizon",
+    "rarity": "Mil-spec SMG",
+    "collection": "The Wildfire Collection",
+    "price": {
+      "price_string": "$0.36 - $4.67",
+      "price_stattrak_string": "$0.41 - $8.98",
+      "currency": "USD",
+      "min": {
+        "value": 0.36,
+        "stattrak_value": 0.41,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 4.67,
+        "stattrak_value": 8.98,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/PP-Bizon_Photic_Zone.png"
+  },
+  {
+    "name": "Vanilla",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "",
+      "price_stattrak_string": "",
+      "currency": "UNKNOWN",
+      "min": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "max": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife.png"
+  },
+  {
+    "name": "Blue Steel",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$105.72 - $205.17",
+      "price_stattrak_string": "$273.98 - $951.97",
+      "currency": "USD",
+      "min": {
+        "value": 105.72,
+        "stattrak_value": 273.98,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 205.17,
+        "stattrak_value": 951.97,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Blue_Steel.png"
+  },
+  {
+    "name": "Boreal Forest",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$62.70 - $900.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 62.7,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 900,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Boreal_Forest.png"
+  },
+  {
+    "name": "Case Hardened",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$143.33 - $899.00",
+      "price_stattrak_string": "$172.19 - $1242.28",
+      "currency": "USD",
+      "min": {
+        "value": 143.33,
+        "stattrak_value": 172.19,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 899,
+        "stattrak_value": 1242.28,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Case_Hardened.png"
+  },
+  {
+    "name": "Crimson Web",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$121.17 - $413.24",
+      "price_stattrak_string": "$136.13 - $651.99",
+      "currency": "USD",
+      "min": {
+        "value": 121.17,
+        "stattrak_value": 136.13,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 413.24,
+        "stattrak_value": 651.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Crimson_Web.png"
+  },
+  {
+    "name": "Fade",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$219.03 - $451.37",
+      "price_stattrak_string": "$279.77 - $3862.24",
+      "currency": "USD",
+      "min": {
+        "value": 219.03,
+        "stattrak_value": 279.77,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 451.37,
+        "stattrak_value": 3862.24,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Fade.png"
+  },
+  {
+    "name": "Forest DDPAT",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$56.76 - $145.02",
+      "price_stattrak_string": "$67.64 - $153.23",
+      "currency": "USD",
+      "min": {
+        "value": 56.76,
+        "stattrak_value": 67.64,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 145.02,
+        "stattrak_value": 153.23,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Forest_DDPAT.png"
+  },
+  {
+    "name": "Night",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$68.01 - $192.68",
+      "price_stattrak_string": "$80.53 - $665.74",
+      "currency": "USD",
+      "min": {
+        "value": 68.01,
+        "stattrak_value": 80.53,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 192.68,
+        "stattrak_value": 665.74,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Night.png"
+  },
+  {
+    "name": "Safari Mesh",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$57.58 - $106.98",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 57.58,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 106.98,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Safari_Mesh.png"
+  },
+  {
+    "name": "Scorched",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$61.99 - $124.88",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 61.99,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 124.88,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Scorched.png"
+  },
+  {
+    "name": "Slaughter",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$190.50 - $359.55",
+      "price_stattrak_string": "$224.17 - $467.10",
+      "currency": "USD",
+      "min": {
+        "value": 190.5,
+        "stattrak_value": 224.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 359.55,
+        "stattrak_value": 467.1,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Slaughter.png"
+  },
+  {
+    "name": "Stained",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$81.62 - $9999.00",
+      "price_stattrak_string": "$111.27 - $552.10",
+      "currency": "USD",
+      "min": {
+        "value": 81.62,
+        "stattrak_value": 111.27,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 9999,
+        "stattrak_value": 552.1,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Stained.png"
+  },
+  {
+    "name": "Urban Masked",
+    "weapon": "★ Bowie Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$66.06 - $223.16",
+      "price_stattrak_string": "$74.29 - $120.42",
+      "currency": "USD",
+      "min": {
+        "value": 66.06,
+        "stattrak_value": 74.29,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 223.16,
+        "stattrak_value": 120.42,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:23+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Bowie_Knife_Urban_Masked.png"
+  }
+]

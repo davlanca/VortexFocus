@@ -1,0 +1,416 @@
+[
+  {
+    "name": "Wild Lotus",
+    "weapon": "AK-47",
+    "rarity": "Covert Rifle",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$4222.55 - $10390.01",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 4222.55,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10390.01,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AK-47_Wild_Lotus.png"
+  },
+  {
+    "name": "Wild Lily",
+    "weapon": "MP9",
+    "rarity": "Classified SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$1800.00 - $7222.22",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 1800,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7222.22,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP9_Wild_Lily.png"
+  },
+  {
+    "name": "Midnight Lily",
+    "weapon": "AUG",
+    "rarity": "Restricted Rifle",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$356.05 - $1401.30",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 356.05,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1401.3,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Midnight_Lily.png"
+  },
+  {
+    "name": "Synth Leaf",
+    "weapon": "Glock-18",
+    "rarity": "Restricted Pistol",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$421.75 - $2777.77",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 421.75,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2777.77,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Synth_Leaf.png"
+  },
+  {
+    "name": "Sea Calico",
+    "weapon": "SSG 08",
+    "rarity": "Restricted Sniper Rifle",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$304.40 - $10000.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 304.4,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10000,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SSG_08_Sea_Calico.png"
+  },
+  {
+    "name": "Sundown",
+    "weapon": "FAMAS",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$76.13 - $177.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 76.13,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 177,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Sundown.png"
+  },
+  {
+    "name": "Crimson Blossom",
+    "weapon": "Five-SeveN",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$93.98 - $431.11",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 93.98,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 431.11,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Crimson_Blossom.png"
+  },
+  {
+    "name": "Teal Blossom",
+    "weapon": "MP7",
+    "rarity": "Mil-spec SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$89.16 - $399.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 89.16,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 399,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP7_Teal_Blossom.png"
+  },
+  {
+    "name": "Day Lily",
+    "weapon": "UMP-45",
+    "rarity": "Mil-spec SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$90.99 - $187.26",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 90.99,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 187.26,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/UMP-45_Day_Lily.png"
+  },
+  {
+    "name": "Dark Blossom",
+    "weapon": "M4A4",
+    "rarity": "Industrial Rifle",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$19.04 - $175.88",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 19.04,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 175.88,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M4A4_Dark_Blossom.png"
+  },
+  {
+    "name": "Sunset Lily",
+    "weapon": "P90",
+    "rarity": "Industrial SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$14.17 - $200.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 14.17,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 200,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Sunset_Lily.png"
+  },
+  {
+    "name": "Rust Leaf",
+    "weapon": "Tec-9",
+    "rarity": "Industrial Pistol",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$13.45 - $60.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 13.45,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 60,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Rust_Leaf.png"
+  },
+  {
+    "name": "Banana Leaf",
+    "weapon": "XM1014",
+    "rarity": "Industrial Shotgun",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$14.54 - $44.37",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 14.54,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 44.37,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/XM1014_Banana_Leaf.png"
+  },
+  {
+    "name": "Jungle",
+    "weapon": "M249",
+    "rarity": "Consumer Machine Gun",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$2.47 - $60.00",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.47,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 60,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M249_Jungle.png"
+  },
+  {
+    "name": "Surfwood",
+    "weapon": "MAC-10",
+    "rarity": "Consumer SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$3.70 - $23.35",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.7,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 23.35,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAC-10_Surfwood.png"
+  },
+  {
+    "name": "Bamboo Garden",
+    "weapon": "MP5-SD",
+    "rarity": "Consumer SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$3.50 - $8.06",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.5,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 8.06,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP5-SD_Bamboo_Garden.png"
+  },
+  {
+    "name": "Seabird",
+    "weapon": "PP-Bizon",
+    "rarity": "Consumer SMG",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$2.28 - $7.64",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 2.28,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.64,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/PP-Bizon_Seabird.png"
+  },
+  {
+    "name": "Jungle Thicket",
+    "weapon": "Sawed-Off",
+    "rarity": "Consumer Shotgun",
+    "collection": "The St. Marc Collection",
+    "price": {
+      "price_string": "$3.77 - $7.95",
+      "price_stattrak_string": "",
+      "currency": "USD",
+      "min": {
+        "value": 3.77,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.95,
+        "stattrak_value": 0,
+        "unit": "USD"
+      },
+      "updated_at": "2026-01-09T21:42:22+04:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Sawed-Off_Jungle_Thicket.png"
+  }
+]

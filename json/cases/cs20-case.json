@@ -1,0 +1,692 @@
+[
+  {
+    "name": "Wildfire",
+    "weapon": "AWP",
+    "rarity": "Covert Sniper Rifle",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$31.80 - $239.63",
+      "price_stattrak_string": "$70.30 - $407.15",
+      "currency": "USD",
+      "min": {
+        "value": 31.8,
+        "stattrak_value": 70.3,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 239.63,
+        "stattrak_value": 407.15,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AWP_Wildfire.png"
+  },
+  {
+    "name": "Commemoration",
+    "weapon": "FAMAS",
+    "rarity": "Covert Rifle",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$27.04 - $108.79",
+      "price_stattrak_string": "$32.47 - $196.81",
+      "currency": "USD",
+      "min": {
+        "value": 27.04,
+        "stattrak_value": 32.47,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 108.79,
+        "stattrak_value": 196.81,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Commemoration.png"
+  },
+  {
+    "name": "Death by Puppy",
+    "weapon": "AUG",
+    "rarity": "Classified Rifle",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$3.52 - $69.99",
+      "price_stattrak_string": "$5.26 - $66.52",
+      "currency": "USD",
+      "min": {
+        "value": 3.52,
+        "stattrak_value": 5.26,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 69.99,
+        "stattrak_value": 66.52,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/AUG_Death_by_Puppy.png"
+  },
+  {
+    "name": "Nostalgia",
+    "weapon": "P90",
+    "rarity": "Classified SMG",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$3.38 - $28.64",
+      "price_stattrak_string": "$5.85 - $43.28",
+      "currency": "USD",
+      "min": {
+        "value": 3.38,
+        "stattrak_value": 5.85,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 28.64,
+        "stattrak_value": 43.28,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P90_Nostalgia.png"
+  },
+  {
+    "name": "Hydra",
+    "weapon": "MP9",
+    "rarity": "Classified SMG",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$4.26 - $62.98",
+      "price_stattrak_string": "$8.29 - $97.75",
+      "currency": "USD",
+      "min": {
+        "value": 4.26,
+        "stattrak_value": 8.29,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 62.98,
+        "stattrak_value": 97.75,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP9_Hydra.png"
+  },
+  {
+    "name": "Plastique",
+    "weapon": "UMP-45",
+    "rarity": "Restricted SMG",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.41 - $7.99",
+      "price_stattrak_string": "$0.84 - $9.07",
+      "currency": "USD",
+      "min": {
+        "value": 0.41,
+        "stattrak_value": 0.84,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.99,
+        "stattrak_value": 9.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/UMP-45_Plastique.png"
+  },
+  {
+    "name": "Inferno",
+    "weapon": "P250",
+    "rarity": "Restricted Pistol",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.52 - $34.35",
+      "price_stattrak_string": "$1.03 - $10.98",
+      "currency": "USD",
+      "min": {
+        "value": 0.52,
+        "stattrak_value": 1.03,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 34.35,
+        "stattrak_value": 10.98,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/P250_Inferno.png"
+  },
+  {
+    "name": "Buddy",
+    "weapon": "Five-SeveN",
+    "rarity": "Restricted Pistol",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.50 - $16.36",
+      "price_stattrak_string": "$1.28 - $13.53",
+      "currency": "USD",
+      "min": {
+        "value": 0.5,
+        "stattrak_value": 1.28,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 16.36,
+        "stattrak_value": 13.53,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Five-SeveN_Buddy.png"
+  },
+  {
+    "name": "Agent",
+    "weapon": "MP5-SD",
+    "rarity": "Restricted SMG",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.41 - $10.25",
+      "price_stattrak_string": "$0.82 - $31.99",
+      "currency": "USD",
+      "min": {
+        "value": 0.41,
+        "stattrak_value": 0.82,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 10.25,
+        "stattrak_value": 31.99,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MP5-SD_Agent.png"
+  },
+  {
+    "name": "Aztec",
+    "weapon": "M249",
+    "rarity": "Restricted Machine Gun",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.40 - $7.80",
+      "price_stattrak_string": "$0.74 - $7.64",
+      "currency": "USD",
+      "min": {
+        "value": 0.4,
+        "stattrak_value": 0.74,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 7.8,
+        "stattrak_value": 7.64,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/M249_Aztec.png"
+  },
+  {
+    "name": "Sacrifice",
+    "weapon": "Glock-18",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.24 - $22.97",
+      "price_stattrak_string": "$0.28 - $9.90",
+      "currency": "USD",
+      "min": {
+        "value": 0.24,
+        "stattrak_value": 0.28,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 22.97,
+        "stattrak_value": 9.9,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Glock-18_Sacrifice.png"
+  },
+  {
+    "name": "Decommissioned",
+    "weapon": "FAMAS",
+    "rarity": "Mil-spec Rifle",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.27 - $18.91",
+      "price_stattrak_string": "$0.23 - $5.66",
+      "currency": "USD",
+      "min": {
+        "value": 0.27,
+        "stattrak_value": 0.23,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 18.91,
+        "stattrak_value": 5.66,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/FAMAS_Decommissioned.png"
+  },
+  {
+    "name": "Assault",
+    "weapon": "SCAR-20",
+    "rarity": "Mil-spec Sniper Rifle",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.25 - $1.08",
+      "price_stattrak_string": "$0.17 - $2.87",
+      "currency": "USD",
+      "min": {
+        "value": 0.25,
+        "stattrak_value": 0.17,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1.08,
+        "stattrak_value": 2.87,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/SCAR-20_Assault.png"
+  },
+  {
+    "name": "Popdog",
+    "weapon": "MAG-7",
+    "rarity": "Mil-spec Shotgun",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.24 - $15.17",
+      "price_stattrak_string": "$0.18 - $3.34",
+      "currency": "USD",
+      "min": {
+        "value": 0.24,
+        "stattrak_value": 0.18,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 15.17,
+        "stattrak_value": 3.34,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAG-7_Popdog.png"
+  },
+  {
+    "name": "Classic Crate",
+    "weapon": "MAC-10",
+    "rarity": "Mil-spec SMG",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.21 - $9.06",
+      "price_stattrak_string": "$0.11 - $7.64",
+      "currency": "USD",
+      "min": {
+        "value": 0.21,
+        "stattrak_value": 0.11,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 9.06,
+        "stattrak_value": 7.64,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/MAC-10_Classic_Crate.png"
+  },
+  {
+    "name": "Flash Out",
+    "weapon": "Tec-9",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.26 - $12.51",
+      "price_stattrak_string": "$0.18 - $2.45",
+      "currency": "USD",
+      "min": {
+        "value": 0.26,
+        "stattrak_value": 0.18,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 12.51,
+        "stattrak_value": 2.45,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Tec-9_Flash_Out.png"
+  },
+  {
+    "name": "Elite 1.6",
+    "weapon": "Dual Berettas",
+    "rarity": "Mil-spec Pistol",
+    "collection": "The CS20 Collection",
+    "price": {
+      "price_string": "$0.23 - $2.43",
+      "price_stattrak_string": "$0.21 - $2.75",
+      "currency": "USD",
+      "min": {
+        "value": 0.23,
+        "stattrak_value": 0.21,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 2.43,
+        "stattrak_value": 2.75,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/skins/Dual_Berettas_Elite_1.6.png"
+  },
+  {
+    "name": "Vanilla",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "",
+      "price_stattrak_string": "",
+      "currency": "UNKNOWN",
+      "min": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "max": {
+        "value": 0,
+        "stattrak_value": 0,
+        "unit": "UNKNOWN"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife.png"
+  },
+  {
+    "name": "Blue Steel",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$97.57 - $259.00",
+      "price_stattrak_string": "$108.00 - $1987.21",
+      "currency": "USD",
+      "min": {
+        "value": 97.57,
+        "stattrak_value": 108,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 259,
+        "stattrak_value": 1987.21,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Blue_Steel.png"
+  },
+  {
+    "name": "Boreal Forest",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$57.63 - $447.02",
+      "price_stattrak_string": "$67.87 - $665.18",
+      "currency": "USD",
+      "min": {
+        "value": 57.63,
+        "stattrak_value": 67.87,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 447.02,
+        "stattrak_value": 665.18,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Boreal_Forest.png"
+  },
+  {
+    "name": "Case Hardened",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$105.16 - $473.80",
+      "price_stattrak_string": "$131.73 - $839.42",
+      "currency": "USD",
+      "min": {
+        "value": 105.16,
+        "stattrak_value": 131.73,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 473.8,
+        "stattrak_value": 839.42,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Case_Hardened.png"
+  },
+  {
+    "name": "Crimson Web",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$127.54 - $1583.65",
+      "price_stattrak_string": "$158.34 - $1276.27",
+      "currency": "USD",
+      "min": {
+        "value": 127.54,
+        "stattrak_value": 158.34,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 1583.65,
+        "stattrak_value": 1276.27,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Crimson_Web.png"
+  },
+  {
+    "name": "Fade",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$263.80 - $460.87",
+      "price_stattrak_string": "$291.45 - $920.71",
+      "currency": "USD",
+      "min": {
+        "value": 263.8,
+        "stattrak_value": 291.45,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 460.87,
+        "stattrak_value": 920.71,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Fade.png"
+  },
+  {
+    "name": "Forest DDPAT",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$58.14 - $281.32",
+      "price_stattrak_string": "$64.96 - $190.41",
+      "currency": "USD",
+      "min": {
+        "value": 58.14,
+        "stattrak_value": 64.96,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 281.32,
+        "stattrak_value": 190.41,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Forest_DDPAT.png"
+  },
+  {
+    "name": "Night Stripe",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$92.23 - $637.04",
+      "price_stattrak_string": "$96.92 - $750.00",
+      "currency": "USD",
+      "min": {
+        "value": 92.23,
+        "stattrak_value": 96.92,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 637.04,
+        "stattrak_value": 750,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Night_Stripe.png"
+  },
+  {
+    "name": "Safari Mesh",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$56.70 - $293.88",
+      "price_stattrak_string": "$60.86 - $191.62",
+      "currency": "USD",
+      "min": {
+        "value": 56.7,
+        "stattrak_value": 60.86,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 293.88,
+        "stattrak_value": 191.62,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Safari_Mesh.png"
+  },
+  {
+    "name": "Scorched",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$67.92 - $493.78",
+      "price_stattrak_string": "$80.51 - $5000.00",
+      "currency": "USD",
+      "min": {
+        "value": 67.92,
+        "stattrak_value": 80.51,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 493.78,
+        "stattrak_value": 5000,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Scorched.png"
+  },
+  {
+    "name": "Slaughter",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$166.99 - $309.70",
+      "price_stattrak_string": "$173.59 - $522.32",
+      "currency": "USD",
+      "min": {
+        "value": 166.99,
+        "stattrak_value": 173.59,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 309.7,
+        "stattrak_value": 522.32,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Slaughter.png"
+  },
+  {
+    "name": "Stained",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$76.65 - $340.91",
+      "price_stattrak_string": "$92.80 - $259.07",
+      "currency": "USD",
+      "min": {
+        "value": 76.65,
+        "stattrak_value": 92.8,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 340.91,
+        "stattrak_value": 259.07,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Stained.png"
+  },
+  {
+    "name": "Urban Masked",
+    "weapon": "★ Classic Knife",
+    "rarity": "Extraordinary Knife",
+    "collection": "",
+    "price": {
+      "price_string": "$66.85 - $350.02",
+      "price_stattrak_string": "$83.73 - $448.24",
+      "currency": "USD",
+      "min": {
+        "value": 66.85,
+        "stattrak_value": 83.73,
+        "unit": "USD"
+      },
+      "max": {
+        "value": 350.02,
+        "stattrak_value": 448.24,
+        "unit": "USD"
+      },
+      "updated_at": "2026-09-06T03:35:21+03:00"
+    },
+    "url": "https://www.csgodatabase.com/images/knives/Classic_Knife_Urban_Masked.png"
+  }
+]
