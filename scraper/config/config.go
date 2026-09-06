@@ -2,6 +2,8 @@
 package config
 
 import (
+	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/chromedp/chromedp"
@@ -10,28 +12,54 @@ import (
 // Scraper-wide settings.
 var (
 	Target   = "https://www.csgodatabase.com"
-	DeadLine = 60 * time.Minute // Increased for deep weapon/skin scraping
-	Delay    = 1500 * time.Millisecond
-	Workers  = 4
+	DeadLine = 60 * time.Minute
+	Delay    = 2500 * time.Millisecond
+	Workers  = 2
 	Headless = true
 )
 
-// Opts are the chromedp allocator flags.
-var Opts = append(chromedp.DefaultExecAllocatorOptions[:],
-	chromedp.NoSandbox,
-	chromedp.DisableGPU,
-	chromedp.Flag("disable-setuid-sandbox", true),
-	chromedp.Flag("disable-dev-shm-usage", true),
-	chromedp.Flag("disable-blink-features", "AutomationControlled"),
-	chromedp.Flag("blink-settings", "imagesEnabled=false"),
-	chromedp.Flag("exclude-switches", "enable-automation"),
-	chromedp.Flag("disable-extensions", true),
-	chromedp.Flag("start-maximized", false),
-	chromedp.Flag("window-size", "800,600"),
-	chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"),
-)
+// GetOpts returns optimized chromedp allocator options for CI/Docker environments.
+func GetOpts() []chromedp.ExecAllocatorOption {
+	// Create a unique temp directory for each run to avoid permission issues in CI
+	tmpDir, _ := os.MkdirTemp("", "chrome-profile-*")
 
-// Category describes a scraper category.
+	opts := append(chromedp.DefaultExecAllocatorOptions[:],
+		chromedp.NoSandbox,
+		chromedp.DisableGPU,
+		chromedp.Flag("disable-setuid-sandbox", true),
+		chromedp.Flag("disable-dev-shm-usage", true),
+		chromedp.Flag("disable-blink-features", "AutomationControlled"),
+		chromedp.Flag("headless", "new"),
+		chromedp.Flag("no-first-run", true),
+		chromedp.Flag("no-default-browser-check", true),
+		chromedp.Flag("no-zygote", true),
+		chromedp.Flag("single-process", true),
+		chromedp.Flag("user-data-dir", tmpDir),
+		chromedp.Flag("window-size", "1280,1080"),
+	)
+
+	// If CHROME_PATH is explicitly set
+	if path := os.Getenv("CHROME_PATH"); path != "" {
+		opts = append(opts, chromedp.ExecPath(path))
+	} else {
+		// Fallback for standard Ubuntu GHA runner paths
+		lookIn := []string{
+			"/usr/bin/google-chrome",
+			"/usr/bin/google-chrome-stable",
+			"/usr/bin/chromium-browser",
+			"/usr/bin/chromium",
+		}
+		for _, p := range lookIn {
+			if _, err := os.Stat(p); err == nil {
+				opts = append(opts, chromedp.ExecPath(p))
+				break
+			}
+		}
+	}
+
+	return opts
+}
+
 type Category struct {
 	Slug        string
 	DisplayName string
@@ -40,7 +68,6 @@ type Category struct {
 	SlugList    []string
 }
 
-// AllCategories now focuses exclusively on Weapons.
 var AllCategories = []Category{
 	{
 		Slug:        "weapons",
@@ -51,7 +78,6 @@ var AllCategories = []Category{
 	},
 }
 
-// CategoryBySlug returns the Category struct for the given URL slug.
 func CategoryBySlug(slug string) (Category, bool) {
 	for _, c := range AllCategories {
 		if c.Slug == slug {

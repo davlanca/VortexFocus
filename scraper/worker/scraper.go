@@ -4,6 +4,7 @@ package worker
 import (
 	"context"
 	"fmt"
+	"log"
 	"sync"
 
 	"github.com/chromedp/chromedp"
@@ -34,18 +35,23 @@ func ScrapeSkins() ([]config.Skin, []config.Agent, error) {
 
 // Scrape runs the focused weapons scraper.
 func Scrape() ([]config.Item, error) {
-	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), config.Opts...)
+	fmt.Println("[*] Initializing Chrome allocator...")
+	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), config.GetOpts()...)
 	defer cancel()
 
-	browserCtx, cancel := chromedp.NewContext(allocCtx)
+	fmt.Println("[*] Creating browser context...")
+	// Log Chrome output for debugging in GitHub Actions
+	browserCtx, cancel := chromedp.NewContext(allocCtx, chromedp.WithLogf(log.Printf))
 	defer cancel()
 
 	browserCtx, cancel = context.WithTimeout(browserCtx, config.DeadLine)
 	defer cancel()
 
+	fmt.Println("[*] Performing pre-flight check (navigating to about:blank)...")
 	if err := chromedp.Run(browserCtx, chromedp.Navigate("about:blank")); err != nil {
 		return nil, fmt.Errorf("failed to start Chrome: %w", err)
 	}
+	fmt.Println("[*] Pre-flight check successful, Chrome is active.")
 
 	var (
 		mu  sync.Mutex
@@ -53,8 +59,11 @@ func Scrape() ([]config.Item, error) {
 		wg  sync.WaitGroup
 	)
 
-	// In this version, we only care about Weapons
-	cat := config.AllCategories[0] // Weapons
+	// Focus on Weapons
+	if len(config.AllCategories) == 0 {
+		return nil, fmt.Errorf("no categories configured")
+	}
+	cat := config.AllCategories[0]
 
 	wg.Add(1)
 	go func(c config.Category) {
@@ -90,7 +99,6 @@ func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 	for _, w := range weapons {
 		fmt.Printf("\033[36m[*] Step 2: Discovering all Skins for weapon: %s\033[0m\n", w.Name)
 
-		// Each weapon page contains a list of skins
 		skinSlugs, err := discovery.Discover(ictx, discovery.Options{
 			Category: w.URL,
 		})
@@ -113,7 +121,7 @@ func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 			})
 		}
 
-		// Use a local context for fetching many items to avoid session bloat
+		// Use a local context for fetching many items
 		fetchCtx, fCancel := chromedp.NewContext(ictx)
 		items := common.FetchManyItems(fetchCtx, optsList)
 		fCancel()

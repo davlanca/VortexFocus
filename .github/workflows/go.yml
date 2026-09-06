@@ -2,9 +2,8 @@ name: CS2 Price Scraper
 
 on:
   schedule:
-    # Запуск каждые 30 минут
     - cron: '*/30 * * * *'
-  workflow_dispatch: # Добавляет кнопку "Run workflow" для ручного запуска
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -14,46 +13,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Скачиваем код вашего репозитория
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # 2. Устанавливаем язык Go
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
         go-version: '1.23'
 
-    # 3. Устанавливаем системные зависимости для Chrome (libnss3, libxss1, и т.д.)
-    #    Это обязательно для Ubuntu 24.04 runner, иначе Chrome падает на старте.
-    - name: Install Chrome dependencies
+    - name: Install Google Chrome and Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y \
+        sudo apt-get install -y wget gnupg
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable \
           libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
           libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
-          libxss1 libasound2t64 libpangocairo-1.0-0 libpango-1.0-0 \
-          libgtk-3-0t64 fonts-liberation libappindicator3-1 \
+          libxss1 libasound2 fonts-liberation libappindicator3-1 \
           libu2f-udev libvulkan1 xdg-utils
 
-    # 4. Подтягиваем нужные библиотеки
     - name: Install Go dependencies
       run: go mod tidy
 
-    # 5. Запускаем сам парсер в режиме скрытности
     - name: Run Scraper
       run: go run main.go -stealth
+      env:
+        CHROME_PATH: /usr/bin/google-chrome-stable
 
-    # 6. Пушим созданный JSON обратно в репозиторий
     - name: Commit and Push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        # Создаем папку json, если она не существует (на всякий случай)
         mkdir -p json
-        # Добавляем ВСЕ json-файлы рекурсивно
         git add json/
-        # Коммитим только если в папке json/ реально есть изменения
         if git diff-index --quiet HEAD -- json/; then
           echo "No JSON changes to commit, skipping push."
           exit 0
