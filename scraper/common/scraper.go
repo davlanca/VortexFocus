@@ -111,6 +111,12 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 			return items, nil
 		}
 		fmt.Printf("\033[33m[?]\033[0m No prices for %s\n", opts.Slug)
+		if attempt < maxRetries {
+			fmt.Printf("\033[36m[*]\033[0m Waiting 10 seconds before retrying %s\n", opts.Slug)
+			if err := chromedp.Run(ctx, chromedp.Sleep(10*time.Second)); err != nil {
+				break
+			}
+		}
 	}
 	return nil, fmt.Errorf("failed")
 }
