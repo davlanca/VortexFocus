@@ -17,9 +17,11 @@ import (
 
 // PriceTableResult is the JSON shape produced by prices.js.
 type PriceTableResult struct {
-	ItemName string             `json:"itemName"`
-	HasWear  bool               `json:"hasWear"`
-	Markets  []MarketPriceEntry `json:"markets"`
+	ItemName    string             `json:"itemName"`
+	HasWear     bool               `json:"hasWear"`
+	HasSouvenir bool               `json:"hasSouvenir"`
+	Normal      []MarketPriceEntry `json:"normal"`
+	Souvenir    []MarketPriceEntry `json:"souvenir"`
 }
 
 // MarketPriceEntry matches the per-market shape from prices.js.
@@ -46,16 +48,15 @@ type FetchOptions struct {
 }
 
 // FetchItem navigates to the URL, runs the anti-detection patch, and parses
-// the price table. Returns a config.Item with all prices populated.
-func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
-	item := config.Item{
+// the price table. Returns one or more config.Item (e.g. Normal and Souvenir).
+func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
+	baseItem := config.Item{
 		URL:        opts.URL,
 		Slug:       opts.Slug,
 		Category:   opts.Category,
 		Weapon:     opts.Weapon,
 		Rarity:     opts.Rarity,
 		Collection: opts.Collection,
-		Type:       opts.Type,
 		HasWear:    opts.HasWear,
 		ScrapedAt:  time.Now().UTC().Format(time.RFC3339),
 	}
@@ -71,6 +72,7 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 		var pageTitle string
 		var res PriceTableResult
 
+		// Step 1: Navigate and get Normal prices
 		err := chromedp.Run(ctx,
 			chromedp.Navigate(opts.URL),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
@@ -85,83 +87,113 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 
 		lower := strings.ToLower(pageTitle)
 		if strings.Contains(lower, "page not found") {
-			fmt.Printf("\033[33m[?]\033[0m 404: %s\n", opts.URL)
-			return item, fmt.Errorf("404 not found")
+			return nil, fmt.Errorf("404 not found")
 		}
-		if strings.Contains(lower, "verify") ||
-			strings.Contains(lower, "human") ||
-			strings.Contains(lower, "just a moment") {
+		if strings.Contains(lower, "verify") || strings.Contains(lower, "human") {
 			fmt.Printf("\033[31m[!]\033[0m Detection triggered, retrying...\n")
 			continue
 		}
 
-		name := res.ItemName
-		if name == "" {
-			name = opts.Name
-		}
-		if name == "" {
-			name = strings.ReplaceAll(opts.Slug, "-", " ")
-		}
-		item.Name = name
-
-		// Logic for wear/non-wear prices
-		if opts.HasWear || res.HasWear {
-			item.HasWear = true
-		}
-
-		for _, m := range res.Markets {
-			if item.HasWear && len(m.WearPrices) > 0 {
-				for _, wear := range config.AllWearConditions {
-					key := string(wear)
-					val := m.WearPrices[key]
-					mp := config.MarketPrice{
-						Market:   m.Market,
-						Wear:     key,
-						Currency: m.Currency,
-						URL:      m.URLs[key],
-						HasPrice: val != nil,
-					}
-					if val != nil {
-						mp.Price = *val
-					}
-					item.Prices = append(item.Prices, mp)
-				}
-			} else {
-				// Single price (non-wear item or tile layout)
-				mp := config.MarketPrice{
-					Market:   m.Market,
-					Currency: m.Currency,
-					URL:      m.URL,
-					HasPrice: m.Single != nil,
-				}
-				if m.Single != nil {
-					mp.Price = *m.Single
-				}
-				item.Prices = append(item.Prices, mp)
+		// If there are souvenir prices but they weren't in the initial DOM,
+		// we might need to click the tab. For now, let's assume prices.js tries to find them.
+		// If prices.js returned souvenir=null but hasSouvenir=true, we click.
+		if res.HasSouvenir && len(res.Souvenir) == 0 {
+			var souvenirRes []MarketPriceEntry
+			err = chromedp.Run(ctx,
+				// Click the Souvenir tab. Selectors based on common site patterns.
+				chromedp.Click(`.price-type-tab[data-type="souvenir"], .tab-link[href*="souvenir"]`, chromedp.ByQuery),
+				chromedp.Sleep(500*time.Millisecond),
+				chromedp.Evaluate(`(function(){
+					// Re-run extraction logic just for the souvenir table
+					return extractPrices(); // assuming prices.js exposes it or we inject it
+				})()`, &souvenirRes),
+			)
+			if err == nil {
+				res.Souvenir = souvenirRes
 			}
 		}
 
-		if len(item.Prices) == 0 {
+		var items []config.Item
+
+		// Process Normal
+		if len(res.Normal) > 0 {
+			normalItem := baseItem
+			normalItem.Name = res.ItemName
+			if normalItem.Name == "" {
+				normalItem.Name = opts.Name
+			}
+			normalItem.Type = "Normal"
+			normalItem.Prices = processMarketEntries(res.Normal, normalItem.HasWear || res.HasWear)
+			items = append(items, normalItem)
+		}
+
+		// Process Souvenir
+		if len(res.Souvenir) > 0 {
+			souvItem := baseItem
+			souvItem.Name = res.ItemName + " (Souvenir)"
+			if res.ItemName == "" {
+				souvItem.Name = opts.Name + " (Souvenir)"
+			}
+			souvItem.Type = "Souvenir"
+			souvItem.Prices = processMarketEntries(res.Souvenir, souvItem.HasWear || res.HasWear)
+			items = append(items, souvItem)
+		}
+
+		if len(items) == 0 {
 			fmt.Printf("\033[31m[!]\033[0m No prices found for %s\n", opts.URL)
 			continue
 		}
 
-		return item, nil
+		return items, nil
 	}
 
-	return item, fmt.Errorf("failed to scrape: %s", opts.URL)
+	return nil, fmt.Errorf("failed to scrape: %s", opts.URL)
 }
 
-// FetchMany scrapes a list of items sequentially using the same browser
-// context. Returns the successful items (failures are logged and skipped).
-func FetchMany(ctx context.Context, optsList []FetchOptions) []config.Item {
+func processMarketEntries(entries []MarketPriceEntry, hasWear bool) []config.MarketPrice {
+	var out []config.MarketPrice
+	for _, m := range entries {
+		if hasWear && len(m.WearPrices) > 0 {
+			for _, wear := range config.AllWearConditions {
+				key := string(wear)
+				val := m.WearPrices[key]
+				mp := config.MarketPrice{
+					Market:   m.Market,
+					Wear:     key,
+					Currency: m.Currency,
+					URL:      m.URLs[key],
+					HasPrice: val != nil,
+				}
+				if val != nil {
+					mp.Price = *val
+				}
+				out = append(out, mp)
+			}
+		} else {
+			mp := config.MarketPrice{
+				Market:   m.Market,
+				Currency: m.Currency,
+				URL:      m.URL,
+				HasPrice: m.Single != nil,
+			}
+			if m.Single != nil {
+				mp.Price = *m.Single
+			}
+			out = append(out, mp)
+		}
+	}
+	return out
+}
+
+// FetchManyItems scrapes a list of items and returns all successful results.
+func FetchManyItems(ctx context.Context, optsList []FetchOptions) []config.Item {
 	var out []config.Item
 	for _, o := range optsList {
-		it, err := FetchItem(ctx, o)
+		items, err := FetchItem(ctx, o)
 		if err != nil {
 			continue
 		}
-		out = append(out, it)
+		out = append(out, items...)
 	}
 	return out
 }

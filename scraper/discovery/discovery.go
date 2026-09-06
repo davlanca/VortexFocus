@@ -14,9 +14,10 @@ import (
 
 // Item is a single discovered item.
 type Item struct {
-	Slug string `json:"slug"`
-	Name string `json:"name"`
-	URL  string `json:"url"`
+	Slug         string `json:"slug"`
+	Name         string `json:"name"`
+	URL          string `json:"url"`
+	IsCollection bool   `json:"isCollection"`
 }
 
 // PageResult is what discovery.js returns from one page.
@@ -50,7 +51,12 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 
 	seen := make(map[string]bool)
 	var all []Item
-	pageURL := fmt.Sprintf("%s/%s/", opts.BaseURL, opts.Category)
+
+	// If Category is already a full URL, use it. Otherwise build from BaseURL.
+	pageURL := opts.Category
+	if !contains(pageURL, "http") {
+		pageURL = fmt.Sprintf("%s/%s/", opts.BaseURL, opts.Category)
+	}
 
 	for page := 1; page <= opts.MaxPages; page++ {
 		var res PageResult
@@ -87,4 +93,8 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 	}
 
 	return all, nil
+}
+
+func contains(s, substr string) bool {
+	return len(s) >= len(substr) && (s[:len(substr)] == substr || contains(s[1:], substr))
 }
