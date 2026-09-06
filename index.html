@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CS2 7-Market Arbitrage Terminal</title>
+
+<style>
+:root{
+  --bg:#080a0f;
+  --panel:#10131a;
+  --panel2:#151922;
+  --border:#252b38;
+  --text:#edf1f7;
+  --muted:#7e8798;
+  --green:#39e58c;
+  --red:#ff5268;
+  --blue:#5b8cff;
+  --yellow:#f6c85f;
+}
+
+*{ box-sizing:border-box; }
+
+html, body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter, Segoe UI, Arial, sans-serif;
+  min-height:100vh;
+}
+
+button, input, select{ font:inherit; }
+button{ cursor:pointer; }
+button:disabled{ cursor:not-allowed; opacity:.55; }
+
+.topbar{
+  height:68px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  background:#0b0e14;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.logoIcon{
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1c2330;
+  color:var(--blue);
+  font-weight:900;
+}
+
+.logo span{ color:var(--blue); }
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:13px;
+}
+
+.diagBtn{
+  height:34px;
+  padding:0 12px;
+  border-radius:6px;
+  background:#1f192b;
+  border:1px solid #4a2d6b;
+  color:#d4a8ff;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.diagBtn:hover{ border-color:#9955ee; }
+
+.refreshBtn{
+  height:34px;
+  padding:0 12px;
+  border-radius:6px;
+  background:var(--panel2);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.refreshBtn:hover{ border-color:var(--blue); }
+
+.controls{
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+  background:#0c0f15;
+}
+
+.controlGrid{
+  display:grid;
+  grid-template-columns:1.5fr 1.5fr 2fr auto;
+  gap:12px;
+  align-items:end;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field label{
+  font-size:11px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  font-weight:700;
+}
+
+select, input{
+  width:100%;
+  height:42px;
+  background:var(--panel);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:0 12px;
+  outline:none;
+}
+
+select:focus, input:focus{ border-color:var(--blue); }
+
+.primary{
+  height:42px;
+  border:0;
+  border-radius:8px;
+  padding:0 24px;
+  background:var(--blue);
+  color:white;
+  font-weight:800;
+}
+
+.primary:hover{ filter:brightness(1.1); }
+
+.secondary{
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:0 15px;
+  background:var(--panel2);
+  color:var(--text);
+}
+
+.filters{
+  padding:14px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:end;
+}
+
+.filter{ width:140px; }
+.search{ width:280px; }
+
+.toggleLabel{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--text);
+  cursor:pointer;
+  height:42px;
+  padding:0 14px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:8px;
+  user-select:none;
+  font-weight:600;
+}
+
+.toggleLabel:hover{ border-color:var(--blue); }
+
+.toggleLabel input{
+  width:16px;
+  height:16px;
+  cursor:pointer;
+}
+
+.sortButtons{ display:flex; gap:6px; }
+.sortButtons button{
+  height:42px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--muted);
+  padding:0 12px;
+  font-weight:600;
+  transition:all .15s ease;
+}
+
+.sortButtons button.active{
+  color:white;
+  border-color:var(--blue);
+  background:#182038;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  padding:14px 24px;
+}
+
+.stat{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+}
+
+.statLabel{
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+}
+
+.statValue{
+  margin-top:7px;
+  font-size:21px;
+  font-weight:800;
+}
+
+.tableWrap{
+  margin:0 24px 24px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:auto;
+  background:var(--panel);
+}
+
+table{
+  width:100%;
+  min-width:1300px;
+  border-collapse:collapse;
+}
+
+thead{
+  background:#151923;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+
+th{
+  padding:12px 14px;
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+td{
+  padding:12px 14px;
+  border-top:1px solid #1e2430;
+  white-space:nowrap;
+  font-size:13px;
+}
+
+tr:hover td{ background:#151a23; }
+
+.itemName{ font-weight:700; }
+.itemMeta{
+  margin-top:3px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.badgeLiquid{
+  display:inline-block;
+  padding:1px 5px;
+  border-radius:4px;
+  background:#143825;
+  color:var(--green);
+  font-weight:700;
+  font-size:10px;
+  margin-right:4px;
+}
+
+.marketLinkBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border-radius:6px;
+  background:#182038;
+  border:1px solid #2a3860;
+  color:#7ea5ff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  transition:all .15s ease;
+}
+
+.marketLinkBtn:hover{
+  background:var(--blue);
+  color:white;
+  border-color:var(--blue);
+  transform:translateY(-1px);
+}
+
+.marketLinkBtnSell{
+  background:#261828;
+  border:1px solid #4a254e;
+  color:#e586ff;
+}
+
+.marketLinkBtnSell:hover{
+  background:#9933aa;
+  color:white;
+  border-color:#9933aa;
+  transform:translateY(-1px);
+}
+
+.price{
+  font-variant-numeric:tabular-nums;
+  font-weight:600;
+}
+
+.subPrice{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.profit{ color:var(--green); font-weight:800; }
+.loss{ color:var(--red); font-weight:800; }
+
+.empty{
+  padding:70px 30px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.empty strong{
+  display:block;
+  color:white;
+  margin-bottom:8px;
+  font-size:18px;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
+}
+
+.modal.show{ display:flex; }
+
+.modalBox{
+  width:min(900px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#10131a;
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+
+.modalHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 20px;
+  border-bottom:1px solid var(--border);
+}
+
+.close{
+  width:34px;
+  height:34px;
+  border-radius:7px;
+  border:1px solid var(--border);
+  background:var(--panel2);
+  color:white;
+}
+
+.feeTable{ width:100%; min-width:0; }
+.feeTable th, .feeTable td{ padding:9px 12px; }
+.feeTable input{ height:34px; width:100px; }
+
+.modalFooter{
+  padding:15px 20px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  max-width:500px;
+  padding:13px 17px;
+  background:#151a23;
+  border:1px solid var(--border);
+  border-radius:8px;
+  display:none;
+  z-index:200;
+}
+
+.toast.show{ display:block; }
+.toast.error{ border-color:var(--red); }
+.toast.success{ border-color:var(--green); }
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header class="topbar">
+  <div class="logo">
+    <div class="logoIcon">7M</div>
+    <div>CS2 <span>7-MARKETS SCANNER</span></div>
+  </div>
+
+  <div class="status">
+    <button class="diagBtn" onclick="openDiagnostics()">
+      🔍 Тест 7 API
+    </button>
+    <button class="refreshBtn" onclick="triggerRefresh()">
+      🔄 Обновить базы
+    </button>
+  </div>
+</header>
+
+<section class="controls">
+<div class="controlGrid">
+  <div class="field">
+    <label>Покупаем на</label>
+    <select id="buyMarket"></select>
+  </div>
+
+  <div class="field">
+    <label>Продаём на</label>
+    <select id="sellMarket"></select>
+  </div>
+
+  <div class="field">
+    <label>Поиск скина (Живой точечный опрос)</label>
+    <input id="search" type="text" placeholder="AK-47 | Redline (Field-Tested)...">
+  </div>
+
+  <div style="display:flex; gap:8px;">
+    <button class="secondary" onclick="openFees()">⚙ Комиссии</button>
+    <button class="primary" id="scanButton" onclick="scan()">СКАНИРОВАТЬ</button>
+  </div>
+</div>
+</section>
+
+<section class="filters">
+  <label class="toggleLabel">
+    <input id="onlyLiquid" type="checkbox" onchange="scan()">
+    <span>🔥 Только ликвидные / Реальные сделки</span>
+  </label>
+
+  <div class="field filter">
+    <label>Профит % от</label>
+    <input id="profitMin" type="number" step="0.1" placeholder="0">
+  </div>
+  <div class="field filter">
+    <label>Профит % до</label>
+    <input id="profitMax" type="number" step="0.1" placeholder="∞">
+  </div>
+
+  <div class="field">
+    <label>Сортировка (Клик = мгновенно)</label>
+    <div class="sortButtons">
+      <button id="sortProfit" class="active" onclick="setSort('profitPercent')">PROFIT %</button>
+      <button id="sortProfitVal" onclick="setSort('profitVal')">PROFIT (СУММА)</button>
+      <button id="sortBuy" onclick="setSort('buyPrice')">ПОКУПКА</button>
+      <button id="sortSell" onclick="setSort('sellPrice')">ПРОДАЖА</button>
+      <button id="sortDirection" onclick="toggleDirection()">↓</button>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <div class="statLabel">Связок найдено</div>
+    <div class="statValue" id="statCount">0</div>
+  </div>
+  <div class="stat">
+    <div class="statLabel">Лучший %</div>
+    <div class="statValue profit" id="statBestPercent">—</div>
+  </div>
+  <div class="stat">
+    <div class="statLabel">Лучший профит</div>
+    <div class="statValue profit" id="statBestVal">—</div>
+  </div>
+  <div class="stat">
+    <div class="statLabel">Средний %</div>
+    <div class="statValue" id="statAverage">—</div>
+  </div>
+  <div class="stat">
+    <div class="statLabel">База предметов</div>
+    <div class="statValue" id="statTotal">0</div>
+  </div>
+</section>
+
+<div class="tableWrap">
+<table>
+<thead>
+<tr>
+  <th>Предмет</th>
+  <th>Покупаю (Где)</th>
+  <th>Цена покупки</th>
+  <th>Продаю (Куда)</th>
+  <th>Цена продажи до комиссии</th>
+  <th>Выручка после комиссии</th>
+  <th>Чистый профит</th>
+  <th>Профит %</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr>
+<td colspan="8">
+<div class="empty">
+<strong>Таблица готова к сканированию</strong>
+Выберите маркетплейсы покупки и продажи и нажмите «СКАНИРОВАТЬ».
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div class="modal" id="feeModal">
+<div class="modalBox">
+<div class="modalHeader">
+<h2>Комиссии магазинов</h2>
+<button class="close" onclick="closeFees()">×</button>
+</div>
+<table class="feeTable">
+<thead>
+<tr>
+<th>Магазин</th>
+<th>Продажа %</th>
+<th>Покупка %</th>
+<th>Депозит %</th>
+</tr>
+</thead>
+<tbody id="feeBody"></tbody>
+</table>
+<div class="modalFooter">
+<button class="secondary" onclick="closeFees()">Отмена</button>
+<button class="primary" onclick="saveFees()">СОХРАНИТЬ</button>
+</div>
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+let markets = [];
+let currencies = {};
+let fees = {};
+let sortBy = "profitPercent";
+let sortDirection = "desc";
+let lastResults = [];
+let scanRequestId = 0;
+
+const $ = id => document.getElementById(id);
+
+function getMarketUrl(marketName, skinName){
+  const m = String(marketName || "").trim().toUpperCase();
+  const nameEnc = encodeURIComponent(skinName || "");
+
+  if(m.includes("STEAM")) return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
+  if(m.includes("MARKET.CSGO")) return `https://market.csgo.com/ru/?search=${nameEnc}`;
+  if(m.includes("LIS-SKINS")) return `https://lis-skins.ru/market/csgo/?search=${nameEnc}`;
+  if(m.includes("AVAN.MARKET")) return `https://avan.market/`;
+  if(m.includes("LOOT.FARM")) return `https://loot.farm/#skin=730_${nameEnc}`;
+  if(m.includes("CS.MONEY")) return `https://cs.money/market/buy/?search=${nameEnc}`;
+  if(m.includes("BUFF.163")) return `https://buff.163.com/market/csgo#tab=selling&page_num=1&search=${nameEnc}`;
+
+  return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
+}
+
+function formatPrice(value, curr){
+  if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
+  const num = Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return curr === "USD" ? `$ ${num}` : `${num} ₽`;
+}
+
+function percent(value){
+  if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
+  return Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
+}
+
+function toast(message, type="success"){
+  const el = $("toast");
+  el.textContent = message;
+  el.className = "toast show " + type;
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(()=> el.className = "toast", 5000);
+}
+
+function openDiagnostics(){
+  window.open("/api/diagnostic", "_blank");
+}
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function buildFeeTable(){
+  $("feeBody").innerHTML = markets.map(market => {
+    const fee = fees[market] || { sell: 0, buy: 0, deposit: 0 };
+    return `<tr>
+      <td>${escapeHtml(market)}</td>
+      <td><input data-market="${escapeHtml(market)}" data-fee="sell" type="number" min="0" step="0.01" value="${fee.sell}"></td>
+      <td><input data-market="${escapeHtml(market)}" data-fee="buy" type="number" min="0" step="0.01" value="${fee.buy}"></td>
+      <td><input data-market="${escapeHtml(market)}" data-fee="deposit" type="number" min="0" step="0.01" value="${fee.deposit}"></td>
+    </tr>`;
+  }).join("");
+}
+
+function openFees(){
+  buildFeeTable();
+  $("feeModal").classList.add("show");
+}
+
+function closeFees(){
+  $("feeModal").classList.remove("show");
+}
+
+async function saveFees(){
+  const nextFees = {};
+  document.querySelectorAll("#feeBody input[data-market]").forEach(input => {
+    const market = input.dataset.market;
+    const type = input.dataset.fee;
+    nextFees[market] ||= { sell: 0, buy: 0, deposit: 0 };
+    nextFees[market][type] = Number(input.value) || 0;
+  });
+
+  try{
+    const response = await fetch("/api/fees", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fees: nextFees })
+    });
+    const data = await response.json();
+    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось сохранить комиссии");
+    fees = data.fees || nextFees;
+    closeFees();
+    toast("Комиссии сохранены");
+  }catch(error){
+    toast(error.message, "error");
+  }
+}
+
+async function triggerRefresh(){
+  const button = document.querySelector(".refreshBtn");
+  if(button) button.disabled = true;
+  try{
+    const response = await fetch("/api/refresh", { method: "POST" });
+    const data = await response.json();
+    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось обновить базы");
+    $("statTotal").textContent = Number(data.itemsCount || 0).toLocaleString("ru-RU");
+    toast(`Базы обновлены: ${Number(data.itemsCount || 0).toLocaleString("ru-RU")} предметов`);
+  }catch(error){
+    toast(error.message, "error");
+  }finally{
+    if(button) button.disabled = false;
+  }
+}
+
+function setSort(nextSort){
+  sortBy = nextSort;
+  ["sortProfit", "sortProfitVal", "sortBuy", "sortSell"].forEach(id => $(id).classList.remove("active"));
+  const activeId = { profitPercent: "sortProfit", profitVal: "sortProfitVal", buyPrice: "sortBuy", sellPrice: "sortSell" }[nextSort];
+  if(activeId) $(activeId).classList.add("active");
+  if(lastResults.length) renderResults(lastResults);
+  else scan();
+}
+
+function toggleDirection(){
+  sortDirection = sortDirection === "desc" ? "asc" : "desc";
+  $("sortDirection").textContent = sortDirection === "desc" ? "↓" : "↑";
+  if(lastResults.length) renderResults(lastResults);
+  else scan();
+}
+
+function renderResults(results){
+  const body = $("tableBody");
+  if(!results.length){
+    body.innerHTML = `<tr><td colspan="8"><div class="empty"><strong>Связки не найдены</strong>Проверьте выбранные магазины или параметры фильтра.</div></td></tr>`;
+  }else{
+    body.innerHTML = results.map(item => {
+      const itemName = escapeHtml(item.market_name);
+      const buyUrl = getMarketUrl(item.buyMarket, item.market_name);
+      const sellUrl = getMarketUrl(item.sellMarket, item.market_name);
+      return `<tr>
+        <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div></td>
+        <td><a class="marketLinkBtn" href="${buyUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.buyMarket)}</a><div class="itemMeta">${escapeHtml(item.buySource)}</div></td>
+        <td class="price">${formatPrice(item.buyPrice, item.buyCurrency)}</td>
+        <td><a class="marketLinkBtn marketLinkBtnSell" href="${sellUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.sellMarket)}</a><div class="itemMeta">${escapeHtml(item.sellSource)}</div></td>
+        <td class="price">${formatPrice(item.sellPrice, item.sellCurrency)}</td>
+        <td class="price">${formatPrice(item.sellNet, item.sellCurrency)}</td>
+        <td class="${item.profitVal >= 0 ? "profit" : "loss"}">${formatPrice(item.profitVal, item.sellCurrency)}</td>
+        <td class="${item.profitPercent >= 0 ? "profit" : "loss"}">${percent(item.profitPercent)}</td>
+      </tr>`;
+    }).join("");
+  }
+
+  $("statCount").textContent = results.length.toLocaleString("ru-RU");
+  $("statBestPercent").textContent = results.length ? percent(Math.max(...results.map(item => item.profitPercent))) : "—";
+  $("statBestVal").textContent = results.length ? formatPrice(Math.max(...results.map(item => item.profitVal)), results[0].sellCurrency) : "—";
+  $("statAverage").textContent = results.length ? percent(results.reduce((sum, item) => sum + item.profitPercent, 0) / results.length) : "—";
+}
+
+function sortResults(results){
+  const direction = sortDirection === "asc" ? 1 : -1;
+  return [...results].sort((left, right) => (Number(left[sortBy]) - Number(right[sortBy])) * direction);
+}
+
+async function scan(){
+  const button = $("scanButton");
+  const requestId = ++scanRequestId;
+  if(button) button.disabled = true;
+  try{
+    const response = await fetch("/api/arbitrage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        buyMarket: $("buyMarket").value,
+        sellMarket: $("sellMarket").value,
+        search: $("search").value,
+        onlyLiquid: $("onlyLiquid").checked,
+        minProfit: $("profitMin").value,
+        maxProfit: $("profitMax").value,
+        sortBy,
+        sortDirection
+      })
+    });
+    const data = await response.json();
+    if(!response.ok || !data.success) throw new Error(data.error || "Ошибка сканирования");
+    if(requestId !== scanRequestId) return;
+    lastResults = sortResults(data.results || []);
+    renderResults(lastResults);
+    $("statTotal").textContent = Number(data.totalItems || 0).toLocaleString("ru-RU");
+  }catch(error){
+    toast(error.message, "error");
+  }finally{
+    if(button && requestId === scanRequestId) button.disabled = false;
+  }
+}
+
+async function init(){
+  try{
+    const response = await fetch("/api/config");
+    const config = await response.json();
+    markets = config.markets || [];
+    currencies = config.currencies || {};
+    fees = config.fees || {};
+
+    fillMarkets();
+    buildFeeTable();
+
+    $("statTotal").textContent = Number(config.totalItems || 0).toLocaleString("ru-RU");
+  }catch(error){
+    toast(error.message, "error");
+  }
+}
+
+function fillMarkets(){
+  const buy = $("buyMarket");
+  const sell = $("sellMarket");
+  buy.innerHTML = "";
+  sell.innerHTML = "";
+
+  markets.forEach(m =>{
+    const curr = currencies[m] === "USD" ? "$" : "₽";
+    const oB = document.createElement("option");
+    oB.value = m; oB.textContent = `${m} (${curr})`;
+    buy.appendChild(oB);
+
+    const oS = document.createElement("option");
+    oS.value = m; oS.textContent = `${m} (${curr})`;
+    sell.appendChild(oS);
+  });
+
+  buy.value = localStorage.getItem("buyMarket") || "MARKET.CSGO";
+  sell.value = localStorage.getItem("sellMarket") || "LOOT.FARM";
+}
+
+init();
+</script>
+</body>
+</html>
