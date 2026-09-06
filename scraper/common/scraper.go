@@ -6,7 +6,6 @@ package common
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -70,14 +69,14 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 		}
 
 		var pageTitle string
-		var jsonOut string
+		var res PriceTableResult
 
 		err := chromedp.Run(ctx,
 			chromedp.Navigate(opts.URL),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
 			chromedp.Sleep(config.Delay),
 			chromedp.Title(&pageTitle),
-			chromedp.Evaluate(string(scraper.PricesJS), &jsonOut),
+			chromedp.Evaluate(string(scraper.PricesJS), &res),
 		)
 		if err != nil {
 			fmt.Printf("\033[31m[!]\033[0m chromedp error: %v\n", err)
@@ -96,13 +95,7 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 			continue
 		}
 
-		var pr PriceTableResult
-		if jerr := json.Unmarshal([]byte(jsonOut), &pr); jerr != nil {
-			fmt.Printf("\033[31m[!]\033[0m Failed to parse prices JSON: %v\n", jerr)
-			continue
-		}
-
-		name := pr.ItemName
+		name := res.ItemName
 		if name == "" {
 			name = opts.Name
 		}
@@ -111,14 +104,13 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 		}
 		item.Name = name
 
-		if opts.HasWear {
+		// Logic for wear/non-wear prices
+		if opts.HasWear || res.HasWear {
 			item.HasWear = true
-		} else {
-			item.HasWear = pr.HasWear
 		}
 
-		for _, m := range pr.Markets {
-			if item.HasWear {
+		for _, m := range res.Markets {
+			if item.HasWear && len(m.WearPrices) > 0 {
 				for _, wear := range config.AllWearConditions {
 					key := string(wear)
 					val := m.WearPrices[key]
@@ -135,6 +127,7 @@ func FetchItem(ctx context.Context, opts FetchOptions) (config.Item, error) {
 					item.Prices = append(item.Prices, mp)
 				}
 			} else {
+				// Single price (non-wear item or tile layout)
 				mp := config.MarketPrice{
 					Market:   m.Market,
 					Currency: m.Currency,

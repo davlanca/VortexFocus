@@ -1,13 +1,9 @@
 // Package discovery crawls a category page (e.g. /skins/, /weapons/) and
 // returns all item slugs found, handling pagination automatically.
-//
-// Used by category scrapers that need to scrape every item, not just a
-// hardcoded list.
 package discovery
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"time"
 
@@ -32,16 +28,15 @@ type PageResult struct {
 
 // Options configures a discovery crawl.
 type Options struct {
-	Category   string        // "skins", "cases", "weapons", ...
-	BaseURL    string        // "https://www.csgodatabase.com"
-	MaxPages   int           // hard cap; 0 = default 50
-	PageDelay  time.Duration // sleep between page fetches; 0 = use config.Delay
-	OnItem     func(Item)    // optional callback for streaming
+	Category   string
+	BaseURL    string
+	MaxPages   int
+	PageDelay  time.Duration
+	OnItem     func(Item)
 	OnProgress func(page int, found int)
 }
 
 // Discover crawls /<category>/ across all pages and returns unique items.
-// Stops when pagination ends or MaxPages is reached.
 func Discover(ctx context.Context, opts Options) ([]Item, error) {
 	if opts.BaseURL == "" {
 		opts.BaseURL = config.Target
@@ -58,20 +53,15 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 	pageURL := fmt.Sprintf("%s/%s/", opts.BaseURL, opts.Category)
 
 	for page := 1; page <= opts.MaxPages; page++ {
-		var jsonOut string
+		var res PageResult
 		err := chromedp.Run(ctx,
 			chromedp.Navigate(pageURL),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
 			chromedp.Sleep(opts.PageDelay),
-			chromedp.Evaluate(string(scraper.DiscoveryJS), &jsonOut),
+			chromedp.Evaluate(string(scraper.DiscoveryJS), &res),
 		)
 		if err != nil {
-			return all, fmt.Errorf("page %d: navigate failed: %w", page, err)
-		}
-
-		var res PageResult
-		if jerr := json.Unmarshal([]byte(jsonOut), &res); jerr != nil {
-			return all, fmt.Errorf("page %d: parse failed: %w", page, jerr)
+			return all, fmt.Errorf("page %d: %w", page, err)
 		}
 
 		newCount := 0
@@ -97,14 +87,4 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 	}
 
 	return all, nil
-}
-
-// QuickSlug returns a single discovery page worth of items, no pagination.
-// Useful for small/fast categories.
-func QuickSlugs(ctx context.Context, category string) ([]Item, error) {
-	return Discover(ctx, Options{
-		Category:  category,
-		MaxPages:  1,
-		PageDelay: config.Delay,
-	})
 }

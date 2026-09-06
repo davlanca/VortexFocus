@@ -1,15 +1,6 @@
 // =========================================================================
 // discovery.js — collect all item slugs from a category listing page
 // =========================================================================
-//
-// Injected via chromedp.Evaluate. Returns: { items: [{slug, name, url}],
-// hasNextPage: bool, nextPageUrl: string|null }.
-//
-// Strategy:
-//   1. Primary selector: ".item-box a" (covers skins/cases/agents/etc.)
-//   2. Fallback: any anchor whose href matches /category/<slug>/
-//   3. Deduplicate by slug
-//   4. Detect "next page" link using common pagination patterns
 
 (function() {
     const url = window.location.href;
@@ -27,7 +18,6 @@
         if (!mm) return;
         const slug = mm[1];
         if (slugs.has(slug)) return;
-        // skip pure pagination / filter / sort links
         if (slug === 'page' || /^\d+$/.test(slug)) return;
         slugs.add(slug);
         items.push({
@@ -47,7 +37,6 @@
         });
     }
 
-    // Detect next-page link. Try several common patterns.
     let nextPageUrl = null;
     const nextCandidates = [
         'a.next[href]',
@@ -62,7 +51,6 @@
         const el = document.querySelector(sel);
         if (el && el.getAttribute('href')) {
             const href = el.getAttribute('href');
-            // skip "#" or javascript: links
             if (href && !href.startsWith('#') && !href.toLowerCase().startsWith('javascript')) {
                 nextPageUrl = href.startsWith('http') ? href : (window.location.origin + href);
                 break;
