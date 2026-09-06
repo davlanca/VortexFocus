@@ -35,10 +35,12 @@ func ConvertToSkin(item config.Item) config.Skin {
 	return config.Skin{
 		Name:       item.Name,
 		Weapon:     item.Weapon,
+		Type:       item.Type,
 		Rarity:     item.Rarity,
 		Collection: item.Collection,
 		URL:        item.URL,
 		Price:      SummarizePrices(item.Prices),
+		Prices:     item.Prices,
 	}
 }
 

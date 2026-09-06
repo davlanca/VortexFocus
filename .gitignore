@@ -2,6 +2,7 @@
 mem.prof
 scraper.test
 node_modules/
+chrome-profile/
 .env
 .env.*
 !.env.example

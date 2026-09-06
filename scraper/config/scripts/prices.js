@@ -1,5 +1,5 @@
 (function() {
-    window.extractPrices = function() {
+    window.extractPrices = function(kind = 'normal') {
         function parseNum(text) {
             if (!text) return NaN;
             const cleaned = text.replace(/[^\d.,]/g, '').replace(',', '.');
@@ -48,7 +48,9 @@
         }
 
         if (markets.length === 0) {
-            const table = document.querySelector('.skin-price-table');
+            const panel = document.querySelector(`.skin-price-panel[data-price-panel="${kind}"]`);
+            if (!panel && kind !== 'normal') return markets;
+            const table = panel ? panel.querySelector('.skin-price-table') : document.querySelector('.skin-price-table');
             if (table) {
                 table.querySelectorAll('tbody tr').forEach(row => {
                     const th = row.querySelector('th, .market-col');
@@ -85,14 +87,12 @@
 
     const h1 = document.querySelector('h1');
     const itemName = h1 ? h1.textContent.trim() : (document.title || '').split(' - ')[0].trim();
-    const souvenirTab = document.querySelector('.price-type-tab[data-type="souvenir"], a[href*="souvenir"]');
     const hasWear = !!document.querySelector('.skin-price-table thead th:nth-child(2)');
 
     return {
         itemName: itemName,
         hasWear: hasWear,
-        normal: window.extractPrices(),
-        hasSouvenir: !!souvenirTab,
-        souvenir: null
+        normal: window.extractPrices('normal'),
+        stattrak: window.extractPrices('stattrak')
     };
 })();

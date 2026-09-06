@@ -2,55 +2,80 @@
 package config
 
 import (
+	"math/rand"
 	"os"
+	"path/filepath"
+	"runtime"
 	"time"
 
 	"github.com/chromedp/chromedp"
 )
 
-// Scraper-wide settings.
 var (
-	Target   = "https://www.csgodatabase.com"
-	DeadLine = 60 * time.Minute
-	Delay    = 2500 * time.Millisecond
-	Workers  = 2
-	Headless = true
+	Target      = "https://www.csgodatabase.com"
+	DeadLine    = 120 * time.Minute
+	Delay       = 2 * time.Second
+	Workers     = 2
+	Headless    = false
+	Interactive = false
 )
 
-// GetOpts returns optimized chromedp allocator options for CI/Docker environments.
-func GetOpts() []chromedp.ExecAllocatorOption {
-	// Create a unique temp directory for each run to avoid permission issues in CI
-	tmpDir, _ := os.MkdirTemp("", "chrome-profile-*")
+func NextDelay() time.Duration {
+	return time.Duration(1+rand.Intn(3)) * time.Second
+}
 
+func GetOpts() []chromedp.ExecAllocatorOption {
+	profileDir := os.Getenv("CHROME_USER_DATA_DIR")
+	if profileDir == "" && Interactive {
+		profileDir = "chrome-profile"
+	}
+	if profileDir == "" {
+		profileDir, _ = os.MkdirTemp("", "chrome-profile-*")
+	}
+	if absoluteDir, err := filepath.Abs(profileDir); err == nil {
+		profileDir = absoluteDir
+	}
+	if Interactive {
+		_ = os.MkdirAll(profileDir, 0755)
+	}
+
+	headless := Headless || os.Getenv("CI") == "true"
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
 		chromedp.NoSandbox,
 		chromedp.DisableGPU,
 		chromedp.Flag("disable-setuid-sandbox", true),
 		chromedp.Flag("disable-dev-shm-usage", true),
 		chromedp.Flag("disable-blink-features", "AutomationControlled"),
-		chromedp.Flag("headless", "new"),
+		chromedp.Flag("blink-settings", "imagesEnabled=false"),
+		chromedp.Flag("exclude-switches", "enable-automation"),
+		chromedp.Flag("disable-extensions", false),
 		chromedp.Flag("no-first-run", true),
 		chromedp.Flag("no-default-browser-check", true),
-		chromedp.Flag("no-zygote", true),
-		chromedp.Flag("single-process", true),
-		chromedp.Flag("user-data-dir", tmpDir),
-		chromedp.Flag("window-size", "1280,1080"),
+		chromedp.Flag("disable-background-mode", true),
+		chromedp.Flag("new-window", true),
+		chromedp.Flag("start-maximized", true),
+		chromedp.Flag("headless", headless),
+		chromedp.Flag("user-data-dir", profileDir),
+		chromedp.Flag("window-size", "800,600"),
+		chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"),
 	)
-
-	// If CHROME_PATH is explicitly set
+	if proxy := os.Getenv("CSGO_PROXY"); proxy != "" {
+		opts = append(opts, chromedp.ProxyServer(proxy))
+	}
 	if path := os.Getenv("CHROME_PATH"); path != "" {
 		opts = append(opts, chromedp.ExecPath(path))
 	} else {
-		// Fallback for standard Ubuntu GHA runner paths
-		lookIn := []string{
-			"/usr/bin/google-chrome",
-			"/usr/bin/google-chrome-stable",
-			"/usr/bin/chromium-browser",
-			"/usr/bin/chromium",
+		lookIn := []string{"/usr/bin/google-chrome", "/usr/bin/google-chrome-stable", "/usr/bin/chromium-browser", "/usr/bin/chromium"}
+		if runtime.GOOS == "windows" {
+			lookIn = []string{
+				`C:\Program Files\Google\Chrome\Application\chrome.exe`,
+				`C:\Program Files (x86)\Google\Chrome\Application\chrome.exe`,
+				`C:\Program Files\Microsoft\Edge\Application\msedge.exe`,
+			}
 		}
-		for _, p := range lookIn {
-			if _, err := os.Stat(p); err == nil {
-				opts = append(opts, chromedp.ExecPath(p))
+		for _, path := range lookIn {
+			if _, err := os.Stat(path); err == nil {
+				opts = append(opts, chromedp.ExecPath(path))
 				break
 			}
 		}
@@ -73,14 +98,13 @@ var AllCategories = []Category{
 		DisplayName: "Weapons",
 		HasWear:     true,
 		HasWeapon:   true,
-		SlugList:    nil,
 	},
 }
 
 func CategoryBySlug(slug string) (Category, bool) {
-	for _, c := range AllCategories {
-		if c.Slug == slug {
-			return c, true
+	for _, category := range AllCategories {
+		if category.Slug == slug {
+			return category, true
 		}
 	}
 	return Category{}, false

@@ -17,18 +17,27 @@ func main() {
 	// cli flags
 	aggressive := flag.Bool("aggressive", false, "Run scraper aggressively (less delay)")
 	stealth := flag.Bool("stealth", false, "Run scraper in stealth mode (randomized and more human like delay)")
+	interactive := flag.Bool("interactive", false, "Pause for manual Cloudflare verification in visible Chrome")
+	delaySeconds := flag.Int("delay", int(config.Delay/time.Second), "Delay between page requests in seconds")
+	workers := flag.Int("workers", config.Workers, "Number of concurrent item pages")
 
 	flag.Parse()
 
+	if *delaySeconds >= 0 {
+		config.Delay = time.Duration(*delaySeconds) * time.Second
+	}
+	if *workers > 0 {
+		config.Workers = *workers
+	}
 	if *aggressive {
-		config.Delay = 0 * time.Millisecond
+		config.Delay = 0
 		fmt.Println("Aggressive mode. Delay:", config.Delay)
 	}
-
 	if *stealth {
 		randomMs := 500 + rand.Intn(1500)
 		config.Delay += time.Duration(randomMs) * time.Millisecond
 	}
+	config.Interactive = *interactive
 
 	fmt.Println("[*] Starting scraper...")
 
@@ -66,4 +75,5 @@ func main() {
 	}
 
 	fmt.Println("\n\033[32m[+]\033[0m Done. See files inside json folder")
+	config.Interactive = *interactive
 }

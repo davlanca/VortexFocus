@@ -2,15 +2,20 @@ name: CS2 Price Scraper
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: cs2-price-scraper
+  cancel-in-progress: false
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
 
     steps:
     - name: Checkout repository
@@ -19,25 +24,28 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v5
       with:
-        go-version: '1.23'
+        go-version: '1.24'
 
-    - name: Install Google Chrome and Dependencies
+    - name: Install Chromium and dependencies
       run: |
         sudo apt-get update
-        # Установка зависимостей, специфичных для Ubuntu 24.04 (Noble)
-        sudo apt-get install -y google-chrome-stable \
-          libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
-          libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
-          libxss1 libasound2t64 fonts-liberation libappindicator3-1 \
-          libu2f-udev libvulkan1 xdg-utils
+        sudo apt-get install -y chromium fonts-liberation
 
     - name: Install Go dependencies
       run: go mod tidy
 
     - name: Run Scraper
-      run: go run main.go -stealth
+      run: go run . --delay=3 --workers=1
       env:
-        CHROME_PATH: /usr/bin/google-chrome-stable
+        CHROME_PATH: /usr/bin/chromium
+
+    - name: Upload scraped JSON
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cs2-prices-${{ github.run_number }}
+        path: json/
+        if-no-files-found: ignore
 
     - name: Commit and Push changes
       run: |

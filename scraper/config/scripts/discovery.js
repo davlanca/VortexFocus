@@ -1,65 +1,54 @@
 (function() {
-    const url = window.location.href;
-    const path = window.location.pathname;
-    const slugs = new Set();
     const items = [];
+    const seen = new Set();
+    const loc = window.location;
 
-    function addItem(href, label) {
-        if (!href) return;
+    // Собираем абсолютно все ссылки на странице
+    const allLinks = Array.from(document.querySelectorAll('a[href]'));
 
-        let slug = '';
-        let type = '';
+    allLinks.forEach(a => {
+        try {
+            const url = new URL(a.href);
+            // Работаем только в рамках одного домена
+            if (url.origin !== loc.origin) return;
 
-        // 1. Root Weapons page -> find individual weapons
-        if (path.endsWith('/weapons') || path.endsWith('/weapons/')) {
-            const m = href.match(/\/weapons\/([a-z0-9-]+)\/?$/);
-            if (m) {
-                slug = m[1];
+            const path = url.pathname.toLowerCase();
+            const parts = path.split('/').filter(Boolean);
+
+            if (parts.length < 2) return;
+
+            let type = '';
+            let slug = '';
+
+            // Оружие: /weapons/ak-47/ -> parts=['weapons', 'ak-47']
+            if (parts[0] === 'weapons' && parts.length === 2) {
                 type = 'weapon';
+                slug = parts[1];
             }
-        }
-        // 2. Individual Weapon page -> find skins
-        else if (path.includes('/weapons/')) {
-            const m = href.match(/\/skins\/([a-z0-9-]+)\/?$/);
-            if (m) {
-                slug = m[1];
+            // Скины: /skins/ak-47-inheritance/ -> parts=['skins', 'ak-47-inheritance']
+            else if (parts[0] === 'skins' && parts.length === 2) {
                 type = 'skin';
+                slug = parts[1];
             }
-        }
 
-        if (slug && !slugs.has(slug) && slug !== 'page' && !/^\d+$/.test(slug)) {
-            slugs.add(slug);
-            items.push({
-                slug: slug,
-                name: (label || '').trim().slice(0, 200),
-                url: href.startsWith('http') ? href : (window.location.origin + href),
-                type: type
-            });
-        }
-    }
-
-    document.querySelectorAll('.item-box a, .weapon-box a, .skin-list a, a.share-box').forEach(a => {
-        addItem(a.getAttribute('href'), a.textContent);
+            // Исключаем системные страницы
+            if (type && !['page', 'weapons', 'skins', 'compare'].includes(slug)) {
+                if (!seen.has(path)) {
+                    seen.add(path);
+                    items.push({
+                        slug: slug,
+                        name: a.textContent.trim() || slug,
+                        url: url.origin + path,
+                        type: type
+                    });
+                }
+            }
+        } catch (e) {}
     });
-
-    if (items.length === 0) {
-        document.querySelectorAll('main a[href], #content a[href]').forEach(a => {
-            addItem(a.getAttribute('href'), a.textContent);
-        });
-    }
-
-    let nextPageUrl = null;
-    const nextEl = document.querySelector('a.next, a[rel="next"], .pagination a:last-child');
-    if (nextEl && nextEl.getAttribute('href')) {
-        const href = nextEl.getAttribute('href');
-        if (href && !href.startsWith('#') && !href.toLowerCase().startsWith('javascript')) {
-            nextPageUrl = href.startsWith('http') ? href : (window.location.origin + href);
-        }
-    }
 
     return {
         items: items,
-        hasNextPage: !!nextPageUrl,
-        nextPageUrl: nextPageUrl
+        hasNextPage: false,
+        nextPageUrl: null
     };
 })();

@@ -14,11 +14,10 @@ import (
 )
 
 type PriceTableResult struct {
-	ItemName    string             `json:"itemName"`
-	HasWear     bool               `json:"hasWear"`
-	HasSouvenir bool               `json:"hasSouvenir"`
-	Normal      []MarketPriceEntry `json:"normal"`
-	Souvenir    []MarketPriceEntry `json:"souvenir"`
+	ItemName string             `json:"itemName"`
+	HasWear  bool               `json:"hasWear"`
+	Normal   []MarketPriceEntry `json:"normal"`
+	StatTrak []MarketPriceEntry `json:"stattrak"`
 }
 
 type MarketPriceEntry struct {
@@ -62,7 +61,7 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 		err := chromedp.Run(ctx,
 			chromedp.Navigate(opts.URL),
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
-			chromedp.Sleep(config.Delay),
+			chromedp.Sleep(config.NextDelay()),
 			chromedp.Title(&pageTitle),
 			chromedp.Evaluate(string(scraper.PricesJS), &res),
 		)
@@ -80,34 +79,25 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 			continue
 		}
 
-		// Try to get souvenir prices if they exist but weren't captured initially
-		if res.HasSouvenir && len(res.Souvenir) == 0 {
-			var souvenirRes []MarketPriceEntry
-			err = chromedp.Run(ctx,
-				chromedp.Click(`.price-type-tab[data-type="souvenir"], button[data-filter="souvenir"], .tab-link[href*="souvenir"]`, chromedp.ByQuery),
-				chromedp.Sleep(1000*time.Millisecond),
-				chromedp.Evaluate(`window.extractPrices()`, &souvenirRes),
-			)
-			if err == nil {
-				res.Souvenir = souvenirRes
-			}
-		}
-
 		var items []config.Item
 		if len(res.Normal) > 0 {
 			it := baseItem
 			it.Name = res.ItemName
-			if it.Name == "" { it.Name = opts.Name }
+			if it.Name == "" {
+				it.Name = opts.Name
+			}
 			it.Type = "Normal"
 			it.Prices = processMarketEntries(res.Normal, it.HasWear || res.HasWear)
 			items = append(items, it)
 		}
-		if len(res.Souvenir) > 0 {
+		if len(res.StatTrak) > 0 {
 			it := baseItem
-			it.Name = res.ItemName + " (Souvenir)"
-			if res.ItemName == "" { it.Name = opts.Name + " (Souvenir)" }
-			it.Type = "Souvenir"
-			it.Prices = processMarketEntries(res.Souvenir, it.HasWear || res.HasWear)
+			it.Name = res.ItemName
+			if it.Name == "" {
+				it.Name = opts.Name
+			}
+			it.Type = "StatTrak"
+			it.Prices = processMarketEntries(res.StatTrak, it.HasWear || res.HasWear)
 			items = append(items, it)
 		}
 

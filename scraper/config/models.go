@@ -2,12 +2,14 @@ package config
 
 // Skin represents a CS2 skin item.
 type Skin struct {
-	Name       string `json:"name"`
-	Weapon     string `json:"weapon"`
-	Rarity     string `json:"rarity"`
-	Collection string `json:"collection"`
-	Price      Price  `json:"price"`
-	URL        string `json:"url"`
+	Name       string        `json:"name"`
+	Weapon     string        `json:"weapon"`
+	Type       string        `json:"type,omitempty"`
+	Rarity     string        `json:"rarity"`
+	Collection string        `json:"collection"`
+	Price      Price         `json:"price"`
+	Prices     []MarketPrice `json:"prices,omitempty"`
+	URL        string        `json:"url"`
 }
 
 // Agent represents a CS2 agent item.

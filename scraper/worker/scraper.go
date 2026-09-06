@@ -7,9 +7,11 @@ import (
 	"log"
 	"sync"
 
+	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 
 	"github.com/eovacius/csgodatabase-scraper/internal"
+	"github.com/eovacius/csgodatabase-scraper/scraper"
 	"github.com/eovacius/csgodatabase-scraper/scraper/common"
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
 	"github.com/eovacius/csgodatabase-scraper/scraper/discovery"
@@ -48,7 +50,13 @@ func Scrape() ([]config.Item, error) {
 	defer cancel()
 
 	fmt.Println("[*] Performing pre-flight check (navigating to about:blank)...")
-	if err := chromedp.Run(browserCtx, chromedp.Navigate("about:blank")); err != nil {
+	if err := chromedp.Run(browserCtx,
+		chromedp.ActionFunc(func(ctx context.Context) error {
+			_, err := page.AddScriptToEvaluateOnNewDocument(scraper.ConfigJS).Do(ctx)
+			return err
+		}),
+		chromedp.Navigate("about:blank"),
+	); err != nil {
 		return nil, fmt.Errorf("failed to start Chrome: %w", err)
 	}
 	fmt.Println("[*] Pre-flight check successful, Chrome is active.")
@@ -107,6 +115,8 @@ func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 			continue
 		}
 
+		skinSlugs = filterDiscoveryItems(skinSlugs, "skin")
+
 		fmt.Printf("\033[36m[*] Step 3: Scraping prices for %d skins of %s...\033[0m\n", len(skinSlugs), w.Name)
 
 		optsList := make([]common.FetchOptions, 0, len(skinSlugs))
@@ -130,4 +140,14 @@ func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
 	}
 
 	return allItems
+}
+
+func filterDiscoveryItems(items []discovery.Item, itemType string) []discovery.Item {
+	filtered := make([]discovery.Item, 0, len(items))
+	for _, item := range items {
+		if item.Type == itemType {
+			filtered = append(filtered, item)
+		}
+	}
+	return filtered
 }
