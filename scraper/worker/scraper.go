@@ -4,7 +4,7 @@ package worker
 import (
 	"context"
 	"fmt"
-	"log"
+	"strings"
 	"sync"
 
 	"github.com/chromedp/cdproto/page"
@@ -17,39 +17,34 @@ import (
 	"github.com/eovacius/csgodatabase-scraper/scraper/discovery"
 )
 
-// ScrapeSkins runs the scraper and returns skins in the format expected by main.go.
-func ScrapeSkins() ([]config.Skin, []config.Agent, error) {
-	items, err := Scrape()
-	if err != nil {
-		return nil, nil, err
+var (
+	seenMu   sync.Mutex
+	seenURLs = make(map[string]bool)
+)
+
+func isSeen(url string) bool {
+	seenMu.Lock()
+	defer seenMu.Unlock()
+	if seenURLs[url] {
+		return true
 	}
-
-	var skins []config.Skin
-	// Agents are empty in this focused version
-	var agents []config.Agent
-
-	for _, it := range items {
-		skins = append(skins, internal.ConvertToSkin(it))
-	}
-
-	return skins, agents, nil
+	seenURLs[url] = true
+	return false
 }
 
-// Scrape runs the focused weapons scraper.
-func Scrape() ([]config.Item, error) {
+// ScrapeAll runs the full scraping cycle for all categories.
+func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]config.Skin, []config.Agent, []config.Skin, error) {
 	fmt.Println("[*] Initializing Chrome allocator...")
 	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), config.GetOpts()...)
 	defer cancel()
 
-	fmt.Println("[*] Creating browser context...")
-	// Log Chrome output for debugging in GitHub Actions
-	browserCtx, cancel := chromedp.NewContext(allocCtx, chromedp.WithLogf(log.Printf))
+	browserCtx, cancel := chromedp.NewContext(allocCtx)
 	defer cancel()
 
 	browserCtx, cancel = context.WithTimeout(browserCtx, config.DeadLine)
 	defer cancel()
 
-	fmt.Println("[*] Performing pre-flight check (navigating to about:blank)...")
+	fmt.Println("[*] Performing pre-flight check...")
 	if err := chromedp.Run(browserCtx,
 		chromedp.ActionFunc(func(ctx context.Context) error {
 			_, err := page.AddScriptToEvaluateOnNewDocument(scraper.ConfigJS).Do(ctx)
@@ -57,100 +52,176 @@ func Scrape() ([]config.Item, error) {
 		}),
 		chromedp.Navigate("about:blank"),
 	); err != nil {
-		return nil, fmt.Errorf("failed to start Chrome: %w", err)
+		return nil, nil, nil, fmt.Errorf("failed to start Chrome: %w", err)
 	}
-	fmt.Println("[*] Pre-flight check successful, Chrome is active.")
 
 	var (
-		mu  sync.Mutex
-		all []config.Item
-		wg  sync.WaitGroup
+		allSkins  []config.Skin
+		allAgents []config.Agent
+		allMisc   []config.Skin
 	)
 
-	// Focus on Weapons
-	if len(config.AllCategories) == 0 {
-		return nil, fmt.Errorf("no categories configured")
+	handleBatch := func(items []config.Item) {
+		if len(items) == 0 {
+			return
+		}
+		var bSkins []config.Skin
+		var bAgents []config.Agent
+		var bMisc []config.Skin
+
+		for _, it := range items {
+			cat := strings.ToLower(it.Category)
+			// Strictly route items to correct slices based on category
+			if cat == "agents" || strings.Contains(cat, "agent") {
+				a := internal.ConvertToAgent(it)
+				allAgents = append(allAgents, a)
+				bAgents = append(bAgents, a)
+			} else if cat == "weapons" || cat == "gloves" || strings.Contains(cat, "skin") {
+				s := internal.ConvertToSkin(it)
+				allSkins = append(allSkins, s)
+				bSkins = append(bSkins, s)
+			} else {
+				// Cases, Stickers, Souvenirs, Pins, Patches go to misc
+				m := internal.ConvertToSkin(it)
+				// If no prices were scraped, still save the item with basic info
+				if len(m.Prices) == 0 && m.Price.PriceString == "" {
+					m.Name = it.Name
+					m.URL = it.URL
+					m.Type = it.Type
+				}
+				allMisc = append(allMisc, m)
+				bMisc = append(bMisc, m)
+			}
+		}
+		if progress != nil {
+			progress(bSkins, bAgents, bMisc)
+		}
 	}
-	cat := config.AllCategories[0]
 
-	wg.Add(1)
-	go func(c config.Category) {
-		defer wg.Done()
-		items := runWeaponsFlow(browserCtx, c)
+	onlySet := isAnyOnlyFlagSet()
 
-		mu.Lock()
-		all = append(all, items...)
-		mu.Unlock()
+	if config.WeaponsOnly || !onlySet {
+		handleBatch(runWeaponsFlow(browserCtx))
+	}
+	if config.GlovesOnly || !onlySet {
+		handleBatch(runGenericFlow(browserCtx, "gloves", "Glove", config.MaxGloves))
+	}
+	if config.CasesOnly || !onlySet {
+		handleBatch(runGenericFlow(browserCtx, "cases", "Case", config.MaxCases))
+	}
+	if config.AgentsOnly || !onlySet {
+		handleBatch(runGenericFlow(browserCtx, "agents", "Agent", config.MaxAgents))
+	}
+	if config.SouvenirsOnly || !onlySet {
+		handleBatch(runGenericFlow(browserCtx, "souvenir-packages", "Souvenir", config.MaxSouvenirs))
+	}
+	if config.PatchesOnly || !onlySet {
+		handleBatch(runGenericFlow(browserCtx, "patches", "Patch", config.MaxPatches))
+	}
+	if config.PinsOnly || !onlySet {
+		handleBatch(runNestedFlow(browserCtx, "collectible-pins", "Pin", config.MaxPins))
+	}
+	if config.StickersOnly || !onlySet {
+		handleBatch(runNestedFlow(browserCtx, "sticker-capsules", "Sticker", config.MaxStickers))
+	}
 
-		fmt.Printf("\033[32m[+]\033[0m Done Weapons flow (%d total items)\n", len(items))
-	}(cat)
-
-	wg.Wait()
-	return all, nil
+	return allSkins, allAgents, allMisc, nil
 }
 
-// runWeaponsFlow implements: /weapons/ -> Weapon -> Skins -> Prices
-func runWeaponsFlow(parent context.Context, cat config.Category) []config.Item {
+func isAnyOnlyFlagSet() bool {
+	return config.WeaponsOnly || config.CasesOnly || config.GlovesOnly || config.AgentsOnly || config.SouvenirsOnly || config.PinsOnly || config.PatchesOnly || config.StickersOnly
+}
+
+func runWeaponsFlow(parent context.Context) []config.Item {
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
-
-	fmt.Printf("\n\033[36m[*] Step 1: Discovering all Weapons from /weapons/...\033[0m\n")
-	weapons, err := discovery.Discover(ictx, discovery.Options{
-		Category: "weapons",
-	})
-	if err != nil {
-		fmt.Printf("\033[31m[!]\033[0m Weapon discovery failed: %v\n", err)
-		return nil
+	weapons, _ := discovery.Discover(ictx, discovery.Options{Category: "weapons"})
+	var out []config.Item
+	for _, w := range weapons {
+		if config.MaxWeapons > 0 && len(out) >= config.MaxWeapons { break }
+		skins, _ := discovery.Discover(ictx, discovery.Options{Category: w.URL})
+		var opts []common.FetchOptions
+		for _, s := range skins {
+			if config.MaxWeapons > 0 && (len(out)+len(opts)) >= config.MaxWeapons { break }
+			if isSeen(s.URL) || s.Type != "skin" { continue }
+			opts = append(opts, common.FetchOptions{URL: s.URL, Name: s.Name, Category: "weapons", HasWear: true, Weapon: w.Name})
+		}
+		if len(opts) > 0 {
+			out = append(out, common.FetchManyItems(parent, opts)...)
+		}
 	}
-
-	var allItems []config.Item
-	for weaponIndex, w := range weapons {
-		if config.MaxWeapons > 0 && weaponIndex >= config.MaxWeapons {
-			break
-		}
-		fmt.Printf("\033[36m[*] Step 2: Discovering all Skins for weapon: %s\033[0m\n", w.Name)
-
-		skinSlugs, err := discovery.Discover(ictx, discovery.Options{
-			Category: w.URL,
-		})
-		if err != nil {
-			fmt.Printf("\033[31m[!]\033[0m Skin discovery failed for %s: %v\n", w.Name, err)
-			continue
-		}
-
-		skinSlugs = filterDiscoveryItems(skinSlugs, "skin")
-
-		fmt.Printf("\033[36m[*] Step 3: Scraping prices for %d skins of %s...\033[0m\n", len(skinSlugs), w.Name)
-
-		optsList := make([]common.FetchOptions, 0, len(skinSlugs))
-		for _, s := range skinSlugs {
-			optsList = append(optsList, common.FetchOptions{
-				URL:      s.URL,
-				Category: "weapons",
-				HasWear:  true,
-				Slug:     s.Slug,
-				Name:     s.Name,
-				Weapon:   w.Name,
-			})
-		}
-
-		// Use a local context for fetching many items
-		fetchCtx, fCancel := chromedp.NewContext(ictx)
-		items := common.FetchManyItems(fetchCtx, optsList)
-		fCancel()
-
-		allItems = append(allItems, items...)
-	}
-
-	return allItems
+	return out
 }
 
-func filterDiscoveryItems(items []discovery.Item, itemType string) []discovery.Item {
-	filtered := make([]discovery.Item, 0, len(items))
-	for _, item := range items {
-		if item.Type == itemType {
-			filtered = append(filtered, item)
+func runGenericFlow(parent context.Context, path, itemType string, limit int) []config.Item {
+	ictx, cancel := chromedp.NewContext(parent)
+	defer cancel()
+	found, _ := discovery.Discover(ictx, discovery.Options{Category: path})
+	var opts []common.FetchOptions
+	for _, it := range found {
+		if limit > 0 && len(opts) >= limit { break }
+		if isSeen(it.URL) { continue }
+		opts = append(opts, common.FetchOptions{URL: it.URL, Name: it.Name, Category: path, Type: itemType, HasWear: path == "gloves"})
+	}
+	if len(opts) == 0 { return nil }
+	return common.FetchManyItems(parent, opts)
+}
+
+func runNestedFlow(parent context.Context, path, itemType string, limit int) []config.Item {
+	ictx, cancel := chromedp.NewContext(parent)
+	defer cancel()
+	capsules, _ := discovery.Discover(ictx, discovery.Options{Category: path})
+	var all []config.Item
+	for _, cap := range capsules {
+		// Respect limit for capsules (for stickers, pins, etc.)
+		if limit > 0 && len(all) >= limit { break }
+
+		// 1. Scrape the capsule itself
+		if !isSeen(cap.URL) {
+			res, err := common.FetchItem(ictx, common.FetchOptions{URL: cap.URL, Name: cap.Name, Category: path, Type: itemType + " Capsule"})
+			if err == nil {
+				all = append(all, res...)
+			}
+		}
+
+		if limit > 0 && len(all) >= limit { break }
+
+		// 2. Scrape items inside
+		inside, _ := discovery.Discover(ictx, discovery.Options{Category: cap.URL})
+		var opts []common.FetchOptions
+		for _, it := range inside {
+			if limit > 0 && (len(all)+len(opts)) >= limit { break }
+			if it.URL == cap.URL || isSeen(it.URL) { continue }
+
+			// Strict filter to ensure we stay within the category
+			if path == "sticker-capsules" {
+				if !strings.Contains(it.URL, "/sticker-capsules/") && !strings.Contains(it.URL, "/stickers/") {
+					continue
+				}
+			} else if path == "collectible-pins" {
+				if !strings.Contains(it.URL, "/collectible-pins/") {
+					continue
+				}
+			}
+
+			opts = append(opts, common.FetchOptions{URL: it.URL, Name: it.Name, Category: path, Type: itemType})
+		}
+
+		if len(opts) > 0 {
+			all = append(all, common.FetchManyItems(parent, opts)...)
 		}
 	}
-	return filtered
+	// Final trim to be absolutely sure about the limit
+	if limit > 0 && len(all) > limit {
+		all = all[:limit]
+	}
+	return all
+}
+
+// ScrapeSkins (compatibility with main.go progress check)
+func ScrapeSkinsWithProgress(p func([]config.Skin)) ([]config.Skin, []config.Agent, error) {
+	s, a, m, err := ScrapeAll(func(skins []config.Skin, agents []config.Agent, misc []config.Skin) {
+		if p != nil { p(skins) }
+	})
+	return append(s, m...), a, err
 }

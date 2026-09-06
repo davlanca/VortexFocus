@@ -47,19 +47,36 @@ func ConvertToSkin(item config.Item) config.Skin {
 // ConvertToAgent maps a universal Item to the legacy Agent struct.
 func ConvertToAgent(item config.Item) config.Agent {
 	side := "Unknown"
-	if strings.Contains(item.Name, "FBI") || strings.Contains(item.Name, "Seal") || strings.Contains(item.Name, "SWAT") {
-		side = "CT"
-	} else if strings.Contains(item.Name, "Guerrilla") || strings.Contains(item.Name, "Professional") || strings.Contains(item.Name, "Phoenix") {
-		side = "T"
+	lowerName := strings.ToLower(item.Name)
+
+	// Better side detection
+	ctKeywords := []string{"fbi", "seal", "swat", "sas", "gendarmerie", "ksk", "nswc", "usaf"}
+	tKeywords := []string{"guerrilla", "professional", "phoenix", "balkan", "sabotage", "elite crew", "reapers"}
+
+	for _, k := range ctKeywords {
+		if strings.Contains(lowerName, k) {
+			side = "CT"
+			break
+		}
+	}
+	if side == "Unknown" {
+		for _, k := range tKeywords {
+			if strings.Contains(lowerName, k) {
+				side = "T"
+				break
+			}
+		}
 	}
 
 	return config.Agent{
-		Name:       item.Name,
-		Side:       side,
-		Rarity:     item.Rarity,
-		Collection: item.Collection,
-		URL:        item.URL,
-		Price:      SummarizePriceSimple(item.Prices),
+		Name:        item.Name,
+		Side:        side,
+		Affiliation: item.Weapon, // Use weapon field for affiliation if provided
+		Rarity:      item.Rarity,
+		Collection:  item.Collection,
+		URL:         item.URL,
+		Price:       SummarizePriceSimple(item.Prices),
+		Prices:      item.Prices,
 	}
 }
 
@@ -99,28 +116,33 @@ func SummarizePrices(mps []config.MarketPrice) config.Price {
 			Value: max,
 			Unit:  currency,
 		},
-		UpdatedAt: time.Now().Format(time.RFC3339),
+		UpdatedAt: time.Now().UTC().Format(time.RFC3339),
 	}
 }
 
-// SummarizePriceSimple builds a single PriceSimple entry.
+// SummarizePriceSimple builds a single PriceSimple entry using the lowest price found.
 func SummarizePriceSimple(mps []config.MarketPrice) config.PriceSimple {
-	var val float64
+	var lowest float64
 	var currency string = "USD"
+	first := true
+
 	for _, mp := range mps {
 		if mp.HasPrice && mp.Price > 0 {
-			val = mp.Price
-			currency = mp.Currency
-			break
+			if first || mp.Price < lowest {
+				lowest = mp.Price
+				currency = mp.Currency
+				first = false
+			}
 		}
 	}
+
 	return config.PriceSimple{
-		PriceString: fmt.Sprintf("$%.2f", val),
+		PriceString: fmt.Sprintf("$%.2f", lowest),
 		Currency:    currency,
 		From: config.PriceValue{
-			Value: val,
+			Value: lowest,
 			Unit:  currency,
 		},
-		UpdatedAt: time.Now().Format(time.RFC3339),
+		UpdatedAt: time.Now().UTC().Format(time.RFC3339),
 	}
 }

@@ -1,9 +1,8 @@
 package config
 
-// Skin represents a CS2 skin item.
 type Skin struct {
 	Name       string        `json:"name"`
-	Weapon     string        `json:"weapon"`
+	Weapon     string        `json:"weapon,omitempty"`
 	Type       string        `json:"type,omitempty"`
 	Rarity     string        `json:"rarity"`
 	Collection string        `json:"collection"`
@@ -12,31 +11,29 @@ type Skin struct {
 	URL        string        `json:"url"`
 }
 
-// Agent represents a CS2 agent item.
 type Agent struct {
-	Name        string      `json:"name"`
-	Affiliation string      `json:"affiliation"`
-	Side        string      `json:"side"`
-	Collection  string      `json:"collection"`
-	Rarity      string      `json:"rarity"`
-	Price       PriceSimple `json:"price"`
-	URL         string      `json:"url"`
+	Name        string        `json:"name"`
+	Affiliation string        `json:"affiliation"`
+	Side        string        `json:"side"`
+	Collection  string        `json:"collection"`
+	Rarity      string        `json:"rarity"`
+	Price       PriceSimple   `json:"price"`
+	Prices      []MarketPrice `json:"prices,omitempty"`
+	URL         string        `json:"url"`
 }
 
-// DataOutput is the top-level structure saved to JSON.
 type DataOutput struct {
 	Skins  []Skin  `json:"skins"`
 	Agents []Agent `json:"agents"`
+	Misc   []Skin  `json:"misc"`
 }
 
-// PriceValue holds the numeric price data.
 type PriceValue struct {
 	Value         float64 `json:"value"`
 	StattrakValue float64 `json:"stattrak_value"`
 	Unit          string  `json:"unit"`
 }
 
-// Price represents the price range for skins.
 type Price struct {
 	PriceString         string     `json:"price_string"`
 	PriceStattrakString string     `json:"price_stattrak_string"`
@@ -46,7 +43,6 @@ type Price struct {
 	UpdatedAt           string     `json:"updated_at"`
 }
 
-// PriceSimple represents the price for agents and other single-price items.
 type PriceSimple struct {
 	PriceString string     `json:"price_string"`
 	Currency    string     `json:"currency"`
@@ -54,7 +50,6 @@ type PriceSimple struct {
 	UpdatedAt   string     `json:"updated_at"`
 }
 
-// Item is the universal item struct used by the underlying scraper logic.
 type Item struct {
 	Name       string        `json:"name"`
 	Slug       string        `json:"slug"`
@@ -70,7 +65,6 @@ type Item struct {
 	ScrapedAt  string        `json:"scraped_at"`
 }
 
-// MarketPrice is a single price entry.
 type MarketPrice struct {
 	Market   string  `json:"market"`
 	Wear     string  `json:"wear,omitempty"`
@@ -81,9 +75,7 @@ type MarketPrice struct {
 	Lowest   bool    `json:"lowest,omitempty"`
 }
 
-// WearCondition represents the wear grades.
 type WearCondition string
-
 const (
 	WearFactoryNew    WearCondition = "FN"
 	WearMinimalWear   WearCondition = "MW"
@@ -91,7 +83,4 @@ const (
 	WearWellWorn      WearCondition = "WW"
 	WearBattleScarred WearCondition = "BS"
 )
-
-var AllWearConditions = []WearCondition{
-	WearFactoryNew, WearMinimalWear, WearFieldTested, WearWellWorn, WearBattleScarred,
-}
+var AllWearConditions = []WearCondition{WearFactoryNew, WearMinimalWear, WearFieldTested, WearWellWorn, WearBattleScarred}

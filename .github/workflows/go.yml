@@ -12,8 +12,12 @@ concurrency:
   group: cs2-price-scraper
   cancel-in-progress: false
 
+env:
+  DELAY: 3
+  WORKERS: 2
+
 jobs:
-  scrape:
+  scrape-all-categories:
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
@@ -34,10 +38,91 @@ jobs:
     - name: Install Go dependencies
       run: go mod tidy
 
-    - name: Run Scraper
-      run: go run . --delay=3 --workers=2
+    # ===== CASES =====
+    - name: Scrape Cases
+      run: |
+        go run . -cases-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/cases.json
       env:
         CHROME_PATH: /usr/bin/chromium
+
+    # ===== WEAPONS =====
+    - name: Scrape Weapons
+      run: |
+        go run . -weapons-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/weapons.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== GLOVES =====
+    - name: Scrape Gloves
+      run: |
+        go run . -gloves-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/gloves.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== AGENTS =====
+    - name: Scrape Agents
+      run: |
+        go run . -agents-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/agents.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== STICKERS =====
+    - name: Scrape Stickers
+      run: |
+        go run . -stickers-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/stickers.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== SOUVENIRS =====
+    - name: Scrape Souvenirs
+      run: |
+        go run . -souvenirs-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/souvenirs.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== PINS =====
+    - name: Scrape Pins
+      run: |
+        go run . -pins-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/pins.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    # ===== PATCHES =====
+    - name: Scrape Patches
+      run: |
+        go run . -patches-only --delay=${{ env.DELAY }} --workers=${{ env.WORKERS }}
+        cp json/data.json json/patches.json
+      env:
+        CHROME_PATH: /usr/bin/chromium
+
+    - name: Merge JSON files
+      run: |
+        node -e "
+        const fs = require('fs');
+        const files = ['cases', 'weapons', 'gloves', 'agents', 'stickers', 'souvenirs', 'pins', 'patches'];
+        const merged = { skins: [], agents: [], misc: [] };
+        
+        for (const f of files) {
+          try {
+            const data = JSON.parse(fs.readFileSync('json/' + f + '.json', 'utf8'));
+            if (data.skins) merged.skins.push(...data.skins);
+            if (data.agents) merged.agents.push(...data.agents);
+            if (data.misc) merged.misc.push(...data.misc);
+          } catch(e) {
+            console.log('Warning: Could not read ' + f + '.json:', e.message);
+          }
+        }
+        
+        fs.writeFileSync('json/data.json', JSON.stringify(merged, null, 2));
+        console.log('Merged ' + merged.skins.length + ' skins, ' + merged.agents.length + ' agents, ' + merged.misc.length + ' misc items');
+        "
 
     - name: Upload scraped JSON
       if: always()

@@ -8,3 +8,20 @@ chrome-profile/
 !.env.example
 trade.7z
 nul
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+scraper_test
+csgodatabase-scraper
+
+# Data files (generated)
+json/data.json
+
+# OS files
+.DS_Store
+Thumbs.db

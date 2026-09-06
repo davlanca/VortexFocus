@@ -12,11 +12,32 @@ import (
 )
 
 var (
-	Target      = "https://www.csgodatabase.com"
-	DeadLine    = 120 * time.Minute
-	Delay       = 2 * time.Second
-	Workers     = 2
-	MaxWeapons  = 0
+	Target          = "https://www.csgodatabase.com"
+	DeadLine        = 120 * time.Minute
+	Delay           = 2 * time.Second
+	Workers         = 2
+
+	// Limits
+	Max          = 0 // Universal limit
+	MaxWeapons   = 0
+	MaxGloves    = 0
+	MaxAgents    = 0
+	MaxCases     = 0
+	MaxSouvenirs = 0
+	MaxPins      = 0
+	MaxPatches   = 0
+	MaxStickers  = 0
+
+	// Category Flags
+	WeaponsOnly   = false
+	CasesOnly     = false
+	GlovesOnly    = false
+	AgentsOnly    = false
+	SouvenirsOnly = false
+	PinsOnly      = false
+	PatchesOnly   = false
+	StickersOnly  = false
+
 	Headless    = false
 	Interactive = false
 )
@@ -25,7 +46,8 @@ func NextDelay() time.Duration {
 	if Delay <= 0 {
 		return 0
 	}
-	return time.Duration(1+rand.Intn(3)) * time.Second
+	extra := time.Duration(rand.Intn(2000)) * time.Millisecond
+	return Delay + extra
 }
 
 func GetOpts() []chromedp.ExecAllocatorOption {
@@ -60,7 +82,7 @@ func GetOpts() []chromedp.ExecAllocatorOption {
 		chromedp.Flag("start-maximized", true),
 		chromedp.Flag("headless", headless),
 		chromedp.Flag("user-data-dir", profileDir),
-		chromedp.Flag("window-size", "800,600"),
+		chromedp.Flag("window-size", "1280,1024"),
 		chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"),
 	)
 	if proxy := os.Getenv("CSGO_PROXY"); proxy != "" {

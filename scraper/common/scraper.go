@@ -42,6 +42,7 @@ type FetchOptions struct {
 	Name       string
 }
 
+// FetchItem is the unified way to scrape any item page (weapon, glove, case).
 func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 	baseItem := config.Item{
 		URL:        opts.URL,
@@ -55,11 +56,14 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 	}
 
 	const maxRetries = 2
+	const retryDelay = 10 * time.Second
 	for attempt := 0; attempt <= maxRetries; attempt++ {
 		var pageTitle string
 		var res PriceTableResult
 
-		err := chromedp.Run(ctx,
+		// Per-item timeout to prevent hanging the whole process
+		runCtx, cancel := context.WithTimeout(ctx, 60*time.Second)
+		err := chromedp.Run(runCtx,
 			chromedp.ActionFunc(func(ctx context.Context) error {
 				_, _, _, _, err := page.Navigate(opts.URL).Do(ctx)
 				return err
@@ -70,55 +74,98 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 			chromedp.Title(&pageTitle),
 			chromedp.Evaluate(string(scraper.PricesJS), &res),
 		)
+		cancel()
+
 		if err != nil {
-			fmt.Printf("\033[31m[!]\033[0m chromedp error: %v\n", err)
-			break
+			fmt.Printf("\033[31m[!]\033[0m [%s] attempt %d error: %v\n", opts.Name, attempt+1, err)
+			continue
 		}
 
 		lower := strings.ToLower(pageTitle)
 		if strings.Contains(lower, "page not found") {
 			return nil, fmt.Errorf("404")
 		}
-		if strings.Contains(lower, "verify") || strings.Contains(lower, "human") {
-			fmt.Printf("\033[31m[!]\033[0m Detection on %s, retry %d\n", opts.Slug, attempt)
+		if strings.Contains(lower, "verify") || strings.Contains(lower, "human") || strings.Contains(lower, "just a moment") || strings.Contains(lower, "attention required") {
+			fmt.Printf("\033[31m[!]\033[0m Detection on %s, retry %d\n", opts.Name, attempt+1)
+			if config.Interactive {
+				fmt.Println("      [!] Cloudflare verification needed. Complete it in browser, then press Enter.")
+				var dummy string
+				fmt.Scanln(&dummy)
+				attempt--
+			}
 			continue
 		}
 
 		var items []config.Item
+		finalName := res.ItemName
+		if finalName == "" {
+			finalName = opts.Name
+		}
+
+		// Handle Normal / Gloves / Cases
 		if len(res.Normal) > 0 {
 			it := baseItem
-			it.Name = res.ItemName
-			if it.Name == "" {
-				it.Name = opts.Name
+			it.Name = finalName
+			it.Type = opts.Type
+			if it.Type == "" || it.Type == "Normal" {
+				if opts.Category == "gloves" {
+					it.Type = "Gloves"
+				} else if opts.Category == "cases" {
+					it.Type = "Case"
+				} else {
+					it.Type = "Normal"
+				}
 			}
-			it.Type = "Normal"
 			it.Prices = processMarketEntries(res.Normal, it.HasWear || res.HasWear)
 			items = append(items, it)
 		}
+
+		// Handle StatTrak (mostly for weapons)
 		if len(res.StatTrak) > 0 {
 			it := baseItem
-			it.Name = res.ItemName
-			if it.Name == "" {
-				it.Name = opts.Name
-			}
+			it.Name = finalName
 			it.Type = "StatTrak"
 			it.Prices = processMarketEntries(res.StatTrak, it.HasWear || res.HasWear)
 			items = append(items, it)
 		}
 
 		if len(items) > 0 {
-			fmt.Printf("\033[32m[+]\033[0m Scraped: %s\n", opts.Slug)
+			fmt.Printf("\033[32m[+]\033[0m Scraped: %s\n", finalName)
 			return items, nil
 		}
-		fmt.Printf("\033[33m[?]\033[0m No prices for %s\n", opts.Slug)
-		if attempt < maxRetries {
-			fmt.Printf("\033[36m[*]\033[0m Waiting 10 seconds before retrying %s\n", opts.Slug)
-			if err := chromedp.Run(ctx, chromedp.Sleep(10*time.Second)); err != nil {
-				break
-			}
-		}
+
+		fmt.Printf("\033[33m[?]\033[0m No prices for %s (attempt %d)\n", opts.Name, attempt+1)
+		time.Sleep(retryDelay)
 	}
-	return nil, fmt.Errorf("failed")
+	return nil, fmt.Errorf("failed to scrape %s after retries", opts.Name)
+}
+
+func FetchCase(ctx context.Context, url, name string) (config.Item, error) {
+	items, err := FetchItem(ctx, FetchOptions{
+		URL:      url,
+		Name:     name,
+		Category: "cases",
+		Type:     "Case",
+		HasWear:  false,
+	})
+	if err != nil || len(items) == 0 {
+		return config.Item{}, err
+	}
+	return items[0], nil
+}
+
+func FetchGlove(ctx context.Context, url, name string) (config.Item, error) {
+	items, err := FetchItem(ctx, FetchOptions{
+		URL:      url,
+		Name:     name,
+		Category: "gloves",
+		Type:     "Gloves",
+		HasWear:  true,
+	})
+	if err != nil || len(items) == 0 {
+		return config.Item{}, err
+	}
+	return items[0], nil
 }
 
 func processMarketEntries(entries []MarketPriceEntry, hasWear bool) []config.MarketPrice {
@@ -159,6 +206,7 @@ func FetchManyItems(parent context.Context, optsList []FetchOptions) []config.It
 			sem <- struct{}{}
 			defer func() { <-sem }()
 
+			// Each item gets a fresh context/tab to avoid cross-contamination and hangs
 			ctx, cancel := chromedp.NewContext(parent)
 			defer cancel()
 
@@ -173,3 +221,4 @@ func FetchManyItems(parent context.Context, optsList []FetchOptions) []config.It
 	wg.Wait()
 	return out
 }
+
