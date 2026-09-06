@@ -2,7 +2,7 @@ name: CS2 Price Scraper
 
 on:
   schedule:
-    # Запуск каждые 5 минут
+    # Запуск каждые 30 минут
     - cron: '*/30 * * * *'
   workflow_dispatch: # Добавляет кнопку "Run workflow" для ручного запуска
 
@@ -21,15 +21,27 @@ jobs:
       with:
         go-version: '1.25.5' # Оставил версию из вашего шаблона
 
-    # 3. Подтягиваем нужные библиотеки
-    - name: Install dependencies
+    # 3. Устанавливаем системные зависимости для Chrome (libnss3, libxss1, и т.д.)
+    #    Это обязательно для Ubuntu 24.04 runner, иначе Chrome падает на старте.
+    - name: Install Chrome dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
+          libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
+          libxss1 libasound2t64 libpangocairo-1.0-0 libpango-1.0-0 \
+          libgtk-3-0t64 fonts-liberation libappindicator3-1 \
+          libu2f-udev libvulkan1 xdg-utils
+
+    # 4. Подтягиваем нужные библиотеки
+    - name: Install Go dependencies
       run: go mod tidy
 
-    # 4. Запускаем сам парсер в режиме скрытности
+    # 5. Запускаем сам парсер в режиме скрытности
     - name: Run Scraper
       run: go run main.go -stealth
 
-    # 5. Пушим созданный JSON обратно в репозиторий
+    # 6. Пушим созданный JSON обратно в репозиторий
     - name: Commit and Push changes
       run: |
         git config --global user.name "github-actions[bot]"

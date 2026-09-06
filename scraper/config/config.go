@@ -51,11 +51,14 @@ var (
 
 // allocator options
 var Opts = append(chromedp.DefaultExecAllocatorOptions[:],
-	chromedp.Flag("headless", Headless),
+	chromedp.NoSandbox,
+	chromedp.DisableGPU,
+	chromedp.Flag("disable-setuid-sandbox", true),
+	chromedp.Flag("disable-dev-shm-usage", true),
 	chromedp.Flag("disable-blink-features", "AutomationControlled"),
 	chromedp.Flag("blink-settings", "imagesEnabled=false"),
 	chromedp.Flag("exclude-switches", "enable-automation"),
-	chromedp.Flag("disable-extensions", false),
+	chromedp.Flag("disable-extensions", true),
 	chromedp.Flag("start-maximized", false),
 	chromedp.Flag("window-size", "800,600"),
 	chromedp.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"),

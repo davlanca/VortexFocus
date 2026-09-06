@@ -5,3 +5,5 @@ node_modules/
 .env
 .env.*
 !.env.example
+trade.7z
+nul
