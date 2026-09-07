@@ -35,6 +35,13 @@ type Options struct {
 	OnProgress func(page int, found int)
 }
 
+// scrollDownAction scrolls the page to the bottom once to trigger lazy loading.
+func scrollDownAction() chromedp.Action {
+	return chromedp.ActionFunc(func(ctx context.Context) error {
+		return chromedp.Evaluate(`window.scrollTo(0, document.body.scrollHeight)`, nil).Do(ctx)
+	})
+}
+
 func Discover(ctx context.Context, opts Options) ([]Item, error) {
 	if opts.BaseURL == "" {
 		opts.BaseURL = config.Target
@@ -51,7 +58,9 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 
 	pageURL := opts.Category
 	if !strings.Contains(pageURL, "http") {
-		pageURL = fmt.Sprintf("%s/%s/", opts.BaseURL, opts.Category)
+		// Remove leading slash if present to avoid double slashes in URL
+		category := strings.TrimPrefix(opts.Category, "/")
+		pageURL = fmt.Sprintf("%s/%s/", opts.BaseURL, category)
 	}
 
 	for page := 1; page <= opts.MaxPages; page++ {
@@ -65,12 +74,14 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 				_, _, _, _, err := cdpage.Navigate(pageURL).Do(ctx)
 				return err
 			}),
-			chromedp.Evaluate(string(scraper.ConfigJS), nil),
 			chromedp.Title(&title),
-			// Wait for the body and try to wait for some links to be present
 			chromedp.WaitReady(`body`, chromedp.ByQuery),
-			// Give it a bit more time for the dynamic content to settle
-			chromedp.Sleep(config.NextDelay()),
+			// Wait exactly 1 second for dynamic content
+			chromedp.Sleep(1 * time.Second),
+			// Scroll to bottom to trigger lazy loading
+			scrollDownAction(),
+			// Wait 500ms for scroll to complete
+			chromedp.Sleep(500 * time.Millisecond),
 			chromedp.Evaluate(string(scraper.DiscoveryJS), &res),
 		)
 		if err != nil {
@@ -90,20 +101,44 @@ func Discover(ctx context.Context, opts Options) ([]Item, error) {
 			if err := chromedp.Run(ctx, chromedp.ActionFunc(func(ctx context.Context) error {
 				_, _, _, _, err := cdpage.Navigate(pageURL).Do(ctx)
 				return err
-			}), chromedp.WaitReady(`body`, chromedp.ByQuery), chromedp.Sleep(config.NextDelay()), chromedp.Evaluate(string(scraper.DiscoveryJS), &res)); err != nil {
+			}), chromedp.WaitReady(`body`, chromedp.ByQuery), chromedp.Sleep(1*time.Second), scrollDownAction(), chromedp.Evaluate(string(scraper.DiscoveryJS), &res)); err != nil {
 				return all, fmt.Errorf("page %d after manual verification: %w", page, err)
 			}
 		}
 
-		// Check if we hit a verification page
+		// Check if we hit a verification page - full retry with 10 sec pause
 		if strings.Contains(strings.ToLower(title), "just a moment") || strings.Contains(strings.ToLower(title), "verify") {
-			fmt.Printf("\033[31m[!]\033[0m Detection triggered on %s. Trying to wait longer...\n", pageURL)
-			_ = chromedp.Run(ctx, chromedp.Sleep(5*time.Second), chromedp.Evaluate(string(scraper.DiscoveryJS), &res))
+			fmt.Printf("\033[31m[!]\033[0m Cloudflare on %s - waiting 10s before retry...\n", pageURL)
+			time.Sleep(10 * time.Second)
+			if err := chromedp.Run(ctx,
+				chromedp.ActionFunc(func(ctx context.Context) error {
+					_, _, _, _, err := cdpage.Navigate(pageURL).Do(ctx)
+					return err
+				}),
+				chromedp.WaitReady(`body`, chromedp.ByQuery),
+				chromedp.Sleep(1*time.Second),
+				scrollDownAction(),
+				chromedp.Sleep(500*time.Millisecond),
+				chromedp.Evaluate(string(scraper.DiscoveryJS), &res),
+			); err != nil {
+				fmt.Printf("\033[31m[!]\033[0m Cloudflare retry failed on %s: %v\n", pageURL, err)
+			}
 		}
 
+		// No items found - retry once with 3 sec pause
 		if len(res.Items) == 0 {
-			fmt.Printf("      [!] No items found. Page might be empty or still loading. Retrying once...\n")
-			_ = chromedp.Run(ctx, chromedp.Sleep(3*time.Second), chromedp.Evaluate(string(scraper.DiscoveryJS), &res))
+			fmt.Printf("\033[33m[~]\033[0m No items found on %s - waiting 3s before retry...\n", pageURL)
+			time.Sleep(3 * time.Second)
+			_ = chromedp.Run(ctx,
+				chromedp.WaitReady(`body`, chromedp.ByQuery),
+				chromedp.Sleep(1*time.Second),
+				scrollDownAction(),
+				chromedp.Sleep(500*time.Millisecond),
+				chromedp.Evaluate(string(scraper.DiscoveryJS), &res),
+			)
+			if len(res.Items) == 0 {
+				fmt.Printf("\033[33m[!]\033[0m Skipping page %s after 2 failed attempts\n", pageURL)
+			}
 		}
 
 		for _, it := range res.Items {

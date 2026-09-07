@@ -4,8 +4,10 @@ package worker
 import (
 	"context"
 	"fmt"
+	"math/rand"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
@@ -16,6 +18,18 @@ import (
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
 	"github.com/eovacius/csgodatabase-scraper/scraper/discovery"
 )
+
+// randomDelay sleeps for a random duration between minSecs and maxSecs (inclusive).
+func randomDelay(minSecs, maxSecs int) {
+	d := time.Duration(minSecs*1000+rand.Intn((maxSecs-minSecs+1)*1000)) * time.Millisecond
+	time.Sleep(d)
+}
+
+// randomDelayMs sleeps for a random duration between minMs and maxMs milliseconds.
+func randomDelayMs(minMs, maxMs int) {
+	d := time.Duration(minMs+rand.Intn(maxMs-minMs+1)) * time.Millisecond
+	time.Sleep(d)
+}
 
 var (
 	seenMu   sync.Mutex
@@ -132,31 +146,59 @@ func isAnyOnlyFlagSet() bool {
 	return config.WeaponsOnly || config.CasesOnly || config.GlovesOnly || config.AgentsOnly || config.SouvenirsOnly || config.PinsOnly || config.PatchesOnly || config.StickersOnly
 }
 
-func runWeaponsFlow(parent context.Context) []config.Item {
-	ictx, cancel := chromedp.NewContext(parent)
-	defer cancel()
-	weapons, _ := discovery.Discover(ictx, discovery.Options{Category: "weapons"})
-	var out []config.Item
+func runWeaponsFlow(ctx context.Context) []config.Item {
+	// First discover all weapons from the weapons page
+	weapons, err := discovery.Discover(ctx, discovery.Options{Category: "weapons"})
+	if err != nil {
+		fmt.Printf("      [!] Error discovering weapons: %v\n", err)
+	}
+
+	// Random delay after discovering weapon list
+	randomDelayMs(300, 600)
+
+	var allItems []config.Item
+	weaponsProcessed := 0
 	for _, w := range weapons {
-		if config.MaxWeapons > 0 && len(out) >= config.MaxWeapons { break }
-		skins, _ := discovery.Discover(ictx, discovery.Options{Category: w.URL})
+		// MaxWeapons limits the number of weapon categories checked
+		if config.MaxWeapons > 0 && weaponsProcessed >= config.MaxWeapons { break }
+
+		// Random delay before scraping each weapon
+		randomDelayMs(300, 600)
+
+		// Navigate to each weapon page and discover skins
+		skins, err := discovery.Discover(ctx, discovery.Options{Category: w.URL})
+		if err != nil {
+			fmt.Printf("      [!] Error discovering skins for %s: %v\n", w.Name, err)
+			continue
+		}
+
 		var opts []common.FetchOptions
 		for _, s := range skins {
-			if config.MaxWeapons > 0 && (len(out)+len(opts)) >= config.MaxWeapons { break }
-			if isSeen(s.URL) || s.Type != "skin" { continue }
+			if isSeen(s.URL) || (s.Type != "skin" && s.Type != "skins") { continue }
 			opts = append(opts, common.FetchOptions{URL: s.URL, Name: s.Name, Category: "weapons", HasWear: true, Weapon: w.Name})
 		}
+
 		if len(opts) > 0 {
-			out = append(out, common.FetchManyItems(parent, opts)...)
+			fetched := common.FetchManyItems(ctx, opts)
+			allItems = append(allItems, fetched...)
 		}
+
+		// Random delay after finishing this weapon (before next)
+		randomDelayMs(300, 600)
+		weaponsProcessed++
 	}
-	return out
+
+	return allItems
 }
 
 func runGenericFlow(parent context.Context, path, itemType string, limit int) []config.Item {
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
 	found, _ := discovery.Discover(ictx, discovery.Options{Category: path})
+
+	// Random delay after discovering items list
+	randomDelayMs(300, 600)
+
 	var opts []common.FetchOptions
 	for _, it := range found {
 		if limit > 0 && len(opts) >= limit { break }
@@ -164,27 +206,42 @@ func runGenericFlow(parent context.Context, path, itemType string, limit int) []
 		opts = append(opts, common.FetchOptions{URL: it.URL, Name: it.Name, Category: path, Type: itemType, HasWear: path == "gloves"})
 	}
 	if len(opts) == 0 { return nil }
-	return common.FetchManyItems(parent, opts)
+
+	result := common.FetchManyItems(parent, opts)
+
+	// Random delay after fetching
+	randomDelayMs(300, 600)
+	return result
 }
 
 func runNestedFlow(parent context.Context, path, itemType string, limit int) []config.Item {
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
 	capsules, _ := discovery.Discover(ictx, discovery.Options{Category: path})
+
+	// Random delay after discovering capsules
+	randomDelayMs(300, 600)
+
 	var all []config.Item
 	for _, cap := range capsules {
 		// Respect limit for capsules (for stickers, pins, etc.)
 		if limit > 0 && len(all) >= limit { break }
 
+		// Random delay before scraping capsule
+		randomDelayMs(300, 600)
+
 		// 1. Scrape the capsule itself
 		if !isSeen(cap.URL) {
 			res, err := common.FetchItem(ictx, common.FetchOptions{URL: cap.URL, Name: cap.Name, Category: path, Type: itemType + " Capsule"})
-			if err == nil {
+			if err == nil && len(res) > 0 {
 				all = append(all, res...)
 			}
 		}
 
 		if limit > 0 && len(all) >= limit { break }
+
+		// Random delay after capsule fetch
+		randomDelayMs(300, 600)
 
 		// 2. Scrape items inside
 		inside, _ := discovery.Discover(ictx, discovery.Options{Category: cap.URL})
@@ -210,6 +267,9 @@ func runNestedFlow(parent context.Context, path, itemType string, limit int) []c
 		if len(opts) > 0 {
 			all = append(all, common.FetchManyItems(parent, opts)...)
 		}
+
+		// Random delay between capsules
+		randomDelayMs(300, 600)
 	}
 	// Final trim to be absolutely sure about the limit
 	if limit > 0 && len(all) > limit {

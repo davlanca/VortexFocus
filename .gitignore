@@ -24,4 +24,8 @@ json/data.json
 
 # OS files
 .DS_Store
+Thumbs.db# Temporary diagnostics
+tmpdiag/
+scraper/config/scripts/fetch.js
+# OS files
 Thumbs.db
