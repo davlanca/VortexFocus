@@ -1,612 +1,1296 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CS2 Market Arbitrage Terminal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
+<meta name="description" content="CS2 Market Arbitrage Terminal — анализ цен и арбитража между торговыми площадками CS2">
+<title>CS2 Market Terminal</title>
 
 <style>
-:root{
-  --bg:#080a0f;
-  --panel:#10131a;
-  --panel2:#151922;
-  --border:#252b38;
-  --text:#edf1f7;
-  --muted:#7e8798;
-  --green:#39e58c;
-  --red:#ff5268;
-  --blue:#5b8cff;
-  --yellow:#f6c85f;
-  --purple:#d4a8ff;
+:root {
+    --bg: #07090d;
+    --bg2: #0a0d12;
+    --panel: #0e1218;
+    --panel2: #121720;
+    --panel3: #171d27;
+
+    --border: #202733;
+    --border2: #2a3341;
+
+    --text: #eef2f7;
+    --text2: #b5becb;
+    --muted: #727d8e;
+
+    --green: #35e58b;
+    --green2: #20bd70;
+    --red: #ff5368;
+    --yellow: #f3c95f;
+    --blue: #5b8cff;
+    --purple: #c79cff;
+    --cyan: #52d8e8;
+
+    --shadow: 0 12px 40px rgba(0,0,0,.28);
+    --radius: 12px;
+    --radius-sm: 8px;
+
+    --font: Inter, ui-sans-serif, system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--bg);
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% -10%, rgba(91,140,255,.08), transparent 32%),
+        radial-gradient(circle at 90% 0%, rgba(53,229,139,.045), transparent 26%),
+        linear-gradient(180deg, #080b10 0%, #07090d 100%);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+/* =========================================================
+   APP SHELL
+   ========================================================= */
+
+.app {
+    min-height: 100vh;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 66px;
+    border-bottom: 1px solid rgba(255,255,255,.055);
+    background: rgba(7,9,13,.88);
+    backdrop-filter: blur(18px);
+}
+
+.topbar-inner {
+    max-width: 1800px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(91,140,255,.35);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(135deg, rgba(91,140,255,.16), rgba(91,140,255,.03));
+    box-shadow: inset 0 0 24px rgba(91,140,255,.06);
+    font-weight: 900;
+    font-family: var(--mono);
+    color: #dce6ff;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-title {
+    font-size: 14px;
+    font-weight: 850;
+    letter-spacing: .08em;
+    white-space: nowrap;
+}
+
+.brand-subtitle {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text2);
+    background: rgba(255,255,255,.025);
+    font-size: 11px;
+    font-family: var(--mono);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(53,229,139,.65);
+}
+
+.status-dot.loading {
+    background: var(--yellow);
+    box-shadow: 0 0 10px rgba(243,201,95,.6);
+    animation: pulse 1s infinite;
+}
+
+.status-dot.error {
+    background: var(--red);
+    box-shadow: 0 0 10px rgba(255,83,104,.55);
+}
+
+@keyframes pulse {
+    50% { opacity: .35; }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    height: 36px;
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    background: linear-gradient(180deg, #151a22, #10151c);
+    color: var(--text2);
+    padding: 0 12px;
+    cursor: pointer;
+    transition: .16s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.btn:hover {
+    color: var(--text);
+    border-color: #394454;
+    background: #171d26;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.primary {
+    color: #07110b;
+    border-color: rgba(53,229,139,.5);
+    background: linear-gradient(180deg, #45eb97, #2bd47f);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(180deg, #59f0a3, #35df87);
+}
+
+.btn.blue {
+    color: #edf3ff;
+    border-color: rgba(91,140,255,.35);
+    background: rgba(91,140,255,.12);
+}
+
+.btn.danger {
+    border-color: rgba(255,83,104,.28);
+    color: #ff8b99;
+}
+
+.btn.icon {
+    width: 36px;
+    padding: 0;
+}
+
+.btn:disabled {
+    opacity: .45;
+    pointer-events: none;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main {
+    width: min(1800px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 28px 0 60px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -.04em;
+}
+
+.hero p {
+    margin: 9px 0 0;
+    color: var(--muted);
+    max-width: 760px;
+    line-height: 1.55;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.meta-chip {
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255,255,255,.025);
+    color: var(--text2);
+    font-size: 11px;
+    font-family: var(--mono);
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.stat {
+    position: relative;
+    overflow: hidden;
+    min-height: 94px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.025), rgba(255,255,255,.008)),
+        var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.stat::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: -45px;
+    bottom: -45px;
+    border-radius: 50%;
+    background: rgba(91,140,255,.06);
+    filter: blur(5px);
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    margin-top: 9px;
+    font-size: 25px;
+    font-weight: 850;
+    letter-spacing: -.03em;
+    font-family: var(--mono);
+}
+
+.stat-value.green {
+    color: var(--green);
+}
+
+.stat-value.blue {
+    color: #91afff;
+}
+
+.stat-value.yellow {
+    color: var(--yellow);
+}
+
+.stat-value.purple {
+    color: var(--purple);
+}
+
+.stat-foot {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =========================================================
+   CONTROL PANEL
+   ========================================================= */
+
+.panel {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(14,18,24,.92);
+    box-shadow: var(--shadow);
+}
+
+.controls {
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(150px, .8fr)
+        minmax(150px, .8fr)
+        minmax(260px, 2fr)
+        auto auto;
+    gap: 10px;
+    align-items: end;
+}
+
+.field {
+    min-width: 0;
+}
+
+.field-label {
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.control {
+    width: 100%;
+    height: 38px;
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    outline: none;
+    background: #0b0f15;
+    color: var(--text);
+    padding: 0 11px;
+    transition: .15s ease;
+}
+
+.control:hover {
+    border-color: #36404f;
+}
+
+.control:focus {
+    border-color: rgba(91,140,255,.65);
+    box-shadow: 0 0 0 3px rgba(91,140,255,.08);
+}
+
+select.control {
+    cursor: pointer;
+}
+
+.search-wrap {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+}
+
+.search-input {
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
+.search-clear {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 27px;
+    height: 27px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    display: none;
+}
+
+.search-clear:hover {
+    background: #1a202a;
+    color: var(--text);
+}
+
+.controls-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* =========================================================
+   FILTER BAR
+   ========================================================= */
+
+.filterbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 11px 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 15px;
+}
+
+.check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: rgba(255,255,255,.018);
+    color: var(--text2);
+    font-size: 11px;
+    cursor: pointer;
 }
 
-*{box-sizing:border-box}
+.check:hover {
+    border-color: var(--border2);
+}
+
+.check input {
+    accent-color: var(--green);
+}
+
+.filter-separator {
+    width: 1px;
+    height: 22px;
+    background: var(--border);
+    margin: 0 3px;
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.range input {
+    width: 76px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    background: #0b0f15;
+    color: var(--text);
+    padding: 0 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+}
+
+.range span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.sorts {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.sort-btn {
+    height: 32px;
+    padding: 0 9px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
+}
 
-html,body{
-  margin:0;
-  padding:0;
-  min-height:100vh;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,Segoe UI,Arial,sans-serif;
+.sort-btn:hover,
+.sort-btn.active {
+    color: var(--text);
+    border-color: #394454;
+    background: #171d26;
 }
 
-body{
-  overflow-x:hidden;
+.sort-btn.active {
+    color: var(--blue);
+    border-color: rgba(91,140,255,.35);
 }
 
-button,input,select{
-  font:inherit;
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.table-panel {
+    overflow: hidden;
+}
+
+.table-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-height: 52px;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--border);
 }
 
-button{
-  cursor:pointer;
+.table-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 800;
 }
 
-button:disabled{
-  cursor:not-allowed;
-  opacity:.55;
+.table-title-icon {
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #121720;
+    color: var(--green);
 }
 
-.topbar{
-  height:68px;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 24px;
-  background:#0b0e14;
-  position:sticky;
-  top:0;
-  z-index:50;
+.table-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    font-family: var(--mono);
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-  letter-spacing:.5px;
+.table-scroll {
+    overflow-x: auto;
+    max-height: calc(100vh - 340px);
+    min-height: 240px;
 }
 
-.logoIcon{
-  width:34px;
-  height:34px;
-  border-radius:9px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#1c2330;
-  color:var(--blue);
-  font-weight:900;
+table {
+    width: 100%;
+    min-width: 1120px;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
-.logo span{
-  color:var(--blue);
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    height: 38px;
+    padding: 0 11px;
+    border-bottom: 1px solid var(--border);
+    background: #0c1016;
+    color: var(--muted);
+    text-align: left;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-.status{
-  display:flex;
-  align-items:center;
-  gap:8px;
+thead th.right,
+tbody td.right {
+    text-align: right;
 }
 
-.diagBtn,
-.refreshBtn{
-  height:34px;
-  padding:0 12px;
-  border-radius:6px;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  gap:6px;
+tbody tr {
+    transition: background .12s ease;
 }
 
-.diagBtn{
-  background:#1f192b;
-  border:1px solid #4a2d6b;
-  color:var(--purple);
+tbody tr:hover {
+    background: rgba(91,140,255,.035);
 }
 
-.diagBtn:hover{
-  border-color:#9955ee;
+tbody td {
+    padding: 11px;
+    border-bottom: 1px solid rgba(255,255,255,.035);
+    vertical-align: middle;
 }
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   ITEM
+   ========================================================= */
 
-.refreshBtn{
-  background:var(--panel2);
-  border:1px solid var(--border);
-  color:var(--text);
+.item-cell {
+    min-width: 260px;
 }
 
-.refreshBtn:hover{
-  border-color:var(--blue);
+.item-main {
+    display: flex;
+    align-items: center;
+    gap: 9px;
 }
 
-.controls{
-  padding:18px 24px;
-  border-bottom:1px solid var(--border);
-  background:#0c0f15;
+.item-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #0b0f15;
+    object-fit: contain;
 }
 
-.controlGrid{
-  display:grid;
-  grid-template-columns:1.5fr 1.5fr 2fr auto;
-  gap:12px;
-  align-items:end;
+.item-copy {
+    min-width: 0;
 }
 
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
+.item-name {
+    max-width: 330px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 750;
 }
 
-.field label{
-  font-size:11px;
-  color:var(--muted);
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  font-weight:700;
+.item-meta {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
 }
 
-select,
-input{
-  width:100%;
-  height:42px;
-  background:var(--panel);
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:0 12px;
-  outline:none;
+.badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 18px;
+    padding: 0 6px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: rgba(255,255,255,.025);
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: .04em;
+    text-transform: uppercase;
 }
 
-select:focus,
-input:focus{
-  border-color:var(--blue);
+.badge.wear {
+    color: #9fb5ff;
+    border-color: rgba(91,140,255,.22);
+    background: rgba(91,140,255,.07);
 }
 
-.primary{
-  height:42px;
-  border:0;
-  border-radius:8px;
-  padding:0 24px;
-  background:var(--blue);
-  color:white;
-  font-weight:800;
+.badge.stattrak {
+    color: var(--purple);
+    border-color: rgba(199,156,255,.22);
+    background: rgba(199,156,255,.07);
 }
 
-.primary:hover{
-  filter:brightness(1.1);
+.badge.available {
+    color: var(--green);
+    border-color: rgba(53,229,139,.18);
+    background: rgba(53,229,139,.055);
 }
 
-.secondary{
-  height:42px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:0 15px;
-  background:var(--panel2);
-  color:var(--text);
+.copy-name {
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    border-radius: 6px;
+    background: #1a2029;
+    color: var(--muted);
+    cursor: pointer;
+    transition: .12s;
 }
 
-.secondary:hover{
-  border-color:var(--blue);
+.item-main:hover .copy-name {
+    opacity: 1;
 }
 
-.filters{
-  padding:14px 24px;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  align-items:end;
+.copy-name:hover {
+    color: var(--text);
 }
 
-.filter{
-  width:140px;
+/* =========================================================
+   MARKET / PRICE CELLS
+   ========================================================= */
+
+.market-cell {
+    min-width: 150px;
 }
 
-.toggleLabel{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-size:12px;
-  color:var(--text);
-  cursor:pointer;
-  height:42px;
-  padding:0 14px;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:8px;
-  user-select:none;
-  font-weight:600;
+.market-name {
+    font-size: 11px;
+    font-weight: 750;
 }
 
-.toggleLabel:hover{
-  border-color:var(--blue);
+.market-note {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9px;
 }
 
-.toggleLabel input{
-  width:16px;
-  height:16px;
-  cursor:pointer;
-  margin:0;
+.price {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.sortButtons{
-  display:flex;
-  gap:6px;
+.price.muted {
+    color: var(--muted);
 }
 
-.sortButtons button{
-  height:42px;
-  border-radius:8px;
-  border:1px solid var(--border);
-  background:var(--panel);
-  color:var(--muted);
-  padding:0 12px;
-  font-weight:600;
-  transition:all .15s ease;
+.currency {
+    color: var(--muted);
+    font-size: 9px;
+    margin-left: 2px;
 }
 
-.sortButtons button:hover{
-  border-color:var(--blue);
-  color:var(--text);
+.trade-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 4px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 9px;
 }
 
-.sortButtons button.active{
-  color:white;
-  border-color:var(--blue);
-  background:#182038;
+.trade-link:hover {
+    color: var(--blue);
 }
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:10px;
-  padding:14px 24px;
+.profit {
+    font-family: var(--mono);
+    font-weight: 850;
+    white-space: nowrap;
 }
 
-.stat{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:14px;
+.profit.green {
+    color: var(--green);
 }
 
-.statLabel{
-  color:var(--muted);
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.7px;
+.profit.red {
+    color: var(--red);
 }
 
-.statValue{
-  margin-top:7px;
-  font-size:21px;
-  font-weight:800;
+.profit-percent {
+    font-size: 13px;
 }
 
-.tableWrap{
-  margin:0 24px 24px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:auto;
-  background:var(--panel);
+.profit-amount {
+    margin-top: 3px;
+    font-size: 10px;
 }
+
+/* =========================================================
+   EMPTY / LOADING
+   ========================================================= */
 
-table{
-  width:100%;
-  min-width:1300px;
-  border-collapse:collapse;
+.state {
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
 }
 
-thead{
-  background:#151923;
-  position:sticky;
-  top:0;
-  z-index:5;
+.state-inner {
+    max-width: 440px;
+    text-align: center;
 }
 
-th{
-  padding:12px 14px;
-  color:var(--muted);
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.6px;
-  text-align:left;
-  white-space:nowrap;
+.state-icon {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 15px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #11161e;
+    color: var(--muted);
+    font-size: 22px;
 }
 
-td{
-  padding:12px 14px;
-  border-top:1px solid #1e2430;
-  white-space:nowrap;
-  font-size:13px;
+.state h3 {
+    margin: 0;
+    font-size: 15px;
 }
 
-tr:hover td{
-  background:#151a23;
+.state p {
+    margin: 8px 0 18px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 12px;
 }
 
-.itemName{
-  font-weight:700;
+.spinner {
+    width: 26px;
+    height: 26px;
+    margin: 0 auto 15px;
+    border: 2px solid #222b37;
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
 }
 
-.itemMeta{
-  margin-top:3px;
-  color:var(--muted);
-  font-size:11px;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-.badgeLiquid{
-  display:inline-block;
-  padding:1px 5px;
-  border-radius:4px;
-  background:#143825;
-  color:var(--green);
-  font-weight:700;
-  font-size:10px;
-  margin-right:4px;
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,.68);
+    backdrop-filter: blur(8px);
 }
 
-.badgeStatTrak{
-  display:inline-block;
-  padding:1px 5px;
-  border-radius:4px;
-  background:#30251a;
-  color:#f6c85f;
-  font-weight:700;
-  font-size:10px;
-  margin-right:4px;
+.modal.open {
+    display: flex;
 }
 
-.marketLinkBtn{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:6px 12px;
-  border-radius:6px;
-  background:#182038;
-  border:1px solid #2a3860;
-  color:#7ea5ff;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:700;
-  transition:all .15s ease;
+.modal-box {
+    width: min(760px, 100%);
+    max-height: min(760px, calc(100vh - 40px));
+    overflow: auto;
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    background: #0d1117;
+    box-shadow: 0 30px 100px rgba(0,0,0,.65);
 }
 
-.marketLinkBtn:hover{
-  background:var(--blue);
-  color:white;
-  border-color:var(--blue);
-  transform:translateY(-1px);
+.modal-head {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 58px;
+    padding: 0 17px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(13,17,23,.95);
+    backdrop-filter: blur(12px);
 }
 
-.marketLinkBtnSell{
-  background:#261828;
-  border:1px solid #4a254e;
-  color:#e586ff;
+.modal-title {
+    font-size: 13px;
+    font-weight: 850;
 }
 
-.marketLinkBtnSell:hover{
-  background:#9933aa;
-  color:white;
-  border-color:#9933aa;
-  transform:translateY(-1px);
+.modal-body {
+    padding: 17px;
 }
 
-.noUrl{
-  opacity:.45;
-  cursor:not-allowed;
+.modal-description {
+    color: var(--muted);
+    line-height: 1.55;
+    font-size: 11px;
+    margin-bottom: 15px;
 }
 
-.price{
-  font-variant-numeric:tabular-nums;
-  font-weight:600;
+.fee-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px;
 }
 
-.subPrice{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:3px;
+.fee-row {
+    padding: 11px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(255,255,255,.015);
 }
 
-.profit{
-  color:var(--green);
-  font-weight:800;
+.fee-market {
+    margin-bottom: 9px;
+    font-size: 11px;
+    font-weight: 750;
 }
 
-.loss{
-  color:var(--red);
-  font-weight:800;
+.fee-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
 }
 
-.empty{
-  padding:70px 30px;
-  text-align:center;
-  color:var(--muted);
+.fee-field label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 9px;
 }
 
-.empty strong{
-  display:block;
-  color:white;
-  margin-bottom:8px;
-  font-size:18px;
+.fee-field input {
+    width: 100%;
+    height: 33px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #090d12;
+    color: var(--text);
+    outline: none;
+    padding: 0 8px;
+    font-family: var(--mono);
+    font-size: 11px;
 }
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-  padding:20px;
+.fee-field input:focus {
+    border-color: rgba(91,140,255,.6);
 }
 
-.modal.show{
-  display:flex;
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px 17px;
+    border-top: 1px solid var(--border);
+    background: rgba(13,17,23,.95);
 }
 
-.modalBox{
-  width:min(900px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:#10131a;
-  border:1px solid var(--border);
-  border-radius:12px;
+/* =========================================================
+   DIAGNOSTICS
+   ========================================================= */
+
+.diag-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px;
 }
 
-.modalHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 20px;
-  border-bottom:1px solid var(--border);
+.diag-card {
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(255,255,255,.015);
 }
 
-.modalHeader h2{
-  margin:0;
-  font-size:18px;
+.diag-label {
+    color: var(--muted);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
 }
 
-.close{
-  width:34px;
-  height:34px;
-  border-radius:7px;
-  border:1px solid var(--border);
-  background:var(--panel2);
-  color:white;
-  font-size:20px;
+.diag-value {
+    margin-top: 5px;
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 800;
 }
 
-.feeTable{
-  width:100%;
-  min-width:0;
+.diag-value.ok {
+    color: var(--green);
 }
 
-.feeTable th,
-.feeTable td{
-  padding:9px 12px;
+.diag-value.warn {
+    color: var(--yellow);
 }
 
-.feeTable input{
-  height:34px;
-  width:100px;
+.diag-value.bad {
+    color: var(--red);
 }
 
-.modalFooter{
-  padding:15px 20px;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:flex-end;
-  gap:8px;
+.diag-log {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #080b10;
+    color: var(--text2);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.65;
+    white-space: pre-wrap;
 }
+
+/* =========================================================
+   TOAST
+   ========================================================= */
 
-.diagContent{
-  padding:20px;
+.toast-container {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: min(360px, calc(100vw - 36px));
 }
 
-.diagRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding:11px 0;
-  border-bottom:1px solid var(--border);
+.toast {
+    padding: 12px 13px;
+    border: 1px solid var(--border2);
+    border-radius: 9px;
+    background: #11161e;
+    box-shadow: 0 14px 45px rgba(0,0,0,.42);
+    color: var(--text2);
+    font-size: 11px;
+    animation: toastIn .18s ease;
 }
 
-.diagRow:last-child{
-  border-bottom:0;
+.toast.success {
+    border-color: rgba(53,229,139,.3);
 }
 
-.diagOk{
-  color:var(--green);
-  font-weight:700;
+.toast.error {
+    border-color: rgba(255,83,104,.3);
 }
 
-.diagWarn{
-  color:var(--yellow);
-  font-weight:700;
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
 }
 
-.toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  max-width:500px;
-  padding:13px 17px;
-  background:#151a23;
-  border:1px solid var(--border);
-  border-radius:8px;
-  display:none;
-  z-index:200;
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 10px;
 }
 
-.toast.show{
-  display:block;
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.toast.error{
-  border-color:var(--red);
+kbd {
+    padding: 2px 5px;
+    border: 1px solid var(--border);
+    border-bottom-color: #384252;
+    border-radius: 4px;
+    background: #11161e;
+    color: var(--text2);
+    font-family: var(--mono);
+    font-size: 9px;
 }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1250px) {
+    .controls-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-field {
+        grid-column: 1 / -1;
+    }
+
+    .controls-actions {
+        grid-column: 1 / -1;
+    }
+
+    .controls-actions .btn {
+        flex: 1;
+    }
 
-.toast.success{
-  border-color:var(--green);
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-@media(max-width:1000px){
+@media (max-width: 850px) {
+    .main {
+        width: min(100% - 24px, 1800px);
+        padding-top: 18px;
+    }
 
-  .controlGrid{
-    grid-template-columns:1fr 1fr;
-  }
+    .topbar-inner {
+        padding: 0 12px;
+    }
 
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .status-pill {
+        display: none;
+    }
+
+    .hero {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-meta {
+        justify-content: flex-start;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fee-grid,
+    .diag-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filterbar {
+        align-items: stretch;
+    }
+
+    .sorts {
+        margin-left: 0;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .sort-btn {
+        flex: 1;
+    }
+
+    .table-scroll {
+        max-height: none;
+    }
 }
+
+@media (max-width: 560px) {
+    .brand-subtitle {
+        display: none;
+    }
+
+    .topbar-actions .btn span {
+        display: none;
+    }
+
+    .topbar-actions .btn {
+        width: 36px;
+        padding: 0;
+    }
 
-@media(max-width:650px){
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .topbar{
-    padding:0 12px;
-  }
+    .search-field,
+    .controls-actions {
+        grid-column: auto;
+    }
 
-  .topbar .logo{
-    font-size:12px;
-  }
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
 
-  .status{
-    gap:5px;
-  }
+    .stat {
+        min-height: 82px;
+        padding: 12px;
+    }
 
-  .diagBtn,
-  .refreshBtn{
-    padding:0 8px;
-  }
+    .stat-value {
+        font-size: 19px;
+    }
 
-  .controls,
-  .filters,
-  .stats{
-    padding-left:12px;
-    padding-right:12px;
-  }
+    .main {
+        width: calc(100% - 16px);
+    }
 
-  .controlGrid{
-    grid-template-columns:1fr;
-  }
+    .range {
+        width: 100%;
+    }
 
-  .stats{
-    grid-template-columns:1fr;
-  }
+    .range input {
+        flex: 1;
+    }
 
-  .tableWrap{
-    margin-left:12px;
-    margin-right:12px;
-  }
+    .footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 </style>
 </head>
@@ -616,2990 +1300,3017 @@ tr:hover td{
 <div class="app">
 
 <header class="topbar">
+    <div class="topbar-inner">
 
-  <div class="logo">
-    <div class="logoIcon">7M</div>
-    <div>CS2 <span>MARKET SCANNER</span></div>
-  </div>
+        <div class="brand">
+            <div class="brand-mark">7M</div>
 
-  <div class="status">
+            <div class="brand-copy">
+                <div class="brand-title">CS2 MARKET TERMINAL</div>
+                <div class="brand-subtitle">Arbitrage & Market Intelligence</div>
+            </div>
+        </div>
 
-    <button class="diagBtn" onclick="openDiagnostics()">
-      🔍 Диагностика
-    </button>
+        <div class="topbar-actions">
 
-    <button class="refreshBtn" onclick="triggerRefresh()">
-      🔄 Обновить базы
-    </button>
+            <div class="status-pill">
+                <span id="statusDot" class="status-dot"></span>
+                <span id="statusText">DATABASE OFFLINE</span>
+            </div>
 
-  </div>
+            <button class="btn" id="diagnosticBtn">
+                ◉ <span>Диагностика</span>
+            </button>
 
+            <button class="btn blue" id="refreshBtn">
+                ↻ <span>Обновить данные</span>
+            </button>
+
+        </div>
+
+    </div>
 </header>
 
 
-<section class="controls">
+<main class="main">
 
-<div class="controlGrid">
+    <section class="hero">
 
-  <div class="field">
-    <label>Покупаем на</label>
-    <select id="buyMarket"></select>
-  </div>
+        <div>
+            <h1>Market Arbitrage Scanner</h1>
 
-  <div class="field">
-    <label>Продаём на</label>
-    <select id="sellMarket"></select>
-  </div>
+            <p>
+                Сравнение цен CS2 между торговыми площадками.
+                Покупка, продажа, комиссии и потенциальная чистая прибыль
+                рассчитываются непосредственно в браузере.
+            </p>
+        </div>
 
-  <div class="field">
-    <label>Поиск скина</label>
-    <input
-      id="search"
-      type="text"
-      placeholder="AK-47 | Redline..."
-    >
-  </div>
+        <div class="hero-meta">
+            <div class="meta-chip">
+                <span>●</span>
+                <span id="databaseStatus">Загрузка базы...</span>
+            </div>
 
-  <div style="display:flex;gap:8px;">
+            <div class="meta-chip">
+                <span>↻</span>
+                <span id="lastUpdated">—</span>
+            </div>
+        </div>
 
-    <button class="secondary" onclick="openFees()">
-      ⚙ Комиссии
-    </button>
-
-    <button class="primary" id="scanButton" onclick="scan()">
-      СКАНИРОВАТЬ
-    </button>
-
-  </div>
-
-</div>
-
-</section>
+    </section>
 
 
-<section class="filters">
+    <!-- ================= STATS ================= -->
 
-  <label class="toggleLabel">
-    <input id="onlyLiquid" type="checkbox">
-    <span>🔥 Только ликвидные / Реальные сделки</span>
-  </label>
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-label">Связок найдено</div>
+            <div class="stat-value blue" id="statResults">0</div>
+            <div class="stat-foot">после текущих фильтров</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">Лучший %</div>
+            <div class="stat-value green" id="statBestPercent">0%</div>
+            <div class="stat-foot">максимальная маржа</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">Лучший профит</div>
+            <div class="stat-value green" id="statBestProfit">$0.00</div>
+            <div class="stat-foot">чистыми после комиссий</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">Средний %</div>
+            <div class="stat-value yellow" id="statAverage">0%</div>
+            <div class="stat-foot">по найденным связкам</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">База предметов</div>
+            <div class="stat-value purple" id="statItems">0</div>
+            <div class="stat-foot">
+                <span id="statMarkets">0</span> маркетов
+            </div>
+        </div>
+
+    </section>
 
 
-  <div class="field filter">
+    <!-- ================= CONTROLS ================= -->
 
-    <label>Профит % от</label>
+    <section class="panel controls">
 
-    <input
-      id="profitMin"
-      type="number"
-      step="0.1"
-      placeholder="0"
-    >
+        <div class="controls-grid">
 
-  </div>
+            <div class="field">
+                <div class="field-label">Покупаю на</div>
 
-
-  <div class="field filter">
-
-    <label>Профит % до</label>
-
-    <input
-      id="profitMax"
-      type="number"
-      step="0.1"
-      placeholder="∞"
-    >
-
-  </div>
+                <select id="buyMarket" class="control"></select>
+            </div>
 
 
-  <div class="field">
+            <div class="field">
+                <div class="field-label">Продаю на</div>
 
-    <label>Сортировка</label>
+                <select id="sellMarket" class="control"></select>
+            </div>
 
-    <div class="sortButtons">
 
-      <button id="sortProfit" class="active">
-        PROFIT %
-      </button>
+            <div class="field search-field">
+                <div class="field-label">Предмет</div>
 
-      <button id="sortProfitVal">
-        PROFIT (СУММА)
-      </button>
+                <div class="search-wrap">
 
-      <button id="sortBuy">
-        ПОКУПКА
-      </button>
+                    <span class="search-icon">⌕</span>
 
-      <button id="sortSell">
-        ПРОДАЖА
-      </button>
+                    <input
+                        id="search"
+                        class="control search-input"
+                        type="text"
+                        placeholder="AK-47 | Redline, Glock-18, Agent..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
 
-      <button id="sortDirection">
-        ↓
-      </button>
+                    <button
+                        id="clearSearch"
+                        class="search-clear"
+                        type="button"
+                        aria-label="Очистить поиск"
+                    >×</button>
+
+                </div>
+            </div>
+
+
+            <div class="controls-actions">
+
+                <button class="btn" id="feesBtn">
+                    ⚙ Комиссии
+                </button>
+
+                <button class="btn primary" id="scanBtn">
+                    ⌕ Сканировать
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="filterbar">
+
+            <label class="check" title="Показывать только записи, для которых база содержит положительную цену. Это не торговый объём.">
+                <input id="onlyLiquid" type="checkbox" checked>
+                <span>Только доступные цены</span>
+            </label>
+
+
+            <div class="filter-separator"></div>
+
+
+            <div class="range">
+                <span>Profit %</span>
+
+                <input
+                    id="minProfit"
+                    type="number"
+                    step="0.1"
+                    placeholder="min"
+                >
+
+                <span>—</span>
+
+                <input
+                    id="maxProfit"
+                    type="number"
+                    step="0.1"
+                    placeholder="max"
+                >
+            </div>
+
+
+            <div class="filter-separator"></div>
+
+
+            <div class="sorts">
+
+                <button class="sort-btn active" data-sort="profitPercent">
+                    PROFIT %
+                </button>
+
+                <button class="sort-btn" data-sort="profitVal">
+                    PROFIT $
+                </button>
+
+                <button class="sort-btn" data-sort="buyPrice">
+                    ПОКУПКА
+                </button>
+
+                <button class="sort-btn" data-sort="sellPrice">
+                    ПРОДАЖА
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TABLE ================= -->
+
+    <section class="panel table-panel">
+
+        <div class="table-head">
+
+            <div class="table-title">
+                <div class="table-title-icon">↕</div>
+                <span>ARBITRAGE OPPORTUNITIES</span>
+            </div>
+
+            <div class="table-info">
+                <span id="resultCount">0 результатов</span>
+                <span>•</span>
+                <span id="scanTime">0 ms</span>
+            </div>
+
+        </div>
+
+
+        <div id="tableState" class="state">
+
+            <div class="state-inner">
+
+                <div class="spinner"></div>
+
+                <h3>Загрузка базы</h3>
+
+                <p>
+                    Загружается актуальная база цен и маркетплейсов.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="tableWrap" class="table-scroll" style="display:none;">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Предмет</th>
+                        <th>Покупаю</th>
+                        <th class="right">Цена покупки</th>
+                        <th>Продаю</th>
+                        <th class="right">Цена продажи</th>
+                        <th class="right">После комиссии</th>
+                        <th class="right">Чистый профит</th>
+                        <th class="right">Профит %</th>
+                    </tr>
+                </thead>
+
+                <tbody id="resultsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <div class="footer-left">
+            <span>CS2 Market Terminal</span>
+            <span>•</span>
+            <span id="footerDatabase">Database: —</span>
+        </div>
+
+        <div class="footer-right">
+            <span><kbd>/</kbd> поиск</span>
+            <span><kbd>R</kbd> обновить</span>
+            <span><kbd>Esc</kbd> закрыть</span>
+        </div>
+
+    </footer>
+
+</main>
+
+
+<!-- =========================================================
+     FEES MODAL
+     ========================================================= -->
+
+<div class="modal" id="feesModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <div class="modal-title">
+                Комиссии маркетплейсов
+            </div>
+
+            <button class="btn icon" data-close="feesModal">×</button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="modal-description">
+                Укажи комиссии покупки и продажи. Значения сохраняются
+                локально в браузере и не отправляются на сервер.
+                Buy Fee прибавляется к стоимости покупки.
+                Sell Fee вычитается из выручки.
+            </div>
+
+            <div id="feeTable" class="fee-grid"></div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn" id="resetFees">
+                Сбросить
+            </button>
+
+            <button class="btn primary" id="saveFees">
+                Сохранить комиссии
+            </button>
+
+        </div>
 
     </div>
 
-  </div>
-
-</section>
-
-
-<section class="stats">
-
-  <div class="stat">
-    <div class="statLabel">Связок найдено</div>
-    <div class="statValue" id="statCount">0</div>
-  </div>
-
-  <div class="stat">
-    <div class="statLabel">Лучший %</div>
-    <div class="statValue profit" id="statBestPercent">—</div>
-  </div>
-
-  <div class="stat">
-    <div class="statLabel">Лучший профит</div>
-    <div class="statValue profit" id="statBestVal">—</div>
-  </div>
-
-  <div class="stat">
-    <div class="statLabel">Средний %</div>
-    <div class="statValue" id="statAverage">—</div>
-  </div>
-
-  <div class="stat">
-    <div class="statLabel">База предметов</div>
-    <div class="statValue" id="statTotal">0</div>
-  </div>
-
-</section>
-
-
-<div class="tableWrap">
-
-<table>
-
-<thead>
-
-<tr>
-  <th>Предмет</th>
-  <th>Покупаю (Где)</th>
-  <th>Цена покупки</th>
-  <th>Продаю (Куда)</th>
-  <th>Цена продажи до комиссии</th>
-  <th>Выручка после комиссии</th>
-  <th>Чистый профит</th>
-  <th>Профит %</th>
-</tr>
-
-</thead>
-
-<tbody id="tableBody">
-
-<tr>
-<td colspan="8">
-
-<div class="empty">
-
-<strong>Загрузка локальной базы...</strong>
-
-Ожидание json/data.js
-
-</div>
-
-</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
 </div>
 
 
-<!-- COMMISSION MODAL -->
-
-<div class="modal" id="feeModal">
-
-<div class="modalBox">
-
-<div class="modalHeader">
-
-<h2>Комиссии магазинов</h2>
-
-<button class="close" onclick="closeFees()">×</button>
-
-</div>
-
-
-<table class="feeTable">
-
-<thead>
-
-<tr>
-<th>Магазин</th>
-<th>Продажа %</th>
-<th>Покупка %</th>
-<th>Депозит %</th>
-</tr>
-
-</thead>
-
-<tbody id="feeBody"></tbody>
-
-</table>
-
-
-<div class="modalFooter">
-
-<button class="secondary" onclick="closeFees()">
-Отмена
-</button>
-
-<button class="primary" onclick="saveFees()">
-СОХРАНИТЬ
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- DIAGNOSTIC MODAL -->
+<!-- =========================================================
+     DIAGNOSTIC MODAL
+     ========================================================= -->
 
 <div class="modal" id="diagnosticModal">
 
-<div class="modalBox">
+    <div class="modal-box">
 
-<div class="modalHeader">
+        <div class="modal-head">
 
-<h2>Диагностика локальной базы</h2>
+            <div class="modal-title">
+                Диагностика базы данных
+            </div>
 
-<button class="close" onclick="closeDiagnostics()">×</button>
+            <button class="btn icon" data-close="diagnosticModal">×</button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div id="diagGrid" class="diag-grid"></div>
+
+            <div id="diagLog" class="diag-log"></div>
+
+        </div>
+
+    </div>
 
 </div>
 
-<div class="diagContent" id="diagnosticContent"></div>
 
-<div class="modalFooter">
-
-<button class="primary" onclick="closeDiagnostics()">
-ЗАКРЫТЬ
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-
-<!--
-  main.go генерирует этот файл автоматически:
-
-      json/data.js
-
-  Внутри:
-
-      window.CS2_DATA = {...};
-
-  Благодаря этому index.html можно открыть обычным
-  двойным кликом через file://.
--->
-
-<script src="./json/data.js"></script>
+<div id="toastContainer" class="toast-container"></div>
 
 
 <script>
-"use strict";
+/* =========================================================
+   DATA LOADER
+   =========================================================
+
+   data.js is generated by the Go scraper.
+   Timestamp prevents GitHub Pages/CDN from serving an old
+   cached database after a scraper run.
+   ========================================================= */
+
+window.CS2_DATA = null;
+window.CS2_DATA_ERROR = null;
+
+const DATA_READY = new Promise((resolve, reject) => {
+
+    const script = document.createElement("script");
+
+    script.src = "./json/data.js?v=" + Date.now();
+
+    script.onload = () => {
+        if (window.CS2_DATA) {
+            resolve(window.CS2_DATA);
+        } else {
+            const error = new Error("CS2_DATA was not found in data.js");
+            window.CS2_DATA_ERROR = error;
+            reject(error);
+        }
+    };
+
+    script.onerror = () => {
+        const error = new Error("Не удалось загрузить json/data.js");
+        window.CS2_DATA_ERROR = error;
+        reject(error);
+    };
+
+    document.head.appendChild(script);
+});
 
 
-/* ============================================================
-   STATE
-   ============================================================ */
+/* =========================================================
+   APPLICATION STATE
+   ========================================================= */
 
 let DATA = null;
 let allItems = [];
 let markets = [];
 let fees = {};
+
 let sortBy = "profitPercent";
 let sortDirection = "desc";
+
 let lastResults = [];
+let scanTimer = null;
+
+const FEE_STORAGE_KEY = "cs2_market_fees";
 
 
-/* ============================================================
-   DOM
-   ============================================================ */
-
-const $ = id => document.getElementById(id);
-
-
-/* ============================================================
+/* =========================================================
    DEFAULT FEES
-   ============================================================ */
+   ========================================================= */
 
 const DEFAULT_FEES = {
 
-  "Market.CSGO":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "Market.CSGO": {
+        buy: 0,
+        sell: 0
+    },
 
-  "LIS-SKINS":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "LIS-SKINS": {
+        buy: 0,
+        sell: 0
+    },
 
-  "AVAN.MARKET":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "AVAN.MARKET": {
+        buy: 0,
+        sell: 0
+    },
 
-  "Steam":{
-    sell:13,
-    buy:0,
-    deposit:0
-  },
+    "Steam": {
+        buy: 0,
+        sell: 13
+    },
 
-  "LOOT.FARM":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "LOOT.FARM": {
+        buy: 0,
+        sell: 0
+    },
 
-  "CS.MONEY":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "CS.MONEY": {
+        buy: 0,
+        sell: 0
+    },
 
-  "BUFF.163":{
-    sell:2.5,
-    buy:0,
-    deposit:0
-  },
+    "BUFF.163": {
+        buy: 0,
+        sell: 2.5
+    },
 
-  "BUFF Market":{
-    sell:2.5,
-    buy:0,
-    deposit:0
-  },
+    "BUFF Market": {
+        buy: 0,
+        sell: 2.5
+    },
 
-  "Skinport":{
-    sell:12,
-    buy:0,
-    deposit:0
-  },
+    "Skinport": {
+        buy: 0,
+        sell: 12
+    },
 
-  "DMarket":{
-    sell:2.5,
-    buy:0,
-    deposit:0
-  },
+    "DMarket": {
+        buy: 0,
+        sell: 2.5
+    },
 
-  "Tradeit":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "Tradeit": {
+        buy: 0,
+        sell: 0
+    },
 
-  "PirateSwap":{
-    sell:0,
-    buy:0,
-    deposit:0
-  },
+    "PirateSwap": {
+        buy: 0,
+        sell: 0
+    },
 
-  "SkinSwap":{
-    sell:0,
-    buy:0,
-    deposit:0
-  }
+    "SkinSwap": {
+        buy: 0,
+        sell: 0
+    }
 };
 
 
-/* ============================================================
+/* =========================================================
    MARKET NORMALIZATION
-   ============================================================ */
+   ========================================================= */
 
-function normalizeMarketName(name){
+const MARKET_ALIASES = {
 
-  const value =
-    String(name || "")
-      .trim();
+    "MARKET.CSGO": "Market.CSGO",
+    "MARKETCSGO": "Market.CSGO",
 
-  const upper =
-    value.toUpperCase();
+    "STEAM": "Steam",
+    "STEAM MARKET": "Steam",
 
-  const aliases = {
+    "SKINPORT": "Skinport",
+    "SKINPORT.COM": "Skinport",
 
-    "MARKET.CSGO":"Market.CSGO",
+    "CS.MONEY": "CS.MONEY",
 
-    "STEAM":"Steam",
+    "LIS-SKINS": "LIS-SKINS",
 
-    "STEAM MARKET":"Steam",
+    "BUFF.163": "BUFF.163",
 
-    "SKINPORT.COM":"Skinport",
+    "BUFF MARKET": "BUFF Market",
+    "BUFF.MARKET": "BUFF Market",
 
-    "SKINPORT":"Skinport",
+    "DMARKET": "DMarket",
 
-    "CS.MONEY":"CS.MONEY",
+    "TRADEIT": "Tradeit",
+    "TRADEIT.GG": "Tradeit",
 
-    "LIS-SKINS":"LIS-SKINS",
+    "PIRATESWAP": "PirateSwap",
 
-    "BUFF.163":"BUFF.163",
-
-    "BUFF MARKET":"BUFF Market",
-
-    "BUFF.MARKET":"BUFF Market",
-
-    "DMARKET":"DMarket",
-
-    "TRADEIT":"Tradeit",
-
-    "PIRATESWAP":"PirateSwap",
-
-    "SKINSWAP":"SkinSwap"
-
-  };
-
-  return aliases[upper] || value;
-}
+    "SKINSWAP": "SkinSwap"
+};
 
 
-/* ============================================================
-   FORMATTERS
-   ============================================================ */
+function normalizeMarketName(name) {
 
-function formatPrice(value){
+    const raw = String(name || "").trim();
 
-  if(
-    value === null ||
-    value === undefined ||
-    !Number.isFinite(Number(value))
-  ){
-    return "—";
-  }
-
-  return "$ " +
-    Number(value).toLocaleString(
-      "ru-RU",
-      {
-        minimumFractionDigits:2,
-        maximumFractionDigits:2
-      }
-    );
-}
-
-
-function percent(value){
-
-  if(
-    value === null ||
-    value === undefined ||
-    !Number.isFinite(Number(value))
-  ){
-    return "—";
-  }
-
-  return Number(value).toLocaleString(
-    "ru-RU",
-    {
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
-    }
-  ) + "%";
-}
-
-
-/* ============================================================
-   TOAST
-   ============================================================ */
-
-function toast(message,type="success"){
-
-  const el = $("toast");
-
-  el.textContent = message;
-
-  el.className =
-    "toast show " + type;
-
-  clearTimeout(
-    window.toastTimer
-  );
-
-  window.toastTimer =
-    setTimeout(
-      () => {
-        el.className = "toast";
-      },
-      4500
-    );
-}
-
-
-/* ============================================================
-   ESCAPE
-   ============================================================ */
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-
-/* ============================================================
-   DATABASE
-   ============================================================ */
-
-function getDatabase(){
-
-  if(
-    typeof window.CS2_DATA === "object" &&
-    window.CS2_DATA !== null
-  ){
-    return window.CS2_DATA;
-  }
-
-  return {
-    skins:[],
-    agents:[],
-    misc:[]
-  };
-}
-
-
-function normalizeDatabase(){
-
-  DATA = getDatabase();
-
-  const skins =
-    Array.isArray(DATA.skins)
-      ? DATA.skins
-      : [];
-
-  const agents =
-    Array.isArray(DATA.agents)
-      ? DATA.agents
-      : [];
-
-  const misc =
-    Array.isArray(DATA.misc)
-      ? DATA.misc
-      : [];
-
-
-  allItems = [
-
-    ...skins.map(item => ({
-      ...item,
-      __category:"skin"
-    })),
-
-    ...agents.map(item => ({
-      ...item,
-      __category:"agent"
-    })),
-
-    ...misc.map(item => ({
-      ...item,
-      __category:"misc"
-    }))
-
-  ];
-
-
-  const marketSet =
-    new Set();
-
-
-  allItems.forEach(item => {
-
-    if(!Array.isArray(item.prices)){
-      return;
+    if (!raw) {
+        return "";
     }
 
-    item.prices.forEach(price => {
+    const key = raw
+        .toUpperCase()
+        .replace(/\s+/g, " ")
+        .trim();
 
-      if(
-        !price ||
-        price.has_price === false ||
-        !price.market
-      ){
-        return;
-      }
+    return MARKET_ALIASES[key] || raw;
+}
 
-      marketSet.add(
-        normalizeMarketName(
-          price.market
-        )
-      );
+
+/* =========================================================
+   DATA NORMALIZATION
+   ========================================================= */
+
+function getDatabase() {
+
+    const db = window.CS2_DATA || {};
+
+    return {
+
+        skins: Array.isArray(db.skins) ? db.skins : [],
+
+        agents: Array.isArray(db.agents) ? db.agents : [],
+
+        misc: Array.isArray(db.misc) ? db.misc : []
+
+    };
+}
+
+
+function normalizeDatabase() {
+
+    const db = getDatabase();
+
+    allItems = [
+
+        ...db.skins.map(item => ({
+            ...item,
+            __category: "skin"
+        })),
+
+        ...db.agents.map(item => ({
+            ...item,
+            __category: "agent"
+        })),
+
+        ...db.misc.map(item => ({
+            ...item,
+            __category: "misc"
+        }))
+
+    ];
+
+    const marketSet = new Set();
+
+    for (const item of allItems) {
+
+        for (const price of item.prices || []) {
+
+            const market = normalizeMarketName(price.market);
+
+            if (market) {
+                marketSet.add(market);
+            }
+
+        }
+
+    }
+
+    markets = [...marketSet].sort((a, b) =>
+        a.localeCompare(b, "en")
+    );
+
+    fees = loadFees();
+
+}
+
+
+/* =========================================================
+   FEES
+   ========================================================= */
+
+function loadFees() {
+
+    let saved = {};
+
+    try {
+        saved = JSON.parse(
+            localStorage.getItem(FEE_STORAGE_KEY) || "{}"
+        );
+    } catch {
+        saved = {};
+    }
+
+    const result = {};
+
+    for (const market of markets) {
+
+        result[market] = {
+
+            buy: Number(
+                saved?.[market]?.buy ??
+                DEFAULT_FEES?.[market]?.buy ??
+                0
+            ),
+
+            sell: Number(
+                saved?.[market]?.sell ??
+                DEFAULT_FEES?.[market]?.sell ??
+                0
+            )
+
+        };
+
+    }
+
+    return result;
+}
+
+
+function saveFees() {
+
+    localStorage.setItem(
+        FEE_STORAGE_KEY,
+        JSON.stringify(fees)
+    );
+
+}
+
+
+function buildFeeTable() {
+
+    const container = document.getElementById("feeTable");
+
+    container.innerHTML = "";
+
+    for (const market of markets) {
+
+        const fee = fees[market] || {
+            buy: 0,
+            sell: 0
+        };
+
+        const row = document.createElement("div");
+
+        row.className = "fee-row";
+
+        row.innerHTML = `
+
+            <div class="fee-market">
+                ${escapeHtml(market)}
+            </div>
+
+            <div class="fee-fields">
+
+                <div class="fee-field">
+
+                    <label>BUY %</label>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        data-market="${escapeAttr(market)}"
+                        data-type="buy"
+                        value="${safeNumber(fee.buy)}"
+                    >
+
+                </div>
+
+                <div class="fee-field">
+
+                    <label>SELL %</label>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        data-market="${escapeAttr(market)}"
+                        data-type="sell"
+                        value="${safeNumber(fee.sell)}"
+                    >
+
+                </div>
+
+            </div>
+        `;
+
+        container.appendChild(row);
+    }
+
+}
+
+
+/* =========================================================
+   PRICE HELPERS
+   ========================================================= */
+
+function getPriceEntries(item, market) {
+
+    const normalizedTarget = normalizeMarketName(market);
+
+    return (item.prices || []).filter(price => {
+
+        if (
+            normalizeMarketName(price.market) !== normalizedTarget
+        ) {
+            return false;
+        }
+
+        if (price.has_price === false) {
+            return false;
+        }
+
+        const value = Number(price.price);
+
+        return Number.isFinite(value) && value > 0;
 
     });
 
-  });
-
-
-  markets =
-    [...marketSet].sort(
-      (a,b) =>
-        a.localeCompare(
-          b,
-          "ru",
-          {
-            sensitivity:"base"
-          }
-        )
-    );
 }
 
 
-/* ============================================================
-   FEES
-   ============================================================ */
+function isLiquid(price) {
 
-function loadFees(){
-
-  fees = {};
-
-  Object.entries(
-    DEFAULT_FEES
-  ).forEach(
-    ([market,value]) => {
-
-      fees[market] = {
-        ...value
-      };
-
-    }
-  );
-
-
-  try{
-
-    const raw =
-      localStorage.getItem(
-        "cs2_market_fees"
-      );
-
-    if(!raw){
-      return;
+    if (!price) {
+        return false;
     }
 
-    const stored =
-      JSON.parse(raw);
-
-    if(
-      !stored ||
-      typeof stored !== "object"
-    ){
-      return;
+    if (price.has_price === false) {
+        return false;
     }
 
+    return Number(price.price) > 0;
 
-    Object.entries(stored)
-      .forEach(
-        ([market,value]) => {
-
-          if(
-            !value ||
-            typeof value !== "object"
-          ){
-            return;
-          }
-
-          fees[market] = {
-
-            sell:
-              Number(value.sell) || 0,
-
-            buy:
-              Number(value.buy) || 0,
-
-            deposit:
-              Number(value.deposit) || 0
-
-          };
-
-        }
-      );
-
-  }catch(error){
-
-    console.warn(
-      "Ошибка загрузки комиссий:",
-      error
-    );
-
-  }
 }
 
 
-function saveFees(){
-
-  const nextFees = {};
-
-  document
-    .querySelectorAll(
-      "#feeBody input[data-market]"
-    )
-    .forEach(
-      input => {
-
-        const market =
-          input.dataset.market;
-
-        const type =
-          input.dataset.fee;
-
-        if(!nextFees[market]){
-
-          nextFees[market] = {
-            sell:0,
-            buy:0,
-            deposit:0
-          };
-
-        }
-
-        nextFees[market][type] =
-          Number(input.value) || 0;
-
-      }
-    );
-
-
-  fees = nextFees;
-
-
-  try{
-
-    localStorage.setItem(
-      "cs2_market_fees",
-      JSON.stringify(fees)
-    );
-
-  }catch(error){
-
-    console.warn(
-      "Ошибка сохранения комиссий:",
-      error
-    );
-
-  }
-
-
-  closeFees();
-
-  scan();
-
-  toast(
-    "Комиссии сохранены"
-  );
-}
-
-
-function getFee(market){
-
-  return fees[market] || {
-    sell:0,
-    buy:0,
-    deposit:0
-  };
-}
-
-
-/* ============================================================
-   FEE TABLE
-   ============================================================ */
-
-function buildFeeTable(){
-
-  const body =
-    $("feeBody");
-
-
-  if(!markets.length){
-
-    body.innerHTML = `
-      <tr>
-        <td colspan="4">
-          <div class="empty">
-            В базе пока нет маркетплейсов.
-          </div>
-        </td>
-      </tr>
-    `;
-
-    return;
-  }
-
-
-  body.innerHTML =
-    markets.map(
-      market => {
-
-        const fee =
-          getFee(market);
-
-
-        return `
-          <tr>
-
-            <td>
-              ${escapeHtml(market)}
-            </td>
-
-            <td>
-              <input
-                data-market="${escapeHtml(market)}"
-                data-fee="sell"
-                type="number"
-                min="0"
-                step="0.01"
-                value="${Number(fee.sell) || 0}"
-              >
-            </td>
-
-            <td>
-              <input
-                data-market="${escapeHtml(market)}"
-                data-fee="buy"
-                type="number"
-                min="0"
-                step="0.01"
-                value="${Number(fee.buy) || 0}"
-              >
-            </td>
-
-            <td>
-              <input
-                data-market="${escapeHtml(market)}"
-                data-fee="deposit"
-                type="number"
-                min="0"
-                step="0.01"
-                value="${Number(fee.deposit) || 0}"
-              >
-            </td>
-
-          </tr>
-        `;
-
-      }
-    ).join("");
-}
-
-
-function openFees(){
-
-  buildFeeTable();
-
-  $("feeModal")
-    .classList
-    .add("show");
-}
-
-
-function closeFees(){
-
-  $("feeModal")
-    .classList
-    .remove("show");
-}
-
-
-/* ============================================================
-   MARKETS
-   ============================================================ */
-
-function fillMarkets(){
-
-  const buy =
-    $("buyMarket");
-
-  const sell =
-    $("sellMarket");
-
-
-  buy.innerHTML = "";
-  sell.innerHTML = "";
-
-
-  markets.forEach(
-    market => {
-
-      const buyOption =
-        document.createElement(
-          "option"
-        );
-
-      buyOption.value =
-        market;
-
-      buyOption.textContent =
-        `${market} ($)`;
-
-      buy.appendChild(
-        buyOption
-      );
-
-
-      const sellOption =
-        document.createElement(
-          "option"
-        );
-
-      sellOption.value =
-        market;
-
-      sellOption.textContent =
-        `${market} ($)`;
-
-      sell.appendChild(
-        sellOption
-      );
-
-    }
-  );
-
-
-  let savedBuy = null;
-  let savedSell = null;
-
-
-  try{
-
-    savedBuy =
-      localStorage.getItem(
-        "buyMarket"
-      );
-
-    savedSell =
-      localStorage.getItem(
-        "sellMarket"
-      );
-
-  }catch(error){}
-
-
-  buy.value =
-    markets.includes(savedBuy)
-      ? savedBuy
-      : (
-          markets[0] || ""
-        );
-
-
-  sell.value =
-    markets.includes(savedSell) &&
-    savedSell !== buy.value
-
-      ? savedSell
-
-      : (
-          markets.find(
-            market =>
-              market !== buy.value
-          ) || ""
-        );
-
-
-  buy.addEventListener(
-    "change",
-    () => {
-
-      try{
-
-        localStorage.setItem(
-          "buyMarket",
-          buy.value
-        );
-
-      }catch(error){}
-
-      scan();
-
-    }
-  );
-
-
-  sell.addEventListener(
-    "change",
-    () => {
-
-      try{
-
-        localStorage.setItem(
-          "sellMarket",
-          sell.value
-        );
-
-      }catch(error){}
-
-      scan();
-
-    }
-  );
-}
-
-
-/* ============================================================
-   PRICE ENTRIES
-   ============================================================ */
-
-function getPriceEntries(
-  item,
-  market
-){
-
-  if(
-    !item ||
-    !Array.isArray(item.prices)
-  ){
-    return [];
-  }
-
-
-  const wantedMarket =
-    normalizeMarketName(
-      market
-    );
-
-
-  return item.prices
-    .filter(
-      price => {
-
-        if(!price){
-          return false;
-        }
-
-        if(
-          normalizeMarketName(
-            price.market
-          ) !== wantedMarket
-        ){
-          return false;
-        }
-
-        if(price.has_price === false){
-          return false;
-        }
-
-        const value =
-          Number(price.price);
-
-
-        if(
-          !Number.isFinite(value) ||
-          value <= 0
-        ){
-          return false;
-        }
-
-        return true;
-      }
-    );
-}
-
-
-/* ============================================================
-   SEARCH
-   ============================================================ */
-
-function matchesSearch(
-  item,
-  search
-){
-
-  search =
-    String(search || "")
-      .trim()
-      .toLowerCase();
-
-
-  if(!search){
-    return true;
-  }
-
-
-  const haystack = [
-
-    item.name,
-
-    item.weapon,
-
-    item.collection,
-
-    item.rarity,
-
-    item.type,
-
-    item.affiliation,
-
-    item.side
-
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-
-
-  return haystack.includes(
-    search
-  );
-}
-
-
-/* ============================================================
-   LIQUIDITY
-   ============================================================ */
-
-function isLiquid(
-  price
-){
-
-  if(!price){
-    return false;
-  }
-
-  if(price.has_price === false){
-    return false;
-  }
-
-  return (
-    Number(price.price) > 0
-  );
-}
-
-
-/* ============================================================
+/* =========================================================
    WEAR
-   ============================================================ */
+   ========================================================= */
 
 const WEAR_NAMES = {
 
-  FN:"Factory New",
-
-  MW:"Minimal Wear",
-
-  FT:"Field-Tested",
-
-  WW:"Well-Worn",
-
-  BS:"Battle-Scarred"
+    FN: "Factory New",
+    MW: "Minimal Wear",
+    FT: "Field-Tested",
+    WW: "Well-Worn",
+    BS: "Battle-Scarred"
 
 };
 
 
-function getWearName(wear){
+function normalizeWear(value) {
 
-  return (
-    WEAR_NAMES[
-      String(wear || "")
-        .toUpperCase()
-    ] ||
-    wear ||
-    ""
-  );
+    if (!value) {
+        return "";
+    }
+
+    const text = String(value).trim().toUpperCase();
+
+    if (WEAR_NAMES[text]) {
+        return WEAR_NAMES[text];
+    }
+
+    return value;
+
 }
 
 
-/* ============================================================
-   ITEM NAME
-   ============================================================ */
+function wearShort(value) {
 
-function getBaseItemName(item){
+    if (!value) {
+        return "";
+    }
 
-  let name =
-    String(
-      item.name || ""
-    ).trim();
+    const normalized = String(value);
 
+    const found = Object.entries(WEAR_NAMES)
+        .find(([, full]) =>
+            full.toLowerCase() === normalized.toLowerCase()
+        );
 
-  /*
-    Some scraper records already contain:
+    return found ? found[0] : normalized;
 
-      AK-47 | Redline
-
-    while others may have:
-
-      weapon = AK-47
-      name   = Redline
-  */
-
-  if(
-    !name.includes("|") &&
-    item.weapon &&
-    String(item.weapon).trim()
-  ){
-
-    name =
-      `${String(item.weapon).trim()} | ${name}`;
-
-  }
-
-
-  return name || "Unknown Item";
 }
 
 
-function getMarketHashName(
-  item,
-  wear
-){
+/* =========================================================
+   ITEM HELPERS
+   ========================================================= */
 
-  const base =
-    getBaseItemName(item);
+function getBaseItemName(item) {
 
+    const weapon = String(item.weapon || "").trim();
+    const name = String(item.name || "").trim();
 
-  const statTrak =
-    String(
-      item.type || ""
-    ).toLowerCase()
-      .includes("stattrak");
+    if (
+        weapon &&
+        name &&
+        !name.toLowerCase().startsWith(
+            weapon.toLowerCase() + " |"
+        )
+    ) {
+        return `${weapon} | ${name}`;
+    }
 
+    return name || weapon || "Unknown Item";
 
-  let result =
-    statTrak
-      ? `StatTrak™ ${base}`
-      : base;
-
-
-  if(wear){
-
-    result +=
-      ` (${getWearName(wear)})`;
-
-  }
-
-
-  return result;
 }
 
 
-/* ============================================================
-   UNIQUE ITEM COUNT
-   ============================================================ */
+function getMarketHashName(item, wear) {
 
-function getUniqueMarketItems(){
+    let name = getBaseItemName(item);
 
-  const set =
-    new Set();
+    const type = String(item.type || "").toLowerCase();
 
+    if (type.includes("stattrak")) {
+        name = `StatTrak™ ${name}`;
+    }
 
-  allItems.forEach(
-    item => {
+    if (wear) {
+        name += ` (${normalizeWear(wear)})`;
+    }
 
-      if(
-        !Array.isArray(item.prices)
-      ){
-        return;
-      }
+    return name;
 
-
-      item.prices.forEach(
-        price => {
-
-          if(
-            !price ||
-            price.has_price === false
-          ){
-            return;
-          }
+}
 
 
-          const value =
-            Number(price.price);
+function getUniqueMarketItems() {
 
+    const set = new Set();
 
-          if(
-            !Number.isFinite(value) ||
-            value <= 0
-          ){
-            return;
-          }
+    for (const item of allItems) {
 
+        for (const price of item.prices || []) {
 
-          const wear =
-            String(
-              price.wear || ""
-            ).toUpperCase();
+            if (!isLiquid(price)) {
+                continue;
+            }
 
-
-          set.add(
-            getMarketHashName(
-              item,
-              wear
-            )
-          );
+            set.add(
+                getMarketHashName(
+                    item,
+                    price.wear
+                )
+            );
 
         }
-      );
 
     }
-  );
 
+    return set;
 
-  return set;
 }
 
 
-/* ============================================================
-   ARBITRAGE
-   ============================================================ */
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-function buildResults(){
+function matchesSearch(item, query) {
 
-  const buyMarket =
-    $("buyMarket").value;
+    if (!query) {
+        return true;
+    }
 
-  const sellMarket =
-    $("sellMarket").value;
+    const q = query.toLowerCase().trim();
 
-  const search =
-    $("search").value;
+    if (!q) {
+        return true;
+    }
 
-  const onlyLiquid =
-    $("onlyLiquid").checked;
+    const haystack = [
 
+        item.name,
+        item.weapon,
+        item.collection,
+        item.rarity,
+        item.type,
+        item.affiliation,
+        item.side,
+        getBaseItemName(item)
 
-  const minRaw =
-    $("profitMin").value.trim();
+    ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
 
-  const maxRaw =
-    $("profitMax").value.trim();
+    return haystack.includes(q);
 
-
-  const minProfit =
-    minRaw === ""
-      ? -Infinity
-      : Number(minRaw);
-
-
-  const maxProfit =
-    maxRaw === ""
-      ? Infinity
-      : Number(maxRaw);
-
-
-  const results = [];
+}
 
 
-  if(
-    !buyMarket ||
-    !sellMarket ||
-    buyMarket === sellMarket
-  ){
+/* =========================================================
+   ARBITRAGE ENGINE
+   ========================================================= */
 
-    return results;
+function buildResults() {
 
-  }
+    const buyMarket =
+        document.getElementById("buyMarket").value;
 
+    const sellMarket =
+        document.getElementById("sellMarket").value;
 
-  allItems.forEach(
-    item => {
+    const search =
+        document.getElementById("search").value.trim();
 
-      if(
-        !matchesSearch(
-          item,
-          search
-        )
-      ){
-        return;
-      }
+    const onlyLiquid =
+        document.getElementById("onlyLiquid").checked;
 
+    const minProfitRaw =
+        document.getElementById("minProfit").value;
 
-      const buyPrices =
-        getPriceEntries(
-          item,
-          buyMarket
-        );
+    const maxProfitRaw =
+        document.getElementById("maxProfit").value;
 
+    const minProfit =
+        minProfitRaw === ""
+            ? -Infinity
+            : Number(minProfitRaw);
 
-      const sellPrices =
-        getPriceEntries(
-          item,
-          sellMarket
-        );
+    const maxProfit =
+        maxProfitRaw === ""
+            ? Infinity
+            : Number(maxProfitRaw);
 
 
-      if(
-        !buyPrices.length ||
-        !sellPrices.length
-      ){
-        return;
-      }
+    if (!buyMarket || !sellMarket) {
+        return [];
+    }
+
+    if (buyMarket === sellMarket) {
+        return [];
+    }
 
 
-      /*
-        For skins compare exactly the same wear.
+    const buyFee =
+        Number(fees?.[buyMarket]?.buy || 0);
 
-        For non-wear items compare the cheapest
-        available price on each market.
-      */
-
-      const hasWear =
-        buyPrices.some(
-          price => price.wear
-        ) ||
-        sellPrices.some(
-          price => price.wear
-        );
+    const sellFee =
+        Number(fees?.[sellMarket]?.sell || 0);
 
 
-      const combinations = [];
+    const results = [];
 
 
-      if(hasWear){
+    for (const item of allItems) {
 
-        const sellByWear =
-          new Map();
-
-
-        sellPrices.forEach(
-          sell => {
-
-            const wear =
-              String(
-                sell.wear || ""
-              ).toUpperCase();
+        if (!matchesSearch(item, search)) {
+            continue;
+        }
 
 
-            if(!wear){
-              return;
-            }
+        const buyPrices =
+            getPriceEntries(item, buyMarket);
+
+        const sellPrices =
+            getPriceEntries(item, sellMarket);
 
 
-            const old =
-              sellByWear.get(
-                wear
-              );
+        if (
+            !buyPrices.length ||
+            !sellPrices.length
+        ) {
+            continue;
+        }
 
 
-            if(
-              !old ||
-              Number(sell.price) <
-              Number(old.price)
-            ){
+        const wearItem =
+            Boolean(item.has_wear);
 
-              sellByWear.set(
-                wear,
-                sell
-              );
+
+        if (wearItem) {
+
+            const wearSet = new Set();
+
+            for (const price of buyPrices) {
+
+                if (price.wear) {
+                    wearSet.add(normalizeWear(price.wear));
+                }
 
             }
 
-          }
-        );
+            for (const price of sellPrices) {
 
+                if (price.wear) {
+                    wearSet.add(normalizeWear(price.wear));
+                }
 
-        buyPrices.forEach(
-          buy => {
-
-            const wear =
-              String(
-                buy.wear || ""
-              ).toUpperCase();
-
-
-            if(!wear){
-              return;
             }
+
+
+            for (const wear of wearSet) {
+
+                const buyCandidates =
+                    buyPrices.filter(p =>
+                        normalizeWear(p.wear) === wear
+                    );
+
+                const sellCandidates =
+                    sellPrices.filter(p =>
+                        normalizeWear(p.wear) === wear
+                    );
+
+
+                if (
+                    !buyCandidates.length ||
+                    !sellCandidates.length
+                ) {
+                    continue;
+                }
+
+
+                const buy =
+                    buyCandidates.reduce(
+                        (best, current) =>
+                            Number(current.price) <
+                            Number(best.price)
+                                ? current
+                                : best
+                    );
+
+
+                const sell =
+                    sellCandidates.reduce(
+                        (best, current) =>
+                            Number(current.price) <
+                            Number(best.price)
+                                ? current
+                                : best
+                    );
+
+
+                const result =
+                    calculateOpportunity(
+                        item,
+                        buy,
+                        sell,
+                        buyMarket,
+                        sellMarket,
+                        buyFee,
+                        sellFee,
+                        wear
+                    );
+
+
+                if (result &&
+                    result.profitPercent >= minProfit &&
+                    result.profitPercent <= maxProfit
+                ) {
+                    results.push(result);
+                }
+
+            }
+
+        } else {
+
+            const buy =
+                buyPrices.reduce(
+                    (best, current) =>
+                        Number(current.price) <
+                        Number(best.price)
+                            ? current
+                            : best
+                );
 
 
             const sell =
-              sellByWear.get(
-                wear
-              );
+                sellPrices.reduce(
+                    (best, current) =>
+                        Number(current.price) <
+                        Number(best.price)
+                            ? current
+                            : best
+                );
 
 
-            if(!sell){
-              return;
+            const result =
+                calculateOpportunity(
+                    item,
+                    buy,
+                    sell,
+                    buyMarket,
+                    sellMarket,
+                    buyFee,
+                    sellFee,
+                    ""
+                );
+
+
+            if (
+                result &&
+                result.profitPercent >= minProfit &&
+                result.profitPercent <= maxProfit
+            ) {
+                results.push(result);
             }
 
-
-            combinations.push({
-              buy,
-              sell,
-              wear
-            });
-
-          }
-        );
-
-      }else{
-
-        const buy =
-          [...buyPrices]
-            .sort(
-              (a,b) =>
-                Number(a.price) -
-                Number(b.price)
-            )[0];
-
-
-        const sell =
-          [...sellPrices]
-            .sort(
-              (a,b) =>
-                Number(a.price) -
-                Number(b.price)
-            )[0];
-
-
-        if(buy && sell){
-
-          combinations.push({
-            buy,
-            sell,
-            wear:""
-          });
-
         }
-
-      }
-
-
-      combinations.forEach(
-        pair => {
-
-          const buyPrice =
-            Number(pair.buy.price);
-
-          const sellPrice =
-            Number(pair.sell.price);
-
-
-          if(
-            !Number.isFinite(buyPrice) ||
-            !Number.isFinite(sellPrice) ||
-            buyPrice <= 0 ||
-            sellPrice <= 0
-          ){
-            return;
-          }
-
-
-          if(onlyLiquid){
-
-            if(
-              !isLiquid(pair.buy) ||
-              !isLiquid(pair.sell)
-            ){
-              return;
-            }
-
-          }
-
-
-          const buyFee =
-            getFee(
-              buyMarket
-            );
-
-          const sellFee =
-            getFee(
-              sellMarket
-            );
-
-
-          const buyFeePercent =
-            Number(
-              buyFee.buy
-            ) || 0;
-
-
-          const sellFeePercent =
-            Number(
-              sellFee.sell
-            ) || 0;
-
-
-          const depositFeePercent =
-            Number(
-              sellFee.deposit
-            ) || 0;
-
-
-          const totalBuyCost =
-            buyPrice *
-            (
-              1 +
-              buyFeePercent / 100
-            );
-
-
-          const sellNet =
-            sellPrice *
-            (
-              1 -
-              (
-                sellFeePercent +
-                depositFeePercent
-              ) / 100
-            );
-
-
-          const profitVal =
-            sellNet -
-            totalBuyCost;
-
-
-          const profitPercent =
-            totalBuyCost > 0
-              ? (
-                  profitVal /
-                  totalBuyCost
-                ) * 100
-              : 0;
-
-
-          if(
-            !Number.isFinite(
-              profitVal
-            ) ||
-            !Number.isFinite(
-              profitPercent
-            )
-          ){
-            return;
-          }
-
-
-          if(
-            profitPercent <
-              minProfit ||
-            profitPercent >
-              maxProfit
-          ){
-            return;
-          }
-
-
-          const marketHashName =
-            getMarketHashName(
-              item,
-              pair.wear
-            );
-
-
-          results.push({
-
-            market_name:
-              marketHashName,
-
-            baseName:
-              getBaseItemName(
-                item
-              ),
-
-            category:
-              item.__category,
-
-            itemUrl:
-              item.url || "",
-
-            buyMarket,
-
-            sellMarket,
-
-            buyPrice,
-
-            sellPrice,
-
-            buyFeePercent,
-
-            sellFeePercent,
-
-            depositFeePercent,
-
-            totalBuyCost,
-
-            sellNet,
-
-            profitVal,
-
-            profitPercent,
-
-            wear:
-              pair.wear,
-
-            buyUrl:
-              pair.buy.url || "",
-
-            sellUrl:
-              pair.sell.url || "",
-
-            buyCurrency:
-              pair.buy.currency ||
-              "USD",
-
-            sellCurrency:
-              pair.sell.currency ||
-              "USD",
-
-            isLiquid:
-              isLiquid(pair.buy) &&
-              isLiquid(pair.sell)
-
-          });
-
-        }
-      );
 
     }
-  );
 
 
-  return results;
+    return sortResults(results);
+
 }
 
 
-/* ============================================================
+function calculateOpportunity(
+    item,
+    buy,
+    sell,
+    buyMarket,
+    sellMarket,
+    buyFee,
+    sellFee,
+    wear
+) {
+
+    const buyPrice =
+        Number(buy.price);
+
+    const sellPrice =
+        Number(sell.price);
+
+
+    if (
+        !Number.isFinite(buyPrice) ||
+        !Number.isFinite(sellPrice) ||
+        buyPrice <= 0 ||
+        sellPrice <= 0
+    ) {
+        return null;
+    }
+
+
+    const totalBuyCost =
+        buyPrice * (1 + buyFee / 100);
+
+
+    const sellNet =
+        sellPrice * (1 - sellFee / 100);
+
+
+    const profitVal =
+        sellNet - totalBuyCost;
+
+
+    const profitPercent =
+        totalBuyCost > 0
+            ? (profitVal / totalBuyCost) * 100
+            : 0;
+
+
+    return {
+
+        item,
+
+        marketHashName:
+            getMarketHashName(item, wear),
+
+        baseName:
+            getBaseItemName(item),
+
+        category:
+            item.__category || item.category || "",
+
+        buyMarket,
+        sellMarket,
+
+        buyPrice,
+        sellPrice,
+
+        buyFee,
+        sellFee,
+
+        totalBuyCost,
+        sellNet,
+
+        profitVal,
+        profitPercent,
+
+        wear,
+
+        buyUrl:
+            buy.url ||
+            item.url ||
+            "",
+
+        sellUrl:
+            sell.url ||
+            "",
+
+        currency:
+            buy.currency ||
+            sell.currency ||
+            "USD"
+
+    };
+
+}
+
+
+/* =========================================================
    SORT
-   ============================================================ */
+   ========================================================= */
 
-function sortResults(
-  results
-){
+function sortResults(results) {
 
-  const direction =
-    sortDirection === "asc"
-      ? 1
-      : -1;
+    const fieldMap = {
 
+        profitPercent: "profitPercent",
+        profitVal: "profitVal",
+        buyPrice: "buyPrice",
+        sellPrice: "sellPrice"
 
-  return [...results]
-    .sort(
-      (left,right) => {
-
-        const a =
-          Number(
-            left[sortBy]
-          ) || 0;
-
-        const b =
-          Number(
-            right[sortBy]
-          ) || 0;
+    };
 
 
-        return (
-          a - b
-        ) * direction;
+    const field =
+        fieldMap[sortBy] ||
+        "profitPercent";
 
-      }
-    );
+
+    return [...results].sort((a, b) => {
+
+        const av =
+            Number(a[field] || 0);
+
+        const bv =
+            Number(b[field] || 0);
+
+        if (av === bv) {
+            return 0;
+        }
+
+        return sortDirection === "asc"
+            ? av - bv
+            : bv - av;
+
+    });
+
 }
 
 
-/* ============================================================
-   RENDER
-   ============================================================ */
+/* =========================================================
+   RENDERING
+   ========================================================= */
 
-function renderResults(
-  results
-){
+function renderResults(results) {
 
-  const body =
-    $("tableBody");
+    const body =
+        document.getElementById("resultsBody");
 
-
-  if(!results.length){
-
-    body.innerHTML = `
-      <tr>
-        <td colspan="8">
-
-          <div class="empty">
-
-            <strong>
-              Связки не найдены
-            </strong>
-
-            Нет подходящих цен между
-            выбранными маркетплейсами.
-
-          </div>
-
-        </td>
-      </tr>
-    `;
-
-  }else{
-
-    body.innerHTML =
-      results.map(
-        item => {
-
-          const buyButton =
-            item.buyUrl
-
-              ? `
-                <a
-                  class="marketLinkBtn"
-                  href="${escapeHtml(item.buyUrl)}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ↗ ${escapeHtml(item.buyMarket)}
-                </a>
-              `
-
-              : `
-                <span class="marketLinkBtn noUrl">
-                  ${escapeHtml(item.buyMarket)}
-                </span>
-              `;
+    body.innerHTML = "";
 
 
-          const sellButton =
-            item.sellUrl
+    if (!results.length) {
 
-              ? `
-                <a
-                  class="marketLinkBtn marketLinkBtnSell"
-                  href="${escapeHtml(item.sellUrl)}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ↗ ${escapeHtml(item.sellMarket)}
-                </a>
-              `
+        showEmptyState();
 
-              : `
-                <span class="marketLinkBtn marketLinkBtnSell noUrl">
-                  ${escapeHtml(item.sellMarket)}
-                </span>
-              `;
+        updateStats([]);
+
+        return;
+
+    }
 
 
-          const badgeLiquid =
-            item.isLiquid
-              ? `
-                <span class="badgeLiquid">
-                  LIQUID
-                </span>
-              `
-              : "";
+    document.getElementById("tableState").style.display =
+        "none";
+
+    document.getElementById("tableWrap").style.display =
+        "block";
 
 
-          const badgeStatTrak =
-            item.market_name
-              .startsWith(
-                "StatTrak™"
-              )
-
-              ? `
-                <span class="badgeStatTrak">
-                  ST
-                </span>
-              `
-
-              : "";
+    const fragment =
+        document.createDocumentFragment();
 
 
-          return `
+    for (const result of results) {
 
-            <tr>
+        const tr =
+            document.createElement("tr");
 
-              <td>
 
-                <div class="itemName">
+        const item =
+            result.item;
 
-                  ${badgeLiquid}
 
-                  ${badgeStatTrak}
+        const image =
+            item.image_url ||
+            item.image ||
+            "";
 
-                  ${escapeHtml(
-                    item.market_name
-                  )}
+
+        const wearBadge =
+            result.wear
+                ? `<span class="badge wear">${escapeHtml(
+                    wearShort(result.wear)
+                )}</span>`
+                : "";
+
+
+        const statTrak =
+            String(item.type || "")
+                .toLowerCase()
+                .includes("stattrak")
+                ? `<span class="badge stattrak">StatTrak</span>`
+                : "";
+
+
+        const category =
+            item.__category ||
+            item.category ||
+            "";
+
+
+        const availableBadge =
+            `<span class="badge available">Available</span>`;
+
+
+        tr.innerHTML = `
+
+            <td class="item-cell">
+
+                <div class="item-main">
+
+                    ${
+                        image
+                            ? `
+                                <img
+                                    class="item-icon"
+                                    src="${escapeAttr(image)}"
+                                    alt=""
+                                    loading="lazy"
+                                    onerror="this.style.display='none'"
+                                >
+                              `
+                            : `
+                                <div class="item-icon"></div>
+                              `
+                    }
+
+                    <div class="item-copy">
+
+                        <div class="item-name"
+                             title="${escapeAttr(result.marketHashName)}">
+
+                            ${escapeHtml(result.marketHashName)}
+
+                        </div>
+
+                        <div class="item-meta">
+
+                            ${wearBadge}
+                            ${statTrak}
+                            ${availableBadge}
+
+                            ${
+                                category
+                                    ? `
+                                        <span class="badge">
+                                            ${escapeHtml(category)}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="copy-name"
+                        type="button"
+                        title="Скопировать название"
+                        data-copy="${escapeAttr(result.marketHashName)}"
+                    >⧉</button>
 
                 </div>
 
-              </td>
+            </td>
 
 
-              <td>
+            <td class="market-cell">
 
-                ${buyButton}
-
-                <div class="itemMeta">
-                  ${item.buyUrl
-                    ? "Реальная ссылка из базы"
-                    : "URL отсутствует"}
+                <div class="market-name">
+                    ${escapeHtml(result.buyMarket)}
                 </div>
 
-              </td>
-
-
-              <td class="price">
-
-                ${formatPrice(
-                  item.buyPrice
-                )}
+                <div class="market-note">
+                    BUY ${formatPercent(result.buyFee)} fee
+                </div>
 
                 ${
-                  item.buyFeePercent > 0
-                    ? `
-                      <div class="subPrice">
-                        +${percent(
-                          item.buyFeePercent
-                        )} покупка
-                      </div>
-                    `
-                    : ""
+                    result.buyUrl
+                        ? `
+                            <a
+                                class="trade-link"
+                                href="${escapeAttr(result.buyUrl)}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Открыть ↗
+                            </a>
+                          `
+                        : `
+                            <span class="trade-link">
+                                URL отсутствует
+                            </span>
+                          `
                 }
 
-              </td>
+            </td>
 
 
-              <td>
+            <td class="right">
 
-                ${sellButton}
-
-                <div class="itemMeta">
-                  ${item.sellUrl
-                    ? "Реальная ссылка из базы"
-                    : "URL отсутствует"}
+                <div class="price">
+                    ${formatMoney(result.buyPrice, result.currency)}
                 </div>
 
-              </td>
+            </td>
 
 
-              <td class="price">
+            <td class="market-cell">
 
-                ${formatPrice(
-                  item.sellPrice
-                )}
+                <div class="market-name">
+                    ${escapeHtml(result.sellMarket)}
+                </div>
 
-              </td>
-
-
-              <td class="price">
-
-                ${formatPrice(
-                  item.sellNet
-                )}
+                <div class="market-note">
+                    SELL ${formatPercent(result.sellFee)} fee
+                </div>
 
                 ${
-                  (
-                    item.sellFeePercent +
-                    item.depositFeePercent
-                  ) > 0
-
-                    ? `
-                      <div class="subPrice">
-                        -${percent(
-                          item.sellFeePercent +
-                          item.depositFeePercent
-                        )}
-                      </div>
-                    `
-
-                    : ""
+                    result.sellUrl
+                        ? `
+                            <a
+                                class="trade-link"
+                                href="${escapeAttr(result.sellUrl)}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Открыть ↗
+                            </a>
+                          `
+                        : `
+                            <span class="trade-link">
+                                URL отсутствует
+                            </span>
+                          `
                 }
 
-              </td>
+            </td>
 
 
-              <td
-                class="${
-                  item.profitVal >= 0
-                    ? "profit"
-                    : "loss"
-                }"
-              >
+            <td class="right">
 
-                ${formatPrice(
-                  item.profitVal
-                )}
+                <div class="price">
+                    ${formatMoney(result.sellPrice, result.currency)}
+                </div>
 
-              </td>
+            </td>
 
 
-              <td
-                class="${
-                  item.profitPercent >= 0
-                    ? "profit"
-                    : "loss"
-                }"
-              >
+            <td class="right">
 
-                ${percent(
-                  item.profitPercent
-                )}
+                <div class="price">
+                    ${formatMoney(result.sellNet, result.currency)}
+                </div>
 
-              </td>
+                <div class="market-note">
+                    после ${formatPercent(result.sellFee)} комиссии
+                </div>
 
-            </tr>
-
-          `;
-
-        }
-      ).join("");
-
-  }
+            </td>
 
 
-  $("statCount").textContent =
-    results.length.toLocaleString(
-      "ru-RU"
-    );
+            <td class="right">
+
+                <div class="profit ${
+                    result.profitVal >= 0
+                        ? "green"
+                        : "red"
+                } profit-amount">
+
+                    ${
+                        result.profitVal >= 0
+                            ? "+"
+                            : ""
+                    }${formatMoney(
+                        result.profitVal,
+                        result.currency
+                    )}
+
+                </div>
+
+            </td>
 
 
-  if(results.length){
+            <td class="right">
+
+                <div class="profit ${
+                    result.profitPercent >= 0
+                        ? "green"
+                        : "red"
+                } profit-percent">
+
+                    ${
+                        result.profitPercent >= 0
+                            ? "+"
+                            : ""
+                    }${result.profitPercent.toFixed(2)}%
+
+                </div>
+
+            </td>
+
+        `;
+
+
+        fragment.appendChild(tr);
+
+    }
+
+
+    body.appendChild(fragment);
+
+
+    updateStats(results);
+
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+function updateStats(results) {
+
+    const count =
+        results.length;
+
+
+    document.getElementById("statResults").textContent =
+        formatInteger(count);
+
+
+    document.getElementById("resultCount").textContent =
+        `${formatInteger(count)} результатов`;
+
+
+    if (!count) {
+
+        document.getElementById("statBestPercent").textContent =
+            "0%";
+
+        document.getElementById("statBestProfit").textContent =
+            "$0.00";
+
+        document.getElementById("statAverage").textContent =
+            "0%";
+
+        return;
+
+    }
+
 
     const bestPercent =
-      Math.max(
-        ...results.map(
-          item =>
-            item.profitPercent
-        )
-      );
+        Math.max(
+            ...results.map(r =>
+                Number(r.profitPercent || 0)
+            )
+        );
 
 
-    const bestValue =
-      Math.max(
-        ...results.map(
-          item =>
-            item.profitVal
-        )
-      );
+    const bestProfit =
+        Math.max(
+            ...results.map(r =>
+                Number(r.profitVal || 0)
+            )
+        );
 
 
     const average =
-      results.reduce(
-        (sum,item) =>
-          sum +
-          item.profitPercent,
-        0
-      ) /
-      results.length;
+        results.reduce(
+            (sum, r) =>
+                sum + Number(r.profitPercent || 0),
+            0
+        ) / count;
 
 
-    $("statBestPercent")
-      .textContent =
-        percent(
-          bestPercent
-        );
+    document.getElementById("statBestPercent").textContent =
+        `${bestPercent.toFixed(2)}%`;
 
 
-    $("statBestVal")
-      .textContent =
-        formatPrice(
-          bestValue
-        );
+    document.getElementById("statBestProfit").textContent =
+        formatMoney(bestProfit, "USD");
 
 
-    $("statAverage")
-      .textContent =
-        percent(
-          average
-        );
+    document.getElementById("statAverage").textContent =
+        `${average.toFixed(2)}%`;
 
-  }else{
-
-    $("statBestPercent")
-      .textContent = "—";
-
-    $("statBestVal")
-      .textContent = "—";
-
-    $("statAverage")
-      .textContent = "—";
-
-  }
 }
 
 
-/* ============================================================
-   SCAN
-   ============================================================ */
+/* =========================================================
+   STATES
+   ========================================================= */
 
-function scan(){
+function showLoadingState(message = "Загрузка базы") {
 
-  const button =
-    $("scanButton");
+    const state =
+        document.getElementById("tableState");
 
+    document.getElementById("tableWrap").style.display =
+        "none";
 
-  if(
-    !$("buyMarket").value ||
-    !$("sellMarket").value
-  ){
-    return;
-  }
+    state.style.display =
+        "flex";
 
 
-  if(
-    $("buyMarket").value ===
-    $("sellMarket").value
-  ){
+    state.innerHTML = `
 
-    $("tableBody").innerHTML = `
-      <tr>
-        <td colspan="8">
-          <div class="empty">
-            <strong>
-              Выбраны одинаковые маркетплейсы
-            </strong>
+        <div class="state-inner">
 
-            Выбери разные площадки для покупки
-            и продажи.
-          </div>
-        </td>
-      </tr>
+            <div class="spinner"></div>
+
+            <h3>${escapeHtml(message)}</h3>
+
+            <p>
+                Получаем локальную базу цен и подготавливаем
+                арбитражный движок.
+            </p>
+
+        </div>
+
     `;
 
-    return;
-  }
+}
 
 
-  if(button){
-    button.disabled = true;
-  }
+function showEmptyState() {
+
+    const state =
+        document.getElementById("tableState");
 
 
-  try{
+    document.getElementById("tableWrap").style.display =
+        "none";
+
+    state.style.display =
+        "flex";
+
+
+    state.innerHTML = `
+
+        <div class="state-inner">
+
+            <div class="state-icon">⌕</div>
+
+            <h3>Возможностей не найдено</h3>
+
+            <p>
+                Попробуй изменить маркет покупки/продажи,
+                убрать фильтр Profit %, очистить поиск
+                или выбрать другую категорию предметов.
+            </p>
+
+            <button class="btn" id="emptyReset">
+                Сбросить фильтры
+            </button>
+
+        </div>
+
+    `;
+
+
+    document
+        .getElementById("emptyReset")
+        ?.addEventListener(
+            "click",
+            resetFilters
+        );
+
+}
+
+
+function showErrorState(error) {
+
+    const state =
+        document.getElementById("tableState");
+
+
+    document.getElementById("tableWrap").style.display =
+        "none";
+
+    state.style.display =
+        "flex";
+
+
+    state.innerHTML = `
+
+        <div class="state-inner">
+
+            <div class="state-icon">!</div>
+
+            <h3>Не удалось загрузить базу</h3>
+
+            <p>
+                ${escapeHtml(
+                    error?.message ||
+                    "Неизвестная ошибка"
+                )}
+            </p>
+
+            <button class="btn blue" id="retryBtn">
+                Повторить
+            </button>
+
+        </div>
+
+    `;
+
+
+    document
+        .getElementById("retryBtn")
+        ?.addEventListener(
+            "click",
+            () => location.reload()
+        );
+
+}
+
+
+/* =========================================================
+   SCAN
+   ========================================================= */
+
+function scan() {
+
+    const started =
+        performance.now();
+
 
     const results =
-      buildResults();
+        buildResults();
 
 
     lastResults =
-      sortResults(
-        results
-      );
+        results;
 
 
-    renderResults(
-      lastResults
+    renderResults(results);
+
+
+    const elapsed =
+        performance.now() - started;
+
+
+    document.getElementById("scanTime").textContent =
+        `${elapsed.toFixed(1)} ms`;
+
+}
+
+
+function scheduleScan() {
+
+    clearTimeout(scanTimer);
+
+    scanTimer = setTimeout(
+        scan,
+        220
     );
 
-
-    try{
-
-      localStorage.setItem(
-        "buyMarket",
-        $("buyMarket").value
-      );
-
-      localStorage.setItem(
-        "sellMarket",
-        $("sellMarket").value
-      );
-
-    }catch(error){}
+}
 
 
-  }catch(error){
+/* =========================================================
+   MARKET SELECTS
+   ========================================================= */
 
-    console.error(
-      "Scan error:",
-      error
-    );
+function populateMarkets() {
+
+    const buy =
+        document.getElementById("buyMarket");
+
+    const sell =
+        document.getElementById("sellMarket");
 
 
-    toast(
-      error.message ||
-      "Ошибка сканирования",
-      "error"
-    );
+    buy.innerHTML = "";
+    sell.innerHTML = "";
 
-  }finally{
 
-    if(button){
-      button.disabled = false;
+    for (const market of markets) {
+
+        const optionA =
+            document.createElement("option");
+
+        optionA.value =
+            market;
+
+        optionA.textContent =
+            market;
+
+        buy.appendChild(optionA);
+
+
+        const optionB =
+            document.createElement("option");
+
+        optionB.value =
+            market;
+
+        optionB.textContent =
+            market;
+
+        sell.appendChild(optionB);
+
     }
 
-  }
-}
+
+    const preferredBuy = [
+        "Market.CSGO",
+        "LOOT.FARM",
+        "CS.MONEY"
+    ];
 
 
-/* ============================================================
-   SORT BUTTONS
-   ============================================================ */
-
-function setSort(
-  nextSort
-){
-
-  sortBy =
-    nextSort;
+    const preferredSell = [
+        "Steam",
+        "Skinport",
+        "BUFF Market",
+        "DMarket"
+    ];
 
 
-  [
-    "sortProfit",
-    "sortProfitVal",
-    "sortBuy",
-    "sortSell"
-  ].forEach(
-    id => {
+    const firstBuy =
+        preferredBuy.find(m =>
+            markets.includes(m)
+        );
 
-      $(id)
-        .classList
-        .remove("active");
 
+    const firstSell =
+        preferredSell.find(m =>
+            markets.includes(m)
+        );
+
+
+    if (firstBuy) {
+        buy.value = firstBuy;
+    } else if (markets[0]) {
+        buy.value = markets[0];
     }
-  );
 
 
-  const activeId = {
+    if (firstSell) {
+        sell.value = firstSell;
+    } else if (markets[1]) {
+        sell.value = markets[1];
+    } else if (markets[0]) {
+        sell.value = markets[0];
+    }
 
-    profitPercent:
-      "sortProfit",
-
-    profitVal:
-      "sortProfitVal",
-
-    buyPrice:
-      "sortBuy",
-
-    sellPrice:
-      "sortSell"
-
-  }[nextSort];
-
-
-  if(activeId){
-
-    $(activeId)
-      .classList
-      .add("active");
-
-  }
-
-
-  if(lastResults.length){
-
-    lastResults =
-      sortResults(
-        lastResults
-      );
-
-
-    renderResults(
-      lastResults
-    );
-
-  }else{
-
-    scan();
-
-  }
 }
 
 
-function toggleDirection(){
-
-  sortDirection =
-    sortDirection === "desc"
-      ? "asc"
-      : "desc";
-
-
-  $("sortDirection")
-    .textContent =
-      sortDirection === "desc"
-        ? "↓"
-        : "↑";
-
-
-  if(lastResults.length){
-
-    lastResults =
-      sortResults(
-        lastResults
-      );
-
-
-    renderResults(
-      lastResults
-    );
-
-  }else{
-
-    scan();
-
-  }
-}
-
-
-/* ============================================================
+/* =========================================================
    DIAGNOSTICS
-   ============================================================ */
+   ========================================================= */
 
-function openDiagnostics(){
+function openDiagnostics() {
 
-  const skinCount =
-    Array.isArray(DATA?.skins)
-      ? DATA.skins.length
-      : 0;
+    const db =
+        getDatabase();
 
 
-  const agentCount =
-    Array.isArray(DATA?.agents)
-      ? DATA.agents.length
-      : 0;
+    let priceRecords = 0;
+    let validPrices = 0;
+    let urls = 0;
+    let itemsWithPrices = 0;
+
+    let latestTimestamp = null;
 
 
-  const miscCount =
-    Array.isArray(DATA?.misc)
-      ? DATA.misc.length
-      : 0;
+    for (const item of allItems) {
+
+        let hasPrice =
+            false;
 
 
-  let priceRecords = 0;
-  let urlCount = 0;
-  let itemsWithPrices = 0;
+        for (const price of item.prices || []) {
+
+            priceRecords++;
 
 
-  allItems.forEach(
-    item => {
+            if (isLiquid(price)) {
 
-      if(
-        !Array.isArray(item.prices)
-      ){
-        return;
-      }
+                validPrices++;
+                hasPrice = true;
+
+            }
 
 
-      let hasPrice = false;
+            if (
+                String(price.url || "").trim()
+            ) {
+                urls++;
+            }
 
 
-      item.prices.forEach(
-        price => {
-
-          if(!price){
-            return;
-          }
+            const updatedAt =
+                price.updated_at ||
+                price.updatedAt;
 
 
-          const value =
-            Number(
-              price.price
+            if (updatedAt) {
+
+                const date =
+                    new Date(updatedAt);
+
+                if (
+                    !Number.isNaN(date.getTime()) &&
+                    (
+                        !latestTimestamp ||
+                        date > latestTimestamp
+                    )
+                ) {
+                    latestTimestamp = date;
+                }
+
+            }
+
+        }
+
+
+        if (hasPrice) {
+            itemsWithPrices++;
+        }
+
+
+        if (item.scraped_at) {
+
+            const date =
+                new Date(item.scraped_at);
+
+            if (
+                !Number.isNaN(date.getTime()) &&
+                (
+                    !latestTimestamp ||
+                    date > latestTimestamp
+                )
+            ) {
+                latestTimestamp = date;
+            }
+
+        }
+
+    }
+
+
+    const total =
+        allItems.length;
+
+
+    const uniqueItems =
+        getUniqueMarketItems().size;
+
+
+    const dbLoaded =
+        Boolean(window.CS2_DATA);
+
+
+    const cards = [
+
+        [
+            "data.js",
+            dbLoaded ? "LOADED" : "ERROR",
+            dbLoaded ? "ok" : "bad"
+        ],
+
+        [
+            "Skins",
+            db.skins.length,
+            db.skins.length ? "ok" : "warn"
+        ],
+
+        [
+            "Agents",
+            db.agents.length,
+            db.agents.length ? "ok" : "warn"
+        ],
+
+        [
+            "Misc",
+            db.misc.length,
+            db.misc.length ? "ok" : "warn"
+        ],
+
+        [
+            "Всего записей",
+            total,
+            total ? "ok" : "bad"
+        ],
+
+        [
+            "Unique Market Hash",
+            uniqueItems,
+            uniqueItems ? "ok" : "bad"
+        ],
+
+        [
+            "Маркетов",
+            markets.length,
+            markets.length ? "ok" : "bad"
+        ],
+
+        [
+            "Price Records",
+            priceRecords,
+            priceRecords ? "ok" : "bad"
+        ],
+
+        [
+            "Valid Prices",
+            validPrices,
+            validPrices ? "ok" : "bad"
+        ],
+
+        [
+            "Real URLs",
+            urls,
+            urls ? "ok" : "warn"
+        ],
+
+        [
+            "Items with prices",
+            itemsWithPrices,
+            itemsWithPrices ? "ok" : "warn"
+        ],
+
+        [
+            "Последнее обновление",
+            latestTimestamp
+                ? formatDate(latestTimestamp)
+                : "не найдено",
+            latestTimestamp ? "ok" : "warn"
+        ]
+
+    ];
+
+
+    const grid =
+        document.getElementById("diagGrid");
+
+
+    grid.innerHTML =
+        cards.map(card => `
+
+            <div class="diag-card">
+
+                <div class="diag-label">
+                    ${escapeHtml(card[0])}
+                </div>
+
+                <div class="diag-value ${card[2]}">
+                    ${escapeHtml(String(card[1]))}
+                </div>
+
+            </div>
+
+        `).join("");
+
+
+    const log =
+        document.getElementById("diagLog");
+
+
+    log.textContent = [
+
+        `DATABASE: ${dbLoaded ? "OK" : "ERROR"}`,
+
+        `SKINS: ${db.skins.length}`,
+
+        `AGENTS: ${db.agents.length}`,
+
+        `MISC: ${db.misc.length}`,
+
+        `TOTAL RECORDS: ${total}`,
+
+        `UNIQUE MARKET ITEMS: ${uniqueItems}`,
+
+        `MARKETS: ${markets.length}`,
+
+        `PRICE RECORDS: ${priceRecords}`,
+
+        `VALID PRICES: ${validPrices}`,
+
+        `REAL STORE URLS: ${urls}`,
+
+        `ITEMS WITH PRICES: ${itemsWithPrices}`,
+
+        `LAST UPDATE: ${
+            latestTimestamp
+                ? formatDate(latestTimestamp)
+                : "not available"
+        }`
+
+    ].join("\n");
+
+
+    openModal("diagnosticModal");
+
+}
+
+
+/* =========================================================
+   REFRESH
+   ========================================================= */
+
+function triggerRefresh() {
+
+    const button =
+        document.getElementById("refreshBtn");
+
+
+    button.disabled =
+        true;
+
+
+    button.innerHTML =
+        "↻ <span>Обновление...</span>";
+
+
+    showToast(
+        "Загружается свежая версия базы...",
+        "success"
+    );
+
+
+    /*
+     * The Go scraper itself runs in GitHub Actions.
+     * The browser cannot start GitHub Actions directly.
+     *
+     * This reload forces data.js to be requested with a
+     * unique query parameter, avoiding stale CDN/browser data.
+     */
+
+    setTimeout(() => {
+
+        location.reload();
+
+    }, 350);
+
+}
+
+
+/* =========================================================
+   RESET FILTERS
+   ========================================================= */
+
+function resetFilters() {
+
+    document.getElementById("search").value = "";
+
+    document.getElementById("minProfit").value = "";
+
+    document.getElementById("maxProfit").value = "";
+
+    document.getElementById("onlyLiquid").checked = true;
+
+    document.getElementById("clearSearch").style.display =
+        "none";
+
+
+    sortBy =
+        "profitPercent";
+
+    sortDirection =
+        "desc";
+
+
+    document.querySelectorAll(".sort-btn")
+        .forEach(btn => {
+
+            btn.classList.toggle(
+                "active",
+                btn.dataset.sort === "profitPercent"
+            );
+
+        });
+
+
+    scan();
+
+}
+
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+function openModal(id) {
+
+    document
+        .getElementById(id)
+        ?.classList.add("open");
+
+}
+
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        ?.classList.remove("open");
+
+}
+
+
+function closeAllModals() {
+
+    document
+        .querySelectorAll(".modal.open")
+        .forEach(modal =>
+            modal.classList.remove("open")
+        );
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message, type = "") {
+
+    const container =
+        document.getElementById("toastContainer");
+
+
+    const toast =
+        document.createElement("div");
+
+
+    toast.className =
+        `toast ${type}`;
+
+
+    toast.textContent =
+        message;
+
+
+    container.appendChild(toast);
+
+
+    setTimeout(() => {
+
+        toast.remove();
+
+    }, 3200);
+
+}
+
+
+/* =========================================================
+   FORMATTERS
+   ========================================================= */
+
+function formatMoney(value, currency = "USD") {
+
+    const number =
+        Number(value || 0);
+
+
+    if (!Number.isFinite(number)) {
+        return "$0.00";
+    }
+
+
+    const normalized =
+        String(currency || "USD").toUpperCase();
+
+
+    let symbol = "$";
+
+
+    if (normalized === "EUR") {
+        symbol = "€";
+    }
+
+    if (normalized === "GBP") {
+        symbol = "£";
+    }
+
+    if (normalized === "RUB") {
+        symbol = "₽";
+    }
+
+
+    return `${symbol}${number.toFixed(2)}`;
+
+}
+
+
+function formatPercent(value) {
+
+    const number =
+        Number(value || 0);
+
+    return `${number.toFixed(1)}%`;
+
+}
+
+
+function formatInteger(value) {
+
+    return Number(value || 0)
+        .toLocaleString("ru-RU");
+
+}
+
+
+function formatDate(date) {
+
+    return new Intl.DateTimeFormat(
+        "ru-RU",
+        {
+            dateStyle: "medium",
+            timeStyle: "short"
+        }
+    ).format(date);
+
+}
+
+
+function safeNumber(value) {
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =========================================================
+   SECURITY HELPERS
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+function escapeAttr(value) {
+
+    return escapeHtml(value)
+        .replaceAll("`", "&#096;");
+}
+
+
+/* =========================================================
+   COPY
+   ========================================================= */
+
+async function copyText(value) {
+
+    try {
+
+        await navigator.clipboard.writeText(value);
+
+        showToast(
+            "Название предмета скопировано",
+            "success"
+        );
+
+    } catch {
+
+        showToast(
+            "Не удалось скопировать",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DATABASE INFO
+   ========================================================= */
+
+function updateDatabaseInfo() {
+
+    const db =
+        getDatabase();
+
+
+    const total =
+        allItems.length;
+
+
+    const uniqueItems =
+        getUniqueMarketItems().size;
+
+
+    document.getElementById("statItems").textContent =
+        formatInteger(uniqueItems || total);
+
+
+    document.getElementById("statMarkets").textContent =
+        formatInteger(markets.length);
+
+
+    document.getElementById("databaseStatus").textContent =
+        `${formatInteger(total)} записей`;
+
+
+    document.getElementById("footerDatabase").textContent =
+        `Database: ${formatInteger(total)} records`;
+
+
+    let latest =
+        null;
+
+
+    for (const item of allItems) {
+
+        if (item.scraped_at) {
+
+            const date =
+                new Date(item.scraped_at);
+
+            if (
+                !Number.isNaN(date.getTime()) &&
+                (!latest || date > latest)
+            ) {
+                latest = date;
+            }
+
+        }
+
+
+        for (const price of item.prices || []) {
+
+            const updatedAt =
+                price.updated_at ||
+                price.updatedAt;
+
+
+            if (updatedAt) {
+
+                const date =
+                    new Date(updatedAt);
+
+                if (
+                    !Number.isNaN(date.getTime()) &&
+                    (!latest || date > latest)
+                ) {
+                    latest = date;
+                }
+
+            }
+
+        }
+
+    }
+
+
+    document.getElementById("lastUpdated").textContent =
+        latest
+            ? formatDate(latest)
+            : "Дата неизвестна";
+
+}
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+function bindEvents() {
+
+    document
+        .getElementById("scanBtn")
+        .addEventListener(
+            "click",
+            scan
+        );
+
+
+    document
+        .getElementById("refreshBtn")
+        .addEventListener(
+            "click",
+            triggerRefresh
+        );
+
+
+    document
+        .getElementById("diagnosticBtn")
+        .addEventListener(
+            "click",
+            openDiagnostics
+        );
+
+
+    document
+        .getElementById("feesBtn")
+        .addEventListener(
+            "click",
+            () => openModal("feesModal")
+        );
+
+
+    document
+        .getElementById("saveFees")
+        .addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        "#feeTable input"
+                    )
+                    .forEach(input => {
+
+                        const market =
+                            input.dataset.market;
+
+                        const type =
+                            input.dataset.type;
+
+                        const value =
+                            Number(input.value || 0);
+
+
+                        if (!fees[market]) {
+                            fees[market] = {
+                                buy: 0,
+                                sell: 0
+                            };
+                        }
+
+
+                        fees[market][type] =
+                            Math.max(
+                                0,
+                                Number.isFinite(value)
+                                    ? value
+                                    : 0
+                            );
+
+                    });
+
+
+                saveFees();
+
+                closeModal("feesModal");
+
+                scan();
+
+                showToast(
+                    "Комиссии сохранены",
+                    "success"
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("resetFees")
+        .addEventListener(
+            "click",
+            () => {
+
+                fees = {};
+
+                for (const market of markets) {
+
+                    fees[market] = {
+
+                        buy:
+                            DEFAULT_FEES?.[market]?.buy || 0,
+
+                        sell:
+                            DEFAULT_FEES?.[market]?.sell || 0
+
+                    };
+
+                }
+
+                buildFeeTable();
+
+                showToast(
+                    "Комиссии сброшены. Нажми «Сохранить».",
+                    "success"
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("search")
+        .addEventListener(
+            "input",
+            () => {
+
+                const hasText =
+                    Boolean(
+                        document
+                            .getElementById("search")
+                            .value
+                            .trim()
+                    );
+
+
+                document
+                    .getElementById("clearSearch")
+                    .style.display =
+                        hasText
+                            ? "block"
+                            : "none";
+
+
+                scheduleScan();
+
+            }
+        );
+
+
+    document
+        .getElementById("clearSearch")
+        .addEventListener(
+            "click",
+            () => {
+
+                document.getElementById("search").value = "";
+
+                document.getElementById("clearSearch").style.display =
+                    "none";
+
+                scan();
+
+                document.getElementById("search").focus();
+
+            }
+        );
+
+
+    [
+        "buyMarket",
+        "sellMarket",
+        "onlyLiquid",
+        "minProfit",
+        "maxProfit"
+    ]
+        .forEach(id => {
+
+            document
+                .getElementById(id)
+                .addEventListener(
+                    "input",
+                    scheduleScan
+                );
+
+            document
+                .getElementById(id)
+                .addEventListener(
+                    "change",
+                    scheduleScan
+                );
+
+        });
+
+
+    document
+        .querySelectorAll(".sort-btn")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const requestedSort =
+                        button.dataset.sort;
+
+
+                    if (sortBy === requestedSort) {
+
+                        sortDirection =
+                            sortDirection === "desc"
+                                ? "asc"
+                                : "desc";
+
+                    } else {
+
+                        sortBy =
+                            requestedSort;
+
+                        sortDirection =
+                            "desc";
+
+                    }
+
+
+                    document
+                        .querySelectorAll(".sort-btn")
+                        .forEach(btn =>
+                            btn.classList.toggle(
+                                "active",
+                                btn.dataset.sort === sortBy
+                            )
+                        );
+
+
+                    scan();
+
+                }
+            );
+
+        });
+
+
+    document
+        .getElementById("resultsBody")
+        .addEventListener(
+            "click",
+            event => {
+
+                const button =
+                    event.target.closest(
+                        "[data-copy]"
+                    );
+
+
+                if (!button) {
+                    return;
+                }
+
+
+                copyText(
+                    button.dataset.copy
+                );
+
+            }
+        );
+
+
+    document
+        .querySelectorAll("[data-close]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => closeModal(
+                    button.dataset.close
+                )
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(".modal")
+        .forEach(modal => {
+
+            modal.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target === modal
+                    ) {
+                        closeModal(modal.id);
+                    }
+
+                }
+            );
+
+        });
+
+
+    document
+        .addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeAllModals();
+
+                    return;
+                }
+
+
+                if (
+                    event.key === "/" &&
+                    !["INPUT", "TEXTAREA", "SELECT"].includes(
+                        document.activeElement.tagName
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    document
+                        .getElementById("search")
+                        .focus();
+
+                    return;
+                }
+
+
+                if (
+                    event.key.toLowerCase() === "r" &&
+                    !["INPUT", "TEXTAREA", "SELECT"].includes(
+                        document.activeElement.tagName
+                    )
+                ) {
+
+                    triggerRefresh();
+
+                }
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   APP INIT
+   ========================================================= */
+
+async function init() {
+
+    const dot =
+        document.getElementById("statusDot");
+
+    const status =
+        document.getElementById("statusText");
+
+
+    dot.className =
+        "status-dot loading";
+
+    status.textContent =
+        "LOADING DATABASE";
+
+
+    showLoadingState(
+        "Загрузка базы данных"
+    );
+
+
+    try {
+
+        await DATA_READY;
+
+
+        DATA =
+            window.CS2_DATA;
+
+
+        normalizeDatabase();
+
+
+        if (!allItems.length) {
+
+            throw new Error(
+                "База данных пуста"
+            );
+
+        }
+
+
+        populateMarkets();
+
+        buildFeeTable();
+
+        updateDatabaseInfo();
+
+        bindEvents();
+
+
+        document.getElementById("statItems").textContent =
+            formatInteger(
+                getUniqueMarketItems().size
             );
 
 
-          if(
-            price.has_price !== false &&
-            Number.isFinite(value) &&
-            value > 0
-          ){
+        dot.className =
+            "status-dot";
 
-            priceRecords++;
-            hasPrice = true;
-
-          }
+        status.textContent =
+            "DATABASE ONLINE";
 
 
-          if(
-            price.url &&
-            String(
-              price.url
-            ).trim()
-          ){
-
-            urlCount++;
-
-          }
-
-        }
-      );
+        document.getElementById("databaseStatus").textContent =
+            `${formatInteger(allItems.length)} записей`;
 
 
-      if(hasPrice){
-        itemsWithPrices++;
-      }
-
-    }
-  );
+        scan();
 
 
-  const uniqueItems =
-    getUniqueMarketItems();
+    } catch (error) {
 
-
-  const dataJsOk =
-    typeof window.CS2_DATA ===
-    "object";
-
-
-  const updatedDates = [];
-
-
-  allItems.forEach(
-    item => {
-
-      if(
-        item.price &&
-        item.price.updated_at
-      ){
-
-        updatedDates.push(
-          item.price.updated_at
-        );
-
-      }
-
-    }
-  );
-
-
-  let latestUpdate = "—";
-
-
-  if(updatedDates.length){
-
-    const timestamps =
-      updatedDates
-        .map(
-          value =>
-            Date.parse(value)
-        )
-        .filter(
-          value =>
-            Number.isFinite(value)
+        console.error(
+            "CS2 Market Terminal:",
+            error
         );
 
 
-    if(timestamps.length){
+        dot.className =
+            "status-dot error";
 
-      latestUpdate =
-        new Date(
-          Math.max(...timestamps)
-        ).toLocaleString(
-          "ru-RU"
+        status.textContent =
+            "DATABASE ERROR";
+
+
+        document.getElementById("databaseStatus").textContent =
+            "Ошибка загрузки";
+
+
+        showErrorState(error);
+
+        showToast(
+            "Ошибка загрузки базы данных",
+            "error"
         );
 
     }
-
-  }
-
-
-  $("diagnosticContent").innerHTML = `
-
-    <div class="diagRow">
-
-      <span>
-        data.js загружен
-      </span>
-
-      <span class="${
-        dataJsOk
-          ? "diagOk"
-          : "diagWarn"
-      }">
-
-        ${
-          dataJsOk
-            ? "✓ OK"
-            : "✕ НЕТ"
-        }
-
-      </span>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Скины
-      </span>
-
-      <strong>
-        ${skinCount.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Agents
-      </span>
-
-      <strong>
-        ${agentCount.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Misc
-      </span>
-
-      <strong>
-        ${miscCount.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Записей предметов
-      </span>
-
-      <strong>
-        ${allItems.length.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Уникальных market hash names
-      </span>
-
-      <strong>
-        ${uniqueItems.size.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Маркетплейсов
-      </span>
-
-      <strong>
-        ${markets.length.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Ценовых записей
-      </span>
-
-      <strong>
-        ${priceRecords.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Реальных URL магазинов
-      </span>
-
-      <strong class="${
-        urlCount > 0
-          ? "diagOk"
-          : "diagWarn"
-      }">
-
-        ${urlCount.toLocaleString("ru-RU")}
-
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Предметов с ценами
-      </span>
-
-      <strong>
-        ${itemsWithPrices.toLocaleString("ru-RU")}
-      </strong>
-
-    </div>
-
-
-    <div class="diagRow">
-
-      <span>
-        Последнее обновление
-      </span>
-
-      <strong>
-        ${escapeHtml(latestUpdate)}
-      </strong>
-
-    </div>
-
-  `;
-
-
-  $("diagnosticModal")
-    .classList
-    .add("show");
-}
-
-
-function closeDiagnostics(){
-
-  $("diagnosticModal")
-    .classList
-    .remove("show");
-}
-
-
-/* ============================================================
-   REFRESH
-   ============================================================ */
-
-function triggerRefresh(){
-
-  /*
-    Важно:
-
-    Браузер не может сам запустить Go-парсер.
-
-    Кнопка здесь только ПЕРЕЗАГРУЖАЕТ index.html.
-
-    Если Go уже обновил json/data.js,
-    браузер получит новую базу после reload.
-  */
-
-  const button =
-    document.querySelector(
-      ".refreshBtn"
-    );
-
-
-  if(button){
-    button.disabled = true;
-  }
-
-
-  toast(
-    "Перезагрузка локальной базы..."
-  );
-
-
-  setTimeout(
-    () => {
-
-      window.location.reload();
-
-    },
-    250
-  );
-}
-
-
-/* ============================================================
-   EVENTS
-   ============================================================ */
-
-$("search")
-  .addEventListener(
-    "input",
-    () => {
-
-      scan();
-
-    }
-  );
-
-
-$("onlyLiquid")
-  .addEventListener(
-    "change",
-    () => {
-
-      scan();
-
-    }
-  );
-
-
-$("profitMin")
-  .addEventListener(
-    "input",
-    () => {
-
-      scan();
-
-    }
-  );
-
-
-$("profitMax")
-  .addEventListener(
-    "input",
-    () => {
-
-      scan();
-
-    }
-  );
-
-
-$("sortProfit")
-  .addEventListener(
-    "click",
-    () =>
-      setSort(
-        "profitPercent"
-      )
-  );
-
-
-$("sortProfitVal")
-  .addEventListener(
-    "click",
-    () =>
-      setSort(
-        "profitVal"
-      )
-  );
-
-
-$("sortBuy")
-  .addEventListener(
-    "click",
-    () =>
-      setSort(
-        "buyPrice"
-      )
-  );
-
-
-$("sortSell")
-  .addEventListener(
-    "click",
-    () =>
-      setSort(
-        "sellPrice"
-      )
-  );
-
-
-$("sortDirection")
-  .addEventListener(
-    "click",
-    toggleDirection
-  );
-
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if(
-      event.key === "Enter" &&
-      document.activeElement ===
-      $("search")
-    ){
-
-      scan();
-
-    }
-
-
-    if(
-      event.key === "Escape"
-    ){
-
-      closeFees();
-
-      closeDiagnostics();
-
-    }
-
-  }
-);
-
-
-/* ============================================================
-   MODAL BACKDROP
-   ============================================================ */
-
-$("feeModal")
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target ===
-        $("feeModal")
-      ){
-
-        closeFees();
-
-      }
-
-    }
-  );
-
-
-$("diagnosticModal")
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target ===
-        $("diagnosticModal")
-      ){
-
-        closeDiagnostics();
-
-      }
-
-    }
-  );
-
-
-/* ============================================================
-   INIT
-   ============================================================ */
-
-function init(){
-
-  try{
-
-    normalizeDatabase();
-
-    loadFees();
-
-    fillMarkets();
-
-    buildFeeTable();
-
-
-    $("statTotal")
-      .textContent =
-        getUniqueMarketItems()
-          .size
-          .toLocaleString(
-            "ru-RU"
-          );
-
-
-    if(!allItems.length){
-
-      $("tableBody").innerHTML = `
-        <tr>
-          <td colspan="8">
-            <div class="empty">
-
-              <strong>
-                База пуста
-              </strong>
-
-              Запусти Go-парсер,
-              чтобы создать json/data.json
-              и json/data.js.
-
-            </div>
-          </td>
-        </tr>
-      `;
-
-      toast(
-        "Локальная база пуста",
-        "error"
-      );
-
-      return;
-    }
-
-
-    if(!markets.length){
-
-      $("tableBody").innerHTML = `
-        <tr>
-          <td colspan="8">
-            <div class="empty">
-
-              <strong>
-                Нет цен маркетплейсов
-              </strong>
-
-              В data.js отсутствуют
-              записи prices[].
-
-            </div>
-          </td>
-        </tr>
-      `;
-
-      toast(
-        "В базе нет цен",
-        "error"
-      );
-
-      return;
-    }
-
-
-    scan();
-
-
-  }catch(error){
-
-    console.error(
-      "Initialization error:",
-      error
-    );
-
-
-    $("tableBody").innerHTML = `
-      <tr>
-        <td colspan="8">
-          <div class="empty">
-
-            <strong>
-              Ошибка загрузки базы
-            </strong>
-
-            ${escapeHtml(
-              error.message
-            )}
-
-          </div>
-        </td>
-      </tr>
-    `;
-
-
-    toast(
-      "Ошибка загрузки локальной базы: " +
-      error.message,
-      "error"
-    );
-
-  }
 
 }
 
