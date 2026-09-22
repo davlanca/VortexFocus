@@ -1,0 +1,119 @@
+name: CS2 Database Scraper
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cs2-database-scraper
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: stable
+
+      - name: Verify Chrome
+        run: |
+          google-chrome --version || chrome --version || chromium --version
+
+      - name: Download Go dependencies
+        run: go mod download
+
+      - name: Run full scraper
+        env:
+          CI: "true"
+        run: |
+          go run . --delay=3 --workers=2
+
+      - name: Validate generated database
+        run: |
+          test -s json/data.json
+          test -s json/data.js
+
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("json/data.json").read_text(encoding="utf-8"))
+
+          if not isinstance(data, dict):
+              raise SystemExit("data.json is not an object")
+
+          for key in ("skins", "agents", "misc"):
+              if key not in data:
+                  raise SystemExit(f"Missing key: {key}")
+
+              if not isinstance(data[key], list):
+                  raise SystemExit(f"{key} is not an array")
+
+          total = sum(len(data[key]) for key in ("skins", "agents", "misc"))
+
+          print(f"Skins:  {len(data['skins'])}")
+          print(f"Agents: {len(data['agents'])}")
+          print(f"Misc:   {len(data['misc'])}")
+          print(f"Total:  {total}")
+
+          if total == 0:
+              raise SystemExit("Database is empty")
+
+          prices = 0
+          urls = 0
+
+          for category in ("skins", "agents", "misc"):
+              for item in data[category]:
+                  for price in item.get("prices", []):
+                      if price.get("has_price") is not False:
+                          try:
+                              value = float(price.get("price", 0))
+                          except:
+                              value = 0
+
+                          if value > 0:
+                              prices += 1
+
+                      if str(price.get("url", "")).strip():
+                          urls += 1
+
+          print(f"Valid prices: {prices}")
+          print(f"URLs:         {urls}")
+
+          if prices == 0:
+              raise SystemExit("No valid prices found")
+          PY
+
+      - name: Commit updated database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add json/data.json json/data.js
+
+          if git diff --cached --quiet; then
+            echo "No database changes."
+            exit 0
+          fi
+
+          git commit -m "chore: update CS2 market database"
+          git push

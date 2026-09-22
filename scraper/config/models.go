@@ -76,6 +76,7 @@ type MarketPrice struct {
 }
 
 type WearCondition string
+
 const (
 	WearFactoryNew    WearCondition = "FN"
 	WearMinimalWear   WearCondition = "MW"
@@ -83,4 +84,5 @@ const (
 	WearWellWorn      WearCondition = "WW"
 	WearBattleScarred WearCondition = "BS"
 )
+
 var AllWearConditions = []WearCondition{WearFactoryNew, WearMinimalWear, WearFieldTested, WearWellWorn, WearBattleScarred}

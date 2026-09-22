@@ -1,5 +1,6 @@
-// Package worker is the top-level orchestrator.
 package worker
+
+// Package worker is the top-level scraper orchestrator.
 
 import (
 	"context"
@@ -22,6 +23,10 @@ var (
 	seenURLs = make(map[string]bool)
 )
 
+// =============================================================
+// SEEN URL MANAGEMENT
+// =============================================================
+
 func resetSeenURLs() {
 	seenMu.Lock()
 	defer seenMu.Unlock()
@@ -30,6 +35,10 @@ func resetSeenURLs() {
 }
 
 func isSeen(url string) bool {
+	if strings.TrimSpace(url) == "" {
+		return true
+	}
+
 	seenMu.Lock()
 	defer seenMu.Unlock()
 
@@ -38,11 +47,36 @@ func isSeen(url string) bool {
 	}
 
 	seenURLs[url] = true
+
 	return false
 }
 
-// ScrapeAll runs the full scraping cycle for all categories.
-func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]config.Skin, []config.Agent, []config.Skin, error) {
+// =============================================================
+// MAIN SCRAPER
+// =============================================================
+
+// ScrapeAll runs the full scraping cycle.
+//
+// The function returns three separate collections:
+//   - skins
+//   - agents
+//   - misc
+//
+// The progress callback receives only the newly scraped batch.
+// Final results are returned once the complete run finishes.
+func ScrapeAll(
+	progress func(
+		[]config.Skin,
+		[]config.Agent,
+		[]config.Skin,
+	),
+) (
+	[]config.Skin,
+	[]config.Agent,
+	[]config.Skin,
+	error,
+) {
+
 	resetSeenURLs()
 
 	fmt.Println("[*] Initializing Chrome allocator...")
@@ -53,7 +87,9 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 	)
 	defer cancel()
 
-	browserCtx, cancel := chromedp.NewContext(allocCtx)
+	browserCtx, cancel := chromedp.NewContext(
+		allocCtx,
+	)
 	defer cancel()
 
 	browserCtx, cancel = context.WithTimeout(
@@ -62,28 +98,48 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 	)
 	defer cancel()
 
+	// =========================================================
+	// PRE-FLIGHT CHECK
+	// =========================================================
+
 	fmt.Println("[*] Performing pre-flight check...")
 
 	if err := chromedp.Run(
 		browserCtx,
-		chromedp.ActionFunc(func(ctx context.Context) error {
-			_, err := page.AddScriptToEvaluateOnNewDocument(
-				scraper.ConfigJS,
-			).Do(ctx)
 
-			return err
-		}),
+		chromedp.ActionFunc(
+			func(ctx context.Context) error {
+				_, err := page.AddScriptToEvaluateOnNewDocument(
+					scraper.ConfigJS,
+				).Do(ctx)
+
+				return err
+			},
+		),
+
 		chromedp.Navigate("about:blank"),
 	); err != nil {
+
 		return nil, nil, nil,
-			fmt.Errorf("failed to start Chrome: %w", err)
+			fmt.Errorf(
+				"failed to start Chrome: %w",
+				err,
+			)
 	}
+
+	// =========================================================
+	// RESULT STORAGE
+	// =========================================================
 
 	var (
 		allSkins  []config.Skin
 		allAgents []config.Agent
 		allMisc   []config.Skin
 	)
+
+	// =========================================================
+	// BATCH HANDLER
+	// =========================================================
 
 	handleBatch := func(items []config.Item) {
 		if len(items) == 0 {
@@ -96,60 +152,125 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 			bMisc   []config.Skin
 		)
 
-		for _, it := range items {
-			cat := strings.ToLower(it.Category)
+		for _, item := range items {
 
-			if cat == "agents" ||
-				strings.Contains(cat, "agent") {
+			category := strings.ToLower(
+				strings.TrimSpace(item.Category),
+			)
 
-				a := internal.ConvertToAgent(it)
+			// -------------------------------------------------
+			// AGENTS
+			// -------------------------------------------------
 
-				allAgents = append(allAgents, a)
-				bAgents = append(bAgents, a)
+			if category == "agents" ||
+				strings.Contains(category, "agent") {
 
-			} else if cat == "weapons" ||
-				cat == "gloves" ||
-				strings.Contains(cat, "skin") {
+				agent := internal.ConvertToAgent(item)
 
-				s := internal.ConvertToSkin(it)
+				allAgents = append(
+					allAgents,
+					agent,
+				)
 
-				allSkins = append(allSkins, s)
-				bSkins = append(bSkins, s)
+				bAgents = append(
+					bAgents,
+					agent,
+				)
 
-			} else {
-
-				m := internal.ConvertToSkin(it)
-
-				/*
-				 * Keep the item even if prices are empty.
-				 * This is useful for diagnosing pages where
-				 * discovery succeeded but price scraping failed.
-				 */
-				if len(m.Prices) == 0 &&
-					m.Price.PriceString == "" {
-
-					m.Name = it.Name
-					m.URL = it.URL
-					m.Type = it.Type
-				}
-
-				allMisc = append(allMisc, m)
-				bMisc = append(bMisc, m)
+				continue
 			}
+
+			// -------------------------------------------------
+			// WEAPONS / GLOVES / SKINS
+			// -------------------------------------------------
+
+			if category == "weapons" ||
+				category == "gloves" ||
+				strings.Contains(category, "skin") {
+
+				skin := internal.ConvertToSkin(item)
+
+				allSkins = append(
+					allSkins,
+					skin,
+				)
+
+				bSkins = append(
+					bSkins,
+					skin,
+				)
+
+				continue
+			}
+
+			// -------------------------------------------------
+			// MISC
+			// -------------------------------------------------
+
+			misc := internal.ConvertToSkin(item)
+
+			/*
+			 * Keep the item even if its price information is
+			 * empty.
+			 *
+			 * This is useful for diagnosing pages where
+			 * discovery succeeded but price extraction failed.
+			 */
+			if len(misc.Prices) == 0 &&
+				misc.Price.PriceString == "" {
+
+				misc.Name = item.Name
+				misc.URL = item.URL
+				misc.Type = item.Type
+			}
+
+			allMisc = append(
+				allMisc,
+				misc,
+			)
+
+			bMisc = append(
+				bMisc,
+				misc,
+			)
 		}
 
-		if progress != nil {
-			progress(bSkins, bAgents, bMisc)
+		// -----------------------------------------------------
+		// PROGRESS CALLBACK
+		// -----------------------------------------------------
+
+		if progress != nil &&
+			(len(bSkins) > 0 ||
+				len(bAgents) > 0 ||
+				len(bMisc) > 0) {
+
+			progress(
+				bSkins,
+				bAgents,
+				bMisc,
+			)
 		}
 	}
 
+	// =========================================================
+	// CATEGORY SELECTION
+	// =========================================================
+
 	onlySet := isAnyOnlyFlagSet()
+
+	// =========================================================
+	// WEAPONS
+	// =========================================================
 
 	if config.WeaponsOnly || !onlySet {
 		handleBatch(
 			runWeaponsFlow(browserCtx),
 		)
 	}
+
+	// =========================================================
+	// GLOVES
+	// =========================================================
 
 	if config.GlovesOnly || !onlySet {
 		handleBatch(
@@ -162,6 +283,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 		)
 	}
 
+	// =========================================================
+	// CASES
+	// =========================================================
+
 	if config.CasesOnly || !onlySet {
 		handleBatch(
 			runGenericFlow(
@@ -172,6 +297,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 			),
 		)
 	}
+
+	// =========================================================
+	// AGENTS
+	// =========================================================
 
 	if config.AgentsOnly || !onlySet {
 		handleBatch(
@@ -184,6 +313,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 		)
 	}
 
+	// =========================================================
+	// SOUVENIRS
+	// =========================================================
+
 	if config.SouvenirsOnly || !onlySet {
 		handleBatch(
 			runGenericFlow(
@@ -194,6 +327,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 			),
 		)
 	}
+
+	// =========================================================
+	// PATCHES
+	// =========================================================
 
 	if config.PatchesOnly || !onlySet {
 		handleBatch(
@@ -206,6 +343,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 		)
 	}
 
+	// =========================================================
+	// PINS
+	// =========================================================
+
 	if config.PinsOnly || !onlySet {
 		handleBatch(
 			runNestedFlow(
@@ -216,6 +357,10 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 			),
 		)
 	}
+
+	// =========================================================
+	// STICKERS
+	// =========================================================
 
 	if config.StickersOnly || !onlySet {
 		handleBatch(
@@ -228,8 +373,25 @@ func ScrapeAll(progress func([]config.Skin, []config.Agent, []config.Skin)) ([]c
 		)
 	}
 
+	// =========================================================
+	// SUMMARY
+	// =========================================================
+
+	fmt.Println("")
+	fmt.Println("========================================")
+	fmt.Println("SCRAPE SUMMARY")
+	fmt.Println("========================================")
+	fmt.Printf("Skins:  %d\n", len(allSkins))
+	fmt.Printf("Agents: %d\n", len(allAgents))
+	fmt.Printf("Misc:   %d\n", len(allMisc))
+	fmt.Println("========================================")
+
 	return allSkins, allAgents, allMisc, nil
 }
+
+// =============================================================
+// ONLY-FLAG DETECTION
+// =============================================================
 
 func isAnyOnlyFlagSet() bool {
 	return config.WeaponsOnly ||
@@ -242,9 +404,20 @@ func isAnyOnlyFlagSet() bool {
 		config.StickersOnly
 }
 
-func runWeaponsFlow(parent context.Context) []config.Item {
+// =============================================================
+// WEAPONS FLOW
+// =============================================================
+
+func runWeaponsFlow(
+	parent context.Context,
+) []config.Item {
+
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
+
+	// ---------------------------------------------------------
+	// Discover weapon pages
+	// ---------------------------------------------------------
 
 	weapons, err := discovery.Discover(
 		ictx,
@@ -258,6 +431,7 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 			"\033[31m[!]\033[0m Weapon discovery error: %v\n",
 			err,
 		)
+
 		return nil
 	}
 
@@ -268,8 +442,16 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 
 	var out []config.Item
 
-	for _, w := range weapons {
+	// ---------------------------------------------------------
+	// Process every weapon page
+	// ---------------------------------------------------------
 
+	for _, weapon := range weapons {
+
+		/*
+		 * MaxWeapons historically limits the number of scraped
+		 * skin items, not the number of weapon category pages.
+		 */
 		if config.MaxWeapons > 0 &&
 			len(out) >= config.MaxWeapons {
 			break
@@ -277,68 +459,72 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 
 		fmt.Printf(
 			"   -> Discovering skins for: %s\n",
-			w.Name,
+			weapon.Name,
 		)
 
 		skins, err := discovery.Discover(
 			ictx,
 			discovery.Options{
-				Category: w.URL,
+				Category: weapon.URL,
 			},
 		)
 
 		if err != nil {
 			fmt.Printf(
 				"\033[31m[!]\033[0m Skin discovery error for %s: %v\n",
-				w.Name,
+				weapon.Name,
 				err,
 			)
+
 			continue
 		}
 
 		fmt.Printf(
 			"      [*] Found %d skin links for %s\n",
 			len(skins),
-			w.Name,
+			weapon.Name,
 		)
 
 		if len(skins) == 0 {
 			fmt.Printf(
 				"\033[33m[?]\033[0m No skins discovered for %s (%s)\n",
-				w.Name,
-				w.URL,
+				weapon.Name,
+				weapon.URL,
 			)
+
 			continue
 		}
 
 		var opts []common.FetchOptions
 
-		for _, s := range skins {
+		// -----------------------------------------------------
+		// Build fetch batch
+		// -----------------------------------------------------
+
+		for _, skin := range skins {
 
 			if config.MaxWeapons > 0 &&
 				(len(out)+len(opts)) >= config.MaxWeapons {
 				break
 			}
 
-			/*
-			 * We only want actual skin pages here.
-			 */
-			if s.Type != "skin" {
+			// Only actual skin pages.
+			if skin.Type != "skin" {
 				continue
 			}
 
-			if isSeen(s.URL) {
+			if isSeen(skin.URL) {
 				continue
 			}
 
 			opts = append(
 				opts,
 				common.FetchOptions{
-					URL:      s.URL,
-					Name:     s.Name,
+					URL:      skin.URL,
+					Name:     skin.Name,
 					Category: "weapons",
 					HasWear:  true,
-					Weapon:   w.Name,
+					Weapon:   weapon.Name,
 				},
 			)
 		}
@@ -346,6 +532,10 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 		if len(opts) == 0 {
 			continue
 		}
+
+		// -----------------------------------------------------
+		// Fetch prices
+		// -----------------------------------------------------
 
 		results := common.FetchManyItems(
 			parent,
@@ -355,12 +545,22 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 		if len(results) == 0 {
 			fmt.Printf(
 				"\033[33m[?]\033[0m No prices scraped for %s\n",
-				w.Name,
+				weapon.Name,
 			)
+
 			continue
 		}
 
-		out = append(out, results...)
+		out = append(
+			out,
+			results...,
+		)
+
+		fmt.Printf(
+			"      [+] Scraped %d items for %s\n",
+			len(results),
+			weapon.Name,
+		)
 	}
 
 	fmt.Printf(
@@ -370,6 +570,10 @@ func runWeaponsFlow(parent context.Context) []config.Item {
 
 	return out
 }
+
+// =============================================================
+// GENERIC CATEGORY FLOW
+// =============================================================
 
 func runGenericFlow(
 	parent context.Context,
@@ -394,6 +598,7 @@ func runGenericFlow(
 			path,
 			err,
 		)
+
 		return nil
 	}
 
@@ -405,22 +610,22 @@ func runGenericFlow(
 
 	var opts []common.FetchOptions
 
-	for _, it := range found {
+	for _, item := range found {
 
 		if limit > 0 &&
 			len(opts) >= limit {
 			break
 		}
 
-		if isSeen(it.URL) {
+		if isSeen(item.URL) {
 			continue
 		}
 
 		opts = append(
 			opts,
 			common.FetchOptions{
-				URL:      it.URL,
-				Name:     it.Name,
+				URL:      item.URL,
+				Name:     item.Name,
 				Category: path,
 				Type:     itemType,
 				HasWear:  path == "gloves",
@@ -433,14 +638,35 @@ func runGenericFlow(
 			"\033[33m[?]\033[0m No scrape targets for %s\n",
 			path,
 		)
+
 		return nil
 	}
 
-	return common.FetchManyItems(
+	results := common.FetchManyItems(
 		parent,
 		opts,
 	)
+
+	fmt.Printf(
+		"[*] %s scraping produced %d items\n",
+		path,
+		len(results),
+	)
+
+	return results
 }
+
+// =============================================================
+// NESTED CATEGORY FLOW
+// =============================================================
+//
+// Used for:
+//   - collectible pins
+//   - sticker capsules
+//
+// The category contains containers/capsules, and the actual
+// collectible items are discovered inside those containers.
+// =============================================================
 
 func runNestedFlow(
 	parent context.Context,
@@ -452,7 +678,7 @@ func runNestedFlow(
 	ictx, cancel := chromedp.NewContext(parent)
 	defer cancel()
 
-	capsules, err := discovery.Discover(
+	containers, err := discovery.Discover(
 		ictx,
 		discovery.Options{
 			Category: path,
@@ -465,41 +691,56 @@ func runNestedFlow(
 			path,
 			err,
 		)
+
 		return nil
 	}
 
+	fmt.Printf(
+		"[*] %s discovery found %d containers\n",
+		path,
+		len(containers),
+	)
+
 	var all []config.Item
 
-	for _, cap := range capsules {
+	// ---------------------------------------------------------
+	// Process containers
+	// ---------------------------------------------------------
+
+	for _, container := range containers {
 
 		if limit > 0 &&
 			len(all) >= limit {
 			break
 		}
 
-		/*
-		 * 1. Scrape the capsule itself.
-		 */
-		if !isSeen(cap.URL) {
+		// =====================================================
+		// 1. SCRAPE CONTAINER ITSELF
+		// =====================================================
 
-			res, err := common.FetchItem(
+		if !isSeen(container.URL) {
+
+			results, fetchErr := common.FetchItem(
 				ictx,
 				common.FetchOptions{
-					URL:      cap.URL,
-					Name:     cap.Name,
+					URL:      container.URL,
+					Name:     container.Name,
 					Category: path,
 					Type:     itemType + " Capsule",
 				},
 			)
 
-			if err != nil {
+			if fetchErr != nil {
 				fmt.Printf(
 					"\033[33m[?]\033[0m Failed to scrape %s: %v\n",
-					cap.Name,
-					err,
+					container.Name,
+					fetchErr,
 				)
 			} else {
-				all = append(all, res...)
+				all = append(
+					all,
+					results...,
+				)
 			}
 		}
 
@@ -508,58 +749,73 @@ func runNestedFlow(
 			break
 		}
 
-		/*
-		 * 2. Scrape items inside the capsule.
-		 */
-		inside, err := discovery.Discover(
+		// =====================================================
+		// 2. DISCOVER ITEMS INSIDE CONTAINER
+		// =====================================================
+
+		inside, discoverErr := discovery.Discover(
 			ictx,
 			discovery.Options{
-				Category: cap.URL,
+				Category: container.URL,
 			},
 		)
 
-		if err != nil {
+		if discoverErr != nil {
 			fmt.Printf(
-				"\033[33m[?]\033[0m Nested discovery error for %s: %v\n",
-				cap.Name,
-				err,
+				"\033[33m[?]\033[0m Nested discovery error for %s\n",
+				container.Name,
 			)
+
 			continue
 		}
 
 		var opts []common.FetchOptions
 
-		for _, it := range inside {
+		for _, item := range inside {
 
 			if limit > 0 &&
 				(len(all)+len(opts)) >= limit {
 				break
 			}
 
-			if it.URL == cap.URL ||
-				isSeen(it.URL) {
+			if item.URL == container.URL {
 				continue
 			}
+
+			if isSeen(item.URL) {
+				continue
+			}
+
+			// -------------------------------------------------
+			// Sticker validation
+			// -------------------------------------------------
 
 			if path == "sticker-capsules" {
 
 				if !strings.Contains(
-					it.URL,
+					item.URL,
 					"/sticker-capsules/",
 				) &&
 					!strings.Contains(
-						it.URL,
+						item.URL,
 						"/stickers/",
 					) {
+
 					continue
 				}
+			}
 
-			} else if path == "collectible-pins" {
+			// -------------------------------------------------
+			// Pin validation
+			// -------------------------------------------------
+
+			if path == "collectible-pins" {
 
 				if !strings.Contains(
-					it.URL,
+					item.URL,
 					"/collectible-pins/",
 				) {
+
 					continue
 				}
 			}
@@ -567,49 +823,76 @@ func runNestedFlow(
 			opts = append(
 				opts,
 				common.FetchOptions{
-					URL:      it.URL,
-					Name:     it.Name,
+					URL:      item.URL,
+					Name:     item.Name,
 					Category: path,
 					Type:     itemType,
 				},
 			)
 		}
 
-		if len(opts) > 0 {
-			all = append(
-				all,
-				common.FetchManyItems(
-					parent,
-					opts,
-				)...,
-			)
+		if len(opts) == 0 {
+			continue
 		}
+
+		results := common.FetchManyItems(
+			parent,
+			opts,
+		)
+
+		all = append(
+			all,
+			results...,
+		)
+
+		fmt.Printf(
+			"      [+] %s: scraped %d items from %s\n",
+			path,
+			len(results),
+			container.Name,
+		)
 	}
+
+	// ---------------------------------------------------------
+	// Final safety limit
+	// ---------------------------------------------------------
 
 	if limit > 0 &&
 		len(all) > limit {
+
 		all = all[:limit]
 	}
+
+	fmt.Printf(
+		"[*] %s scraping produced %d items\n",
+		path,
+		len(all),
+	)
 
 	return all
 }
 
-// ScrapeSkinsWithProgress is kept for compatibility with main.go.
+// =============================================================
+// LEGACY COMPATIBILITY
+// =============================================================
+
+// ScrapeSkinsWithProgress is kept for compatibility with
+// older code that expects the original API.
 func ScrapeSkinsWithProgress(
 	p func([]config.Skin),
 ) ([]config.Skin, []config.Agent, error) {
 
-	s, a, m, err := ScrapeAll(
+	skins, agents, misc, err := ScrapeAll(
 		func(
-			skins []config.Skin,
-			agents []config.Agent,
-			misc []config.Skin,
+			batchSkins []config.Skin,
+			_ []config.Agent,
+			_ []config.Skin,
 		) {
 			if p != nil {
-				p(skins)
+				p(batchSkins)
 			}
 		},
 	)
 
-	return append(s, m...), a, err
+	return append(skins, misc...), agents, err
 }

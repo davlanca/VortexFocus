@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CS2 7-Market Arbitrage Terminal</title>
+<title>CS2 Market Arbitrage Terminal</title>
 
 <style>
 :root{
@@ -18,22 +18,36 @@
   --red:#ff5268;
   --blue:#5b8cff;
   --yellow:#f6c85f;
+  --purple:#d4a8ff;
 }
 
-*{ box-sizing:border-box; }
+*{box-sizing:border-box}
 
-html, body{
+html,body{
   margin:0;
   padding:0;
+  min-height:100vh;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter, Segoe UI, Arial, sans-serif;
-  min-height:100vh;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
 }
 
-button, input, select{ font:inherit; }
-button{ cursor:pointer; }
-button:disabled{ cursor:not-allowed; opacity:.55; }
+body{
+  overflow-x:hidden;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+button:disabled{
+  cursor:not-allowed;
+  opacity:.55;
+}
 
 .topbar{
   height:68px;
@@ -68,44 +82,46 @@ button:disabled{ cursor:not-allowed; opacity:.55; }
   font-weight:900;
 }
 
-.logo span{ color:var(--blue); }
+.logo span{
+  color:var(--blue);
+}
 
 .status{
   display:flex;
   align-items:center;
-  gap:12px;
-  font-size:13px;
+  gap:8px;
 }
 
-.diagBtn{
-  height:34px;
-  padding:0 12px;
-  border-radius:6px;
-  background:#1f192b;
-  border:1px solid #4a2d6b;
-  color:#d4a8ff;
-  font-size:12px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.diagBtn:hover{ border-color:#9955ee; }
-
+.diagBtn,
 .refreshBtn{
   height:34px;
   padding:0 12px;
   border-radius:6px;
-  background:var(--panel2);
-  border:1px solid var(--border);
-  color:var(--text);
   font-size:12px;
   display:flex;
   align-items:center;
   gap:6px;
 }
 
-.refreshBtn:hover{ border-color:var(--blue); }
+.diagBtn{
+  background:#1f192b;
+  border:1px solid #4a2d6b;
+  color:var(--purple);
+}
+
+.diagBtn:hover{
+  border-color:#9955ee;
+}
+
+.refreshBtn{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+.refreshBtn:hover{
+  border-color:var(--blue);
+}
 
 .controls{
   padding:18px 24px;
@@ -134,7 +150,8 @@ button:disabled{ cursor:not-allowed; opacity:.55; }
   font-weight:700;
 }
 
-select, input{
+select,
+input{
   width:100%;
   height:42px;
   background:var(--panel);
@@ -145,7 +162,10 @@ select, input{
   outline:none;
 }
 
-select:focus, input:focus{ border-color:var(--blue); }
+select:focus,
+input:focus{
+  border-color:var(--blue);
+}
 
 .primary{
   height:42px;
@@ -157,7 +177,9 @@ select:focus, input:focus{ border-color:var(--blue); }
   font-weight:800;
 }
 
-.primary:hover{ filter:brightness(1.1); }
+.primary:hover{
+  filter:brightness(1.1);
+}
 
 .secondary{
   height:42px;
@@ -166,6 +188,10 @@ select:focus, input:focus{ border-color:var(--blue); }
   padding:0 15px;
   background:var(--panel2);
   color:var(--text);
+}
+
+.secondary:hover{
+  border-color:var(--blue);
 }
 
 .filters{
@@ -177,8 +203,9 @@ select:focus, input:focus{ border-color:var(--blue); }
   align-items:end;
 }
 
-.filter{ width:140px; }
-.search{ width:280px; }
+.filter{
+  width:140px;
+}
 
 .toggleLabel{
   display:inline-flex;
@@ -196,15 +223,22 @@ select:focus, input:focus{ border-color:var(--blue); }
   font-weight:600;
 }
 
-.toggleLabel:hover{ border-color:var(--blue); }
+.toggleLabel:hover{
+  border-color:var(--blue);
+}
 
 .toggleLabel input{
   width:16px;
   height:16px;
   cursor:pointer;
+  margin:0;
 }
 
-.sortButtons{ display:flex; gap:6px; }
+.sortButtons{
+  display:flex;
+  gap:6px;
+}
+
 .sortButtons button{
   height:42px;
   border-radius:8px;
@@ -214,6 +248,11 @@ select:focus, input:focus{ border-color:var(--blue); }
   padding:0 12px;
   font-weight:600;
   transition:all .15s ease;
+}
+
+.sortButtons button:hover{
+  border-color:var(--blue);
+  color:var(--text);
 }
 
 .sortButtons button.active{
@@ -287,9 +326,14 @@ td{
   font-size:13px;
 }
 
-tr:hover td{ background:#151a23; }
+tr:hover td{
+  background:#151a23;
+}
 
-.itemName{ font-weight:700; }
+.itemName{
+  font-weight:700;
+}
+
 .itemMeta{
   margin-top:3px;
   color:var(--muted);
@@ -302,6 +346,17 @@ tr:hover td{ background:#151a23; }
   border-radius:4px;
   background:#143825;
   color:var(--green);
+  font-weight:700;
+  font-size:10px;
+  margin-right:4px;
+}
+
+.badgeStatTrak{
+  display:inline-block;
+  padding:1px 5px;
+  border-radius:4px;
+  background:#30251a;
+  color:#f6c85f;
   font-weight:700;
   font-size:10px;
   margin-right:4px;
@@ -342,6 +397,11 @@ tr:hover td{ background:#151a23; }
   transform:translateY(-1px);
 }
 
+.noUrl{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
 .price{
   font-variant-numeric:tabular-nums;
   font-weight:600;
@@ -353,8 +413,15 @@ tr:hover td{ background:#151a23; }
   margin-top:3px;
 }
 
-.profit{ color:var(--green); font-weight:800; }
-.loss{ color:var(--red); font-weight:800; }
+.profit{
+  color:var(--green);
+  font-weight:800;
+}
+
+.loss{
+  color:var(--red);
+  font-weight:800;
+}
 
 .empty{
   padding:70px 30px;
@@ -380,7 +447,9 @@ tr:hover td{ background:#151a23; }
   padding:20px;
 }
 
-.modal.show{ display:flex; }
+.modal.show{
+  display:flex;
+}
 
 .modalBox{
   width:min(900px,100%);
@@ -399,6 +468,11 @@ tr:hover td{ background:#151a23; }
   border-bottom:1px solid var(--border);
 }
 
+.modalHeader h2{
+  margin:0;
+  font-size:18px;
+}
+
 .close{
   width:34px;
   height:34px;
@@ -406,11 +480,23 @@ tr:hover td{ background:#151a23; }
   border:1px solid var(--border);
   background:var(--panel2);
   color:white;
+  font-size:20px;
 }
 
-.feeTable{ width:100%; min-width:0; }
-.feeTable th, .feeTable td{ padding:9px 12px; }
-.feeTable input{ height:34px; width:100px; }
+.feeTable{
+  width:100%;
+  min-width:0;
+}
+
+.feeTable th,
+.feeTable td{
+  padding:9px 12px;
+}
+
+.feeTable input{
+  height:34px;
+  width:100px;
+}
 
 .modalFooter{
   padding:15px 20px;
@@ -418,6 +504,33 @@ tr:hover td{ background:#151a23; }
   display:flex;
   justify-content:flex-end;
   gap:8px;
+}
+
+.diagContent{
+  padding:20px;
+}
+
+.diagRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:11px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.diagRow:last-child{
+  border-bottom:0;
+}
+
+.diagOk{
+  color:var(--green);
+  font-weight:700;
+}
+
+.diagWarn{
+  color:var(--yellow);
+  font-weight:700;
 }
 
 .toast{
@@ -433,33 +546,101 @@ tr:hover td{ background:#151a23; }
   z-index:200;
 }
 
-.toast.show{ display:block; }
-.toast.error{ border-color:var(--red); }
-.toast.success{ border-color:var(--green); }
+.toast.show{
+  display:block;
+}
+
+.toast.error{
+  border-color:var(--red);
+}
+
+.toast.success{
+  border-color:var(--green);
+}
+
+@media(max-width:1000px){
+
+  .controlGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+
+  .topbar{
+    padding:0 12px;
+  }
+
+  .topbar .logo{
+    font-size:12px;
+  }
+
+  .status{
+    gap:5px;
+  }
+
+  .diagBtn,
+  .refreshBtn{
+    padding:0 8px;
+  }
+
+  .controls,
+  .filters,
+  .stats{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .controlGrid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .tableWrap{
+    margin-left:12px;
+    margin-right:12px;
+  }
+}
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
 <header class="topbar">
+
   <div class="logo">
     <div class="logoIcon">7M</div>
-    <div>CS2 <span>7-MARKETS SCANNER</span></div>
+    <div>CS2 <span>MARKET SCANNER</span></div>
   </div>
 
   <div class="status">
+
     <button class="diagBtn" onclick="openDiagnostics()">
-      🔍 Тест 7 API
+      🔍 Диагностика
     </button>
+
     <button class="refreshBtn" onclick="triggerRefresh()">
       🔄 Обновить базы
     </button>
+
   </div>
+
 </header>
 
+
 <section class="controls">
+
 <div class="controlGrid">
+
   <div class="field">
     <label>Покупаем на</label>
     <select id="buyMarket"></select>
@@ -471,70 +652,136 @@ tr:hover td{ background:#151a23; }
   </div>
 
   <div class="field">
-    <label>Поиск скина (Живой точечный опрос)</label>
-    <input id="search" type="text" placeholder="AK-47 | Redline (Field-Tested)...">
+    <label>Поиск скина</label>
+    <input
+      id="search"
+      type="text"
+      placeholder="AK-47 | Redline..."
+    >
   </div>
 
-  <div style="display:flex; gap:8px;">
-    <button class="secondary" onclick="openFees()">⚙ Комиссии</button>
-    <button class="primary" id="scanButton" onclick="scan()">СКАНИРОВАТЬ</button>
+  <div style="display:flex;gap:8px;">
+
+    <button class="secondary" onclick="openFees()">
+      ⚙ Комиссии
+    </button>
+
+    <button class="primary" id="scanButton" onclick="scan()">
+      СКАНИРОВАТЬ
+    </button>
+
   </div>
+
 </div>
+
 </section>
 
+
 <section class="filters">
+
   <label class="toggleLabel">
-    <input id="onlyLiquid" type="checkbox" onchange="scan()">
+    <input id="onlyLiquid" type="checkbox">
     <span>🔥 Только ликвидные / Реальные сделки</span>
   </label>
 
+
   <div class="field filter">
+
     <label>Профит % от</label>
-    <input id="profitMin" type="number" step="0.1" placeholder="0">
+
+    <input
+      id="profitMin"
+      type="number"
+      step="0.1"
+      placeholder="0"
+    >
+
   </div>
+
+
   <div class="field filter">
+
     <label>Профит % до</label>
-    <input id="profitMax" type="number" step="0.1" placeholder="∞">
+
+    <input
+      id="profitMax"
+      type="number"
+      step="0.1"
+      placeholder="∞"
+    >
+
   </div>
+
 
   <div class="field">
-    <label>Сортировка (Клик = мгновенно)</label>
+
+    <label>Сортировка</label>
+
     <div class="sortButtons">
-      <button id="sortProfit" class="active" onclick="setSort('profitPercent')">PROFIT %</button>
-      <button id="sortProfitVal" onclick="setSort('profitVal')">PROFIT (СУММА)</button>
-      <button id="sortBuy" onclick="setSort('buyPrice')">ПОКУПКА</button>
-      <button id="sortSell" onclick="setSort('sellPrice')">ПРОДАЖА</button>
-      <button id="sortDirection" onclick="toggleDirection()">↓</button>
+
+      <button id="sortProfit" class="active">
+        PROFIT %
+      </button>
+
+      <button id="sortProfitVal">
+        PROFIT (СУММА)
+      </button>
+
+      <button id="sortBuy">
+        ПОКУПКА
+      </button>
+
+      <button id="sortSell">
+        ПРОДАЖА
+      </button>
+
+      <button id="sortDirection">
+        ↓
+      </button>
+
     </div>
+
   </div>
+
 </section>
 
+
 <section class="stats">
+
   <div class="stat">
     <div class="statLabel">Связок найдено</div>
     <div class="statValue" id="statCount">0</div>
   </div>
+
   <div class="stat">
     <div class="statLabel">Лучший %</div>
     <div class="statValue profit" id="statBestPercent">—</div>
   </div>
+
   <div class="stat">
     <div class="statLabel">Лучший профит</div>
     <div class="statValue profit" id="statBestVal">—</div>
   </div>
+
   <div class="stat">
     <div class="statLabel">Средний %</div>
     <div class="statValue" id="statAverage">—</div>
   </div>
+
   <div class="stat">
     <div class="statLabel">База предметов</div>
     <div class="statValue" id="statTotal">0</div>
   </div>
+
 </section>
 
+
 <div class="tableWrap">
+
 <table>
+
 <thead>
+
 <tr>
   <th>Предмет</th>
   <th>Покупаю (Где)</th>
@@ -545,288 +792,2821 @@ tr:hover td{ background:#151a23; }
   <th>Чистый профит</th>
   <th>Профит %</th>
 </tr>
+
 </thead>
+
 <tbody id="tableBody">
+
 <tr>
 <td colspan="8">
+
 <div class="empty">
-<strong>Таблица готова к сканированию</strong>
-Выберите маркетплейсы покупки и продажи и нажмите «СКАНИРОВАТЬ».
+
+<strong>Загрузка локальной базы...</strong>
+
+Ожидание json/data.js
+
 </div>
+
 </td>
 </tr>
+
 </tbody>
+
 </table>
+
 </div>
 
 </div>
+
+
+<!-- COMMISSION MODAL -->
 
 <div class="modal" id="feeModal">
+
 <div class="modalBox">
+
 <div class="modalHeader">
+
 <h2>Комиссии магазинов</h2>
+
 <button class="close" onclick="closeFees()">×</button>
+
 </div>
+
+
 <table class="feeTable">
+
 <thead>
+
 <tr>
 <th>Магазин</th>
 <th>Продажа %</th>
 <th>Покупка %</th>
 <th>Депозит %</th>
 </tr>
+
 </thead>
+
 <tbody id="feeBody"></tbody>
+
 </table>
+
+
 <div class="modalFooter">
-<button class="secondary" onclick="closeFees()">Отмена</button>
-<button class="primary" onclick="saveFees()">СОХРАНИТЬ</button>
+
+<button class="secondary" onclick="closeFees()">
+Отмена
+</button>
+
+<button class="primary" onclick="saveFees()">
+СОХРАНИТЬ
+</button>
+
 </div>
+
 </div>
+
 </div>
+
+
+<!-- DIAGNOSTIC MODAL -->
+
+<div class="modal" id="diagnosticModal">
+
+<div class="modalBox">
+
+<div class="modalHeader">
+
+<h2>Диагностика локальной базы</h2>
+
+<button class="close" onclick="closeDiagnostics()">×</button>
+
+</div>
+
+<div class="diagContent" id="diagnosticContent"></div>
+
+<div class="modalFooter">
+
+<button class="primary" onclick="closeDiagnostics()">
+ЗАКРЫТЬ
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 
 <div id="toast" class="toast"></div>
 
+
+<!--
+  main.go генерирует этот файл автоматически:
+
+      json/data.js
+
+  Внутри:
+
+      window.CS2_DATA = {...};
+
+  Благодаря этому index.html можно открыть обычным
+  двойным кликом через file://.
+-->
+
+<script src="./json/data.js"></script>
+
+
 <script>
+"use strict";
+
+
+/* ============================================================
+   STATE
+   ============================================================ */
+
+let DATA = null;
+let allItems = [];
 let markets = [];
 let fees = {};
 let sortBy = "profitPercent";
 let sortDirection = "desc";
 let lastResults = [];
-let scanRequestId = 0;
+
+
+/* ============================================================
+   DOM
+   ============================================================ */
 
 const $ = id => document.getElementById(id);
 
-function getMarketUrl(marketName, skinName){
-  const m = String(marketName || "").trim().toUpperCase();
-  const nameEnc = encodeURIComponent(skinName || "");
 
-  if(m.includes("STEAM")) return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
-  if(m.includes("MARKET.CSGO")) return `https://market.csgo.com/ru/?search=${nameEnc}`;
-  if(m.includes("LIS-SKINS")) return `https://lis-skins.ru/market/csgo/?search=${nameEnc}`;
-  if(m.includes("AVAN.MARKET")) return `https://avan.market/`;
-  if(m.includes("LOOT.FARM")) return `https://loot.farm/#skin=730_${nameEnc}`;
-  if(m.includes("CS.MONEY")) return `https://cs.money/market/buy/?search=${nameEnc}`;
-  if(m.includes("BUFF.163")) return `https://buff.163.com/market/csgo#tab=selling&page_num=1&search=${nameEnc}`;
+/* ============================================================
+   DEFAULT FEES
+   ============================================================ */
 
-  return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
+const DEFAULT_FEES = {
+
+  "Market.CSGO":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "LIS-SKINS":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "AVAN.MARKET":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "Steam":{
+    sell:13,
+    buy:0,
+    deposit:0
+  },
+
+  "LOOT.FARM":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "CS.MONEY":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "BUFF.163":{
+    sell:2.5,
+    buy:0,
+    deposit:0
+  },
+
+  "BUFF Market":{
+    sell:2.5,
+    buy:0,
+    deposit:0
+  },
+
+  "Skinport":{
+    sell:12,
+    buy:0,
+    deposit:0
+  },
+
+  "DMarket":{
+    sell:2.5,
+    buy:0,
+    deposit:0
+  },
+
+  "Tradeit":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "PirateSwap":{
+    sell:0,
+    buy:0,
+    deposit:0
+  },
+
+  "SkinSwap":{
+    sell:0,
+    buy:0,
+    deposit:0
+  }
+};
+
+
+/* ============================================================
+   MARKET NORMALIZATION
+   ============================================================ */
+
+function normalizeMarketName(name){
+
+  const value =
+    String(name || "")
+      .trim();
+
+  const upper =
+    value.toUpperCase();
+
+  const aliases = {
+
+    "MARKET.CSGO":"Market.CSGO",
+
+    "STEAM":"Steam",
+
+    "STEAM MARKET":"Steam",
+
+    "SKINPORT.COM":"Skinport",
+
+    "SKINPORT":"Skinport",
+
+    "CS.MONEY":"CS.MONEY",
+
+    "LIS-SKINS":"LIS-SKINS",
+
+    "BUFF.163":"BUFF.163",
+
+    "BUFF MARKET":"BUFF Market",
+
+    "BUFF.MARKET":"BUFF Market",
+
+    "DMARKET":"DMarket",
+
+    "TRADEIT":"Tradeit",
+
+    "PIRATESWAP":"PirateSwap",
+
+    "SKINSWAP":"SkinSwap"
+
+  };
+
+  return aliases[upper] || value;
 }
+
+
+/* ============================================================
+   FORMATTERS
+   ============================================================ */
 
 function formatPrice(value){
-  if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
-  return "$ " + Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  if(
+    value === null ||
+    value === undefined ||
+    !Number.isFinite(Number(value))
+  ){
+    return "—";
+  }
+
+  return "$ " +
+    Number(value).toLocaleString(
+      "ru-RU",
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    );
 }
+
 
 function percent(value){
-  if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
-  return Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
+
+  if(
+    value === null ||
+    value === undefined ||
+    !Number.isFinite(Number(value))
+  ){
+    return "—";
+  }
+
+  return Number(value).toLocaleString(
+    "ru-RU",
+    {
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }
+  ) + "%";
 }
 
-function toast(message, type="success"){
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+function toast(message,type="success"){
+
   const el = $("toast");
+
   el.textContent = message;
-  el.className = "toast show " + type;
-  clearTimeout(window.toastTimer);
-  window.toastTimer = setTimeout(()=> el.className = "toast", 5000);
+
+  el.className =
+    "toast show " + type;
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+    setTimeout(
+      () => {
+        el.className = "toast";
+      },
+      4500
+    );
 }
 
-function openDiagnostics(){
-  window.open("/api/diagnostic", "_blank");
-}
+
+/* ============================================================
+   ESCAPE
+   ============================================================ */
 
 function escapeHtml(value){
+
   return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
 
-function buildFeeTable(){
-  $("feeBody").innerHTML = markets.map(market => {
-    const fee = fees[market] || { sell: 0, buy: 0, deposit: 0 };
-    return `<tr>
-      <td>${escapeHtml(market)}</td>
-      <td><input data-market="${escapeHtml(market)}" data-fee="sell" type="number" min="0" step="0.01" value="${fee.sell}"></td>
-      <td><input data-market="${escapeHtml(market)}" data-fee="buy" type="number" min="0" step="0.01" value="${fee.buy}"></td>
-      <td><input data-market="${escapeHtml(market)}" data-fee="deposit" type="number" min="0" step="0.01" value="${fee.deposit}"></td>
-    </tr>`;
-  }).join("");
+
+/* ============================================================
+   DATABASE
+   ============================================================ */
+
+function getDatabase(){
+
+  if(
+    typeof window.CS2_DATA === "object" &&
+    window.CS2_DATA !== null
+  ){
+    return window.CS2_DATA;
+  }
+
+  return {
+    skins:[],
+    agents:[],
+    misc:[]
+  };
 }
 
-function openFees(){
-  buildFeeTable();
-  $("feeModal").classList.add("show");
-}
 
-function closeFees(){
-  $("feeModal").classList.remove("show");
-}
+function normalizeDatabase(){
 
-async function saveFees(){
-  const nextFees = {};
-  document.querySelectorAll("#feeBody input[data-market]").forEach(input => {
-    const market = input.dataset.market;
-    const type = input.dataset.fee;
-    nextFees[market] ||= { sell: 0, buy: 0, deposit: 0 };
-    nextFees[market][type] = Number(input.value) || 0;
+  DATA = getDatabase();
+
+  const skins =
+    Array.isArray(DATA.skins)
+      ? DATA.skins
+      : [];
+
+  const agents =
+    Array.isArray(DATA.agents)
+      ? DATA.agents
+      : [];
+
+  const misc =
+    Array.isArray(DATA.misc)
+      ? DATA.misc
+      : [];
+
+
+  allItems = [
+
+    ...skins.map(item => ({
+      ...item,
+      __category:"skin"
+    })),
+
+    ...agents.map(item => ({
+      ...item,
+      __category:"agent"
+    })),
+
+    ...misc.map(item => ({
+      ...item,
+      __category:"misc"
+    }))
+
+  ];
+
+
+  const marketSet =
+    new Set();
+
+
+  allItems.forEach(item => {
+
+    if(!Array.isArray(item.prices)){
+      return;
+    }
+
+    item.prices.forEach(price => {
+
+      if(
+        !price ||
+        price.has_price === false ||
+        !price.market
+      ){
+        return;
+      }
+
+      marketSet.add(
+        normalizeMarketName(
+          price.market
+        )
+      );
+
+    });
+
   });
 
+
+  markets =
+    [...marketSet].sort(
+      (a,b) =>
+        a.localeCompare(
+          b,
+          "ru",
+          {
+            sensitivity:"base"
+          }
+        )
+    );
+}
+
+
+/* ============================================================
+   FEES
+   ============================================================ */
+
+function loadFees(){
+
+  fees = {};
+
+  Object.entries(
+    DEFAULT_FEES
+  ).forEach(
+    ([market,value]) => {
+
+      fees[market] = {
+        ...value
+      };
+
+    }
+  );
+
+
   try{
-    const response = await fetch("/api/fees", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fees: nextFees })
-    });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось сохранить комиссии");
-    fees = data.fees || nextFees;
-    closeFees();
-    toast("Комиссии сохранены");
+
+    const raw =
+      localStorage.getItem(
+        "cs2_market_fees"
+      );
+
+    if(!raw){
+      return;
+    }
+
+    const stored =
+      JSON.parse(raw);
+
+    if(
+      !stored ||
+      typeof stored !== "object"
+    ){
+      return;
+    }
+
+
+    Object.entries(stored)
+      .forEach(
+        ([market,value]) => {
+
+          if(
+            !value ||
+            typeof value !== "object"
+          ){
+            return;
+          }
+
+          fees[market] = {
+
+            sell:
+              Number(value.sell) || 0,
+
+            buy:
+              Number(value.buy) || 0,
+
+            deposit:
+              Number(value.deposit) || 0
+
+          };
+
+        }
+      );
+
   }catch(error){
-    toast(error.message, "error");
+
+    console.warn(
+      "Ошибка загрузки комиссий:",
+      error
+    );
+
   }
 }
 
-async function triggerRefresh(){
-  const button = document.querySelector(".refreshBtn");
-  if(button) button.disabled = true;
+
+function saveFees(){
+
+  const nextFees = {};
+
+  document
+    .querySelectorAll(
+      "#feeBody input[data-market]"
+    )
+    .forEach(
+      input => {
+
+        const market =
+          input.dataset.market;
+
+        const type =
+          input.dataset.fee;
+
+        if(!nextFees[market]){
+
+          nextFees[market] = {
+            sell:0,
+            buy:0,
+            deposit:0
+          };
+
+        }
+
+        nextFees[market][type] =
+          Number(input.value) || 0;
+
+      }
+    );
+
+
+  fees = nextFees;
+
+
   try{
-    const response = await fetch("/api/refresh", { method: "POST" });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось обновить базы");
-    $("statTotal").textContent = Number(data.itemsCount || 0).toLocaleString("ru-RU");
-    toast(`Базы обновлены: ${Number(data.itemsCount || 0).toLocaleString("ru-RU")} предметов`);
+
+    localStorage.setItem(
+      "cs2_market_fees",
+      JSON.stringify(fees)
+    );
+
   }catch(error){
-    toast(error.message, "error");
-  }finally{
-    if(button) button.disabled = false;
-  }
-}
 
-function setSort(nextSort){
-  sortBy = nextSort;
-  ["sortProfit", "sortProfitVal", "sortBuy", "sortSell"].forEach(id => $(id).classList.remove("active"));
-  const activeId = { profitPercent: "sortProfit", profitVal: "sortProfitVal", buyPrice: "sortBuy", sellPrice: "sortSell" }[nextSort];
-  if(activeId) $(activeId).classList.add("active");
-  if(lastResults.length) renderResults(lastResults);
-  else scan();
-}
+    console.warn(
+      "Ошибка сохранения комиссий:",
+      error
+    );
 
-function toggleDirection(){
-  sortDirection = sortDirection === "desc" ? "asc" : "desc";
-  $("sortDirection").textContent = sortDirection === "desc" ? "↓" : "↑";
-  if(lastResults.length) renderResults(lastResults);
-  else scan();
-}
-
-function renderResults(results){
-  const body = $("tableBody");
-  if(!results.length){
-    body.innerHTML = `<tr><td colspan="8"><div class="empty"><strong>Связки не найдены</strong>Проверьте выбранные магазины или параметры фильтра.</div></td></tr>`;
-  }else{
-    body.innerHTML = results.map(item => {
-      const itemName = escapeHtml(item.market_name);
-      const buyUrl = item.buyUrl || getMarketUrl(item.buyMarket, item.market_name);
-      const sellUrl = item.sellUrl || getMarketUrl(item.sellMarket, item.market_name);
-      return `<tr>
-        <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div></td>
-        <td><a class="marketLinkBtn" href="${buyUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.buyMarket)}</a><div class="itemMeta">${escapeHtml(item.buySource)}</div></td>
-        <td class="price">${formatPrice(item.buyPrice)}</td>
-        <td><a class="marketLinkBtn marketLinkBtnSell" href="${sellUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.sellMarket)}</a><div class="itemMeta">${escapeHtml(item.sellSource)}</div></td>
-        <td class="price">${formatPrice(item.sellPrice)}</td>
-        <td class="price">${formatPrice(item.sellNet)}</td>
-        <td class="${item.profitVal >= 0 ? "profit" : "loss"}">${formatPrice(item.profitVal)}</td>
-        <td class="${item.profitPercent >= 0 ? "profit" : "loss"}">${percent(item.profitPercent)}</td>
-      </tr>`;
-    }).join("");
   }
 
-  $("statCount").textContent = results.length.toLocaleString("ru-RU");
-  $("statBestPercent").textContent = results.length ? percent(Math.max(...results.map(item => item.profitPercent))) : "—";
-  $("statBestVal").textContent = results.length ? formatPrice(Math.max(...results.map(item => item.profitVal)), results[0].sellCurrency) : "—";
-  $("statAverage").textContent = results.length ? percent(results.reduce((sum, item) => sum + item.profitPercent, 0) / results.length) : "—";
+
+  closeFees();
+
+  scan();
+
+  toast(
+    "Комиссии сохранены"
+  );
 }
 
-function sortResults(results){
-  const direction = sortDirection === "asc" ? 1 : -1;
-  return [...results].sort((left, right) => (Number(left[sortBy]) - Number(right[sortBy])) * direction);
+
+function getFee(market){
+
+  return fees[market] || {
+    sell:0,
+    buy:0,
+    deposit:0
+  };
 }
 
-async function scan(){
-  const button = $("scanButton");
-  const requestId = ++scanRequestId;
-  if(button) button.disabled = true;
-  try{
-    const response = await fetch("/api/arbitrage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        buyMarket: $("buyMarket").value,
-        sellMarket: $("sellMarket").value,
-        search: $("search").value,
-        onlyLiquid: $("onlyLiquid").checked,
-        minProfit: $("profitMin").value,
-        maxProfit: $("profitMax").value,
-        sortBy,
-        sortDirection
-      })
-    });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Ошибка сканирования");
-    if(requestId !== scanRequestId) return;
-    lastResults = sortResults(data.results || []);
-    renderResults(lastResults);
-    $("statTotal").textContent = Number(data.totalItems || 0).toLocaleString("ru-RU");
-  }catch(error){
-    toast(error.message, "error");
-  }finally{
-    if(button && requestId === scanRequestId) button.disabled = false;
+
+/* ============================================================
+   FEE TABLE
+   ============================================================ */
+
+function buildFeeTable(){
+
+  const body =
+    $("feeBody");
+
+
+  if(!markets.length){
+
+    body.innerHTML = `
+      <tr>
+        <td colspan="4">
+          <div class="empty">
+            В базе пока нет маркетплейсов.
+          </div>
+        </td>
+      </tr>
+    `;
+
+    return;
   }
+
+
+  body.innerHTML =
+    markets.map(
+      market => {
+
+        const fee =
+          getFee(market);
+
+
+        return `
+          <tr>
+
+            <td>
+              ${escapeHtml(market)}
+            </td>
+
+            <td>
+              <input
+                data-market="${escapeHtml(market)}"
+                data-fee="sell"
+                type="number"
+                min="0"
+                step="0.01"
+                value="${Number(fee.sell) || 0}"
+              >
+            </td>
+
+            <td>
+              <input
+                data-market="${escapeHtml(market)}"
+                data-fee="buy"
+                type="number"
+                min="0"
+                step="0.01"
+                value="${Number(fee.buy) || 0}"
+              >
+            </td>
+
+            <td>
+              <input
+                data-market="${escapeHtml(market)}"
+                data-fee="deposit"
+                type="number"
+                min="0"
+                step="0.01"
+                value="${Number(fee.deposit) || 0}"
+              >
+            </td>
+
+          </tr>
+        `;
+
+      }
+    ).join("");
 }
 
-async function init(){
-  try{
-    const response = await fetch("/api/config");
-    const config = await response.json();
-    markets = config.markets || [];
-    fees = config.fees || {};
 
-    fillMarkets();
-    buildFeeTable();
+function openFees(){
 
-    $("statTotal").textContent = Number(config.totalItems || 0).toLocaleString("ru-RU");
-  }catch(error){
-    toast(error.message, "error");
-  }
+  buildFeeTable();
+
+  $("feeModal")
+    .classList
+    .add("show");
 }
+
+
+function closeFees(){
+
+  $("feeModal")
+    .classList
+    .remove("show");
+}
+
+
+/* ============================================================
+   MARKETS
+   ============================================================ */
 
 function fillMarkets(){
-  const buy = $("buyMarket");
-  const sell = $("sellMarket");
+
+  const buy =
+    $("buyMarket");
+
+  const sell =
+    $("sellMarket");
+
+
   buy.innerHTML = "";
   sell.innerHTML = "";
 
-  markets.forEach(m =>{
-    const oB = document.createElement("option");
-    oB.value = m; oB.textContent = `${m} ($)`;
-    buy.appendChild(oB);
 
-    const oS = document.createElement("option");
-    oS.value = m; oS.textContent = `${m} ($)`;
-    sell.appendChild(oS);
-  });
+  markets.forEach(
+    market => {
 
-  const savedBuy = localStorage.getItem("buyMarket");
-  const savedSell = localStorage.getItem("sellMarket");
-  buy.value = markets.includes(savedBuy) ? savedBuy : (markets[0] || "");
-  sell.value = markets.includes(savedSell) && savedSell !== buy.value
-    ? savedSell
-    : (markets.find(market => market !== buy.value) || "");
+      const buyOption =
+        document.createElement(
+          "option"
+        );
+
+      buyOption.value =
+        market;
+
+      buyOption.textContent =
+        `${market} ($)`;
+
+      buy.appendChild(
+        buyOption
+      );
+
+
+      const sellOption =
+        document.createElement(
+          "option"
+        );
+
+      sellOption.value =
+        market;
+
+      sellOption.textContent =
+        `${market} ($)`;
+
+      sell.appendChild(
+        sellOption
+      );
+
+    }
+  );
+
+
+  let savedBuy = null;
+  let savedSell = null;
+
+
+  try{
+
+    savedBuy =
+      localStorage.getItem(
+        "buyMarket"
+      );
+
+    savedSell =
+      localStorage.getItem(
+        "sellMarket"
+      );
+
+  }catch(error){}
+
+
+  buy.value =
+    markets.includes(savedBuy)
+      ? savedBuy
+      : (
+          markets[0] || ""
+        );
+
+
+  sell.value =
+    markets.includes(savedSell) &&
+    savedSell !== buy.value
+
+      ? savedSell
+
+      : (
+          markets.find(
+            market =>
+              market !== buy.value
+          ) || ""
+        );
+
+
+  buy.addEventListener(
+    "change",
+    () => {
+
+      try{
+
+        localStorage.setItem(
+          "buyMarket",
+          buy.value
+        );
+
+      }catch(error){}
+
+      scan();
+
+    }
+  );
+
+
+  sell.addEventListener(
+    "change",
+    () => {
+
+      try{
+
+        localStorage.setItem(
+          "sellMarket",
+          sell.value
+        );
+
+      }catch(error){}
+
+      scan();
+
+    }
+  );
 }
 
+
+/* ============================================================
+   PRICE ENTRIES
+   ============================================================ */
+
+function getPriceEntries(
+  item,
+  market
+){
+
+  if(
+    !item ||
+    !Array.isArray(item.prices)
+  ){
+    return [];
+  }
+
+
+  const wantedMarket =
+    normalizeMarketName(
+      market
+    );
+
+
+  return item.prices
+    .filter(
+      price => {
+
+        if(!price){
+          return false;
+        }
+
+        if(
+          normalizeMarketName(
+            price.market
+          ) !== wantedMarket
+        ){
+          return false;
+        }
+
+        if(price.has_price === false){
+          return false;
+        }
+
+        const value =
+          Number(price.price);
+
+
+        if(
+          !Number.isFinite(value) ||
+          value <= 0
+        ){
+          return false;
+        }
+
+        return true;
+      }
+    );
+}
+
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+function matchesSearch(
+  item,
+  search
+){
+
+  search =
+    String(search || "")
+      .trim()
+      .toLowerCase();
+
+
+  if(!search){
+    return true;
+  }
+
+
+  const haystack = [
+
+    item.name,
+
+    item.weapon,
+
+    item.collection,
+
+    item.rarity,
+
+    item.type,
+
+    item.affiliation,
+
+    item.side
+
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+
+  return haystack.includes(
+    search
+  );
+}
+
+
+/* ============================================================
+   LIQUIDITY
+   ============================================================ */
+
+function isLiquid(
+  price
+){
+
+  if(!price){
+    return false;
+  }
+
+  if(price.has_price === false){
+    return false;
+  }
+
+  return (
+    Number(price.price) > 0
+  );
+}
+
+
+/* ============================================================
+   WEAR
+   ============================================================ */
+
+const WEAR_NAMES = {
+
+  FN:"Factory New",
+
+  MW:"Minimal Wear",
+
+  FT:"Field-Tested",
+
+  WW:"Well-Worn",
+
+  BS:"Battle-Scarred"
+
+};
+
+
+function getWearName(wear){
+
+  return (
+    WEAR_NAMES[
+      String(wear || "")
+        .toUpperCase()
+    ] ||
+    wear ||
+    ""
+  );
+}
+
+
+/* ============================================================
+   ITEM NAME
+   ============================================================ */
+
+function getBaseItemName(item){
+
+  let name =
+    String(
+      item.name || ""
+    ).trim();
+
+
+  /*
+    Some scraper records already contain:
+
+      AK-47 | Redline
+
+    while others may have:
+
+      weapon = AK-47
+      name   = Redline
+  */
+
+  if(
+    !name.includes("|") &&
+    item.weapon &&
+    String(item.weapon).trim()
+  ){
+
+    name =
+      `${String(item.weapon).trim()} | ${name}`;
+
+  }
+
+
+  return name || "Unknown Item";
+}
+
+
+function getMarketHashName(
+  item,
+  wear
+){
+
+  const base =
+    getBaseItemName(item);
+
+
+  const statTrak =
+    String(
+      item.type || ""
+    ).toLowerCase()
+      .includes("stattrak");
+
+
+  let result =
+    statTrak
+      ? `StatTrak™ ${base}`
+      : base;
+
+
+  if(wear){
+
+    result +=
+      ` (${getWearName(wear)})`;
+
+  }
+
+
+  return result;
+}
+
+
+/* ============================================================
+   UNIQUE ITEM COUNT
+   ============================================================ */
+
+function getUniqueMarketItems(){
+
+  const set =
+    new Set();
+
+
+  allItems.forEach(
+    item => {
+
+      if(
+        !Array.isArray(item.prices)
+      ){
+        return;
+      }
+
+
+      item.prices.forEach(
+        price => {
+
+          if(
+            !price ||
+            price.has_price === false
+          ){
+            return;
+          }
+
+
+          const value =
+            Number(price.price);
+
+
+          if(
+            !Number.isFinite(value) ||
+            value <= 0
+          ){
+            return;
+          }
+
+
+          const wear =
+            String(
+              price.wear || ""
+            ).toUpperCase();
+
+
+          set.add(
+            getMarketHashName(
+              item,
+              wear
+            )
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  return set;
+}
+
+
+/* ============================================================
+   ARBITRAGE
+   ============================================================ */
+
+function buildResults(){
+
+  const buyMarket =
+    $("buyMarket").value;
+
+  const sellMarket =
+    $("sellMarket").value;
+
+  const search =
+    $("search").value;
+
+  const onlyLiquid =
+    $("onlyLiquid").checked;
+
+
+  const minRaw =
+    $("profitMin").value.trim();
+
+  const maxRaw =
+    $("profitMax").value.trim();
+
+
+  const minProfit =
+    minRaw === ""
+      ? -Infinity
+      : Number(minRaw);
+
+
+  const maxProfit =
+    maxRaw === ""
+      ? Infinity
+      : Number(maxRaw);
+
+
+  const results = [];
+
+
+  if(
+    !buyMarket ||
+    !sellMarket ||
+    buyMarket === sellMarket
+  ){
+
+    return results;
+
+  }
+
+
+  allItems.forEach(
+    item => {
+
+      if(
+        !matchesSearch(
+          item,
+          search
+        )
+      ){
+        return;
+      }
+
+
+      const buyPrices =
+        getPriceEntries(
+          item,
+          buyMarket
+        );
+
+
+      const sellPrices =
+        getPriceEntries(
+          item,
+          sellMarket
+        );
+
+
+      if(
+        !buyPrices.length ||
+        !sellPrices.length
+      ){
+        return;
+      }
+
+
+      /*
+        For skins compare exactly the same wear.
+
+        For non-wear items compare the cheapest
+        available price on each market.
+      */
+
+      const hasWear =
+        buyPrices.some(
+          price => price.wear
+        ) ||
+        sellPrices.some(
+          price => price.wear
+        );
+
+
+      const combinations = [];
+
+
+      if(hasWear){
+
+        const sellByWear =
+          new Map();
+
+
+        sellPrices.forEach(
+          sell => {
+
+            const wear =
+              String(
+                sell.wear || ""
+              ).toUpperCase();
+
+
+            if(!wear){
+              return;
+            }
+
+
+            const old =
+              sellByWear.get(
+                wear
+              );
+
+
+            if(
+              !old ||
+              Number(sell.price) <
+              Number(old.price)
+            ){
+
+              sellByWear.set(
+                wear,
+                sell
+              );
+
+            }
+
+          }
+        );
+
+
+        buyPrices.forEach(
+          buy => {
+
+            const wear =
+              String(
+                buy.wear || ""
+              ).toUpperCase();
+
+
+            if(!wear){
+              return;
+            }
+
+
+            const sell =
+              sellByWear.get(
+                wear
+              );
+
+
+            if(!sell){
+              return;
+            }
+
+
+            combinations.push({
+              buy,
+              sell,
+              wear
+            });
+
+          }
+        );
+
+      }else{
+
+        const buy =
+          [...buyPrices]
+            .sort(
+              (a,b) =>
+                Number(a.price) -
+                Number(b.price)
+            )[0];
+
+
+        const sell =
+          [...sellPrices]
+            .sort(
+              (a,b) =>
+                Number(a.price) -
+                Number(b.price)
+            )[0];
+
+
+        if(buy && sell){
+
+          combinations.push({
+            buy,
+            sell,
+            wear:""
+          });
+
+        }
+
+      }
+
+
+      combinations.forEach(
+        pair => {
+
+          const buyPrice =
+            Number(pair.buy.price);
+
+          const sellPrice =
+            Number(pair.sell.price);
+
+
+          if(
+            !Number.isFinite(buyPrice) ||
+            !Number.isFinite(sellPrice) ||
+            buyPrice <= 0 ||
+            sellPrice <= 0
+          ){
+            return;
+          }
+
+
+          if(onlyLiquid){
+
+            if(
+              !isLiquid(pair.buy) ||
+              !isLiquid(pair.sell)
+            ){
+              return;
+            }
+
+          }
+
+
+          const buyFee =
+            getFee(
+              buyMarket
+            );
+
+          const sellFee =
+            getFee(
+              sellMarket
+            );
+
+
+          const buyFeePercent =
+            Number(
+              buyFee.buy
+            ) || 0;
+
+
+          const sellFeePercent =
+            Number(
+              sellFee.sell
+            ) || 0;
+
+
+          const depositFeePercent =
+            Number(
+              sellFee.deposit
+            ) || 0;
+
+
+          const totalBuyCost =
+            buyPrice *
+            (
+              1 +
+              buyFeePercent / 100
+            );
+
+
+          const sellNet =
+            sellPrice *
+            (
+              1 -
+              (
+                sellFeePercent +
+                depositFeePercent
+              ) / 100
+            );
+
+
+          const profitVal =
+            sellNet -
+            totalBuyCost;
+
+
+          const profitPercent =
+            totalBuyCost > 0
+              ? (
+                  profitVal /
+                  totalBuyCost
+                ) * 100
+              : 0;
+
+
+          if(
+            !Number.isFinite(
+              profitVal
+            ) ||
+            !Number.isFinite(
+              profitPercent
+            )
+          ){
+            return;
+          }
+
+
+          if(
+            profitPercent <
+              minProfit ||
+            profitPercent >
+              maxProfit
+          ){
+            return;
+          }
+
+
+          const marketHashName =
+            getMarketHashName(
+              item,
+              pair.wear
+            );
+
+
+          results.push({
+
+            market_name:
+              marketHashName,
+
+            baseName:
+              getBaseItemName(
+                item
+              ),
+
+            category:
+              item.__category,
+
+            itemUrl:
+              item.url || "",
+
+            buyMarket,
+
+            sellMarket,
+
+            buyPrice,
+
+            sellPrice,
+
+            buyFeePercent,
+
+            sellFeePercent,
+
+            depositFeePercent,
+
+            totalBuyCost,
+
+            sellNet,
+
+            profitVal,
+
+            profitPercent,
+
+            wear:
+              pair.wear,
+
+            buyUrl:
+              pair.buy.url || "",
+
+            sellUrl:
+              pair.sell.url || "",
+
+            buyCurrency:
+              pair.buy.currency ||
+              "USD",
+
+            sellCurrency:
+              pair.sell.currency ||
+              "USD",
+
+            isLiquid:
+              isLiquid(pair.buy) &&
+              isLiquid(pair.sell)
+
+          });
+
+        }
+      );
+
+    }
+  );
+
+
+  return results;
+}
+
+
+/* ============================================================
+   SORT
+   ============================================================ */
+
+function sortResults(
+  results
+){
+
+  const direction =
+    sortDirection === "asc"
+      ? 1
+      : -1;
+
+
+  return [...results]
+    .sort(
+      (left,right) => {
+
+        const a =
+          Number(
+            left[sortBy]
+          ) || 0;
+
+        const b =
+          Number(
+            right[sortBy]
+          ) || 0;
+
+
+        return (
+          a - b
+        ) * direction;
+
+      }
+    );
+}
+
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+
+function renderResults(
+  results
+){
+
+  const body =
+    $("tableBody");
+
+
+  if(!results.length){
+
+    body.innerHTML = `
+      <tr>
+        <td colspan="8">
+
+          <div class="empty">
+
+            <strong>
+              Связки не найдены
+            </strong>
+
+            Нет подходящих цен между
+            выбранными маркетплейсами.
+
+          </div>
+
+        </td>
+      </tr>
+    `;
+
+  }else{
+
+    body.innerHTML =
+      results.map(
+        item => {
+
+          const buyButton =
+            item.buyUrl
+
+              ? `
+                <a
+                  class="marketLinkBtn"
+                  href="${escapeHtml(item.buyUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ↗ ${escapeHtml(item.buyMarket)}
+                </a>
+              `
+
+              : `
+                <span class="marketLinkBtn noUrl">
+                  ${escapeHtml(item.buyMarket)}
+                </span>
+              `;
+
+
+          const sellButton =
+            item.sellUrl
+
+              ? `
+                <a
+                  class="marketLinkBtn marketLinkBtnSell"
+                  href="${escapeHtml(item.sellUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ↗ ${escapeHtml(item.sellMarket)}
+                </a>
+              `
+
+              : `
+                <span class="marketLinkBtn marketLinkBtnSell noUrl">
+                  ${escapeHtml(item.sellMarket)}
+                </span>
+              `;
+
+
+          const badgeLiquid =
+            item.isLiquid
+              ? `
+                <span class="badgeLiquid">
+                  LIQUID
+                </span>
+              `
+              : "";
+
+
+          const badgeStatTrak =
+            item.market_name
+              .startsWith(
+                "StatTrak™"
+              )
+
+              ? `
+                <span class="badgeStatTrak">
+                  ST
+                </span>
+              `
+
+              : "";
+
+
+          return `
+
+            <tr>
+
+              <td>
+
+                <div class="itemName">
+
+                  ${badgeLiquid}
+
+                  ${badgeStatTrak}
+
+                  ${escapeHtml(
+                    item.market_name
+                  )}
+
+                </div>
+
+              </td>
+
+
+              <td>
+
+                ${buyButton}
+
+                <div class="itemMeta">
+                  ${item.buyUrl
+                    ? "Реальная ссылка из базы"
+                    : "URL отсутствует"}
+                </div>
+
+              </td>
+
+
+              <td class="price">
+
+                ${formatPrice(
+                  item.buyPrice
+                )}
+
+                ${
+                  item.buyFeePercent > 0
+                    ? `
+                      <div class="subPrice">
+                        +${percent(
+                          item.buyFeePercent
+                        )} покупка
+                      </div>
+                    `
+                    : ""
+                }
+
+              </td>
+
+
+              <td>
+
+                ${sellButton}
+
+                <div class="itemMeta">
+                  ${item.sellUrl
+                    ? "Реальная ссылка из базы"
+                    : "URL отсутствует"}
+                </div>
+
+              </td>
+
+
+              <td class="price">
+
+                ${formatPrice(
+                  item.sellPrice
+                )}
+
+              </td>
+
+
+              <td class="price">
+
+                ${formatPrice(
+                  item.sellNet
+                )}
+
+                ${
+                  (
+                    item.sellFeePercent +
+                    item.depositFeePercent
+                  ) > 0
+
+                    ? `
+                      <div class="subPrice">
+                        -${percent(
+                          item.sellFeePercent +
+                          item.depositFeePercent
+                        )}
+                      </div>
+                    `
+
+                    : ""
+                }
+
+              </td>
+
+
+              <td
+                class="${
+                  item.profitVal >= 0
+                    ? "profit"
+                    : "loss"
+                }"
+              >
+
+                ${formatPrice(
+                  item.profitVal
+                )}
+
+              </td>
+
+
+              <td
+                class="${
+                  item.profitPercent >= 0
+                    ? "profit"
+                    : "loss"
+                }"
+              >
+
+                ${percent(
+                  item.profitPercent
+                )}
+
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+      ).join("");
+
+  }
+
+
+  $("statCount").textContent =
+    results.length.toLocaleString(
+      "ru-RU"
+    );
+
+
+  if(results.length){
+
+    const bestPercent =
+      Math.max(
+        ...results.map(
+          item =>
+            item.profitPercent
+        )
+      );
+
+
+    const bestValue =
+      Math.max(
+        ...results.map(
+          item =>
+            item.profitVal
+        )
+      );
+
+
+    const average =
+      results.reduce(
+        (sum,item) =>
+          sum +
+          item.profitPercent,
+        0
+      ) /
+      results.length;
+
+
+    $("statBestPercent")
+      .textContent =
+        percent(
+          bestPercent
+        );
+
+
+    $("statBestVal")
+      .textContent =
+        formatPrice(
+          bestValue
+        );
+
+
+    $("statAverage")
+      .textContent =
+        percent(
+          average
+        );
+
+  }else{
+
+    $("statBestPercent")
+      .textContent = "—";
+
+    $("statBestVal")
+      .textContent = "—";
+
+    $("statAverage")
+      .textContent = "—";
+
+  }
+}
+
+
+/* ============================================================
+   SCAN
+   ============================================================ */
+
+function scan(){
+
+  const button =
+    $("scanButton");
+
+
+  if(
+    !$("buyMarket").value ||
+    !$("sellMarket").value
+  ){
+    return;
+  }
+
+
+  if(
+    $("buyMarket").value ===
+    $("sellMarket").value
+  ){
+
+    $("tableBody").innerHTML = `
+      <tr>
+        <td colspan="8">
+          <div class="empty">
+            <strong>
+              Выбраны одинаковые маркетплейсы
+            </strong>
+
+            Выбери разные площадки для покупки
+            и продажи.
+          </div>
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  if(button){
+    button.disabled = true;
+  }
+
+
+  try{
+
+    const results =
+      buildResults();
+
+
+    lastResults =
+      sortResults(
+        results
+      );
+
+
+    renderResults(
+      lastResults
+    );
+
+
+    try{
+
+      localStorage.setItem(
+        "buyMarket",
+        $("buyMarket").value
+      );
+
+      localStorage.setItem(
+        "sellMarket",
+        $("sellMarket").value
+      );
+
+    }catch(error){}
+
+
+  }catch(error){
+
+    console.error(
+      "Scan error:",
+      error
+    );
+
+
+    toast(
+      error.message ||
+      "Ошибка сканирования",
+      "error"
+    );
+
+  }finally{
+
+    if(button){
+      button.disabled = false;
+    }
+
+  }
+}
+
+
+/* ============================================================
+   SORT BUTTONS
+   ============================================================ */
+
+function setSort(
+  nextSort
+){
+
+  sortBy =
+    nextSort;
+
+
+  [
+    "sortProfit",
+    "sortProfitVal",
+    "sortBuy",
+    "sortSell"
+  ].forEach(
+    id => {
+
+      $(id)
+        .classList
+        .remove("active");
+
+    }
+  );
+
+
+  const activeId = {
+
+    profitPercent:
+      "sortProfit",
+
+    profitVal:
+      "sortProfitVal",
+
+    buyPrice:
+      "sortBuy",
+
+    sellPrice:
+      "sortSell"
+
+  }[nextSort];
+
+
+  if(activeId){
+
+    $(activeId)
+      .classList
+      .add("active");
+
+  }
+
+
+  if(lastResults.length){
+
+    lastResults =
+      sortResults(
+        lastResults
+      );
+
+
+    renderResults(
+      lastResults
+    );
+
+  }else{
+
+    scan();
+
+  }
+}
+
+
+function toggleDirection(){
+
+  sortDirection =
+    sortDirection === "desc"
+      ? "asc"
+      : "desc";
+
+
+  $("sortDirection")
+    .textContent =
+      sortDirection === "desc"
+        ? "↓"
+        : "↑";
+
+
+  if(lastResults.length){
+
+    lastResults =
+      sortResults(
+        lastResults
+      );
+
+
+    renderResults(
+      lastResults
+    );
+
+  }else{
+
+    scan();
+
+  }
+}
+
+
+/* ============================================================
+   DIAGNOSTICS
+   ============================================================ */
+
+function openDiagnostics(){
+
+  const skinCount =
+    Array.isArray(DATA?.skins)
+      ? DATA.skins.length
+      : 0;
+
+
+  const agentCount =
+    Array.isArray(DATA?.agents)
+      ? DATA.agents.length
+      : 0;
+
+
+  const miscCount =
+    Array.isArray(DATA?.misc)
+      ? DATA.misc.length
+      : 0;
+
+
+  let priceRecords = 0;
+  let urlCount = 0;
+  let itemsWithPrices = 0;
+
+
+  allItems.forEach(
+    item => {
+
+      if(
+        !Array.isArray(item.prices)
+      ){
+        return;
+      }
+
+
+      let hasPrice = false;
+
+
+      item.prices.forEach(
+        price => {
+
+          if(!price){
+            return;
+          }
+
+
+          const value =
+            Number(
+              price.price
+            );
+
+
+          if(
+            price.has_price !== false &&
+            Number.isFinite(value) &&
+            value > 0
+          ){
+
+            priceRecords++;
+            hasPrice = true;
+
+          }
+
+
+          if(
+            price.url &&
+            String(
+              price.url
+            ).trim()
+          ){
+
+            urlCount++;
+
+          }
+
+        }
+      );
+
+
+      if(hasPrice){
+        itemsWithPrices++;
+      }
+
+    }
+  );
+
+
+  const uniqueItems =
+    getUniqueMarketItems();
+
+
+  const dataJsOk =
+    typeof window.CS2_DATA ===
+    "object";
+
+
+  const updatedDates = [];
+
+
+  allItems.forEach(
+    item => {
+
+      if(
+        item.price &&
+        item.price.updated_at
+      ){
+
+        updatedDates.push(
+          item.price.updated_at
+        );
+
+      }
+
+    }
+  );
+
+
+  let latestUpdate = "—";
+
+
+  if(updatedDates.length){
+
+    const timestamps =
+      updatedDates
+        .map(
+          value =>
+            Date.parse(value)
+        )
+        .filter(
+          value =>
+            Number.isFinite(value)
+        );
+
+
+    if(timestamps.length){
+
+      latestUpdate =
+        new Date(
+          Math.max(...timestamps)
+        ).toLocaleString(
+          "ru-RU"
+        );
+
+    }
+
+  }
+
+
+  $("diagnosticContent").innerHTML = `
+
+    <div class="diagRow">
+
+      <span>
+        data.js загружен
+      </span>
+
+      <span class="${
+        dataJsOk
+          ? "diagOk"
+          : "diagWarn"
+      }">
+
+        ${
+          dataJsOk
+            ? "✓ OK"
+            : "✕ НЕТ"
+        }
+
+      </span>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Скины
+      </span>
+
+      <strong>
+        ${skinCount.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Agents
+      </span>
+
+      <strong>
+        ${agentCount.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Misc
+      </span>
+
+      <strong>
+        ${miscCount.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Записей предметов
+      </span>
+
+      <strong>
+        ${allItems.length.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Уникальных market hash names
+      </span>
+
+      <strong>
+        ${uniqueItems.size.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Маркетплейсов
+      </span>
+
+      <strong>
+        ${markets.length.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Ценовых записей
+      </span>
+
+      <strong>
+        ${priceRecords.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Реальных URL магазинов
+      </span>
+
+      <strong class="${
+        urlCount > 0
+          ? "diagOk"
+          : "diagWarn"
+      }">
+
+        ${urlCount.toLocaleString("ru-RU")}
+
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Предметов с ценами
+      </span>
+
+      <strong>
+        ${itemsWithPrices.toLocaleString("ru-RU")}
+      </strong>
+
+    </div>
+
+
+    <div class="diagRow">
+
+      <span>
+        Последнее обновление
+      </span>
+
+      <strong>
+        ${escapeHtml(latestUpdate)}
+      </strong>
+
+    </div>
+
+  `;
+
+
+  $("diagnosticModal")
+    .classList
+    .add("show");
+}
+
+
+function closeDiagnostics(){
+
+  $("diagnosticModal")
+    .classList
+    .remove("show");
+}
+
+
+/* ============================================================
+   REFRESH
+   ============================================================ */
+
+function triggerRefresh(){
+
+  /*
+    Важно:
+
+    Браузер не может сам запустить Go-парсер.
+
+    Кнопка здесь только ПЕРЕЗАГРУЖАЕТ index.html.
+
+    Если Go уже обновил json/data.js,
+    браузер получит новую базу после reload.
+  */
+
+  const button =
+    document.querySelector(
+      ".refreshBtn"
+    );
+
+
+  if(button){
+    button.disabled = true;
+  }
+
+
+  toast(
+    "Перезагрузка локальной базы..."
+  );
+
+
+  setTimeout(
+    () => {
+
+      window.location.reload();
+
+    },
+    250
+  );
+}
+
+
+/* ============================================================
+   EVENTS
+   ============================================================ */
+
+$("search")
+  .addEventListener(
+    "input",
+    () => {
+
+      scan();
+
+    }
+  );
+
+
+$("onlyLiquid")
+  .addEventListener(
+    "change",
+    () => {
+
+      scan();
+
+    }
+  );
+
+
+$("profitMin")
+  .addEventListener(
+    "input",
+    () => {
+
+      scan();
+
+    }
+  );
+
+
+$("profitMax")
+  .addEventListener(
+    "input",
+    () => {
+
+      scan();
+
+    }
+  );
+
+
+$("sortProfit")
+  .addEventListener(
+    "click",
+    () =>
+      setSort(
+        "profitPercent"
+      )
+  );
+
+
+$("sortProfitVal")
+  .addEventListener(
+    "click",
+    () =>
+      setSort(
+        "profitVal"
+      )
+  );
+
+
+$("sortBuy")
+  .addEventListener(
+    "click",
+    () =>
+      setSort(
+        "buyPrice"
+      )
+  );
+
+
+$("sortSell")
+  .addEventListener(
+    "click",
+    () =>
+      setSort(
+        "sellPrice"
+      )
+  );
+
+
+$("sortDirection")
+  .addEventListener(
+    "click",
+    toggleDirection
+  );
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key === "Enter" &&
+      document.activeElement ===
+      $("search")
+    ){
+
+      scan();
+
+    }
+
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeFees();
+
+      closeDiagnostics();
+
+    }
+
+  }
+);
+
+
+/* ============================================================
+   MODAL BACKDROP
+   ============================================================ */
+
+$("feeModal")
+  .addEventListener(
+    "click",
+    event => {
+
+      if(
+        event.target ===
+        $("feeModal")
+      ){
+
+        closeFees();
+
+      }
+
+    }
+  );
+
+
+$("diagnosticModal")
+  .addEventListener(
+    "click",
+    event => {
+
+      if(
+        event.target ===
+        $("diagnosticModal")
+      ){
+
+        closeDiagnostics();
+
+      }
+
+    }
+  );
+
+
+/* ============================================================
+   INIT
+   ============================================================ */
+
+function init(){
+
+  try{
+
+    normalizeDatabase();
+
+    loadFees();
+
+    fillMarkets();
+
+    buildFeeTable();
+
+
+    $("statTotal")
+      .textContent =
+        getUniqueMarketItems()
+          .size
+          .toLocaleString(
+            "ru-RU"
+          );
+
+
+    if(!allItems.length){
+
+      $("tableBody").innerHTML = `
+        <tr>
+          <td colspan="8">
+            <div class="empty">
+
+              <strong>
+                База пуста
+              </strong>
+
+              Запусти Go-парсер,
+              чтобы создать json/data.json
+              и json/data.js.
+
+            </div>
+          </td>
+        </tr>
+      `;
+
+      toast(
+        "Локальная база пуста",
+        "error"
+      );
+
+      return;
+    }
+
+
+    if(!markets.length){
+
+      $("tableBody").innerHTML = `
+        <tr>
+          <td colspan="8">
+            <div class="empty">
+
+              <strong>
+                Нет цен маркетплейсов
+              </strong>
+
+              В data.js отсутствуют
+              записи prices[].
+
+            </div>
+          </td>
+        </tr>
+      `;
+
+      toast(
+        "В базе нет цен",
+        "error"
+      );
+
+      return;
+    }
+
+
+    scan();
+
+
+  }catch(error){
+
+    console.error(
+      "Initialization error:",
+      error
+    );
+
+
+    $("tableBody").innerHTML = `
+      <tr>
+        <td colspan="8">
+          <div class="empty">
+
+            <strong>
+              Ошибка загрузки базы
+            </strong>
+
+            ${escapeHtml(
+              error.message
+            )}
+
+          </div>
+        </td>
+      </tr>
+    `;
+
+
+    toast(
+      "Ошибка загрузки локальной базы: " +
+      error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
 init();
+
 </script>
+
 </body>
 </html>

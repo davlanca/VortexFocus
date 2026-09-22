@@ -1,4 +1,4 @@
-{
+window.CS2_DATA = {
   "skins": [
     {
       "name": "CZ75-Auto | Victoria",
@@ -1331,4 +1331,4 @@
   ],
   "agents": null,
   "misc": null
-}
+};

@@ -10,6 +10,7 @@ import (
 
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
+
 	"github.com/eovacius/csgodatabase-scraper/scraper"
 	"github.com/eovacius/csgodatabase-scraper/scraper/config"
 )
@@ -42,7 +43,7 @@ type FetchOptions struct {
 	Name       string
 }
 
-// FetchItem is the unified way to scrape any item page (weapon, glove, case).
+// FetchItem is the unified way to scrape any item page.
 func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 	baseItem := config.Item{
 		URL:        opts.URL,
@@ -57,89 +58,219 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 
 	const maxRetries = 2
 	const retryDelay = 10 * time.Second
+
 	for attempt := 0; attempt <= maxRetries; attempt++ {
 		var pageTitle string
 		var res PriceTableResult
 
-		// Per-item timeout to prevent hanging the whole process
+		// Per-item timeout prevents one broken page from hanging
+		// the entire scraper.
 		runCtx, cancel := context.WithTimeout(ctx, 60*time.Second)
-		err := chromedp.Run(runCtx,
+
+		err := chromedp.Run(
+			runCtx,
+
 			chromedp.ActionFunc(func(ctx context.Context) error {
 				_, _, _, _, err := page.Navigate(opts.URL).Do(ctx)
 				return err
 			}),
+
 			chromedp.WaitReady(`body`, chromedp.ByQuery),
+
+			// Site configuration / helper JS.
 			chromedp.Evaluate(string(scraper.ConfigJS), nil),
+
 			chromedp.Sleep(config.NextDelay()),
+
 			chromedp.Title(&pageTitle),
+
+			// Parse marketplace tables.
 			chromedp.Evaluate(string(scraper.PricesJS), &res),
 		)
+
 		cancel()
 
 		if err != nil {
-			fmt.Printf("\033[31m[!]\033[0m [%s] attempt %d error: %v\n", opts.Name, attempt+1, err)
+			fmt.Printf(
+				"\033[31m[!]\033[0m [%s] attempt %d error: %v\n",
+				opts.Name,
+				attempt+1,
+				err,
+			)
+
+			if attempt < maxRetries {
+				time.Sleep(retryDelay)
+			}
+
 			continue
 		}
 
-		lower := strings.ToLower(pageTitle)
-		if strings.Contains(lower, "page not found") {
+		// ------------------------------------------------------------
+		// Basic page validation
+		// ------------------------------------------------------------
+
+		lowerTitle := strings.ToLower(pageTitle)
+
+		if strings.Contains(lowerTitle, "page not found") {
 			return nil, fmt.Errorf("404")
 		}
-		if strings.Contains(lower, "verify") || strings.Contains(lower, "human") || strings.Contains(lower, "just a moment") || strings.Contains(lower, "attention required") {
-			fmt.Printf("\033[31m[!]\033[0m Detection on %s, retry %d\n", opts.Name, attempt+1)
+
+		// Cloudflare / anti-bot / verification page.
+		if strings.Contains(lowerTitle, "verify") ||
+			strings.Contains(lowerTitle, "human") ||
+			strings.Contains(lowerTitle, "just a moment") ||
+			strings.Contains(lowerTitle, "attention required") {
+
+			fmt.Printf(
+				"\033[31m[!]\033[0m Detection on %s, retry %d\n",
+				opts.Name,
+				attempt+1,
+			)
+
 			if config.Interactive {
-				fmt.Println("      [!] Cloudflare verification needed. Complete it in browser, then press Enter.")
+				fmt.Println(
+					"      [!] Cloudflare verification needed. " +
+						"Complete it in browser, then press Enter.",
+				)
+
 				var dummy string
 				fmt.Scanln(&dummy)
+
+				// Repeat the same attempt after manual verification.
 				attempt--
+				continue
 			}
+
+			if attempt < maxRetries {
+				time.Sleep(retryDelay)
+			}
+
 			continue
+		}
+
+		// ------------------------------------------------------------
+		// Resolve item name
+		// ------------------------------------------------------------
+
+		finalName := strings.TrimSpace(res.ItemName)
+
+		if finalName == "" {
+			finalName = strings.TrimSpace(opts.Name)
+		}
+
+		if finalName == "" {
+			finalName = "Unknown Item"
 		}
 
 		var items []config.Item
-		finalName := res.ItemName
-		if finalName == "" {
-			finalName = opts.Name
-		}
 
-		// Handle Normal / Gloves / Cases
+		// ------------------------------------------------------------
+		// Normal / regular item
+		// ------------------------------------------------------------
+
 		if len(res.Normal) > 0 {
 			it := baseItem
+
 			it.Name = finalName
 			it.Type = opts.Type
+
+			// If the caller did not explicitly specify a type,
+			// infer it from the category.
 			if it.Type == "" || it.Type == "Normal" {
-				if opts.Category == "gloves" {
+				switch strings.ToLower(opts.Category) {
+				case "gloves":
 					it.Type = "Gloves"
-				} else if opts.Category == "cases" {
+
+				case "cases":
 					it.Type = "Case"
-				} else {
+
+				default:
 					it.Type = "Normal"
 				}
 			}
-			it.Prices = processMarketEntries(res.Normal, it.HasWear || res.HasWear)
+
+			// prices.js can detect wear information itself.
+			hasWear := it.HasWear || res.HasWear
+
+			it.Prices = processMarketEntries(
+				res.Normal,
+				hasWear,
+			)
+
 			items = append(items, it)
 		}
 
-		// Handle StatTrak (mostly for weapons)
+		// ------------------------------------------------------------
+		// StatTrak
+		// ------------------------------------------------------------
+
 		if len(res.StatTrak) > 0 {
 			it := baseItem
+
 			it.Name = finalName
 			it.Type = "StatTrak"
-			it.Prices = processMarketEntries(res.StatTrak, it.HasWear || res.HasWear)
+
+			hasWear := it.HasWear || res.HasWear
+
+			it.Prices = processMarketEntries(
+				res.StatTrak,
+				hasWear,
+			)
+
 			items = append(items, it)
 		}
 
+		// ------------------------------------------------------------
+		// Successful scrape
+		// ------------------------------------------------------------
+
 		if len(items) > 0 {
-			fmt.Printf("\033[32m[+]\033[0m Scraped: %s\n", finalName)
+			totalPrices := 0
+
+			for _, item := range items {
+				totalPrices += len(item.Prices)
+			}
+
+			if totalPrices == 0 {
+				fmt.Printf(
+					"\033[33m[?]\033[0m %s parsed but contains no usable prices (attempt %d)\n",
+					finalName,
+					attempt+1,
+				)
+
+				if attempt < maxRetries {
+					time.Sleep(retryDelay)
+				}
+
+				continue
+			}
+
+			fmt.Printf(
+				"\033[32m[+]\033[0m Scraped: %s\n",
+				finalName,
+			)
+
 			return items, nil
 		}
 
-		fmt.Printf("\033[33m[?]\033[0m No prices for %s (attempt %d)\n", opts.Name, attempt+1)
-		time.Sleep(retryDelay)
+		fmt.Printf(
+			"\033[33m[?]\033[0m No prices for %s (attempt %d)\n",
+			opts.Name,
+			attempt+1,
+		)
+
+		if attempt < maxRetries {
+			time.Sleep(retryDelay)
+		}
 	}
-	return nil, fmt.Errorf("failed to scrape %s after retries", opts.Name)
+
+	return nil, fmt.Errorf(
+		"failed to scrape %s after retries",
+		opts.Name,
+	)
 }
 
+// FetchCase is a compatibility helper for case scraping.
 func FetchCase(ctx context.Context, url, name string) (config.Item, error) {
 	items, err := FetchItem(ctx, FetchOptions{
 		URL:      url,
@@ -148,12 +279,15 @@ func FetchCase(ctx context.Context, url, name string) (config.Item, error) {
 		Type:     "Case",
 		HasWear:  false,
 	})
+
 	if err != nil || len(items) == 0 {
 		return config.Item{}, err
 	}
+
 	return items[0], nil
 }
 
+// FetchGlove is a compatibility helper for glove scraping.
 func FetchGlove(ctx context.Context, url, name string) (config.Item, error) {
 	items, err := FetchItem(ctx, FetchOptions{
 		URL:      url,
@@ -162,63 +296,147 @@ func FetchGlove(ctx context.Context, url, name string) (config.Item, error) {
 		Type:     "Gloves",
 		HasWear:  true,
 	})
+
 	if err != nil || len(items) == 0 {
 		return config.Item{}, err
 	}
+
 	return items[0], nil
 }
 
-func processMarketEntries(entries []MarketPriceEntry, hasWear bool) []config.MarketPrice {
+// processMarketEntries converts the result returned by prices.js
+// into the unified config.MarketPrice structure used by data.json.
+func processMarketEntries(
+	entries []MarketPriceEntry,
+	hasWear bool,
+) []config.MarketPrice {
+
 	var out []config.MarketPrice
+
 	for _, m := range entries {
+		marketName := strings.TrimSpace(m.Market)
+
+		if marketName == "" {
+			continue
+		}
+
+		// ------------------------------------------------------------
+		// Wear-based item
+		// ------------------------------------------------------------
+
 		if hasWear && len(m.WearPrices) > 0 {
 			for _, wear := range config.AllWearConditions {
 				key := string(wear)
-				if val, ok := m.WearPrices[key]; ok && val != nil {
-					out = append(out, config.MarketPrice{
-						Market: m.Market, Wear: key, Currency: m.Currency,
-						Price: *val, URL: m.URLs[key], HasPrice: true,
-					})
+
+				val, ok := m.WearPrices[key]
+
+				if !ok || val == nil {
+					continue
 				}
+
+				if *val <= 0 {
+					continue
+				}
+
+				url := ""
+
+				if m.URLs != nil {
+					url = strings.TrimSpace(m.URLs[key])
+				}
+
+				out = append(out, config.MarketPrice{
+					Market:   marketName,
+					Wear:     key,
+					Price:    *val,
+					Currency: m.Currency,
+					HasPrice: true,
+					URL:      url,
+				})
 			}
-		} else if m.Single != nil {
+
+			continue
+		}
+
+		// ------------------------------------------------------------
+		// Single-price item
+		// Cases / agents / other non-wear items
+		// ------------------------------------------------------------
+
+		if m.Single != nil && *m.Single > 0 {
 			out = append(out, config.MarketPrice{
-				Market: m.Market, Currency: m.Currency,
-				Price: *m.Single, URL: m.URL, HasPrice: true,
+				Market:   marketName,
+				Price:    *m.Single,
+				Currency: m.Currency,
+				HasPrice: true,
+				URL:      strings.TrimSpace(m.URL),
 			})
 		}
 	}
+
 	return out
 }
 
-func FetchManyItems(parent context.Context, optsList []FetchOptions) []config.Item {
+// FetchManyItems fetches multiple pages concurrently while respecting
+// the configured worker limit.
+func FetchManyItems(
+	parent context.Context,
+	optsList []FetchOptions,
+) []config.Item {
+
 	var (
 		mu  sync.Mutex
 		out []config.Item
 		wg  sync.WaitGroup
-		sem = make(chan struct{}, config.Workers)
 	)
 
-	for _, o := range optsList {
-		wg.Add(1)
-		go func(opts FetchOptions) {
-			defer wg.Done()
-			sem <- struct{}{}
-			defer func() { <-sem }()
+	workers := config.Workers
 
-			// Each item gets a fresh context/tab to avoid cross-contamination and hangs
+	if workers < 1 {
+		workers = 1
+	}
+
+	sem := make(chan struct{}, workers)
+
+	for _, o := range optsList {
+		opts := o
+
+		wg.Add(1)
+
+		go func() {
+			defer wg.Done()
+
+			sem <- struct{}{}
+			defer func() {
+				<-sem
+			}()
+
+			// Each item gets its own chromedp context/tab.
+			// This prevents pages from interfering with one another.
 			ctx, cancel := chromedp.NewContext(parent)
 			defer cancel()
 
 			items, err := FetchItem(ctx, opts)
-			if err == nil {
-				mu.Lock()
-				out = append(out, items...)
-				mu.Unlock()
+
+			if err != nil {
+				fmt.Printf(
+					"\033[31m[!]\033[0m Failed: %s — %v\n",
+					opts.Name,
+					err,
+				)
+				return
 			}
-		}(o)
+
+			if len(items) == 0 {
+				return
+			}
+
+			mu.Lock()
+			out = append(out, items...)
+			mu.Unlock()
+		}()
 	}
+
 	wg.Wait()
+
 	return out
 }
-
