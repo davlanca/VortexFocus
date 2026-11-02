@@ -224,7 +224,7 @@ function applyScraperJsonItem(item, source, updatedAt) {
     WW: "Well-Worn",
     BS: "Battle-Scarred"
   };
-  const quality = item.type === "StatTrak" ? "StatTrak™ " : "";
+  const quality = item.type === "StatTrak" ? "StatTrak™ " : item.type === "Souvenir" ? "Souvenir " : "";
   const baseName = name.includes("|") ? name : `${weapon} | ${name}`;
 
   prices.forEach(priceItem => {

@@ -27,6 +27,7 @@ type PriceTableResult struct {
 	HasWear  bool               `json:"hasWear"`
 	Normal   []MarketPriceEntry `json:"normal"`
 	StatTrak []MarketPriceEntry `json:"stattrak"`
+	Souvenir []MarketPriceEntry `json:"souvenir"`
 }
 type MarketPriceEntry struct {
 	Market     string              `json:"market"`
@@ -35,6 +36,7 @@ type MarketPriceEntry struct {
 	URL        string              `json:"url,omitempty"`
 	WearPrices map[string]*float64 `json:"wearPrices"`
 	URLs       map[string]string   `json:"urls"`
+	Lowest     map[string]bool     `json:"lowest,omitempty"`
 }
 type FetchOptions struct {
 	URL        string
@@ -146,6 +148,14 @@ func FetchItem(ctx context.Context, opts FetchOptions) ([]config.Item, error) {
 			it.Prices = processMarketEntries(res.StatTrak, it.HasWear || res.HasWear)
 			items = append(items, it)
 		}
+		// Handle Souvenir (weapon/glove souvenir variants and souvenir packages)
+		if len(res.Souvenir) > 0 {
+			it := baseItem
+			it.Name = finalName
+			it.Type = "Souvenir"
+			it.Prices = processMarketEntries(res.Souvenir, it.HasWear || res.HasWear)
+			items = append(items, it)
+		}
 		if len(items) > 0 {
 			priceCount := 0
 			for _, it := range items {
@@ -202,6 +212,7 @@ func processMarketEntries(entries []MarketPriceEntry, hasWear bool) []config.Mar
 					out = append(out, config.MarketPrice{
 						Market: m.Market, Wear: key, Currency: m.Currency,
 						Price: *val, URL: m.URLs[key], HasPrice: true,
+						Lowest: m.Lowest[key],
 					})
 				}
 			}
@@ -209,6 +220,7 @@ func processMarketEntries(entries []MarketPriceEntry, hasWear bool) []config.Mar
 			out = append(out, config.MarketPrice{
 				Market: m.Market, Currency: m.Currency,
 				Price: *m.Single, URL: m.URL, HasPrice: true,
+				Lowest: m.Lowest["single"],
 			})
 		}
 	}
