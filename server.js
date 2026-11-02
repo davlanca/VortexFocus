@@ -1,6 +1,10 @@
 const express = require("express");
 const path = require("path");
 
+// Force IPv4 DNS resolution: raw.githubusercontent.com has an IPv6 address that
+// may be unreachable, and Node prefers it by default, causing fetch timeouts.
+require("dns").setDefaultResultOrder("ipv4first");
+
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
@@ -287,12 +291,34 @@ async function parseLatestGithubSteamJson() {
 
     const latestFile = remoteFiles.find(file => file.name === latestName);
     const dataUrl = latestFile?.download_url || `https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/${latestName}`;
-    const dataResponse = await inspectedFetch("GITHUB.JSON.DATA", dataUrl, {
-      signal: AbortSignal.timeout(30000)
-    });
-    const data = dataResponse.data;
 
-    const items = Array.isArray(data?.skins) ? data.skins : [];
+    // raw.githubusercontent.com can resolve to CDN IPs that are unreachable on
+    // some networks. api.github.com is used for the index anyway and is more
+    // reliable, so try raw first, then fall back to the contents API (base64).
+    let data = null;
+    try {
+      const dataResponse = await inspectedFetch("GITHUB.JSON.DATA", dataUrl, {
+        signal: AbortSignal.timeout(30000)
+      });
+      data = dataResponse.data;
+    } catch (rawError) {
+      logWarn("PARSER: STEAM.JSON", `raw.githubusercontent.com недоступен (${rawError.message}), пробую Contents API`);
+      const apiResponse = await inspectedFetch("GITHUB.JSON.CONTENTS", `${GITHUB_JSON_API}/${latestName}`, {
+        headers: { Accept: "application/vnd.github+json" },
+        signal: AbortSignal.timeout(30000)
+      });
+      if (apiResponse.data?.encoding === "base64" && apiResponse.data?.content) {
+        data = JSON.parse(Buffer.from(apiResponse.data.content, "base64").toString("utf8"));
+      } else if (apiResponse.data) {
+        data = apiResponse.data;
+      }
+    }
+
+    const sections = ["skins", "agents", "misc"];
+    const items = [];
+    for (const section of sections) {
+      if (Array.isArray(data?.[section])) items.push(...data[section]);
+    }
     let count = 0;
     const availableMarkets = new Set();
     items.forEach(item => {
