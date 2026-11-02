@@ -65,7 +65,9 @@ func GetOpts() []chromedp.ExecAllocatorOption {
 		_ = os.MkdirAll(profileDir, 0755)
 	}
 
-	headless := Headless || os.Getenv("CI") == "true"
+	// On CI Chrome defaults to headless, but Cloudflare detects and blocks
+	// headless browsers. Set CHROME_HEADED=true (with Xvfb) to run visibly.
+	headless := Headless || (os.Getenv("CI") == "true" && os.Getenv("CHROME_HEADED") != "true")
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
 		chromedp.NoSandbox,
 		chromedp.DisableGPU,
