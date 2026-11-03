@@ -147,49 +147,24 @@ func isAnyOnlyFlagSet() bool {
 }
 
 func runWeaponsFlow(ctx context.Context) []config.Item {
-	// First discover all weapons from the weapons page
-	weapons, err := discovery.Discover(ctx, discovery.Options{Category: "weapons"})
+	// All weapon skins live on a single /skins/ listing page (~1452 items).
+	// Crawling the 55 individual /weapons/ pages back-to-back was flagged as
+	// crawler behavior by Cloudflare; one listing page avoids that entirely.
+	skins, err := discovery.Discover(ctx, discovery.Options{Category: "skins"})
 	if err != nil {
-		fmt.Printf("      [!] Error discovering weapons: %v\n", err)
+		fmt.Printf("      [!] Error discovering skins: %v\n", err)
+		return nil
 	}
 
-	// Random delay after discovering weapon list
-	randomDelayMs(300, 600)
-
-	var allItems []config.Item
-	weaponsProcessed := 0
-	for _, w := range weapons {
-		// MaxWeapons limits the number of weapon categories checked
-		if config.MaxWeapons > 0 && weaponsProcessed >= config.MaxWeapons { break }
-
-		// Jittered delay before scraping each weapon (Cloudflare rate limits
-		// kick in when list pages are requested too quickly)
-		randomDelayMs(2000, 5000)
-
-		// Navigate to each weapon page and discover skins
-		skins, err := discovery.Discover(ctx, discovery.Options{Category: w.URL})
-		if err != nil {
-			fmt.Printf("      [!] Error discovering skins for %s: %v\n", w.Name, err)
-			continue
-		}
-
-		var opts []common.FetchOptions
-		for _, s := range skins {
-			if isSeen(s.URL) || (s.Type != "skin" && s.Type != "skins") { continue }
-			opts = append(opts, common.FetchOptions{URL: s.URL, Name: s.Name, Category: "weapons", HasWear: true, Weapon: w.Name})
-		}
-
-		if len(opts) > 0 {
-			fetched := common.FetchManyItems(ctx, opts)
-			allItems = append(allItems, fetched...)
-		}
-
-		// Random delay after finishing this weapon (before next)
-		randomDelayMs(300, 600)
-		weaponsProcessed++
+	var opts []common.FetchOptions
+	for _, s := range skins {
+		if config.MaxWeapons > 0 && len(opts) >= config.MaxWeapons { break }
+		if isSeen(s.URL) || (s.Type != "skin" && s.Type != "skins") { continue }
+		opts = append(opts, common.FetchOptions{URL: s.URL, Name: s.Name, Category: "weapons", HasWear: true})
 	}
 
-	return allItems
+	if len(opts) == 0 { return nil }
+	return common.FetchManyItems(ctx, opts)
 }
 
 func runGenericFlow(parent context.Context, path, itemType string, limit int) []config.Item {
