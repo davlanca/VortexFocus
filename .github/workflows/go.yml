@@ -146,4 +146,6 @@ jobs:
           exit 0
         fi
         git commit -m "Авто-обновление цен: $(date -u +'%Y-%m-%d %H:%M:%S') UTC"
+        # Remote may have moved ahead while this run was scraping (manual pushes).
+        git pull --rebase --autostash origin main || git pull --rebase origin main
         git push

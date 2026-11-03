@@ -253,8 +253,8 @@ func FetchManyItems(parent context.Context, optsList []FetchOptions) []config.It
 			ctx, cancel := chromedp.NewContext(parent)
 			defer cancel()
 
-			// Fixed 2.5s delay between opening tabs to avoid rate limiting
-			time.Sleep(2500 * time.Millisecond)
+			// Jittered delay between opening tabs to avoid rate limiting
+			time.Sleep(time.Duration(2500+rand.Intn(2500)) * time.Millisecond)
 
 			items, err := FetchItem(ctx, o)
 			if err == nil && len(items) > 0 {

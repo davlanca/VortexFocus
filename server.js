@@ -177,8 +177,7 @@ async function inspectedFetch(endpointName, url, options = {}) {
    LIQUID CATALOG
 ========================================================= */
 
-const LIQUID_CATALOG = [
-  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 },
+const LIQUID_CATALOG = [  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 },
   { name: "AK-47 | Slate (Field-Tested)", usd: 3.30 },
   { name: "AK-47 | Asiimov (Field-Tested)", usd: 25.20 },
   { name: "AK-47 | Ice Coaled (Factory New)", usd: 15.50 },
@@ -202,6 +201,9 @@ const LIQUID_CATALOG = [
   { name: "Fracture Case", usd: 0.34 },
   { name: "Clutch Case", usd: 0.62 }
 ];
+
+// Exact market_hash_name set for fast liquidity lookups.
+const LIQUID_NAMES = new Set(LIQUID_CATALOG.map(item => item.name));
 
 function initDatabase() {
   LIQUID_CATALOG.forEach(item => {
@@ -229,7 +231,10 @@ function applyScraperJsonItem(item, source, updatedAt) {
     BS: "Battle-Scarred"
   };
   const quality = item.type === "StatTrak" ? "StatTrak™ " : item.type === "Souvenir" ? "Souvenir " : "";
-  const baseName = name.includes("|") ? name : `${weapon} | ${name}`;
+  // Items without "|" (cases, stickers, pins...) keep their plain name; only
+  // prepend the weapon when it is actually present, otherwise " | Recoil Case"
+  // breaks exact-name matching against the liquid catalog.
+  const baseName = name.includes("|") ? name : (weapon ? `${weapon} | ${name}` : name);
 
   prices.forEach(priceItem => {
     const value = Number(priceItem.price);
@@ -240,6 +245,12 @@ function applyScraperJsonItem(item, source, updatedAt) {
     const wear = wearNames[priceItem.wear] || priceItem.wear || "";
     const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
     const entry = priceDatabase.get(marketHashName) || { isLiquid: false, prices: {} };
+    // Re-mark liquidity on every load: the liquid catalog uses exact
+    // market_hash_name, and scraped entries must keep the flag regardless of
+    // which source created the record first.
+    if (LIQUID_NAMES.has(marketHashName)) {
+      entry.isLiquid = true;
+    }
     entry.prices[market] = {
       value: Number(value.toFixed(2)),
       currency: priceItem.currency || "USD",

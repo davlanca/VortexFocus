@@ -162,8 +162,9 @@ func runWeaponsFlow(ctx context.Context) []config.Item {
 		// MaxWeapons limits the number of weapon categories checked
 		if config.MaxWeapons > 0 && weaponsProcessed >= config.MaxWeapons { break }
 
-		// Random delay before scraping each weapon
-		randomDelayMs(300, 600)
+		// Jittered delay before scraping each weapon (Cloudflare rate limits
+		// kick in when list pages are requested too quickly)
+		randomDelayMs(2000, 5000)
 
 		// Navigate to each weapon page and discover skins
 		skins, err := discovery.Discover(ctx, discovery.Options{Category: w.URL})
