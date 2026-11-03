@@ -862,6 +862,163 @@ let scanRequestId = 0;
 
 const $ = id => document.getElementById(id);
 
+/* ===== STATIC (GitHub Pages) ENGINE: port of server.js, no backend ===== */
+/* Data comes from json/data.json published on Pages itself. Refresh = reload that file. */
+const DEFAULT_MARKETS = ["MARKET.CSGO","LIS-SKINS","AVAN.MARKET","STEAM","LOOT.FARM","CS.MONEY","BUFF.163"];
+const DEFAULT_FEES = {
+  "MARKET.CSGO": { sell: 5.0, buy: 0, deposit: 0 },
+  "LIS-SKINS": { sell: 0.0, buy: 0, deposit: 0 },
+  "AVAN.MARKET": { sell: 0.0, buy: 0, deposit: 0 },
+  "STEAM": { sell: 13.04, buy: 0, deposit: 0 },
+  "LOOT.FARM": { sell: 5.0, buy: 0, deposit: 0 },
+  "CS.MONEY": { sell: 7.0, buy: 0, deposit: 0 },
+  "BUFF.163": { sell: 2.5, buy: 0, deposit: 0 }
+};
+let priceDatabase = new Map();
+let dataLoadedAt = null;
+function normalizeMarketName(name){
+  const rawMarket = String(name || "").trim();
+  const aliases = {
+    "MARKET.CSGO": "Market.CSGO",
+    "STEAM MARKET": "Steam",
+    "STEAM": "Steam",
+    "SKINPORT.COM": "Skinport",
+    "CS.MONEY": "CS.MONEY",
+    "LIS-SKINS": "LIS-SKINS",
+    "BUFF.163": "BUFF.163"
+  };
+  return aliases[rawMarket.toUpperCase()] || rawMarket;
+}
+const LIQUID_CATALOG = [
+  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 },
+  { name: "AK-47 | Slate (Field-Tested)", usd: 3.30 },
+  { name: "AK-47 | Asiimov (Field-Tested)", usd: 25.20 },
+  { name: "AK-47 | Ice Coaled (Factory New)", usd: 15.50 },
+  { name: "AK-47 | Vulcan (Field-Tested)", usd: 136.00 },
+  { name: "AWP | Asiimov (Field-Tested)", usd: 87.00 },
+  { name: "AWP | Neo-Noir (Factory New)", usd: 28.20 },
+  { name: "AWP | Atheris (Field-Tested)", usd: 2.25 },
+  { name: "M4A1-S | Printstream (Field-Tested)", usd: 105.00 },
+  { name: "M4A1-S | Decimator (Field-Tested)", usd: 13.10 },
+  { name: "M4A1-S | Hyper Beast (Field-Tested)", usd: 19.50 },
+  { name: "M4A4 | The Emperor (Field-Tested)", usd: 11.20 },
+  { name: "USP-S | Printstream (Field-Tested)", usd: 35.20 },
+  { name: "USP-S | Cortex (Factory New)", usd: 7.45 },
+  { name: "USP-S | Kill Confirmed (Field-Tested)", usd: 46.20 },
+  { name: "Desert Eagle | Printstream (Field-Tested)", usd: 32.80 },
+  { name: "★ Karambit | Doppler (Factory New)", usd: 800.00 },
+  { name: "★ Butterfly Knife | Doppler (Factory New)", usd: 1370.00 },
+  { name: "Recoil Case", usd: 0.25 },
+  { name: "Revolution Case", usd: 0.30 },
+  { name: "Dreams & Nightmares Case", usd: 0.84 },
+  { name: "Fracture Case", usd: 0.34 },
+  { name: "Clutch Case", usd: 0.62 }
+];
+const LIQUID_NAMES = new Set(LIQUID_CATALOG.map(item => item.name));
+function getFee(market, type){
+  const data = fees[market] || { sell: 0, buy: 0, deposit: 0 };
+  return Math.max(0, Number(data[type]) || 0);
+}
+function calculateTrade({ buyPrice, sellPrice, buyMarket, sellMarket }){
+  const buyFee = getFee(buyMarket, "buy");
+  const depositFee = getFee(buyMarket, "deposit");
+  const sellFee = getFee(sellMarket, "sell");
+  const buyFeeVal = buyPrice * (buyFee / 100);
+  const depositFeeVal = buyPrice * (depositFee / 100);
+  const buyTotal = buyPrice + buyFeeVal + depositFeeVal;
+  const sellFeeVal = sellPrice * (sellFee / 100);
+  const sellNet = sellPrice - sellFeeVal;
+  const profitVal = sellNet - buyTotal;
+  const profitPercent = buyTotal > 0 ? (profitVal / buyTotal) * 100 : 0;
+  return {
+    buyPrice: Number(buyPrice.toFixed(2)), buyCurrency: "USD",
+    buyFeeVal: Number(buyFeeVal.toFixed(2)), depositFeeVal: Number(depositFeeVal.toFixed(2)),
+    buyTotal: Number(buyTotal.toFixed(2)), sellPrice: Number(sellPrice.toFixed(2)), sellCurrency: "USD",
+    sellFeeVal: Number(sellFeeVal.toFixed(2)), sellNet: Number(sellNet.toFixed(2)),
+    profitVal: Number(profitVal.toFixed(2)), profitPercent
+  };
+}
+function applyScraperJsonItem(item, source, updatedAt){
+  const weapon = String(item.weapon || "").trim();
+  const name = String(item.name || "").trim();
+  const prices = Array.isArray(item.prices) ? item.prices : [];
+  if (!name || !prices.length) return false;
+  const wearNames = { FN: "Factory New", MW: "Minimal Wear", FT: "Field-Tested", WW: "Well-Worn", BS: "Battle-Scarred" };
+  const quality = item.type === "StatTrak" ? "StatTrak™ " : item.type === "Souvenir" ? "Souvenir " : "";
+  const baseName = name.includes("|") ? name : (weapon ? `${weapon} | ${name}` : name);
+  prices.forEach(priceItem => {
+    const value = Number(priceItem.price);
+    if (!priceItem.has_price || !Number.isFinite(value) || value <= 0) return;
+    const market = normalizeMarketName(priceItem.market);
+    if (!market) return;
+    const wear = wearNames[priceItem.wear] || priceItem.wear || "";
+    const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
+    const entry = priceDatabase.get(marketHashName) || { isLiquid: false, prices: {} };
+    if (LIQUID_NAMES.has(marketHashName)) entry.isLiquid = true;
+    entry.prices[market] = {
+      value: Number(value.toFixed(2)), currency: priceItem.currency || "USD",
+      source: `${source} (${item.type || "Normal"})`, url: priceItem.url || "",
+      isLive: true, fetchedAt: updatedAt || new Date().toISOString()
+    };
+    priceDatabase.set(marketHashName, entry);
+  });
+  return prices.some(priceItem => priceItem.has_price && Number(priceItem.price) > 0);
+}
+function applyLegacySteamJsonItem(item, source, updatedAt){
+  const weapon = String(item.weapon || "").trim();
+  const name = String(item.name || "").trim();
+  const usd = Number(item.price?.min?.value);
+  if (!weapon || !name || !Number.isFinite(usd) || usd <= 0) return false;
+  const marketName = `${weapon} | ${name}`;
+  const entry = priceDatabase.get(marketName) || { isLiquid: false, prices: {} };
+  entry.prices.STEAM = { value: Number(usd.toFixed(2)), currency: "USD", source: `${source} (минимум)`, isLive: true, fetchedAt: updatedAt || new Date().toISOString() };
+  priceDatabase.set(marketName, entry);
+  return true;
+}
+function applyGithubItem(item, source, updatedAt){
+  if (Array.isArray(item.prices) && item.prices.length) return applyScraperJsonItem(item, source, updatedAt);
+  return applyLegacySteamJsonItem(item, source, updatedAt);
+}
+async function loadData(isRefresh){
+  const bust = isRefresh ? `?t=${Date.now()}` : "";
+  const urls = [`json/data.json${bust}`, `https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/data.json${bust}`];
+  let data = null, lastError = null;
+  for (const url of urls){
+    try{
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      data = await response.json();
+      break;
+    }catch(error){ lastError = error; }
+  }
+  if (!data) throw new Error(lastError ? lastError.message : "База не загрузилась");
+  priceDatabase = new Map();
+  LIQUID_CATALOG.forEach(item => { priceDatabase.set(item.name, { isLiquid: true, prices: {} }); });
+  const availableMarkets = new Set();
+  const items = [];
+  for (const section of ["skins", "agents", "misc"]){
+    if (Array.isArray(data?.[section])) items.push(...data[section]);
+  }
+  items.forEach(item => {
+    applyGithubItem(item, "VortexFocus data.json", item.price?.updated_at);
+    for (const price of item.prices || []){
+      const market = normalizeMarketName(price.market);
+      if (market && price.has_price && Number(price.price) > 0) availableMarkets.add(market);
+    }
+  });
+  markets = [...availableMarkets];
+  try{
+    const saved = JSON.parse(localStorage.getItem("vortexFees") || "null");
+    fees = saved && typeof saved === "object" ? saved : JSON.parse(JSON.stringify(DEFAULT_FEES));
+  }catch{ fees = JSON.parse(JSON.stringify(DEFAULT_FEES)); }
+  dataLoadedAt = new Date();
+  fillMarkets();
+  buildFeeTable();
+  $("statTotal").textContent = Number(priceDatabase.size || 0).toLocaleString("ru-RU");
+  return priceDatabase.size;
+}
+
+
 function getMarketUrl(marketName, skinName){
   const m = String(marketName || "").trim().toUpperCase();
   const nameEnc = encodeURIComponent(skinName || "");
@@ -896,7 +1053,11 @@ function toast(message, type="success"){
 }
 
 function openDiagnostics(){
-  window.open("/api/diagnostic", "_blank");
+  if (!priceDatabase.size){
+    toast("База еще не загружена", "error");
+    return;
+  }
+  toast(`База: ${priceDatabase.size.toLocaleString("ru-RU")} предметов, ${markets.length} площадок` + (dataLoadedAt ? `, загружена ${dataLoadedAt.toLocaleTimeString("ru-RU")}` : ""));
 }
 
 function escapeHtml(value){
@@ -937,34 +1098,20 @@ async function saveFees(){
     nextFees[market] ||= { sell: 0, buy: 0, deposit: 0 };
     nextFees[market][type] = Number(input.value) || 0;
   });
-
-  try{
-    const response = await fetch("/api/fees", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fees: nextFees })
-    });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось сохранить комиссии");
-    fees = data.fees || nextFees;
-    closeFees();
-    toast("Комиссии сохранены");
-  }catch(error){
-    toast(error.message, "error");
-  }
+  fees = nextFees;
+  try{ localStorage.setItem("vortexFees", JSON.stringify(fees)); }catch{}
+  closeFees();
+  toast("Комиссии сохранены (в этом браузере)");
 }
 
 async function triggerRefresh(){
   const button = document.querySelector(".refreshBtn");
   if(button) button.disabled = true;
   try{
-    const response = await fetch("/api/refresh", { method: "POST" });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Не удалось обновить базы");
-    $("statTotal").textContent = Number(data.itemsCount || 0).toLocaleString("ru-RU");
-    toast(`Базы обновлены: ${Number(data.itemsCount || 0).toLocaleString("ru-RU")} предметов`);
+    const itemsCount = await loadData(true);
+    toast(`Базы обновлены: ${Number(itemsCount || 0).toLocaleString("ru-RU")} предметов`);
   }catch(error){
-    toast(error.message, "error");
+    toast("Не удалось обновить базы: " + error.message, "error");
   }finally{
     if(button) button.disabled = false;
   }
@@ -1025,26 +1172,35 @@ async function scan(){
   const requestId = ++scanRequestId;
   if(button) button.disabled = true;
   try{
-    const response = await fetch("/api/arbitrage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        buyMarket: $("buyMarket").value,
-        sellMarket: $("sellMarket").value,
-        search: $("search").value,
-        onlyLiquid: $("onlyLiquid").checked,
-        minProfit: $("profitMin").value,
-        maxProfit: $("profitMax").value,
-        sortBy,
-        sortDirection
-      })
-    });
-    const data = await response.json();
-    if(!response.ok || !data.success) throw new Error(data.error || "Ошибка сканирования");
+    if (!priceDatabase.size) await loadData(false);
+    const buyMarket = normalizeMarketName($("buyMarket").value);
+    const sellMarket = normalizeMarketName($("sellMarket").value);
+    const onlyLiquid = $("onlyLiquid").checked;
+    const minProfit = $("profitMin").value === "" ? -Infinity : Number($("profitMin").value);
+    const maxProfit = $("profitMax").value === "" ? Infinity : Number($("profitMax").value);
+    const search = String($("search").value || "").trim().toLowerCase();
+    if (!buyMarket || !sellMarket) throw new Error("Выберите площадки покупки и продажи.");
+    if (buyMarket === sellMarket) throw new Error("Площадки покупки и продажи должны отличаться.");
+    const results = [];
+    for (const [skinName, itemData] of priceDatabase.entries()){
+      if (search && !skinName.toLowerCase().includes(search)) continue;
+      if (onlyLiquid && !itemData.isLiquid) continue;
+      const buyEntry = itemData.prices ? itemData.prices[buyMarket] : null;
+      const sellEntry = itemData.prices ? itemData.prices[sellMarket] : null;
+      if (!buyEntry || !sellEntry || buyEntry.isLive !== true || sellEntry.isLive !== true || buyEntry.value <= 0 || sellEntry.value <= 0) continue;
+      const calc = calculateTrade({ buyPrice: buyEntry.value, sellPrice: sellEntry.value, buyMarket, sellMarket });
+      if (calc.profitPercent < minProfit || calc.profitPercent > maxProfit) continue;
+      results.push({
+        market_name: skinName, buyMarket, sellMarket,
+        buyUrl: buyEntry.url || "", sellUrl: sellEntry.url || "",
+        buySource: buyEntry.source, sellSource: sellEntry.source,
+        isLiquid: Boolean(itemData.isLiquid), ...calc
+      });
+    }
     if(requestId !== scanRequestId) return;
-    lastResults = sortResults(data.results || []);
+    lastResults = sortResults(results);
     renderResults(lastResults);
-    $("statTotal").textContent = Number(data.totalItems || 0).toLocaleString("ru-RU");
+    $("statTotal").textContent = Number(priceDatabase.size || 0).toLocaleString("ru-RU");
   }catch(error){
     toast(error.message, "error");
   }finally{
@@ -1054,17 +1210,9 @@ async function scan(){
 
 async function init(){
   try{
-    const response = await fetch("/api/config");
-    const config = await response.json();
-    markets = config.markets || [];
-    fees = config.fees || {};
-
-    fillMarkets();
-    buildFeeTable();
-
-    $("statTotal").textContent = Number(config.totalItems || 0).toLocaleString("ru-RU");
+    await loadData(false);
   }catch(error){
-    toast(error.message, "error");
+    toast("Не удалось загрузить базу: " + error.message, "error");
   }
 }
 
