@@ -211,6 +211,45 @@ button:disabled{ cursor:not-allowed; opacity:.5; }
 .diagBtn:hover{ border-color:var(--purple); box-shadow:0 0 18px rgba(160,107,255,.25); }
 .refreshBtn:hover{ border-color:var(--blue); box-shadow:0 0 18px rgba(91,140,255,.25); }
 
+/* ================= CURRENCY SWITCH ================= */
+
+.currencySwitch{
+  display:flex;
+  border:1px solid var(--stroke);
+  border-radius:10px;
+  overflow:hidden;
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+.currencySwitch button{
+  height:36px;
+  padding:0 14px;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  font-weight:700;
+  font-size:12px;
+  transition:all .2s ease;
+}
+
+.currencySwitch button:hover{ color:var(--text); }
+
+.currencySwitch button.active{
+  background:linear-gradient(135deg, rgba(61,255,160,.22), rgba(56,232,255,.16));
+  color:var(--green);
+  text-shadow:0 0 12px rgba(61,255,160,.4);
+}
+
+.rateInfo{
+  font-size:11px;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.rateInfo b{ color:var(--text); }
+
 /* ================= CONTROLS ================= */
 
 .controls{
@@ -714,7 +753,12 @@ tbody tr:hover td:first-child{
   </div>
 
   <div class="status">
-    <button class="diagBtn" onclick="openDiagnostics()">
+    <span class="rateInfo" id="rateInfo"></span>
+    <div class="currencySwitch">
+      <button id="curUSD" class="active" onclick="setCurrency('USD')">USD $</button>
+      <button id="curRUB" onclick="setCurrency('RUB')">RUB ₽</button>
+    </div>
+    <button class="diagBtn" id="diagBtn" onclick="openDiagnostics()">
       🔍 Тест 7 API
     </button>
     <button class="refreshBtn" onclick="triggerRefresh()">
@@ -853,6 +897,9 @@ tbody tr:hover td:first-child{
 <div id="toast" class="toast"></div>
 
 <script>
+/* =========================================================
+   STATE
+========================================================= */
 let markets = [];
 let fees = {};
 let sortBy = "profitPercent";
@@ -860,11 +907,48 @@ let sortDirection = "desc";
 let lastResults = [];
 let scanRequestId = 0;
 
+// serverMode: Node server (server.js) reachable. Otherwise the page works
+// standalone (GitHub Pages): it loads data.json straight from the repo and
+// computes arbitrage client-side.
+let serverMode = false;
+let priceDb = new Map();       // standalone: market_hash_name -> { isLiquid, prices }
+let usdToRub = null;
+let rateSource = "";
+let currency = localStorage.getItem("cs2currency") || "USD";
+
 const $ = id => document.getElementById(id);
 
-/* ===== STATIC (GitHub Pages) ENGINE: port of server.js, no backend ===== */
-/* Data comes from json/data.json published on Pages itself. Refresh = reload that file. */
-const DEFAULT_MARKETS = ["MARKET.CSGO","LIS-SKINS","AVAN.MARKET","STEAM","LOOT.FARM","CS.MONEY","BUFF.163"];
+const DATA_JSON_URL = "https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/data.json";
+const GITHUB_JSON_API = "https://api.github.com/repos/davlanca/VortexFocus/contents/json";
+
+/* Liquid catalog — exact market_hash_name list, mirrored from server.js */
+const LIQUID_CATALOG = [
+  "AK-47 | Redline (Field-Tested)",
+  "AK-47 | Slate (Field-Tested)",
+  "AK-47 | Asiimov (Field-Tested)",
+  "AK-47 | Ice Coaled (Factory New)",
+  "AK-47 | Vulcan (Field-Tested)",
+  "AWP | Asiimov (Field-Tested)",
+  "AWP | Neo-Noir (Factory New)",
+  "AWP | Atheris (Field-Tested)",
+  "M4A1-S | Printstream (Field-Tested)",
+  "M4A1-S | Decimator (Field-Tested)",
+  "M4A1-S | Hyper Beast (Field-Tested)",
+  "M4A4 | The Emperor (Field-Tested)",
+  "USP-S | Printstream (Field-Tested)",
+  "USP-S | Cortex (Factory New)",
+  "USP-S | Kill Confirmed (Field-Tested)",
+  "Desert Eagle | Printstream (Field-Tested)",
+  "★ Karambit | Doppler (Factory New)",
+  "★ Butterfly Knife | Doppler (Factory New)",
+  "Recoil Case",
+  "Revolution Case",
+  "Dreams & Nightmares Case",
+  "Fracture Case",
+  "Clutch Case"
+];
+const LIQUID_NAMES = new Set(LIQUID_CATALOG);
+
 const DEFAULT_FEES = {
   "MARKET.CSGO": { sell: 5.0, buy: 0, deposit: 0 },
   "LIS-SKINS": { sell: 0.0, buy: 0, deposit: 0 },
@@ -874,150 +958,82 @@ const DEFAULT_FEES = {
   "CS.MONEY": { sell: 7.0, buy: 0, deposit: 0 },
   "BUFF.163": { sell: 2.5, buy: 0, deposit: 0 }
 };
-let priceDatabase = new Map();
-let dataLoadedAt = null;
-function normalizeMarketName(name){
-  const rawMarket = String(name || "").trim();
-  const aliases = {
-    "MARKET.CSGO": "Market.CSGO",
-    "STEAM MARKET": "Steam",
-    "STEAM": "Steam",
-    "SKINPORT.COM": "Skinport",
-    "CS.MONEY": "CS.MONEY",
-    "LIS-SKINS": "LIS-SKINS",
-    "BUFF.163": "BUFF.163"
+
+const WEAR_NAMES = {
+  FN: "Factory New",
+  MW: "Minimal Wear",
+  FT: "Field-Tested",
+  WW: "Well-Worn",
+  BS: "Battle-Scarred"
+};
+
+/* =========================================================
+   CURRENCY (USD base, RUB from CBR)
+========================================================= */
+
+async function loadRate(){
+  const today = new Date().toISOString().slice(0, 10);
+  const apply = (rate, source) => {
+    if (!rate || rate <= 0) return false;
+    usdToRub = rate;
+    rateSource = source;
+    localStorage.setItem("cs2rate", JSON.stringify({ date: today, rate, source }));
+    $("rateInfo").innerHTML = `1$ = <b>${rate.toLocaleString("ru-RU", { maximumFractionDigits: 2 })} ₽</b> · ${source}`;
+    if (lastResults.length) renderResults(lastResults);
+    return true;
   };
-  return aliases[rawMarket.toUpperCase()] || rawMarket;
-}
-const LIQUID_CATALOG = [
-  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 },
-  { name: "AK-47 | Slate (Field-Tested)", usd: 3.30 },
-  { name: "AK-47 | Asiimov (Field-Tested)", usd: 25.20 },
-  { name: "AK-47 | Ice Coaled (Factory New)", usd: 15.50 },
-  { name: "AK-47 | Vulcan (Field-Tested)", usd: 136.00 },
-  { name: "AWP | Asiimov (Field-Tested)", usd: 87.00 },
-  { name: "AWP | Neo-Noir (Factory New)", usd: 28.20 },
-  { name: "AWP | Atheris (Field-Tested)", usd: 2.25 },
-  { name: "M4A1-S | Printstream (Field-Tested)", usd: 105.00 },
-  { name: "M4A1-S | Decimator (Field-Tested)", usd: 13.10 },
-  { name: "M4A1-S | Hyper Beast (Field-Tested)", usd: 19.50 },
-  { name: "M4A4 | The Emperor (Field-Tested)", usd: 11.20 },
-  { name: "USP-S | Printstream (Field-Tested)", usd: 35.20 },
-  { name: "USP-S | Cortex (Factory New)", usd: 7.45 },
-  { name: "USP-S | Kill Confirmed (Field-Tested)", usd: 46.20 },
-  { name: "Desert Eagle | Printstream (Field-Tested)", usd: 32.80 },
-  { name: "★ Karambit | Doppler (Factory New)", usd: 800.00 },
-  { name: "★ Butterfly Knife | Doppler (Factory New)", usd: 1370.00 },
-  { name: "Recoil Case", usd: 0.25 },
-  { name: "Revolution Case", usd: 0.30 },
-  { name: "Dreams & Nightmares Case", usd: 0.84 },
-  { name: "Fracture Case", usd: 0.34 },
-  { name: "Clutch Case", usd: 0.62 }
-];
-const LIQUID_NAMES = new Set(LIQUID_CATALOG.map(item => item.name));
-function getFee(market, type){
-  const data = fees[market] || { sell: 0, buy: 0, deposit: 0 };
-  return Math.max(0, Number(data[type]) || 0);
-}
-function calculateTrade({ buyPrice, sellPrice, buyMarket, sellMarket }){
-  const buyFee = getFee(buyMarket, "buy");
-  const depositFee = getFee(buyMarket, "deposit");
-  const sellFee = getFee(sellMarket, "sell");
-  const buyFeeVal = buyPrice * (buyFee / 100);
-  const depositFeeVal = buyPrice * (depositFee / 100);
-  const buyTotal = buyPrice + buyFeeVal + depositFeeVal;
-  const sellFeeVal = sellPrice * (sellFee / 100);
-  const sellNet = sellPrice - sellFeeVal;
-  const profitVal = sellNet - buyTotal;
-  const profitPercent = buyTotal > 0 ? (profitVal / buyTotal) * 100 : 0;
-  return {
-    buyPrice: Number(buyPrice.toFixed(2)), buyCurrency: "USD",
-    buyFeeVal: Number(buyFeeVal.toFixed(2)), depositFeeVal: Number(depositFeeVal.toFixed(2)),
-    buyTotal: Number(buyTotal.toFixed(2)), sellPrice: Number(sellPrice.toFixed(2)), sellCurrency: "USD",
-    sellFeeVal: Number(sellFeeVal.toFixed(2)), sellNet: Number(sellNet.toFixed(2)),
-    profitVal: Number(profitVal.toFixed(2)), profitPercent
-  };
-}
-function applyScraperJsonItem(item, source, updatedAt){
-  const weapon = String(item.weapon || "").trim();
-  const name = String(item.name || "").trim();
-  const prices = Array.isArray(item.prices) ? item.prices : [];
-  if (!name || !prices.length) return false;
-  const wearNames = { FN: "Factory New", MW: "Minimal Wear", FT: "Field-Tested", WW: "Well-Worn", BS: "Battle-Scarred" };
-  const quality = item.type === "StatTrak" ? "StatTrak™ " : item.type === "Souvenir" ? "Souvenir " : "";
-  const baseName = name.includes("|") ? name : (weapon ? `${weapon} | ${name}` : name);
-  prices.forEach(priceItem => {
-    const value = Number(priceItem.price);
-    if (!priceItem.has_price || !Number.isFinite(value) || value <= 0) return;
-    const market = normalizeMarketName(priceItem.market);
-    if (!market) return;
-    const wear = wearNames[priceItem.wear] || priceItem.wear || "";
-    const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
-    const entry = priceDatabase.get(marketHashName) || { isLiquid: false, prices: {} };
-    if (LIQUID_NAMES.has(marketHashName)) entry.isLiquid = true;
-    entry.prices[market] = {
-      value: Number(value.toFixed(2)), currency: priceItem.currency || "USD",
-      source: `${source} (${item.type || "Normal"})`, url: priceItem.url || "",
-      isLive: true, fetchedAt: updatedAt || new Date().toISOString()
-    };
-    priceDatabase.set(marketHashName, entry);
-  });
-  return prices.some(priceItem => priceItem.has_price && Number(priceItem.price) > 0);
-}
-function applyLegacySteamJsonItem(item, source, updatedAt){
-  const weapon = String(item.weapon || "").trim();
-  const name = String(item.name || "").trim();
-  const usd = Number(item.price?.min?.value);
-  if (!weapon || !name || !Number.isFinite(usd) || usd <= 0) return false;
-  const marketName = `${weapon} | ${name}`;
-  const entry = priceDatabase.get(marketName) || { isLiquid: false, prices: {} };
-  entry.prices.STEAM = { value: Number(usd.toFixed(2)), currency: "USD", source: `${source} (минимум)`, isLive: true, fetchedAt: updatedAt || new Date().toISOString() };
-  priceDatabase.set(marketName, entry);
-  return true;
-}
-function applyGithubItem(item, source, updatedAt){
-  if (Array.isArray(item.prices) && item.prices.length) return applyScraperJsonItem(item, source, updatedAt);
-  return applyLegacySteamJsonItem(item, source, updatedAt);
-}
-async function loadData(isRefresh){
-  const bust = isRefresh ? `?t=${Date.now()}` : "";
-  const urls = [`json/data.json${bust}`, `https://raw.githubusercontent.com/davlanca/VortexFocus/main/json/data.json${bust}`];
-  let data = null, lastError = null;
-  for (const url of urls){
+
+  // 1) Rate embedded into data.json by the scraper (cbr.ru during Actions run)
+  if (standaloneData?.currency?.usdToRub > 0) {
+    if (apply(standaloneData.currency.usdToRub, standaloneData.currency.source || "cbr.ru")) return;
+  }
+
+  // 2) Node server endpoint (also uses cbr.ru, cached 6h)
+  if (serverMode) {
     try{
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      data = await response.json();
-      break;
-    }catch(error){ lastError = error; }
+      const r = await fetch("/api/rate", { signal: AbortSignal.timeout(8000) });
+      const d = await r.json();
+      if (d.success && d.rate > 0 && apply(d.rate, d.source || "cbr.ru")) return;
+    }catch(e){}
   }
-  if (!data) throw new Error(lastError ? lastError.message : "База не загрузилась");
-  priceDatabase = new Map();
-  LIQUID_CATALOG.forEach(item => { priceDatabase.set(item.name, { isLiquid: true, prices: {} }); });
-  const availableMarkets = new Set();
-  const items = [];
-  for (const section of ["skins", "agents", "misc"]){
-    if (Array.isArray(data?.[section])) items.push(...data[section]);
-  }
-  items.forEach(item => {
-    applyGithubItem(item, "VortexFocus data.json", item.price?.updated_at);
-    for (const price of item.prices || []){
-      const market = normalizeMarketName(price.market);
-      if (market && price.has_price && Number(price.price) > 0) availableMarkets.add(market);
-    }
-  });
-  markets = [...availableMarkets];
+
+  // 3) Today's cached rate
   try{
-    const saved = JSON.parse(localStorage.getItem("vortexFees") || "null");
-    fees = saved && typeof saved === "object" ? saved : JSON.parse(JSON.stringify(DEFAULT_FEES));
-  }catch{ fees = JSON.parse(JSON.stringify(DEFAULT_FEES)); }
-  dataLoadedAt = new Date();
-  fillMarkets();
-  buildFeeTable();
-  $("statTotal").textContent = Number(priceDatabase.size || 0).toLocaleString("ru-RU");
-  return priceDatabase.size;
+    const cached = JSON.parse(localStorage.getItem("cs2rate") || "null");
+    if (cached && cached.date === today && cached.rate > 0 && apply(cached.rate, cached.source + " (кэш)")) return;
+  }catch(e){}
+
+  // 4) Direct fetch of a CORS-friendly daily rates mirror
+  try{
+    const r = await fetch("https://open.er-api.com/v6/latest/USD", { signal: AbortSignal.timeout(8000) });
+    const d = await r.json();
+    if (d?.rates?.RUB > 0 && apply(d.rates.RUB, "open.er-api.com")) return;
+  }catch(e){}
+
+  $("rateInfo").textContent = "курс ₽ недоступен";
 }
 
+function setCurrency(next){
+  currency = next;
+  localStorage.setItem("cs2currency", next);
+  $("curUSD").classList.toggle("active", next === "USD");
+  $("curRUB").classList.toggle("active", next === "RUB");
+  if (lastResults.length) renderResults(lastResults);
+}
+
+// Convert a USD value into the active display currency.
+function conv(value){
+  if (currency === "RUB" && usdToRub > 0) return value * usdToRub;
+  return value;
+}
+
+function currencySymbol(){
+  return currency === "RUB" ? "₽ " : "$ ";
+}
+
+/* =========================================================
+   MARKET LINKS & FORMATTING
+========================================================= */
 
 function getMarketUrl(marketName, skinName){
   const m = String(marketName || "").trim().toUpperCase();
@@ -1036,7 +1052,7 @@ function getMarketUrl(marketName, skinName){
 
 function formatPrice(value){
   if(value === null || value === undefined || !Number.isFinite(Number(value))) return "—";
-  return "$ " + Number(value).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return currencySymbol() + conv(Number(value)).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function percent(value){
@@ -1053,11 +1069,7 @@ function toast(message, type="success"){
 }
 
 function openDiagnostics(){
-  if (!priceDatabase.size){
-    toast("База еще не загружена", "error");
-    return;
-  }
-  toast(`База: ${priceDatabase.size.toLocaleString("ru-RU")} предметов, ${markets.length} площадок` + (dataLoadedAt ? `, загружена ${dataLoadedAt.toLocaleTimeString("ru-RU")}` : ""));
+  window.open("/api/diagnostic", "_blank");
 }
 
 function escapeHtml(value){
@@ -1069,9 +1081,164 @@ function escapeHtml(value){
     .replaceAll("'", "&#039;");
 }
 
+/* =========================================================
+   STANDALONE MODE (GitHub Pages): mirrors server.js logic
+========================================================= */
+
+function normalizeMarketName(name){
+  const rawMarket = String(name || "").trim();
+  const aliases = {
+    "MARKET.CSGO": "Market.CSGO",
+    "STEAM MARKET": "Steam",
+    "STEAM": "Steam",
+    "SKINPORT.COM": "Skinport",
+    "CS.MONEY": "CS.MONEY",
+    "LIS-SKINS": "LIS-SKINS",
+    "BUFF.163": "BUFF.163"
+  };
+  return aliases[rawMarket.toUpperCase()] || rawMarket;
+}
+
+function applyScraperItem(item, db){
+  const weapon = String(item.weapon || "").trim();
+  const name = String(item.name || "").trim();
+  const prices = Array.isArray(item.prices) ? item.prices : [];
+  if (!name || !prices.length) return false;
+
+  const quality = item.type === "StatTrak" ? "StatTrak™ " : item.type === "Souvenir" ? "Souvenir " : "";
+  const baseName = name.includes("|") ? name : (weapon ? `${weapon} | ${name}` : name);
+
+  prices.forEach(priceItem => {
+    const value = Number(priceItem.price);
+    if (!priceItem.has_price || !Number.isFinite(value) || value <= 0) return;
+
+    const market = normalizeMarketName(priceItem.market);
+    if (!market) return;
+    const wear = WEAR_NAMES[priceItem.wear] || priceItem.wear || "";
+    const marketHashName = `${quality}${baseName}${wear ? ` (${wear})` : ""}`;
+    const entry = db.get(marketHashName) || { isLiquid: false, prices: {} };
+    if (LIQUID_NAMES.has(marketHashName)) entry.isLiquid = true;
+    entry.prices[market] = {
+      value: Number(value.toFixed(2)),
+      currency: priceItem.currency || "USD",
+      source: `data.json (${item.type || "Normal"})`,
+      url: priceItem.url || ""
+    };
+    db.set(marketHashName, entry);
+  });
+
+  return prices.some(priceItem => priceItem.has_price && Number(priceItem.price) > 0);
+}
+
+async function loadStandaloneData(){
+  // Order: same-origin json/data.json (published on Pages itself) ->
+  // raw.githubusercontent.com (CORS *) -> GitHub Contents API (base64).
+  try{
+    const r = await fetch("json/data.json", { signal: AbortSignal.timeout(20000) });
+    if (r.ok) return await r.json();
+    throw new Error("HTTP " + r.status);
+  }catch(e){}
+  try{
+    const r = await fetch(DATA_JSON_URL, { signal: AbortSignal.timeout(20000) });
+    if (r.ok) return await r.json();
+    throw new Error("HTTP " + r.status);
+  }catch(rawError){
+    const r = await fetch(`${GITHUB_JSON_API}/data.json`, {
+      headers: { Accept: "application/vnd.github+json" },
+      signal: AbortSignal.timeout(20000)
+    });
+    const j = await r.json();
+    if (j?.encoding === "base64" && j?.content) {
+      return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(j.content), c => c.charCodeAt(0))));
+    }
+    throw new Error("Не удалось загрузить data.json");
+  }
+}
+
+function buildPriceDatabase(data){
+  const db = new Map();
+  for (const section of ["skins", "agents", "misc"]) {
+    for (const item of (data?.[section] || [])) applyScraperItem(item, db);
+  }
+  return db;
+}
+
+function calculateTrade({ buyPrice, sellPrice, buyMarket, sellMarket }){
+  // Fees are stored under the MARKETS list names (e.g. "MARKET.CSGO"),
+  // while the calculation may pass normalized names ("Market.CSGO").
+  const getFee = (market, type) => {
+    const data = fees[market] || fees[String(market).toUpperCase()] || {};
+    return Math.max(0, Number(data[type]) || 0);
+  };
+  const buyFee = getFee(buyMarket, "buy");
+  const depositFee = getFee(buyMarket, "deposit");
+  const sellFee = getFee(sellMarket, "sell");
+
+  const buyFeeVal = buyPrice * (buyFee / 100);
+  const depositFeeVal = buyPrice * (depositFee / 100);
+  const buyTotal = buyPrice + buyFeeVal + depositFeeVal;
+
+  const sellFeeVal = sellPrice * (sellFee / 100);
+  const sellNet = sellPrice - sellFeeVal;
+
+  const profitVal = sellNet - buyTotal;
+  const profitPercent = buyTotal > 0 ? (profitVal / buyTotal) * 100 : 0;
+
+  return {
+    buyPrice: Number(buyPrice.toFixed(2)),
+    buyFeeVal: Number(buyFeeVal.toFixed(2)),
+    depositFeeVal: Number(depositFeeVal.toFixed(2)),
+    buyTotal: Number(buyTotal.toFixed(2)),
+    sellPrice: Number(sellPrice.toFixed(2)),
+    sellFeeVal: Number(sellFeeVal.toFixed(2)),
+    sellNet: Number(sellNet.toFixed(2)),
+    profitVal: Number(profitVal.toFixed(2)),
+    profitPercent
+  };
+}
+
+function scanStandalone(){
+  const buyMarket = normalizeMarketName($("buyMarket").value);
+  const sellMarket = normalizeMarketName($("sellMarket").value);
+  const search = String($("search").value || "").trim().toLowerCase();
+  const onlyLiquid = $("onlyLiquid").checked;
+  const minProfit = $("profitMin").value === "" ? -Infinity : Number($("profitMin").value);
+  const maxProfit = $("profitMax").value === "" ? Infinity : Number($("profitMax").value);
+
+  const results = [];
+  for (const [skinName, itemData] of priceDb.entries()) {
+    if (search && !skinName.toLowerCase().includes(search)) continue;
+    if (onlyLiquid && !itemData.isLiquid) continue;
+
+    const buyEntry = itemData.prices[buyMarket];
+    const sellEntry = itemData.prices[sellMarket];
+    if (!buyEntry || !sellEntry || buyEntry.value <= 0 || sellEntry.value <= 0) continue;
+
+    const calc = calculateTrade({ buyPrice: buyEntry.value, sellPrice: sellEntry.value, buyMarket, sellMarket });
+    if (calc.profitPercent < minProfit || calc.profitPercent > maxProfit) continue;
+
+    results.push({
+      market_name: skinName,
+      buyMarket,
+      sellMarket,
+      buyUrl: buyEntry.url || "",
+      sellUrl: sellEntry.url || "",
+      buySource: buyEntry.source,
+      sellSource: sellEntry.source,
+      isLiquid: Boolean(itemData.isLiquid),
+      ...calc
+    });
+  }
+  return results;
+}
+
+/* =========================================================
+   FEES MODAL
+========================================================= */
+
 function buildFeeTable(){
   $("feeBody").innerHTML = markets.map(market => {
-    const fee = fees[market] || { sell: 0, buy: 0, deposit: 0 };
+    const fee = fees[market] || fees[market.toUpperCase()] || { sell: 0, buy: 0, deposit: 0 };
     return `<tr>
       <td>${escapeHtml(market)}</td>
       <td><input data-market="${escapeHtml(market)}" data-fee="sell" type="number" min="0" step="0.01" value="${fee.sell}"></td>
@@ -1098,24 +1265,62 @@ async function saveFees(){
     nextFees[market] ||= { sell: 0, buy: 0, deposit: 0 };
     nextFees[market][type] = Number(input.value) || 0;
   });
-  fees = nextFees;
-  try{ localStorage.setItem("vortexFees", JSON.stringify(fees)); }catch{}
+
+  if (serverMode) {
+    try{
+      const response = await fetch("/api/fees", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fees: nextFees })
+      });
+      const data = await response.json();
+      if(!response.ok || !data.success) throw new Error(data.error || "Не удалось сохранить комиссии");
+      fees = data.fees || nextFees;
+    }catch(error){
+      toast(error.message, "error");
+      return;
+    }
+  } else {
+    fees = nextFees;
+    localStorage.setItem("cs2fees", JSON.stringify(fees));
+  }
   closeFees();
-  toast("Комиссии сохранены (в этом браузере)");
+  toast("Комиссии сохранены");
+  if (lastResults.length) renderResults(lastResults);
 }
+
+/* =========================================================
+   REFRESH
+========================================================= */
 
 async function triggerRefresh(){
   const button = document.querySelector(".refreshBtn");
   if(button) button.disabled = true;
   try{
-    const itemsCount = await loadData(true);
-    toast(`Базы обновлены: ${Number(itemsCount || 0).toLocaleString("ru-RU")} предметов`);
+    if (serverMode) {
+      const response = await fetch("/api/refresh", { method: "POST" });
+      const data = await response.json();
+      if(!response.ok || !data.success) throw new Error(data.error || "Не удалось обновить базы");
+      $("statTotal").textContent = Number(data.itemsCount || 0).toLocaleString("ru-RU");
+      toast(`Базы обновлены: ${Number(data.itemsCount || 0).toLocaleString("ru-RU")} предметов`);
+    } else {
+      standaloneData = await loadStandaloneData();
+      priceDb = buildPriceDatabase(standaloneData);
+      fillMarkets();
+      $("statTotal").textContent = priceDb.size.toLocaleString("ru-RU");
+      await loadRate();
+      toast(`Базы обновлены: ${priceDb.size.toLocaleString("ru-RU")} предметов`);
+    }
   }catch(error){
-    toast("Не удалось обновить базы: " + error.message, "error");
+    toast(error.message, "error");
   }finally{
     if(button) button.disabled = false;
   }
 }
+
+/* =========================================================
+   SORT & RENDER
+========================================================= */
 
 function setSort(nextSort){
   sortBy = nextSort;
@@ -1167,40 +1372,42 @@ function sortResults(results){
   return [...results].sort((left, right) => (Number(left[sortBy]) - Number(right[sortBy])) * direction);
 }
 
+/* =========================================================
+   SCAN
+========================================================= */
+
 async function scan(){
   const button = $("scanButton");
   const requestId = ++scanRequestId;
   if(button) button.disabled = true;
   try{
-    if (!priceDatabase.size) await loadData(false);
-    const buyMarket = normalizeMarketName($("buyMarket").value);
-    const sellMarket = normalizeMarketName($("sellMarket").value);
-    const onlyLiquid = $("onlyLiquid").checked;
-    const minProfit = $("profitMin").value === "" ? -Infinity : Number($("profitMin").value);
-    const maxProfit = $("profitMax").value === "" ? Infinity : Number($("profitMax").value);
-    const search = String($("search").value || "").trim().toLowerCase();
-    if (!buyMarket || !sellMarket) throw new Error("Выберите площадки покупки и продажи.");
-    if (buyMarket === sellMarket) throw new Error("Площадки покупки и продажи должны отличаться.");
-    const results = [];
-    for (const [skinName, itemData] of priceDatabase.entries()){
-      if (search && !skinName.toLowerCase().includes(search)) continue;
-      if (onlyLiquid && !itemData.isLiquid) continue;
-      const buyEntry = itemData.prices ? itemData.prices[buyMarket] : null;
-      const sellEntry = itemData.prices ? itemData.prices[sellMarket] : null;
-      if (!buyEntry || !sellEntry || buyEntry.isLive !== true || sellEntry.isLive !== true || buyEntry.value <= 0 || sellEntry.value <= 0) continue;
-      const calc = calculateTrade({ buyPrice: buyEntry.value, sellPrice: sellEntry.value, buyMarket, sellMarket });
-      if (calc.profitPercent < minProfit || calc.profitPercent > maxProfit) continue;
-      results.push({
-        market_name: skinName, buyMarket, sellMarket,
-        buyUrl: buyEntry.url || "", sellUrl: sellEntry.url || "",
-        buySource: buyEntry.source, sellSource: sellEntry.source,
-        isLiquid: Boolean(itemData.isLiquid), ...calc
+    let results;
+    if (serverMode) {
+      const response = await fetch("/api/arbitrage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          buyMarket: $("buyMarket").value,
+          sellMarket: $("sellMarket").value,
+          search: $("search").value,
+          onlyLiquid: $("onlyLiquid").checked,
+          minProfit: $("profitMin").value,
+          maxProfit: $("profitMax").value,
+          sortBy,
+          sortDirection
+        })
       });
+      const data = await response.json();
+      if(!response.ok || !data.success) throw new Error(data.error || "Ошибка сканирования");
+      if(requestId !== scanRequestId) return;
+      results = data.results || [];
+      $("statTotal").textContent = Number(data.totalItems || 0).toLocaleString("ru-RU");
+    } else {
+      results = scanStandalone();
+      $("statTotal").textContent = priceDb.size.toLocaleString("ru-RU");
     }
-    if(requestId !== scanRequestId) return;
     lastResults = sortResults(results);
     renderResults(lastResults);
-    $("statTotal").textContent = Number(priceDatabase.size || 0).toLocaleString("ru-RU");
   }catch(error){
     toast(error.message, "error");
   }finally{
@@ -1208,15 +1415,53 @@ async function scan(){
   }
 }
 
+/* =========================================================
+   INIT
+========================================================= */
+
 async function init(){
+  $("curUSD").classList.toggle("active", currency === "USD");
+  $("curRUB").classList.toggle("active", currency === "RUB");
+
   try{
-    await loadData(false);
-  }catch(error){
-    toast("Не удалось загрузить базу: " + error.message, "error");
+    // Detect the Node server (local run)
+    const response = await fetch("/api/config", { signal: AbortSignal.timeout(2500) });
+    const config = await response.json();
+    if (!config?.success) throw new Error("no server");
+    serverMode = true;
+    markets = config.markets || [];
+    fees = config.fees || {};
+    $("statTotal").textContent = Number(config.totalItems || 0).toLocaleString("ru-RU");
+  }catch(e){
+    // Standalone mode (GitHub Pages)
+    serverMode = false;
+    $("diagBtn").style.display = "none";
+    fees = JSON.parse(localStorage.getItem("cs2fees") || "null") || JSON.parse(JSON.stringify(DEFAULT_FEES));
+    try{
+      standaloneData = await loadStandaloneData();
+      priceDb = buildPriceDatabase(standaloneData);
+      $("statTotal").textContent = priceDb.size.toLocaleString("ru-RU");
+      toast("Автономный режим: данные из GitHub", "success");
+    }catch(error){
+      toast("Не удалось загрузить data.json: " + error.message, "error");
+    }
   }
+
+  fillMarkets();
+  buildFeeTable();
+  loadRate();
 }
 
 function fillMarkets(){
+  // In standalone mode derive the market list from the loaded data
+  if (!serverMode && priceDb.size) {
+    const available = new Set();
+    for (const itemData of priceDb.values()) {
+      for (const market of Object.keys(itemData.prices)) available.add(market);
+    }
+    markets = [...available].sort();
+  }
+
   const buy = $("buyMarket");
   const sell = $("sellMarket");
   buy.innerHTML = "";
