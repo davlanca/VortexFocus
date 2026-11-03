@@ -3,212 +3,6 @@
   "agents": null,
   "misc": [
     {
-      "name": "Kilowatt Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.07 - $0.25",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.07,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.25,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.25,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Kilowatt%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Kilowatt%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.07,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Kilowatt%20Case",
-          "lowest": true
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.08,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Kilowatt%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.07,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Kilowatt%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Kilowatt%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.07,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Kilowatt%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Kilowatt%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Kilowatt%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.13,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/kilowatt-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 0.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Kilowatt%20Case"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/kilowatt-case/"
-    },
-    {
-      "name": "Dreams \u0026 Nightmares Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.64 - $1.85",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.64,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.85,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 1.85,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.83,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Dreams%20%26%20Nightmares%20Case",
-          "lowest": true
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.91,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.68,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.75,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Dreams%20%26%20Nightmares%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.81,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Dreams%20%26%20Nightmares%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.91,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.91,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Dreams%20%26%20Nightmares%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.8,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/dreams-\u0026-nightmares-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 1.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/dreams-nightmares-case/"
-    },
-    {
       "name": "Revolution Case",
       "type": "Case",
       "rarity": "",
@@ -227,7 +21,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -268,7 +62,7 @@
         },
         {
           "market": "BUFF Market",
-          "price": 0.13,
+          "price": 0.15,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Revolution%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -296,7 +90,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.14,
+          "price": 0.13,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/revolution-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -305,100 +99,402 @@
       "url": "https://www.csgodatabase.com/cases/revolution-case/"
     },
     {
-      "name": "Spectrum Case",
+      "name": "Sealed Genesis Terminal",
       "type": "Case",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.93 - $5.58",
+        "price_string": "$0.03 - $0.17",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.93,
+          "value": 0.03,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 5.58,
+          "value": 0.17,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 5.58,
+          "price": 0.15,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Spectrum%20Case"
+          "url": "https://steamcommunity.com/market/listings/730/Sealed%20Genesis%20Terminal"
         },
         {
           "market": "Tradeit.GG",
-          "price": 2.93,
+          "price": 0.05,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Spectrum%20Case",
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.04,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.05,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.04,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.06,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Sealed%20Genesis%20Terminal?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.03,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Sealed%20Genesis%20Terminal?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7",
+          "lowest": true
+        },
+        {
+          "market": "Skinport",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.11,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sealed%20Genesis%20Terminal"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.15,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/sealed-genesis-terminal/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/sealed-genesis-terminal/"
+    },
+    {
+      "name": "Horizon Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$1.22 - $2.56",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 1.22,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 2.56,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 2.56,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Horizon%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 1.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Horizon%20Case",
           "lowest": true
         },
         {
           "market": "CS.MONEY",
-          "price": 3,
+          "price": 1.28,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Spectrum%20Case"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Horizon%20Case"
         },
         {
           "market": "PirateSwap",
-          "price": 3.55,
+          "price": 1.45,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Spectrum%20Case"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Horizon%20Case"
         },
         {
           "market": "SkinSwap",
-          "price": 2.93,
+          "price": 1.22,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Spectrum%20Case"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Horizon%20Case"
         },
         {
           "market": "BUFF Market",
-          "price": 3.21,
+          "price": 1.25,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Spectrum%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Horizon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 3.17,
+          "price": 1.35,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Spectrum%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Horizon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 3.11,
+          "price": 1.24,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Spectrum%20Case"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Horizon%20Case"
         },
         {
           "market": "DMarket",
-          "price": 3.09,
+          "price": 1.23,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Spectrum%20Case"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Horizon%20Case"
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.06,
+          "price": 1.27,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/spectrum-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/horizon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/cases/spectrum-case/"
+      "url": "https://www.csgodatabase.com/cases/horizon-case/"
+    },
+    {
+      "name": "Kilowatt Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.06 - $0.25",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.06,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 0.25,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.25,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Kilowatt%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.1,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Kilowatt%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Kilowatt%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.08,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Kilowatt%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.08,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Kilowatt%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.11,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Kilowatt%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.06,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Kilowatt%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7",
+          "lowest": true
+        },
+        {
+          "market": "Skinport",
+          "price": 0.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Kilowatt%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.1,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Kilowatt%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.13,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/kilowatt-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 0.1,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Kilowatt%20Case"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/kilowatt-case/"
+    },
+    {
+      "name": "Dreams \u0026 Nightmares Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.68 - $1.85",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.68,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.85,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 1.85,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.8,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.68,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.79,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Dreams%20%26%20Nightmares%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.8,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Dreams%20%26%20Nightmares%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.85,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Dreams%20%26%20Nightmares%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.77,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/dreams-\u0026-nightmares-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 1.05,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Dreams%20%26%20Nightmares%20Case"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/dreams-nightmares-case/"
     },
     {
       "name": "Fever Case",
@@ -406,11 +502,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.50 - $0.89",
+        "price_string": "$0.46 - $0.89",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.5,
+          "value": 0.46,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -419,7 +515,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -431,7 +527,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 0.5,
+          "price": 0.46,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Fever%20Case",
@@ -439,7 +535,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 0.56,
+          "price": 0.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Fever%20Case"
@@ -460,21 +556,21 @@
         },
         {
           "market": "BUFF Market",
-          "price": 0.61,
+          "price": 0.62,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Fever%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 0.53,
+          "price": 0.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Fever%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 0.55,
+          "price": 0.49,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Fever%20Case"
@@ -495,7 +591,7 @@
         },
         {
           "market": "iTrade.GG",
-          "price": 0.74,
+          "price": 0.75,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Fever%20Case"
@@ -509,11 +605,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.51 - $1.28",
+        "price_string": "$0.50 - $1.28",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.51,
+          "value": 0.5,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -522,7 +618,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -555,11 +651,10 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.51,
+          "price": 0.53,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Gallery%20Case",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Gallery%20Case"
         },
         {
           "market": "BUFF Market",
@@ -577,10 +672,11 @@
         },
         {
           "market": "Skinport",
-          "price": 0.58,
+          "price": 0.5,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Gallery%20Case"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Gallery%20Case",
+          "lowest": true
         },
         {
           "market": "DMarket",
@@ -591,7 +687,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.52,
+          "price": 0.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/gallery-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -625,7 +721,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -673,7 +769,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.18,
+          "price": 0.17,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Recoil%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -694,7 +790,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.17,
+          "price": 0.18,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/recoil-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -721,7 +817,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -762,21 +858,21 @@
         },
         {
           "market": "BUFF Market",
-          "price": 6.37,
+          "price": 6.32,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Operation%20Riptide%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 6.63,
+          "price": 6.64,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Operation%20Riptide%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 6.19,
+          "price": 6.2,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Riptide%20Case"
@@ -804,11 +900,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.24 - $0.72",
+        "price_string": "$0.25 - $0.72",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.24,
+          "value": 0.25,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -817,7 +913,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -846,15 +942,15 @@
           "price": 0.25,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Snakebite%20Case"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Snakebite%20Case",
+          "lowest": true
         },
         {
           "market": "SkinSwap",
-          "price": 0.24,
+          "price": 0.25,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Snakebite%20Case",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Snakebite%20Case"
         },
         {
           "market": "BUFF Market",
@@ -886,7 +982,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.24,
+          "price": 0.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/snakebite-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -900,11 +996,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$4.52 - $9.49",
+        "price_string": "$4.65 - $9.49",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 4.52,
+          "value": 4.65,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -913,7 +1009,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -925,10 +1021,11 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 4.67,
+          "price": 4.65,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Broken%20Fang%20Case"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Broken%20Fang%20Case",
+          "lowest": true
         },
         {
           "market": "CS.MONEY",
@@ -946,14 +1043,14 @@
         },
         {
           "market": "SkinSwap",
-          "price": 4.67,
+          "price": 4.65,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Broken%20Fang%20Case"
         },
         {
           "market": "BUFF Market",
-          "price": 4.99,
+          "price": 4.98,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Operation%20Broken%20Fang%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -967,11 +1064,10 @@
         },
         {
           "market": "Skinport",
-          "price": 4.52,
+          "price": 4.81,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Broken%20Fang%20Case",
-          "lowest": true
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Broken%20Fang%20Case"
         },
         {
           "market": "DMarket",
@@ -982,7 +1078,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.76,
+          "price": 4.73,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/operation-broken-fang-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -996,11 +1092,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.30 - $0.78",
+        "price_string": "$0.32 - $0.78",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.3,
+          "value": 0.32,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -1009,7 +1105,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1045,7 +1141,8 @@
           "price": 0.32,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Fracture%20Case"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Fracture%20Case",
+          "lowest": true
         },
         {
           "market": "BUFF Market",
@@ -1063,7 +1160,7 @@
         },
         {
           "market": "Skinport",
-          "price": 0.35,
+          "price": 0.37,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Fracture%20Case"
@@ -1077,11 +1174,10 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.3,
+          "price": 0.32,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/fracture-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings",
-          "lowest": true
+          "url": "https://lis-skins.com/market/csgo/fracture-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
@@ -1112,7 +1208,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1146,7 +1242,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.88,
+          "price": 0.9,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Prisma%202%20Case"
@@ -1181,7 +1277,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.91,
+          "price": 0.93,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/prisma-2-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1208,7 +1304,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1256,7 +1352,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.72,
+          "price": 0.73,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/CS20%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1277,7 +1373,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.66,
+          "price": 0.68,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/cs20-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1304,7 +1400,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1345,14 +1441,14 @@
         },
         {
           "market": "BUFF Market",
-          "price": 3.67,
+          "price": 3.6,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Shattered%20Web%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 3.65,
+          "price": 3.72,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Shattered%20Web%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1366,7 +1462,7 @@
         },
         {
           "market": "DMarket",
-          "price": 3.53,
+          "price": 3.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Shattered%20Web%20Case"
@@ -1400,7 +1496,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1434,7 +1530,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.91,
+          "price": 0.9,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Prisma%20Case"
@@ -1448,7 +1544,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.99,
+          "price": 0.97,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Prisma%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1469,7 +1565,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.95,
+          "price": 0.91,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/prisma-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1496,7 +1592,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1530,7 +1626,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.86,
+          "price": 0.91,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Danger%20Zone%20Case"
@@ -1565,7 +1661,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.87,
+          "price": 0.94,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/danger-zone-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1574,100 +1670,203 @@
       "url": "https://www.csgodatabase.com/cases/danger-zone-case/"
     },
     {
-      "name": "Horizon Case",
+      "name": "Sealed Dead Hand Terminal",
       "type": "Case",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$1.22 - $2.56",
+        "price_string": "$0.16 - $1.27",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 1.22,
+          "value": 0.16,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 2.56,
+          "value": 1.27,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 2.56,
+          "price": 1.27,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Horizon%20Case"
+          "url": "https://steamcommunity.com/market/listings/730/Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "Tradeit.GG",
-          "price": 1.22,
+          "price": 0.19,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Horizon%20Case",
-          "lowest": true
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "CS.MONEY",
-          "price": 1.28,
+          "price": 0.2,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Horizon%20Case"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "PirateSwap",
-          "price": 1.45,
+          "price": 0.21,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Horizon%20Case"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "SkinSwap",
-          "price": 1.23,
+          "price": 0.16,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Horizon%20Case"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal",
+          "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 1.25,
+          "price": 0.19,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Horizon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Sealed%20Dead%20Hand%20Terminal?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 1.33,
+          "price": 0.16,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Horizon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Sealed%20Dead%20Hand%20Terminal?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 1.24,
+          "price": 0.33,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Horizon%20Case"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "DMarket",
-          "price": 1.23,
+          "price": 0.2,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Horizon%20Case"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sealed%20Dead%20Hand%20Terminal"
         },
         {
           "market": "LIS-SKINS",
-          "price": 1.26,
+          "price": 0.2,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/horizon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/sealed-dead-hand-terminal/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 0.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal"
         }
       ],
-      "url": "https://www.csgodatabase.com/cases/horizon-case/"
+      "url": "https://www.csgodatabase.com/cases/sealed-dead-hand-terminal/"
+    },
+    {
+      "name": "Gamma Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.42 - $4.73",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.42,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 4.73,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 4.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Gamma%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.44,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Gamma%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.58,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Gamma%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 2.96,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Gamma%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.52,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Gamma%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.64,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Gamma%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 2.67,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Gamma%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Gamma%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.42,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Gamma%20Case",
+          "lowest": true
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.64,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/gamma-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/gamma-case/"
     },
     {
       "name": "Clutch Case",
@@ -1688,7 +1887,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1700,10 +1899,11 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 0.33,
+          "price": 0.32,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Clutch%20Case"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Clutch%20Case",
+          "lowest": true
         },
         {
           "market": "CS.MONEY",
@@ -1721,11 +1921,10 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.32,
+          "price": 0.33,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Clutch%20Case",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Clutch%20Case"
         },
         {
           "market": "BUFF Market",
@@ -1757,7 +1956,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.32,
+          "price": 0.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/clutch-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1791,7 +1990,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1825,7 +2024,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.48,
+          "price": 2.56,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Spectrum%202%20Case"
@@ -1839,14 +2038,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 2.67,
+          "price": 2.7,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Spectrum%202%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.51,
+          "price": 2.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Spectrum%202%20Case"
@@ -1860,7 +2059,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.55,
+          "price": 2.67,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/spectrum-2-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1874,11 +2073,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$21.45 - $43.32",
+        "price_string": "$21.41 - $43.32",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 21.45,
+          "value": 21.41,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -1887,7 +2086,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -1920,7 +2119,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 21.45,
+          "price": 21.41,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Hydra%20Case",
@@ -1935,7 +2134,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 27.48,
+          "price": 27.1,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Operation%20Hydra%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1956,7 +2155,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 22.96,
+          "price": 22.84,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/operation-hydra-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1965,100 +2164,100 @@
       "url": "https://www.csgodatabase.com/cases/operation-hydra-case/"
     },
     {
-      "name": "Chroma Case",
+      "name": "Spectrum Case",
       "type": "Case",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$3.85 - $7.38",
+        "price_string": "$2.93 - $5.58",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 3.85,
+          "value": 2.93,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 7.38,
+          "value": 5.58,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 7.38,
+          "price": 5.58,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Chroma%20Case"
+          "url": "https://steamcommunity.com/market/listings/730/Spectrum%20Case"
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.85,
+          "price": 2.93,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Chroma%20Case",
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Spectrum%20Case",
           "lowest": true
         },
         {
           "market": "CS.MONEY",
-          "price": 4.04,
+          "price": 3,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Chroma%20Case"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Spectrum%20Case"
         },
         {
           "market": "PirateSwap",
-          "price": 4.76,
+          "price": 3.55,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Chroma%20Case"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Spectrum%20Case"
         },
         {
           "market": "SkinSwap",
-          "price": 3.87,
+          "price": 2.97,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Chroma%20Case"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Spectrum%20Case"
         },
         {
           "market": "BUFF Market",
-          "price": 4.29,
+          "price": 3.21,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Chroma%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Spectrum%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 4.14,
+          "price": 3.17,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Chroma%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Spectrum%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 3.94,
+          "price": 3.11,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Chroma%20Case"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Spectrum%20Case"
         },
         {
           "market": "DMarket",
-          "price": 3.89,
+          "price": 3.09,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Chroma%20Case"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Spectrum%20Case"
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.05,
+          "price": 3.06,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/chroma-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/spectrum-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/cases/chroma-case/"
+      "url": "https://www.csgodatabase.com/cases/spectrum-case/"
     },
     {
       "name": "Glove Case",
@@ -2066,11 +2265,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$7.84 - $17.31",
+        "price_string": "$8.11 - $17.31",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 7.84,
+          "value": 8.11,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2079,7 +2278,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -2091,7 +2290,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 7.92,
+          "price": 8.77,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Glove%20Case"
@@ -2112,7 +2311,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 7.84,
+          "price": 8.11,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Glove%20Case",
@@ -2127,14 +2326,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 8.31,
+          "price": 8.41,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Glove%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 8.21,
+          "price": 8.22,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Glove%20Case"
@@ -2148,7 +2347,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 8.23,
+          "price": 8.27,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/glove-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2175,7 +2374,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -2223,14 +2422,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 2.62,
+          "price": 2.64,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Gamma%202%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.54,
+          "price": 2.48,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Gamma%202%20Case"
@@ -2253,294 +2452,6 @@
       "url": "https://www.csgodatabase.com/cases/gamma-2-case/"
     },
     {
-      "name": "Gamma Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.42 - $4.73",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.42,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 4.73,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 4.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Gamma%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.44,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Gamma%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.52,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Gamma%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 2.96,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Gamma%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.47,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Gamma%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Gamma%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.67,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Gamma%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Gamma%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.42,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Gamma%20Case",
-          "lowest": true
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.59,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/gamma-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/gamma-case/"
-    },
-    {
-      "name": "Chroma 3 Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.67 - $4.95",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.67,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 4.95,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 4.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Chroma%203%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.75,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Chroma%203%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.88,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Chroma%203%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.61,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Chroma%203%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.67,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Chroma%203%20Case",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.98,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Chroma%203%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.91,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Chroma%203%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.88,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Chroma%203%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 3,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Chroma%203%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.96,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/chroma-3-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/chroma-3-case/"
-    },
-    {
-      "name": "Operation Wildfire Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.28 - $5.11",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.28,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 5.11,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 5.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.28,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Wildfire%20Case",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 2.93,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.29,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.35,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Operation%20Wildfire%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.45,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Operation%20Wildfire%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.29,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Wildfire%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.33,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/operation-wildfire-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/operation-wildfire-case/"
-    },
-    {
       "name": "Revolver Case",
       "type": "Case",
       "rarity": "",
@@ -2559,7 +2470,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -2607,14 +2518,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 2.44,
+          "price": 2.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Revolver%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.32,
+          "price": 2.29,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Revolver%20Case"
@@ -2628,13 +2539,301 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.3,
+          "price": 2.33,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/revolver-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
       "url": "https://www.csgodatabase.com/cases/revolver-case/"
+    },
+    {
+      "name": "Chroma 3 Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.75 - $4.95",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.75,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 4.95,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 4.95,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Chroma%203%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.75,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Chroma%203%20Case",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.88,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Chroma%203%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.61,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Chroma%203%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.83,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Chroma%203%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Chroma%203%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 3.08,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Chroma%203%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.88,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Chroma%203%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Chroma%203%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/chroma-3-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/chroma-3-case/"
+    },
+    {
+      "name": "Operation Wildfire Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.28 - $5.11",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.28,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 5.11,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 5.11,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Wildfire%20Case",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 2.93,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.35,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Operation%20Wildfire%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 2.47,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Operation%20Wildfire%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.29,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Wildfire%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/operation-wildfire-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/operation-wildfire-case/"
+    },
+    {
+      "name": "Falchion Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$1.31 - $2.49",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 1.31,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 2.49,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 2.49,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Falchion%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 1.31,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Falchion%20Case",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 1.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Falchion%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 1.64,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Falchion%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 1.33,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Falchion%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.45,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Falchion%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 1.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Falchion%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 1.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Falchion%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 1.6,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Falchion%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 1.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/falchion-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/falchion-case/"
     },
     {
       "name": "Shadow Case",
@@ -2655,7 +2854,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -2703,7 +2902,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 1.42,
+          "price": 1.38,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Shadow%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2733,102 +2932,6 @@
       "url": "https://www.csgodatabase.com/cases/shadow-case/"
     },
     {
-      "name": "Falchion Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$1.31 - $2.49",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 1.31,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 2.49,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 2.49,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Falchion%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 1.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Falchion%20Case",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 1.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Falchion%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 1.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Falchion%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 1.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Falchion%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.48,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Falchion%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 1.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Falchion%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 1.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Falchion%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 1.6,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Falchion%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 1.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/falchion-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/falchion-case/"
-    },
-    {
       "name": "Chroma 2 Case",
       "type": "Case",
       "rarity": "",
@@ -2847,7 +2950,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -2888,14 +2991,14 @@
         },
         {
           "market": "BUFF Market",
-          "price": 3.37,
+          "price": 3.36,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Chroma%202%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 3.41,
+          "price": 3.27,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Chroma%202%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2916,13 +3019,205 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.31,
+          "price": 3.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/chroma-2-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
       "url": "https://www.csgodatabase.com/cases/chroma-2-case/"
+    },
+    {
+      "name": "Operation Breakout Weapon Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$6.73 - $11.70",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 6.73,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 11.7,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 11.7,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 7.07,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 6.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 8.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 6.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 6.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Operation%20Breakout%20Weapon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 7.25,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Operation%20Breakout%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 6.75,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 6.86,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Breakout%20Weapon%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 7.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/operation-breakout-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/operation-breakout-weapon-case/"
+    },
+    {
+      "name": "Chroma Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$3.81 - $7.38",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 3.81,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 7.38,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 7.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Chroma%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 3.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Chroma%20Case",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 4.03,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Chroma%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 4.76,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Chroma%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 3.87,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Chroma%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 4.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Chroma%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 4.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Chroma%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 3.94,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Chroma%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 3.89,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Chroma%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 4.05,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/chroma-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/chroma-case/"
     },
     {
       "name": "Operation Vanguard Weapon Case",
@@ -2943,7 +3238,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3005,7 +3300,7 @@
         },
         {
           "market": "DMarket",
-          "price": 4.64,
+          "price": 4.5,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Vanguard%20Weapon%20Case"
@@ -3021,112 +3316,16 @@
       "url": "https://www.csgodatabase.com/cases/operation-vanguard-weapon-case/"
     },
     {
-      "name": "Operation Phoenix Weapon Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.99 - $6.02",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.99,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 6.02,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 6.02,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 3.23,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 3.14,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.72,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 3.03,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 3.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Operation%20Phoenix%20Weapon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 3.25,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Operation%20Phoenix%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case",
-          "lowest": true
-        },
-        {
-          "market": "DMarket",
-          "price": 2.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Phoenix%20Weapon%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 3.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/operation-phoenix-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/operation-phoenix-weapon-case/"
-    },
-    {
       "name": "eSports 2014 Summer Case",
       "type": "Case",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$9.46 - $20.54",
+        "price_string": "$9.54 - $20.54",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 9.46,
+          "value": 9.54,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3135,7 +3334,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3168,7 +3367,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 9.46,
+          "price": 9.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=eSports%202014%20Summer%20Case",
@@ -3183,14 +3382,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 10.66,
+          "price": 10.84,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/eSports%202014%20Summer%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 9.88,
+          "price": 9.89,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=eSports%202014%20Summer%20Case"
@@ -3204,7 +3403,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 10.12,
+          "price": 10.11,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/esports-2014-summer-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3213,196 +3412,107 @@
       "url": "https://www.csgodatabase.com/cases/esports-2014-summer-case/"
     },
     {
-      "name": "Operation Breakout Weapon Case",
+      "name": "X-Ray P250 Package",
       "type": "Case",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$6.63 - $11.70",
+        "price_string": "$1.63 - $3.10",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 6.63,
+          "value": 1.63,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 11.7,
+          "value": 3.1,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 11.7,
+          "price": 2.47,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Operation%20Breakout%20Weapon%20Case"
+          "url": "https://steamcommunity.com/market/listings/730/X-Ray%20P250%20Package"
         },
         {
           "market": "Tradeit.GG",
-          "price": 7.15,
+          "price": 1.66,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=X-Ray%20P250%20Package"
         },
         {
           "market": "CS.MONEY",
-          "price": 6.81,
+          "price": 2.19,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Breakout%20Weapon%20Case"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=X-Ray%20P250%20Package"
         },
         {
           "market": "PirateSwap",
-          "price": 8.09,
+          "price": 1.87,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Breakout%20Weapon%20Case"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=X-Ray%20P250%20Package"
         },
         {
           "market": "SkinSwap",
-          "price": 6.63,
+          "price": 1.63,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case",
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=X-Ray%20P250%20Package",
           "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 6.92,
+          "price": 1.7,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Operation%20Breakout%20Weapon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/X-Ray%20P250%20Package?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 7.25,
+          "price": 1.97,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Operation%20Breakout%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/X-Ray%20P250%20Package?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 6.78,
+          "price": 1.66,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Breakout%20Weapon%20Case"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=X-Ray%20P250%20Package"
         },
         {
           "market": "DMarket",
-          "price": 6.86,
+          "price": 2.03,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Breakout%20Weapon%20Case"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=X-Ray%20P250%20Package"
         },
         {
           "market": "LIS-SKINS",
-          "price": 6.93,
+          "price": 1.73,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/operation-breakout-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/x-ray-p250-package/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 3.1,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=X-Ray%20P250%20Package"
         }
       ],
-      "url": "https://www.csgodatabase.com/cases/operation-breakout-weapon-case/"
-    },
-    {
-      "name": "Sealed Dead Hand Terminal",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.19 - $1.27",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.19,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.27,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 1.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Sealed%20Dead%20Hand%20Terminal?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Sealed%20Dead%20Hand%20Terminal?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sealed%20Dead%20Hand%20Terminal"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/sealed-dead-hand-terminal/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/sealed-dead-hand-terminal/"
+      "url": "https://www.csgodatabase.com/cases/x-ray-p250-package/"
     },
     {
       "name": "Huntsman Weapon Case",
@@ -3410,11 +3520,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$6.64 - $12.58",
+        "price_string": "$6.65 - $12.58",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 6.64,
+          "value": 6.65,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3423,7 +3533,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3470,14 +3580,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 7.19,
+          "price": 7.14,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Huntsman%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 6.64,
+          "price": 6.65,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Huntsman%20Weapon%20Case",
@@ -3492,13 +3602,109 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 7.03,
+          "price": 7.04,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/huntsman-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
       "url": "https://www.csgodatabase.com/cases/huntsman-weapon-case/"
+    },
+    {
+      "name": "Operation Phoenix Weapon Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.99 - $6.02",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.99,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 6.02,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 6.02,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 3.27,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 3.2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.72,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 3.03,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 3.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Operation%20Phoenix%20Weapon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 3.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Operation%20Phoenix%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Phoenix%20Weapon%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.99,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Phoenix%20Weapon%20Case",
+          "lowest": true
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 3.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/operation-phoenix-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/operation-phoenix-weapon-case/"
     },
     {
       "name": "Winter Offensive Weapon Case",
@@ -3519,7 +3725,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3531,7 +3737,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 8.82,
+          "price": 8.73,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Winter%20Offensive%20Weapon%20Case"
@@ -3553,28 +3759,28 @@
         },
         {
           "market": "SkinSwap",
-          "price": 8.56,
+          "price": 8.33,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Winter%20Offensive%20Weapon%20Case"
         },
         {
           "market": "BUFF Market",
-          "price": 9,
+          "price": 8.92,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Winter%20Offensive%20Weapon%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 8.65,
+          "price": 8.89,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Winter%20Offensive%20Weapon%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 8.54,
+          "price": 8.55,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Winter%20Offensive%20Weapon%20Case"
@@ -3588,7 +3794,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 8.73,
+          "price": 8.68,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/winter-offensive-weapon-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3602,11 +3808,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$10.32 - $18.28",
+        "price_string": "$10.54 - $18.28",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 10.32,
+          "value": 10.54,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3615,7 +3821,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3648,7 +3854,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 10.32,
+          "price": 10.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=CS%3AGO%20Weapon%20Case%203",
@@ -3663,14 +3869,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 11.53,
+          "price": 11.8,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/CS%3AGO%20Weapon%20Case%203?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 11.21,
+          "price": 11.23,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=CS%3AGO%20Weapon%20Case%203"
@@ -3684,7 +3890,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 10.83,
+          "price": 11.13,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/cs-go-weapon-case-3/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3698,11 +3904,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$9.47 - $27.41",
+        "price_string": "$9.45 - $27.41",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 9.47,
+          "value": 9.45,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3711,7 +3917,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3744,7 +3950,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 9.47,
+          "price": 9.45,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=eSports%202013%20Winter%20Case",
@@ -3766,7 +3972,7 @@
         },
         {
           "market": "Skinport",
-          "price": 10.16,
+          "price": 10.18,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=eSports%202013%20Winter%20Case"
@@ -3807,7 +4013,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3840,28 +4046,28 @@
         },
         {
           "market": "SkinSwap",
-          "price": 16.91,
+          "price": 16.93,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=CS%3AGO%20Weapon%20Case%202"
         },
         {
           "market": "BUFF Market",
-          "price": 18.32,
+          "price": 18.16,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/CS%3AGO%20Weapon%20Case%202?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 18.77,
+          "price": 19.21,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/CS%3AGO%20Weapon%20Case%202?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 17.48,
+          "price": 17.5,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=CS%3AGO%20Weapon%20Case%202"
@@ -3885,6 +4091,102 @@
       "url": "https://www.csgodatabase.com/cases/csgo-weapon-case-2/"
     },
     {
+      "name": "Operation Bravo Case",
+      "type": "Case",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$49.57 - $89.38",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 49.57,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 89.38,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-03T05:28:27Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 89.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Operation%20Bravo%20Case"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 51.83,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Bravo%20Case"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 51.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Bravo%20Case"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 62.46,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Bravo%20Case"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 49.57,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Bravo%20Case",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 50,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Operation%20Bravo%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 57.62,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Operation%20Bravo%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 51.12,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Bravo%20Case"
+        },
+        {
+          "market": "DMarket",
+          "price": 51.95,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Bravo%20Case"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 50.58,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/operation-bravo-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/cases/operation-bravo-case/"
+    },
+    {
       "name": "eSports 2013 Case",
       "type": "Case",
       "rarity": "",
@@ -3903,7 +4205,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -3951,14 +4253,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 39.8,
+          "price": 39.71,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/eSports%202013%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 39.86,
+          "price": 39.92,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=eSports%202013%20Case"
@@ -3981,109 +4283,6 @@
       "url": "https://www.csgodatabase.com/cases/esports-2013-case/"
     },
     {
-      "name": "X-Ray P250 Package",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$1.64 - $3.10",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 1.64,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 3.1,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 2.47,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/X-Ray%20P250%20Package"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 1.88,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=X-Ray%20P250%20Package"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=X-Ray%20P250%20Package"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 1.87,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=X-Ray%20P250%20Package"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 1.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=X-Ray%20P250%20Package",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.7,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/X-Ray%20P250%20Package?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 1.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/X-Ray%20P250%20Package?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 1.66,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=X-Ray%20P250%20Package"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.03,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=X-Ray%20P250%20Package"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 1.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/x-ray-p250-package/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 3.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=X-Ray%20P250%20Package"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/x-ray-p250-package/"
-    },
-    {
       "name": "CS:GO Weapon Case",
       "type": "Case",
       "rarity": "",
@@ -4102,7 +4301,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-03T00:33:23Z"
+        "updated_at": "2026-11-03T05:28:27Z"
       },
       "prices": [
         {
@@ -4157,14 +4356,14 @@
         },
         {
           "market": "Skinport",
-          "price": 95.97,
+          "price": 96.1,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=CS%3AGO%20Weapon%20Case"
         },
         {
           "market": "DMarket",
-          "price": 98.91,
+          "price": 98.9,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=CS%3AGO%20Weapon%20Case"
@@ -4178,198 +4377,6 @@
         }
       ],
       "url": "https://www.csgodatabase.com/cases/csgo-weapon-case/"
-    },
-    {
-      "name": "Operation Bravo Case",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$49.57 - $89.38",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 49.57,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 89.38,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 89.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Operation%20Bravo%20Case"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 51.83,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Operation%20Bravo%20Case"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 51.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Operation%20Bravo%20Case"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 62.46,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Operation%20Bravo%20Case"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 49.57,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Operation%20Bravo%20Case",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 50,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Operation%20Bravo%20Case?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 58.82,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Operation%20Bravo%20Case?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 51.06,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Operation%20Bravo%20Case"
-        },
-        {
-          "market": "DMarket",
-          "price": 51.96,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Operation%20Bravo%20Case"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 50.58,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/operation-bravo-case/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/operation-bravo-case/"
-    },
-    {
-      "name": "Sealed Genesis Terminal",
-      "type": "Case",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.04 - $0.17",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.04,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.17,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-03T00:33:23Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.06,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.04,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sealed%20Genesis%20Terminal",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.04,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Sealed%20Genesis%20Terminal?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.04,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Sealed%20Genesis%20Terminal?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sealed%20Genesis%20Terminal"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/sealed-genesis-terminal/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/cases/sealed-genesis-terminal/"
     }
   ]
 }
