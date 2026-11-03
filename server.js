@@ -427,7 +427,9 @@ function runRefresh() {
 ========================================================= */
 
 function getFee(market, type) {
-  const data = fees[market] || { sell: 0, buy: 0, deposit: 0 };
+  // Fees are stored under the MARKETS list names (e.g. "MARKET.CSGO"),
+  // while the calculation may pass normalized names ("Market.CSGO").
+  const data = fees[market] || fees[String(market).toUpperCase()] || { sell: 0, buy: 0, deposit: 0 };
   return Math.max(0, Number(data[type]) || 0);
 }
 
@@ -460,6 +462,65 @@ function calculateTrade({ buyPrice, sellPrice, buyMarket, sellMarket }) {
     profitPercent
   };
 }
+
+/* =========================================================
+   CURRENCY RATE (cbr.ru, daily cache)
+========================================================= */
+
+let rateCache = { rate: null, fetchedAt: 0 };
+
+async function getUsdRubRate() {
+  // Cache for 6 hours; CBR updates the rate once per business day.
+  if (rateCache.rate && Date.now() - rateCache.fetchedAt < 6 * 3600 * 1000) {
+    return rateCache.rate;
+  }
+  // 1) Central Bank of Russia (server-side fetch, no CORS restrictions)
+  try {
+    const res = await fetch("https://www.cbr.ru/scripts/XML_daily.asp", {
+      signal: AbortSignal.timeout(10000)
+    });
+    const buf = Buffer.from(await res.arrayBuffer());
+    // windows-1251 numbers are ASCII-safe; decode losslessly via latin1
+    const xml = buf.toString("latin1");
+    const m = xml.match(/<CharCode>\s*USD\s*<\/CharCode>[\s\S]*?<VunitRate>\s*([0-9]+[.,][0-9]+)/);
+    if (m) {
+      const rate = Number(m[1].replace(",", "."));
+      if (rate > 0) {
+        rateCache = { rate, fetchedAt: Date.now(), source: "cbr.ru" };
+        logInfo("CBR", `USD->RUB курс: ${rate}`);
+        return rate;
+      }
+    }
+  } catch (err) {
+    logWarn("CBR", `cbr.ru недоступен: ${err.message}`);
+  }
+  // 2) Fallback with CORS-friendly mirror of daily rates
+  try {
+    const res = await fetch("https://open.er-api.com/v6/latest/USD", {
+      signal: AbortSignal.timeout(10000)
+    });
+    const data = await res.json();
+    const rate = Number(data?.rates?.RUB);
+    if (rate > 0) {
+      rateCache = { rate, fetchedAt: Date.now(), source: "open.er-api.com" };
+      logInfo("ER-API", `USD->RUB курс (fallback): ${rate}`);
+      return rate;
+    }
+  } catch (err) {
+    logWarn("ER-API", `fallback недоступен: ${err.message}`);
+  }
+  return rateCache.rate;
+}
+
+app.get("/api/rate", async (req, res) => {
+  const rate = await getUsdRubRate();
+  res.json({
+    success: rate !== null,
+    rate,
+    source: rate !== null ? rateCache.source || "cbr.ru" : null,
+    fetchedAt: rate !== null ? new Date(rateCache.fetchedAt).toISOString() : null
+  });
+});
 
 /* =========================================================
    API ROUTES

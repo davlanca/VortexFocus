@@ -22,10 +22,17 @@ type Agent struct {
 	URL         string        `json:"url"`
 }
 
+type CurrencyInfo struct {
+	USDToRUB  float64 `json:"usdToRub"`
+	Source    string  `json:"source"`
+	UpdatedAt string  `json:"updatedAt"`
+}
+
 type DataOutput struct {
-	Skins  []Skin  `json:"skins"`
-	Agents []Agent `json:"agents"`
-	Misc   []Skin  `json:"misc"`
+	Skins    []Skin        `json:"skins"`
+	Agents   []Agent       `json:"agents"`
+	Misc     []Skin        `json:"misc"`
+	Currency *CurrencyInfo `json:"currency,omitempty"`
 }
 
 type PriceValue struct {

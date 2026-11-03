@@ -14,6 +14,10 @@ import (
 	"github.com/eovacius/csgodatabase-scraper/scraper/worker"
 )
 
+var (
+	usdRate *config.CurrencyInfo
+)
+
 func main() {
 	// cli flags
 	aggressive := flag.Bool("aggressive", false, "Run scraper aggressively")
@@ -71,6 +75,10 @@ func main() {
 
 	fmt.Println("[*] Starting scraper...")
 
+	// Official USD->RUB rate from cbr.ru, embedded into data.json for the
+	// frontend currency switcher. Non-fatal if unavailable.
+	usdRate = fetchUsdRubRate()
+
 	var (
 		dataMu sync.Mutex
 		skins  []config.Skin
@@ -105,6 +113,7 @@ func main() {
 }
 
 func saveData(data config.DataOutput) error {
+	data.Currency = usdRate
 	jsonData, err := json.MarshalIndent(data, "", "  ")
 	if err != nil { return err }
 	_ = os.MkdirAll("json", 0755)
