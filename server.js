@@ -205,6 +205,23 @@ const LIQUID_CATALOG = [  { name: "AK-47 | Redline (Field-Tested)", usd: 16.80 }
 // Exact market_hash_name set for fast liquidity lookups.
 const LIQUID_NAMES = new Set(LIQUID_CATALOG.map(item => item.name));
 
+// Liquidity is determined by real data, not just by the catalog: an item that
+// is listed on >= LIQUID_MIN_MARKETS marketplaces is genuinely tradeable.
+// This keeps the filter meaningful whatever the scraper actually captured.
+const LIQUID_MIN_MARKETS = 8;
+
+function markLiquidityByCoverage() {
+  let covered = 0;
+  priceDatabase.forEach((entry) => {
+    entry.marketCount = Object.keys(entry.prices || {}).length;
+    if (!entry.isLiquid && entry.marketCount >= LIQUID_MIN_MARKETS) {
+      entry.isLiquid = true;
+      covered++;
+    }
+  });
+  logInfo("LIQUID", `По покрытию ${LIQUID_MIN_MARKETS}+ маркетов помечено: ${covered}`);
+}
+
 function initDatabase() {
   LIQUID_CATALOG.forEach(item => {
     priceDatabase.set(item.name, {
@@ -344,6 +361,7 @@ async function parseLatestGithubSteamJson() {
       }
     });
     MARKETS = [...availableMarkets];
+    markLiquidityByCoverage();
     logInfo("PARSER: STEAM.JSON", `Файл ${latestName}: ${count} предметов в USD`);
     return true;
   } catch (error) {
@@ -660,6 +678,7 @@ app.post("/api/arbitrage", async (req, res) => {
         buySource: buyEntry.source,
         sellSource: sellEntry.source,
         isLiquid: Boolean(itemData.isLiquid),
+        marketCount: itemData.marketCount || Object.keys(itemData.prices || {}).length,
         ...calc
       });
     }

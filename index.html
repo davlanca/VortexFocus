@@ -771,17 +771,17 @@ tbody tr:hover td:first-child{
 <div class="controlGrid glass" style="padding:16px; border-radius:18px;">
   <div class="field">
     <label>Покупаем на</label>
-    <select id="buyMarket"></select>
+    <select id="buyMarket" onchange="onMarketChange()"></select>
   </div>
 
   <div class="field">
     <label>Продаём на</label>
-    <select id="sellMarket"></select>
+    <select id="sellMarket" onchange="onMarketChange()"></select>
   </div>
 
   <div class="field">
     <label>Поиск скина (Живой точечный опрос)</label>
-    <input id="search" type="text" placeholder="AK-47 | Redline (Field-Tested)...">
+    <input id="search" type="text" placeholder="AK-47 | Redline (Field-Tested)..." oninput="onLiveFilterChange()">
   </div>
 
   <div style="display:flex; gap:8px;">
@@ -799,11 +799,11 @@ tbody tr:hover td:first-child{
 
   <div class="field filter">
     <label>Профит % от</label>
-    <input id="profitMin" type="number" step="0.1" placeholder="0">
+    <input id="profitMin" type="number" step="0.1" placeholder="0" oninput="onLiveFilterChange()">
   </div>
   <div class="field filter">
     <label>Профит % до</label>
-    <input id="profitMax" type="number" step="0.1" placeholder="∞">
+    <input id="profitMax" type="number" step="0.1" placeholder="∞" oninput="onLiveFilterChange()">
   </div>
 
   <div class="field">
@@ -949,6 +949,11 @@ const LIQUID_CATALOG = [
 ];
 const LIQUID_NAMES = new Set(LIQUID_CATALOG);
 
+// Liquidity is determined by real data, not just by the catalog: an item that
+// is listed on >= LIQUID_MIN_MARKETS marketplaces is genuinely tradeable.
+// This keeps the filter meaningful whatever the scraper actually captured.
+const LIQUID_MIN_MARKETS = 8;
+
 const DEFAULT_FEES = {
   "MARKET.CSGO": { sell: 5.0, buy: 0, deposit: 0 },
   "LIS-SKINS": { sell: 0.0, buy: 0, deposit: 0 },
@@ -1042,10 +1047,17 @@ function getMarketUrl(marketName, skinName){
   if(m.includes("STEAM")) return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
   if(m.includes("MARKET.CSGO")) return `https://market.csgo.com/ru/?search=${nameEnc}`;
   if(m.includes("LIS-SKINS")) return `https://lis-skins.ru/market/csgo/?search=${nameEnc}`;
+  if(m.includes("BUFF MARKET")) return `https://buff.market/market/goods/cs2/${nameEnc}`;
+  if(m.includes("BUFF.163") || m.includes("BUFF163")) return `https://buff.163.com/market/csgo#tab=selling&page_num=1&search=${nameEnc}`;
+  if(m.includes("TRADEIT")) return `https://tradeit.gg/csgo/store?search=${nameEnc}`;
+  if(m.includes("ITRADE.GG")) return `https://itrade.gg/?search=${nameEnc}`;
+  if(m.includes("PIRATESWAP")) return `https://pirateswap.com/store?sort=priceAsc&mhn=${nameEnc}`;
+  if(m.includes("SKINSWAP")) return `https://skinswap.com/buy?search=${nameEnc}`;
+  if(m.includes("SKINPORT")) return `https://skinport.com/market?search=${nameEnc}`;
+  if(m.includes("DMARKET")) return `https://dmarket.com/ingame-items/item-list/csgo-skins?title=${nameEnc}`;
   if(m.includes("AVAN.MARKET")) return `https://avan.market/`;
   if(m.includes("LOOT.FARM")) return `https://loot.farm/#skin=730_${nameEnc}`;
   if(m.includes("CS.MONEY")) return `https://cs.money/market/buy/?search=${nameEnc}`;
-  if(m.includes("BUFF.163")) return `https://buff.163.com/market/csgo#tab=selling&page_num=1&search=${nameEnc}`;
 
   return `https://steamcommunity.com/market/listings/730/${nameEnc}`;
 }
@@ -1160,6 +1172,16 @@ function buildPriceDatabase(data){
   for (const section of ["skins", "agents", "misc"]) {
     for (const item of (data?.[section] || [])) applyScraperItem(item, db);
   }
+
+  // Post-pass: an entry listed on many marketplaces is a real, liquid item
+  // even if it is missing from the static catalog.
+  for (const entry of db.values()) {
+    entry.marketCount = Object.keys(entry.prices).length;
+    if (!entry.isLiquid && entry.marketCount >= LIQUID_MIN_MARKETS) {
+      entry.isLiquid = true;
+    }
+  }
+
   return db;
 }
 
@@ -1226,6 +1248,7 @@ function scanStandalone(){
       buySource: buyEntry.source,
       sellSource: sellEntry.source,
       isLiquid: Boolean(itemData.isLiquid),
+      marketCount: itemData.marketCount || Object.keys(itemData.prices).length,
       ...calc
     });
   }
@@ -1290,6 +1313,25 @@ async function saveFees(){
 }
 
 /* =========================================================
+   LIVE FILTER DEBOUNCE
+   Any filter change (search, profit %, markets) re-runs the scan
+   automatically, so the table reacts without pressing the button.
+========================================================= */
+
+let liveFilterTimer = null;
+
+function onLiveFilterChange(){
+  clearTimeout(liveFilterTimer);
+  liveFilterTimer = setTimeout(() => scan(), 350);
+}
+
+function onMarketChange(){
+  localStorage.setItem("buyMarket", $("buyMarket").value);
+  localStorage.setItem("sellMarket", $("sellMarket").value);
+  scan();
+}
+
+/* =========================================================
    REFRESH
 ========================================================= */
 
@@ -1327,15 +1369,23 @@ function setSort(nextSort){
   ["sortProfit", "sortProfitVal", "sortBuy", "sortSell"].forEach(id => $(id).classList.remove("active"));
   const activeId = { profitPercent: "sortProfit", profitVal: "sortProfitVal", buyPrice: "sortBuy", sellPrice: "sortSell" }[nextSort];
   if(activeId) $(activeId).classList.add("active");
-  if(lastResults.length) renderResults(lastResults);
-  else scan();
+  if(lastResults.length){
+    lastResults = sortResults(lastResults);
+    renderResults(lastResults);
+  } else {
+    scan();
+  }
 }
 
 function toggleDirection(){
   sortDirection = sortDirection === "desc" ? "asc" : "desc";
   $("sortDirection").textContent = sortDirection === "desc" ? "↓" : "↑";
-  if(lastResults.length) renderResults(lastResults);
-  else scan();
+  if(lastResults.length){
+    lastResults = sortResults(lastResults);
+    renderResults(lastResults);
+  } else {
+    scan();
+  }
 }
 
 function renderResults(results){
@@ -1349,7 +1399,7 @@ function renderResults(results){
       const sellUrl = item.sellUrl || getMarketUrl(item.sellMarket, item.market_name);
       const pos = item.profitPercent >= 0;
       return `<tr>
-        <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div></td>
+        <td><div class="itemName">${item.isLiquid ? '<span class="badgeLiquid">LIQUID</span>' : ''}${itemName}</div><div class="itemMeta">${Number(item.marketCount || 0)} маркетов</div></td>
         <td><a class="marketLinkBtn" href="${buyUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.buyMarket)}</a><div class="itemMeta">${escapeHtml(item.buySource)}</div></td>
         <td class="price">${formatPrice(item.buyPrice)}</td>
         <td><a class="marketLinkBtn marketLinkBtnSell" href="${sellUrl}" target="_blank" rel="noreferrer">${escapeHtml(item.sellMarket)}</a><div class="itemMeta">${escapeHtml(item.sellSource)}</div></td>
@@ -1363,7 +1413,7 @@ function renderResults(results){
 
   $("statCount").textContent = results.length.toLocaleString("ru-RU");
   $("statBestPercent").textContent = results.length ? percent(Math.max(...results.map(item => item.profitPercent))) : "—";
-  $("statBestVal").textContent = results.length ? formatPrice(Math.max(...results.map(item => item.profitVal)), results[0].sellCurrency) : "—";
+  $("statBestVal").textContent = results.length ? formatPrice(Math.max(...results.map(item => item.profitVal))) : "—";
   $("statAverage").textContent = results.length ? percent(results.reduce((sum, item) => sum + item.profitPercent, 0) / results.length) : "—";
 }
 
