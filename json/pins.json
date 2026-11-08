@@ -8,11 +8,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$6.04 - $10.31",
+        "price_string": "$6.05 - $10.31",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 6.04,
+          "value": 6.05,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -21,7 +21,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -33,11 +33,10 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 6.04,
+          "price": 6.22,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Half-Life%3A%20Alyx%20Collectible%20Pins%20Capsule",
-          "lowest": true
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Half-Life%3A%20Alyx%20Collectible%20Pins%20Capsule"
         },
         {
           "market": "CS.MONEY",
@@ -55,10 +54,11 @@
         },
         {
           "market": "SkinSwap",
-          "price": 6.06,
+          "price": 6.05,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Half-Life%3A%20Alyx%20Collectible%20Pins%20Capsule"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Half-Life%3A%20Alyx%20Collectible%20Pins%20Capsule",
+          "lowest": true
         },
         {
           "market": "BUFF Market",
@@ -69,7 +69,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 6.94,
+          "price": 6.88,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Half-Life%3A%20Alyx%20Collectible%20Pins%20Capsule?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -90,7 +90,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 6.21,
+          "price": 6.46,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/half-life-alyx-collectible-pins-capsule/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -99,215 +99,16 @@
       "url": "https://www.csgodatabase.com/collectible-pins/half-life-alyx-collectible-pins-capsule/"
     },
     {
-      "name": "PinAlyx",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$21.15 - $46.88",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 21.15,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 46.88,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 46.88,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Alyx%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 21.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Alyx%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 22.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Alyx%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 26.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Alyx%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 21.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Alyx%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 21.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Alyx%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 24.56,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Alyx%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 21.87,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Alyx%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 21.77,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Alyx%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 21.71,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/alyx-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 32.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Alyx%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/alyx-pin/"
-    },
-    {
-      "name": "PinSustenance!",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$4.37 - $9.73",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 4.37,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 9.73,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 9.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Sustenance%21%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 4.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sustenance%21%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 4.74,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sustenance%21%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 5.09,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sustenance%21%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 4.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sustenance%21%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 4.93,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Sustenance%21%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 5.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Sustenance%21%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 4.8,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sustenance%21%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 4.78,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sustenance%21%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 4.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/sustenance!-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/sustenance-pin/"
-    },
-    {
       "name": "PinVortigaunt",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$4.03 - $10.43",
+        "price_string": "$4.63 - $10.43",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 4.03,
+          "value": 4.63,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -316,7 +117,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -328,7 +129,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 4.74,
+          "price": 4.79,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Vortigaunt%20Pin"
@@ -349,43 +150,43 @@
         },
         {
           "market": "SkinSwap",
-          "price": 4.65,
+          "price": 4.64,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Vortigaunt%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 4.41,
+          "price": 4.89,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Vortigaunt%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 5.51,
+          "price": 5.94,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Vortigaunt%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 4.03,
+          "price": 4.7,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Vortigaunt%20Pin",
-          "lowest": true
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Vortigaunt%20Pin"
         },
         {
           "market": "DMarket",
           "price": 4.63,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Vortigaunt%20Pin"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Vortigaunt%20Pin",
+          "lowest": true
         },
         {
           "market": "LIS-SKINS",
-          "price": 5.05,
+          "price": 5.51,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/vortigaunt-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -412,7 +213,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -424,14 +225,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.14,
+          "price": 3.06,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=CMB%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 3.4,
+          "price": 3.12,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=CMB%20Pin"
@@ -460,7 +261,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 3.73,
+          "price": 3.62,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/CMB%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -481,425 +282,20 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.01,
+          "price": 2.92,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/cmb-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 4.66,
+          "price": 4.71,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=CMB%20Pin"
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/cmb-pin/"
-    },
-    {
-      "name": "PinHeadcrab Glyph",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$3.19 - $7.31",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 3.19,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 7.31,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 7.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 3.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 6.28,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 3.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Headcrab%20Glyph%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 3.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Headcrab%20Glyph%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 3.6,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Headcrab%20Glyph%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 3.4,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 3.28,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Headcrab%20Glyph%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 3.28,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/headcrab-glyph-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 4.91,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/headcrab-glyph-pin/"
-    },
-    {
-      "name": "PinHealth",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$17.63 - $35.08",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 17.63,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 35.08,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 34.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Health%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 19.25,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Health%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 35.08,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Health%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 20.09,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Health%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 19.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Health%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 19.57,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Health%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 25,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Health%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 19.47,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Health%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 17.63,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Health%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 23.89,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/health-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 27.03,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Health%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/health-pin/"
-    },
-    {
-      "name": "PinBlack Mesa",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$3.68 - $7.40",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 3.68,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 7.4,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 7.4,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Black%20Mesa%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 3.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Black%20Mesa%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 4.03,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Black%20Mesa%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 4.53,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Black%20Mesa%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 3.68,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Black%20Mesa%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 3.86,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Black%20Mesa%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 4.04,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Black%20Mesa%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 3.76,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Black%20Mesa%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 4.52,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Black%20Mesa%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 3.75,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/black-mesa-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 6.08,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Black%20Mesa%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/black-mesa-pin/"
-    },
-    {
-      "name": "PinCopper Lambda",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$4.13 - $9.99",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 4.13,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 9.99,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 9.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 4.63,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 5.01,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 5.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 4.51,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 4.66,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Copper%20Lambda%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 4.98,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Copper%20Lambda%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 6.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Copper%20Lambda%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 4.13,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Copper%20Lambda%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 4.79,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/copper-lambda-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/copper-lambda-pin/"
     },
     {
       "name": "PinCity 17",
@@ -920,7 +316,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -932,7 +328,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 2.82,
+          "price": 2.78,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=City%2017%20Pin"
@@ -961,7 +357,7 @@
         },
         {
           "market": "BUFF Market",
-          "price": 2.66,
+          "price": 2.74,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/City%2017%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -982,14 +378,14 @@
         },
         {
           "market": "DMarket",
-          "price": 2.93,
+          "price": 3.37,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=City%2017%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.73,
+          "price": 2.71,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/city-17-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1016,7 +412,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1028,14 +424,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.21,
+          "price": 3.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Combine%20Helmet%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 3.38,
+          "price": 3.44,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Combine%20Helmet%20Pin"
@@ -1049,7 +445,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 3.09,
+          "price": 3.19,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Combine%20Helmet%20Pin"
@@ -1064,7 +460,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 3.41,
+          "price": 3.4,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Combine%20Helmet%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1085,20 +481,123 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.24,
+          "price": 3.31,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/combine-helmet-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 4.72,
+          "price": 4.71,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Combine%20Helmet%20Pin"
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/combine-helmet-pin/"
+    },
+    {
+      "name": "PinCivil Protection",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$12.89 - $23.50",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 12.89,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 23.5,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 23.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Civil%20Protection%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 13.66,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Civil%20Protection%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 13.02,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Civil%20Protection%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 15.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Civil%20Protection%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 13.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Civil%20Protection%20Pin"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 13.87,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Civil%20Protection%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 15.66,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Civil%20Protection%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 12.89,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Civil%20Protection%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "DMarket",
+          "price": 12.94,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Civil%20Protection%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 14.88,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/civil-protection-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 20.3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Civil%20Protection%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/civil-protection-pin/"
     },
     {
       "name": "PinLambda",
@@ -1119,7 +618,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1131,14 +630,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 4.11,
+          "price": 4.21,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Lambda%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 5.46,
+          "price": 7.27,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Lambda%20Pin"
@@ -1188,14 +687,14 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.48,
+          "price": 4.39,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/lambda-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 5.85,
+          "price": 5.92,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Lambda%20Pin"
@@ -1204,107 +703,608 @@
       "url": "https://www.csgodatabase.com/collectible-pins/lambda-pin/"
     },
     {
-      "name": "PinCivil Protection",
+      "name": "PinAlyx",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$12.89 - $23.50",
+        "price_string": "$20.87 - $46.88",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 12.89,
+          "value": 20.87,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 23.5,
+          "value": 46.88,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 23.5,
+          "price": 46.88,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Civil%20Protection%20Pin"
+          "url": "https://steamcommunity.com/market/listings/730/Alyx%20Pin"
         },
         {
           "market": "Tradeit.GG",
-          "price": 13.52,
+          "price": 21.16,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Civil%20Protection%20Pin"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Alyx%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 13.02,
+          "price": 22.21,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Civil%20Protection%20Pin"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Alyx%20Pin"
         },
         {
           "market": "PirateSwap",
-          "price": 15.19,
+          "price": 26.5,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Civil%20Protection%20Pin"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Alyx%20Pin"
         },
         {
           "market": "SkinSwap",
-          "price": 13.33,
+          "price": 20.87,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Civil%20Protection%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 15.87,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Civil%20Protection%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 15.66,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Civil%20Protection%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 12.89,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Civil%20Protection%20Pin",
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Alyx%20Pin",
           "lowest": true
         },
         {
-          "market": "DMarket",
-          "price": 12.94,
+          "market": "BUFF Market",
+          "price": 21.03,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Civil%20Protection%20Pin"
+          "url": "https://buff.market/market/goods/cs2/Alyx%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 24.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Alyx%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 21.87,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Alyx%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 21.77,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Alyx%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 14.75,
+          "price": 21.48,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/civil-protection-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/alyx-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 20.32,
+          "price": 32.44,
           "currency": "USD",
           "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Civil%20Protection%20Pin"
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Alyx%20Pin"
         }
       ],
-      "url": "https://www.csgodatabase.com/collectible-pins/civil-protection-pin/"
+      "url": "https://www.csgodatabase.com/collectible-pins/alyx-pin/"
+    },
+    {
+      "name": "PinHealth",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$17.63 - $35.08",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 17.63,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 35.08,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 34.69,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Health%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 19.45,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Health%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 35.08,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Health%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 20.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Health%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 19.2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Health%20Pin"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 19.57,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Health%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 22.98,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Health%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 19.47,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Health%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 17.63,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Health%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 20.34,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/health-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 27.03,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Health%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/health-pin/"
+    },
+    {
+      "name": "PinHeadcrab Glyph",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$3.16 - $7.31",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 3.16,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 7.31,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 7.31,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 3.3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 6.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 3.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Headcrab%20Glyph%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 3.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Headcrab%20Glyph%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 3.6,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Headcrab%20Glyph%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 3.4,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 3.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Headcrab%20Glyph%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 3.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/headcrab-glyph-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 4.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Headcrab%20Glyph%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/headcrab-glyph-pin/"
+    },
+    {
+      "name": "PinSustenance!",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$4.37 - $9.73",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 4.37,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 9.73,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 9.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Sustenance%21%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 4.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Sustenance%21%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 4.74,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Sustenance%21%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 5.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Sustenance%21%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 4.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Sustenance%21%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 5.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Sustenance%21%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 5.41,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Sustenance%21%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 4.53,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Sustenance%21%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 4.78,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Sustenance%21%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 4.6,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/sustenance!-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/sustenance-pin/"
+    },
+    {
+      "name": "PinBlack Mesa",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$3.71 - $7.40",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 3.71,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 7.4,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 7.4,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Black%20Mesa%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 3.99,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Black%20Mesa%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 4.07,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Black%20Mesa%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 4.53,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Black%20Mesa%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 3.71,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Black%20Mesa%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 4.04,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Black%20Mesa%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 3.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Black%20Mesa%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 3.76,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Black%20Mesa%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 4.52,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Black%20Mesa%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 3.79,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/black-mesa-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 5.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Black%20Mesa%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/black-mesa-pin/"
+    },
+    {
+      "name": "PinCopper Lambda",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$4.13 - $9.99",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 4.13,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 9.99,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 9.99,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 4.63,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 5.01,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 5.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 4.52,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 4.66,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Copper%20Lambda%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 4.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Copper%20Lambda%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 6.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Copper%20Lambda%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 4.13,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Copper%20Lambda%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 4.79,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/copper-lambda-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/copper-lambda-pin/"
     },
     {
       "name": "Collectible Pins Capsule Series 3",
@@ -1325,7 +1325,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1359,21 +1359,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 5.63,
+          "price": 5.62,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Collectible%20Pins%20Capsule%20Series%203"
         },
         {
           "market": "BUFF Market",
-          "price": 5.87,
+          "price": 5.86,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Collectible%20Pins%20Capsule%20Series%203?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 6.63,
+          "price": 6.6,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Collectible%20Pins%20Capsule%20Series%203?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1394,7 +1394,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 5.98,
+          "price": 5.73,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/collectible-pins-capsule-series-3/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1421,7 +1421,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1441,7 +1441,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 3.88,
+          "price": 2.87,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Welcome%20to%20the%20Clutch%20Pin"
@@ -1455,21 +1455,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.37,
+          "price": 2.39,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Welcome%20to%20the%20Clutch%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 2.57,
+          "price": 2.59,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Welcome%20to%20the%20Clutch%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 2.48,
+          "price": 2.44,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Welcome%20to%20the%20Clutch%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1490,7 +1490,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.43,
+          "price": 2.45,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/welcome-to-the-clutch-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1511,11 +1511,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$5.47 - $11.00",
+        "price_string": "$5.42 - $11.00",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 5.47,
+          "value": 5.42,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -1524,7 +1524,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1557,14 +1557,15 @@
         },
         {
           "market": "SkinSwap",
-          "price": 5.5,
+          "price": 5.42,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Aces%20High%20Pin"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Aces%20High%20Pin",
+          "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 5.7,
+          "price": 5.55,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Aces%20High%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1585,15 +1586,14 @@
         },
         {
           "market": "DMarket",
-          "price": 5.47,
+          "price": 5.45,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Aces%20High%20Pin",
-          "lowest": true
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Aces%20High%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 5.91,
+          "price": 5.53,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/aces-high-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1620,7 +1620,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1654,42 +1654,42 @@
         },
         {
           "market": "SkinSwap",
-          "price": 10.92,
+          "price": 10.94,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Brigadier%20General%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 11.71,
+          "price": 11.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Brigadier%20General%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 12.54,
+          "price": 12.43,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Brigadier%20General%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 14.92,
+          "price": 14.98,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Brigadier%20General%20Pin"
         },
         {
           "market": "DMarket",
-          "price": 11.35,
+          "price": 11.33,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Brigadier%20General%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 11.32,
+          "price": 11.3,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/brigadier-general-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1703,11 +1703,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$32.91 - $69.11",
+        "price_string": "$32.87 - $69.11",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 32.91,
+          "value": 32.87,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -1716,7 +1716,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1749,7 +1749,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 33.18,
+          "price": 33.5,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Howl%20Pin"
@@ -1763,7 +1763,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 36.73,
+          "price": 37.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Howl%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1777,7 +1777,7 @@
         },
         {
           "market": "DMarket",
-          "price": 32.91,
+          "price": 32.87,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Howl%20Pin",
@@ -1785,7 +1785,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 34.26,
+          "price": 34.85,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/howl-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1794,16 +1794,119 @@
       "url": "https://www.csgodatabase.com/collectible-pins/howl-pin/"
     },
     {
+      "name": "PinHydra",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$3.98 - $7.88",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 3.98,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 7.88,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 7.88,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Hydra%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 3.98,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Hydra%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 4.23,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Hydra%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 4.95,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Hydra%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 4.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Hydra%20Pin"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 4.11,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Hydra%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 4.46,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Hydra%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 4.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Hydra%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 4.08,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Hydra%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 4.3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/hydra-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 6,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Hydra%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/hydra-pin/"
+    },
+    {
       "name": "PinInferno 2",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.17 - $4.38",
+        "price_string": "$2.20 - $4.38",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.17,
+          "value": 2.2,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -1812,7 +1915,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -1845,7 +1948,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.3,
+          "price": 2.29,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Inferno%202%20Pin"
@@ -1859,14 +1962,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 2.61,
+          "price": 2.59,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Inferno%202%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.17,
+          "price": 2.2,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Inferno%202%20Pin",
@@ -1881,7 +1984,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.48,
+          "price": 2.49,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/inferno-2-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1890,119 +1993,16 @@
       "url": "https://www.csgodatabase.com/collectible-pins/inferno-2-pin/"
     },
     {
-      "name": "PinHydra",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$3.98 - $7.88",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 3.98,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 7.88,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 7.88,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Hydra%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 4.3,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Hydra%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 4.23,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Hydra%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 4.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Hydra%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 4.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Hydra%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 4.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Hydra%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 4.46,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Hydra%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 3.98,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Hydra%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "DMarket",
-          "price": 4.08,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Hydra%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 4.13,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/hydra-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 6.02,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Hydra%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/hydra-pin/"
-    },
-    {
       "name": "PinWildfire",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.85 - $5.87",
+        "price_string": "$2.93 - $5.87",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.85,
+          "value": 2.93,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2011,7 +2011,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2023,7 +2023,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 2.9,
+          "price": 2.98,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Wildfire%20Pin"
@@ -2044,11 +2044,10 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.85,
+          "price": 2.99,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Wildfire%20Pin",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Wildfire%20Pin"
         },
         {
           "market": "BUFF Market",
@@ -2069,7 +2068,8 @@
           "price": 2.93,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Wildfire%20Pin"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Wildfire%20Pin",
+          "lowest": true
         },
         {
           "market": "DMarket",
@@ -2080,7 +2080,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.96,
+          "price": 3.05,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/wildfire-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2114,7 +2114,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2155,7 +2155,7 @@
         },
         {
           "market": "BUFF Market",
-          "price": 2.28,
+          "price": 2.32,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Easy%20Peasy%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2176,7 +2176,7 @@
         },
         {
           "market": "DMarket",
-          "price": 2.63,
+          "price": 2.61,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Easy%20Peasy%20Pin"
@@ -2197,11 +2197,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$1.79 - $5.00",
+        "price_string": "$1.81 - $5.00",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 1.79,
+          "value": 1.81,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2210,7 +2210,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2243,7 +2243,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 1.79,
+          "price": 1.81,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Guardian%203%20Pin",
@@ -2251,7 +2251,7 @@
         },
         {
           "market": "BUFF Market",
-          "price": 2.12,
+          "price": 2.01,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Guardian%203%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2272,21 +2272,21 @@
         },
         {
           "market": "DMarket",
-          "price": 2.04,
+          "price": 2.03,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Guardian%203%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 1.82,
+          "price": 1.86,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/guardian-3-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 2.8,
+          "price": 2.81,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Guardian%203%20Pin"
@@ -2313,7 +2313,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2347,7 +2347,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.31,
+          "price": 2.3,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Death%20Sentence%20Pin"
@@ -2382,7 +2382,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.35,
+          "price": 2.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/death-sentence-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2409,7 +2409,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2443,28 +2443,28 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.05,
+          "price": 2.06,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Canals%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 2.16,
+          "price": 2.18,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Canals%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 2.22,
+          "price": 2.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Canals%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.04,
+          "price": 2.2,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Canals%20Pin"
@@ -2478,7 +2478,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.11,
+          "price": 2.1,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/canals-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2499,11 +2499,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$5.63 - $10.63",
+        "price_string": "$5.64 - $10.63",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 5.63,
+          "value": 5.64,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2512,7 +2512,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2545,7 +2545,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 5.63,
+          "price": 5.64,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Collectible%20Pins%20Capsule%20Series%202",
@@ -2560,7 +2560,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 6.83,
+          "price": 6.85,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Collectible%20Pins%20Capsule%20Series%202?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2574,7 +2574,7 @@
         },
         {
           "market": "DMarket",
-          "price": 7.76,
+          "price": 7.74,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Collectible%20Pins%20Capsule%20Series%202"
@@ -2590,16 +2590,112 @@
       "url": "https://www.csgodatabase.com/collectible-pins/collectible-pins-capsule-series-2/"
     },
     {
+      "name": "PinOverpass",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.61 - $5.15",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.61,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 5.15,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 5.15,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Overpass%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.83,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Overpass%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 3.09,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Overpass%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.14,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Overpass%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.61,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Overpass%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.87,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Overpass%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 2.78,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Overpass%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.7,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Overpass%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.76,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Overpass%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.7,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/overpass-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/overpass-pin/"
+    },
+    {
       "name": "PinPhoenix",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.94 - $5.24",
+        "price_string": "$2.93 - $5.24",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.94,
+          "value": 2.93,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2608,7 +2704,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2620,14 +2716,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.05,
+          "price": 3.09,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Phoenix%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 3.17,
+          "price": 3.16,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Phoenix%20Pin"
@@ -2641,7 +2737,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.96,
+          "price": 2.94,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Phoenix%20Pin"
@@ -2655,14 +2751,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 3.02,
+          "price": 3.1,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Phoenix%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.94,
+          "price": 2.93,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Phoenix%20Pin",
@@ -2677,7 +2773,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.08,
+          "price": 2.99,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/phoenix-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2691,6 +2787,102 @@
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/phoenix-pin/"
+    },
+    {
+      "name": "PinValeria Phoenix",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$39.24 - $72.99",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 39.24,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 72.99,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 72.99,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 40.69,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 40.8,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 45.99,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 39.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Valeria%20Phoenix%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 40.63,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Valeria%20Phoenix%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 41.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Valeria%20Phoenix%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 42.82,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 44.43,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Valeria%20Phoenix%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 40.66,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/valeria-phoenix-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/valeria-phoenix-pin/"
     },
     {
       "name": "PinChroma",
@@ -2711,7 +2903,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2745,21 +2937,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 10.32,
+          "price": 10.28,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Chroma%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 11,
+          "price": 10.62,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Chroma%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 11.34,
+          "price": 11.18,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Chroma%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2773,14 +2965,14 @@
         },
         {
           "market": "DMarket",
-          "price": 10.61,
+          "price": 10.6,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Chroma%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 10.53,
+          "price": 10.48,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/chroma-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2789,16 +2981,119 @@
       "url": "https://www.csgodatabase.com/collectible-pins/chroma-pin/"
     },
     {
+      "name": "PinCache",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$8.78 - $21.21",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 8.78,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 21.21,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 21.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Cache%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 8.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Cache%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 8.92,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Cache%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 10.62,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Cache%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 8.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Cache%20Pin"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 9.51,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Cache%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 9.98,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Cache%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 8.78,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Cache%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "DMarket",
+          "price": 8.94,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Cache%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 9.15,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/cache-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 13.45,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Cache%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/cache-pin/"
+    },
+    {
       "name": "PinBloodhound",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$4.52 - $10.30",
+        "price_string": "$4.47 - $10.30",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 4.52,
+          "value": 4.47,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2807,7 +3102,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -2847,7 +3142,7 @@
         },
         {
           "market": "BUFF Market",
-          "price": 4.52,
+          "price": 4.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Bloodhound%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings",
@@ -2855,7 +3150,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 4.8,
+          "price": 4.93,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Bloodhound%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2876,308 +3171,13 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.89,
+          "price": 4.81,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/bloodhound-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/bloodhound-pin/"
-    },
-    {
-      "name": "PinCache",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$8.78 - $21.21",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 8.78,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 21.21,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 21.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Cache%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 8.92,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Cache%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 11.81,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Cache%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 10.62,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Cache%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 9.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Cache%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 9.48,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Cache%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 10.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Cache%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 8.78,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Cache%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "DMarket",
-          "price": 8.98,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Cache%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 9.23,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/cache-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 13.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Cache%20Pin"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/cache-pin/"
-    },
-    {
-      "name": "PinOverpass",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.62 - $5.15",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.62,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 5.15,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 5.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Overpass%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.8,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Overpass%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 3.09,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Overpass%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.14,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Overpass%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.62,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Overpass%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.9,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Overpass%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.76,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Overpass%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.7,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Overpass%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.76,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Overpass%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/overpass-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/overpass-pin/"
-    },
-    {
-      "name": "PinCobblestone",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$5.10 - $10.05",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 5.1,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 10.05,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 10.05,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Cobblestone%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 5.51,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Cobblestone%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 6.54,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Cobblestone%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 6.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Cobblestone%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 5.1,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Cobblestone%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 5.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Cobblestone%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 5.42,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Cobblestone%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 5.93,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Cobblestone%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 5.24,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Cobblestone%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 5.48,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/cobblestone-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/cobblestone-pin/"
     },
     {
       "name": "PinBravo",
@@ -3198,7 +3198,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3276,6 +3276,102 @@
       "url": "https://www.csgodatabase.com/collectible-pins/bravo-pin/"
     },
     {
+      "name": "PinCobblestone",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$5.15 - $10.05",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 5.15,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 10.05,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 10.05,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Cobblestone%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 5.57,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Cobblestone%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 6.54,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Cobblestone%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 6.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Cobblestone%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 5.15,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Cobblestone%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 5.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Cobblestone%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 5.42,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Cobblestone%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 5.93,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Cobblestone%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 5.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Cobblestone%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 5.48,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/cobblestone-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/cobblestone-pin/"
+    },
+    {
       "name": "PinOffice",
       "type": "Pin",
       "rarity": "",
@@ -3294,7 +3390,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3341,7 +3437,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 6.22,
+          "price": 6.15,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Office%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -3363,7 +3459,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 5.58,
+          "price": 5.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/office-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3397,7 +3493,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3445,14 +3541,14 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 2.5,
+          "price": 2.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Guardian%202%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.4,
+          "price": 2.46,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Guardian%202%20Pin"
@@ -3466,7 +3562,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.32,
+          "price": 2.29,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/guardian-2-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3487,11 +3583,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$1.96 - $4.02",
+        "price_string": "$2.02 - $4.02",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 1.96,
+          "value": 2.02,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3500,7 +3596,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3515,7 +3611,8 @@
           "price": 2.02,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Baggage%20Pin"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Baggage%20Pin",
+          "lowest": true
         },
         {
           "market": "CS.MONEY",
@@ -3533,32 +3630,31 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.05,
+          "price": 2.03,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Baggage%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 2.13,
+          "price": 2.11,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Baggage%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 2.36,
+          "price": 2.35,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Baggage%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 1.96,
+          "price": 2.15,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Baggage%20Pin",
-          "lowest": true
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Baggage%20Pin"
         },
         {
           "market": "DMarket",
@@ -3569,109 +3665,13 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.17,
+          "price": 2.14,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/baggage-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/baggage-pin/"
-    },
-    {
-      "name": "PinValeria Phoenix",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$39.01 - $72.99",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 39.01,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 72.99,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 72.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 40.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 39.01,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Valeria%20Phoenix%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "PirateSwap",
-          "price": 45.99,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 39.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 40.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Valeria%20Phoenix%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 41.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Valeria%20Phoenix%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 42.82,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 44.43,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Valeria%20Phoenix%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 40.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/valeria-phoenix-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/valeria-phoenix-pin/"
     },
     {
       "name": "Collectible Pins Capsule Series 1",
@@ -3692,7 +3692,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3726,21 +3726,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 5.49,
+          "price": 5.37,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Collectible%20Pins%20Capsule%20Series%201"
         },
         {
           "market": "BUFF Market",
-          "price": 5.66,
+          "price": 5.65,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Collectible%20Pins%20Capsule%20Series%201?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 7.11,
+          "price": 6.85,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Collectible%20Pins%20Capsule%20Series%201?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -3761,7 +3761,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 5.6,
+          "price": 5.71,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/collectible-pins-capsule-series-1/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3775,11 +3775,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.36 - $4.84",
+        "price_string": "$2.34 - $4.84",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.36,
+          "value": 2.34,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3788,7 +3788,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3807,7 +3807,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 3.23,
+          "price": 3.68,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Italy%20Pin"
@@ -3821,7 +3821,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 2.36,
+          "price": 2.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Italy%20Pin",
@@ -3843,7 +3843,7 @@
         },
         {
           "market": "Skinport",
-          "price": 2.54,
+          "price": 2.83,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Italy%20Pin"
@@ -3857,7 +3857,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.44,
+          "price": 2.45,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/italy-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -3871,11 +3871,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.16 - $3.58",
+        "price_string": "$2.17 - $3.58",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.16,
+          "value": 2.17,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -3884,7 +3884,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3920,26 +3920,26 @@
           "price": 2.17,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Train%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Train%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings",
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Train%20Pin",
           "lowest": true
         },
         {
+          "market": "BUFF Market",
+          "price": 2.34,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Train%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
           "market": "Market.CSGO",
-          "price": 2.33,
+          "price": 2.32,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Train%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.28,
+          "price": 2.36,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Train%20Pin"
@@ -3987,7 +3987,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -3999,14 +3999,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 30.71,
+          "price": 30.4,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Guardian%20Elite%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 29.07,
+          "price": 29.13,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Guardian%20Elite%20Pin"
@@ -4020,7 +4020,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 29.79,
+          "price": 29.84,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Guardian%20Elite%20Pin"
@@ -4070,11 +4070,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$22.70 - $46.02",
+        "price_string": "$23.22 - $46.02",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 22.7,
+          "value": 23.22,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -4083,7 +4083,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -4095,7 +4095,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 24.08,
+          "price": 23.83,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Dust%20II%20Pin"
@@ -4116,18 +4116,17 @@
         },
         {
           "market": "SkinSwap",
-          "price": 24.54,
+          "price": 24.51,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Dust%20II%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 22.7,
+          "price": 27.42,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Dust%20II%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings",
-          "lowest": true
+          "url": "https://buff.market/market/goods/cs2/Dust%20II%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
@@ -4148,7 +4147,8 @@
           "price": 23.22,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Dust%20II%20Pin"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Dust%20II%20Pin",
+          "lowest": true
         },
         {
           "market": "LIS-SKINS",
@@ -4159,102 +4159,6 @@
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/dust-ii-pin/"
-    },
-    {
-      "name": "PinMirage",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$6.81 - $14.19",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 6.81,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 14.19,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 14.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Mirage%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 6.94,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Mirage%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 11.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Mirage%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 7.93,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Mirage%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 6.81,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Mirage%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 7.71,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Mirage%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 7.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Mirage%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 6.92,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Mirage%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 7.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Mirage%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 6.94,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/mirage-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/mirage-pin/"
     },
     {
       "name": "PinInferno",
@@ -4275,7 +4179,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -4309,21 +4213,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 4.23,
+          "price": 4.25,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Inferno%20Pin"
         },
         {
           "market": "BUFF Market",
-          "price": 4.31,
+          "price": 4.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Inferno%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 4.58,
+          "price": 4.59,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Inferno%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -4360,16 +4264,311 @@
       "url": "https://www.csgodatabase.com/collectible-pins/inferno-pin/"
     },
     {
+      "name": "PinTactics",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.38 - $4.91",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.38,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 4.91,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 4.91,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Tactics%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.52,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Tactics%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 3.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Tactics%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 2.79,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Tactics%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Tactics%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Tactics%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 2.56,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Tactics%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.51,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Tactics%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.4,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Tactics%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.42,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/tactics-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "iTrade.GG",
+          "price": 3.7,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Tactics%20Pin"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/tactics-pin/"
+    },
+    {
+      "name": "PinMirage",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$6.82 - $14.19",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 6.82,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 14.19,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 14.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Mirage%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 6.94,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Mirage%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 6.89,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Mirage%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 7.93,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Mirage%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 6.82,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Mirage%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 7.71,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Mirage%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 7.41,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Mirage%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 6.92,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Mirage%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 7.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Mirage%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 6.95,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/mirage-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/mirage-pin/"
+    },
+    {
+      "name": "PinMilitia",
+      "type": "Pin",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.28 - $4.49",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.28,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 4.49,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-08T07:41:50Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 4.49,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Militia%20Pin"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Militia%20Pin"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 3.12,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Militia%20Pin"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 2.77,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Militia%20Pin"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.28,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Militia%20Pin",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Militia%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 2.54,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Militia%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 3.58,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Militia%20Pin"
+        },
+        {
+          "market": "DMarket",
+          "price": 2.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Militia%20Pin"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 2.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/militia-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/collectible-pins/militia-pin/"
+    },
+    {
       "name": "PinVictory",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$3.49 - $6.26",
+        "price_string": "$3.43 - $6.26",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 3.49,
+          "value": 3.43,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -4378,7 +4577,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -4397,7 +4596,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 3.58,
+          "price": 4.92,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Victory%20Pin"
@@ -4411,7 +4610,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 3.49,
+          "price": 3.43,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Victory%20Pin",
@@ -4447,7 +4646,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.59,
+          "price": 3.5,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/victory-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -4456,203 +4655,100 @@
       "url": "https://www.csgodatabase.com/collectible-pins/victory-pin/"
     },
     {
-      "name": "PinTactics",
+      "name": "PinGuardian",
       "type": "Pin",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$2.35 - $4.91",
+        "price_string": "$2.60 - $5.31",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 2.35,
+          "value": 2.6,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 4.91,
+          "value": 5.31,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 4.91,
+          "price": 5.31,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Tactics%20Pin"
+          "url": "https://steamcommunity.com/market/listings/730/Guardian%20Pin"
         },
         {
           "market": "Tradeit.GG",
-          "price": 2.55,
+          "price": 2.75,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Tactics%20Pin"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Guardian%20Pin"
         },
         {
           "market": "CS.MONEY",
-          "price": 3.17,
+          "price": 4.33,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Tactics%20Pin"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Guardian%20Pin"
         },
         {
           "market": "PirateSwap",
-          "price": 2.79,
+          "price": 3.18,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Tactics%20Pin"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Guardian%20Pin"
         },
         {
           "market": "SkinSwap",
-          "price": 2.35,
+          "price": 2.6,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Tactics%20Pin",
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Guardian%20Pin",
           "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 2.83,
+          "price": 3,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Tactics%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Guardian%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 2.56,
+          "price": 2.88,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Tactics%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Guardian%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 2.51,
+          "price": 2.87,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Tactics%20Pin"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Guardian%20Pin"
         },
         {
           "market": "DMarket",
-          "price": 2.4,
+          "price": 3.14,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Tactics%20Pin"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Guardian%20Pin"
         },
         {
           "market": "LIS-SKINS",
-          "price": 2.39,
+          "price": 2.65,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/tactics-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "iTrade.GG",
-          "price": 3.7,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Tactics%20Pin"
+          "url": "https://lis-skins.com/market/csgo/guardian-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/collectible-pins/tactics-pin/"
-    },
-    {
-      "name": "PinMilitia",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.30 - $4.49",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.3,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 4.49,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 4.49,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Militia%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Militia%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Militia%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 2.77,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Militia%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Militia%20Pin"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Militia%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.54,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Militia%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Militia%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.3,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Militia%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/militia-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/militia-pin/"
+      "url": "https://www.csgodatabase.com/collectible-pins/guardian-pin/"
     },
     {
       "name": "PinNuke",
@@ -4660,11 +4756,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$4.15 - $7.54",
+        "price_string": "$4.19 - $7.54",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 4.15,
+          "value": 4.19,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -4673,7 +4769,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T00:36:32Z"
+        "updated_at": "2026-11-08T07:41:50Z"
       },
       "prices": [
         {
@@ -4692,7 +4788,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 4.15,
+          "price": 4.19,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Nuke%20Pin",
@@ -4714,14 +4810,14 @@
         },
         {
           "market": "BUFF Market",
-          "price": 4.7,
+          "price": 4.6,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Nuke%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 4.75,
+          "price": 4.54,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Nuke%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -4742,116 +4838,20 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.48,
+          "price": 4.59,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/nuke-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "iTrade.GG",
-          "price": 6.62,
+          "price": 6.51,
           "currency": "USD",
           "has_price": true,
           "url": "https://itrade.gg/trade/csgo?ref=csgodatabase\u0026search=Nuke%20Pin"
         }
       ],
       "url": "https://www.csgodatabase.com/collectible-pins/nuke-pin/"
-    },
-    {
-      "name": "PinGuardian",
-      "type": "Pin",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.64 - $5.31",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.64,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 5.31,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T00:36:32Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 5.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Guardian%20Pin"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.78,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Guardian%20Pin"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 4.33,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Guardian%20Pin"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Guardian%20Pin"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.64,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Guardian%20Pin",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 3,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Guardian%20Pin?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 3.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Guardian%20Pin?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.87,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Guardian%20Pin"
-        },
-        {
-          "market": "DMarket",
-          "price": 3.14,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Guardian%20Pin"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 2.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/guardian-pin/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/collectible-pins/guardian-pin/"
     }
   ]
 }
