@@ -3,16 +3,112 @@
   "agents": null,
   "misc": [
     {
+      "name": "PatchDragon",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$2.83 - $5.38",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 2.83,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 5.38,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 4.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 2.95,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.92,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.27,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 2.83,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Dragon",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 3.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Dragon?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 3.11,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Dragon?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 5.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "DMarket",
+          "price": 4.94,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Dragon"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-dragon/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-dragon/"
+    },
+    {
       "name": "PatchHowl",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$12.33 - $18.53",
+        "price_string": "$13.41 - $18.53",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 12.33,
+          "value": 13.41,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -21,7 +117,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -54,18 +150,17 @@
         },
         {
           "market": "SkinSwap",
-          "price": 13.58,
+          "price": 13.45,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Howl"
         },
         {
           "market": "BUFF Market",
-          "price": 12.33,
+          "price": 13.81,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Howl?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings",
-          "lowest": true
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Howl?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
@@ -83,14 +178,15 @@
         },
         {
           "market": "DMarket",
-          "price": 13.42,
+          "price": 13.41,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Howl"
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Howl",
+          "lowest": true
         },
         {
           "market": "LIS-SKINS",
-          "price": 13.86,
+          "price": 13.72,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-howl/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -99,196 +195,100 @@
       "url": "https://www.csgodatabase.com/patches/patch-howl/"
     },
     {
-      "name": "PatchRage",
+      "name": "PatchThe Boss",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$3.68 - $5.55",
+        "price_string": "$20.71 - $28.36",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 3.68,
+          "value": 20.71,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 5.55,
+          "value": 28.36,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 5.41,
+          "price": 28.36,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Rage"
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20The%20Boss"
         },
         {
           "market": "Tradeit.GG",
-          "price": 5.02,
+          "price": 21.1,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Rage"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20The%20Boss"
         },
         {
           "market": "CS.MONEY",
-          "price": 4.52,
+          "price": 21.04,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Rage"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20The%20Boss"
         },
         {
           "market": "PirateSwap",
-          "price": 3.81,
+          "price": 23.97,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Rage"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20The%20Boss"
         },
         {
           "market": "SkinSwap",
-          "price": 3.68,
+          "price": 20.82,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Rage",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20The%20Boss"
         },
         {
           "market": "BUFF Market",
-          "price": 3.86,
+          "price": 21.26,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Rage?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20The%20Boss?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 4.22,
+          "price": 23.88,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Rage?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Patch%20%7C%20The%20Boss?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 5.4,
+          "price": 24.58,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Rage"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20The%20Boss"
         },
         {
           "market": "DMarket",
-          "price": 5.55,
+          "price": 20.71,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Rage"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 3.75,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-rage/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-rage/"
-    },
-    {
-      "name": "PatchCombine Helmet",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.47 - $1.14",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.47,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.14,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.58,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Combine%20Helmet"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.47,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet",
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20The%20Boss",
           "lowest": true
         },
         {
-          "market": "CS.MONEY",
-          "price": 0.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Combine%20Helmet"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.56,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Combine%20Helmet"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.48,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.14,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Combine%20Helmet?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.59,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Combine%20Helmet?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.97,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.58,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Combine%20Helmet"
-        },
-        {
           "market": "LIS-SKINS",
-          "price": 0.48,
+          "price": 22.12,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-combine-helmet/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/patch-the-boss/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/patches/patch-combine-helmet/"
+      "url": "https://www.csgodatabase.com/patches/patch-the-boss/"
     },
     {
       "name": "PatchHealth",
@@ -309,7 +309,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -357,7 +357,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 19.86,
+          "price": 19.85,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Health?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -380,6 +380,102 @@
       "url": "https://www.csgodatabase.com/patches/patch-health/"
     },
     {
+      "name": "PatchRage",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$3.68 - $5.55",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 3.68,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 5.55,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 5.41,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Rage"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 5.02,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Rage"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 4.86,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Rage"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 3.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Rage"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 3.68,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Rage",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 3.86,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Rage?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 4.35,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Rage?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 5.4,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Rage"
+        },
+        {
+          "market": "DMarket",
+          "price": 5.55,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Rage"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 3.75,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-rage/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-rage/"
+    },
+    {
       "name": "PatchAlyx",
       "type": "Patch",
       "rarity": "",
@@ -398,7 +494,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -410,7 +506,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.96,
+          "price": 3.84,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Alyx"
@@ -431,7 +527,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 3.9,
+          "price": 3.23,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Alyx"
@@ -446,7 +542,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 4.33,
+          "price": 3.57,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Alyx?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -467,7 +563,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 4.08,
+          "price": 3.38,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-alyx/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -476,100 +572,100 @@
       "url": "https://www.csgodatabase.com/patches/patch-alyx/"
     },
     {
-      "name": "PatchCopper Lambda",
+      "name": "PatchChicken Lover",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$9.02 - $12.23",
+        "price_string": "$1.54 - $1.97",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 9.02,
+          "value": 1.54,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 12.23,
+          "value": 1.97,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 9.3,
+          "price": 1.56,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Copper%20Lambda"
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "Tradeit.GG",
-          "price": 9.47,
+          "price": 1.61,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "CS.MONEY",
-          "price": 9.48,
+          "price": 1.61,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Copper%20Lambda"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "PirateSwap",
-          "price": 9.32,
+          "price": 1.87,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Copper%20Lambda"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "SkinSwap",
-          "price": 9.74,
+          "price": 1.66,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "BUFF Market",
-          "price": 12.23,
+          "price": 1.84,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Copper%20Lambda?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Chicken%20Lover?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 10.71,
+          "price": 1.94,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Copper%20Lambda?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Chicken%20Lover?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 10.93,
+          "price": 1.97,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
         },
         {
           "market": "DMarket",
-          "price": 9.02,
+          "price": 1.54,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Copper%20Lambda",
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Chicken%20Lover",
           "lowest": true
         },
         {
           "market": "LIS-SKINS",
-          "price": 10.62,
+          "price": 1.69,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-copper-lambda/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/patch-chicken-lover/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/patches/patch-copper-lambda/"
+      "url": "https://www.csgodatabase.com/patches/patch-chicken-lover/"
     },
     {
       "name": "PatchVigilance",
@@ -590,7 +686,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -637,7 +733,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.6,
+          "price": 0.59,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Vigilance?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -686,7 +782,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -741,14 +837,14 @@
         },
         {
           "market": "Skinport",
-          "price": 0.64,
+          "price": 0.82,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Longevity"
         },
         {
           "market": "DMarket",
-          "price": 0.55,
+          "price": 0.56,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Longevity"
@@ -769,11 +865,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.99 - $1.65",
+        "price_string": "$1.00 - $1.65",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.99,
+          "value": 1,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -782,7 +878,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -794,7 +890,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 0.99,
+          "price": 1,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Koi",
@@ -851,7 +947,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 1.1,
+          "price": 1.08,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-koi/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -878,7 +974,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -890,7 +986,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 1.18,
+          "price": 1.16,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Welcome%20to%20the%20Clutch"
@@ -925,7 +1021,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 1.3,
+          "price": 1.29,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Welcome%20to%20the%20Clutch?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -956,121 +1052,25 @@
       "url": "https://www.csgodatabase.com/patches/patch-welcome-to-the-clutch/"
     },
     {
-      "name": "PatchVanguard",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.18 - $0.74",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.18,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.74,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.25,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Vanguard",
-          "lowest": true
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Vanguard?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Vanguard?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Vanguard"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.74,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-vanguard/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-vanguard/"
-    },
-    {
       "name": "PatchCrazy Banana",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$1.30 - $1.65",
+        "price_string": "$1.28 - $1.64",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 1.3,
+          "value": 1.28,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 1.65,
+          "value": 1.64,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -1082,7 +1082,7 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 1.3,
+          "price": 1.28,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Crazy%20Banana",
@@ -1090,7 +1090,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 1.4,
+          "price": 1.35,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Crazy%20Banana"
@@ -1104,21 +1104,21 @@
         },
         {
           "market": "SkinSwap",
-          "price": 1.34,
+          "price": 1.32,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Crazy%20Banana"
         },
         {
           "market": "BUFF Market",
-          "price": 1.39,
+          "price": 1.31,
           "currency": "USD",
           "has_price": true,
           "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Crazy%20Banana?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 1.65,
+          "price": 1.47,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Crazy%20Banana?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -1132,14 +1132,14 @@
         },
         {
           "market": "DMarket",
-          "price": 1.62,
+          "price": 1.58,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Crazy%20Banana"
         },
         {
           "market": "LIS-SKINS",
-          "price": 1.36,
+          "price": 1.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-crazy-banana/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -1148,876 +1148,12 @@
       "url": "https://www.csgodatabase.com/patches/patch-crazy-banana/"
     },
     {
-      "name": "PatchBreakout",
+      "name": "PatchShattered Web",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.16 - $1.65",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.16,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.65,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Breakout",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.65,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Breakout?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Breakout?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Breakout"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-breakout/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-breakout/"
-    },
-    {
-      "name": "PatchPhoenix",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.29 - $0.46",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.29,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.46,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.46,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.33,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.4,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Phoenix?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Phoenix?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.29,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Phoenix",
-          "lowest": true
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-phoenix/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-phoenix/"
-    },
-    {
-      "name": "PatchBravo",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.16 - $1.39",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.16,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.39,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Bravo",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Bravo?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Bravo?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.18,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Bravo"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-bravo/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-bravo/"
-    },
-    {
-      "name": "PatchPayback",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.14 - $2.00",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.14,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 2,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Payback"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Payback"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.17,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Payback"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.19,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Payback"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.14,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Payback",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Payback?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.15,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Payback?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Payback"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.16,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Payback"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-payback/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-payback/"
-    },
-    {
-      "name": "PatchCMB",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.21 - $0.98",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.21,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.98,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20CMB"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20CMB"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20CMB"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20CMB",
-          "lowest": true
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20CMB"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.98,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20CMB?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.23,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20CMB?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20CMB"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20CMB"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.24,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-cmb/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-cmb/"
-    },
-    {
-      "name": "PatchCity 17",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.21 - $1.21",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.21,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.21,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20City%2017",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20City%2017?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.24,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20City%2017?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20City%2017"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.43,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-city-17/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-city-17/"
-    },
-    {
-      "name": "PatchHeadcrab Glyph",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.32 - $1.12",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.32,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.12,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Headcrab%20Glyph",
-          "lowest": true
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.44,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.55,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Headcrab%20Glyph?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Headcrab%20Glyph?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 1.12,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.44,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Headcrab%20Glyph"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-headcrab-glyph/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-headcrab-glyph/"
-    },
-    {
-      "name": "PatchVortigaunt",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.34 - $0.75",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.34,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 0.75,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.6,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 0.55,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Vortigaunt?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Vortigaunt?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.75,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.45,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Vortigaunt"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.34,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-vortigaunt/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-vortigaunt/"
-    },
-    {
-      "name": "PatchThe Boss",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$19.96 - $28.36",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 19.96,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 28.36,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 28.36,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 21.11,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 20.65,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 23.97,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 19.96,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20The%20Boss",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 20.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20The%20Boss?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 23.55,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20The%20Boss?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 24.58,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "DMarket",
-          "price": 20.71,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20The%20Boss"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 20.35,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-the-boss/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-the-boss/"
-    },
-    {
-      "name": "PatchBloodhound",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.35 - $0.56",
+        "price_string": "$0.35 - $0.69",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
@@ -2026,86 +1162,360 @@
           "unit": "USD"
         },
         "max": {
-          "value": 0.56,
+          "value": 0.69,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 0.56,
+          "price": 0.62,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Bloodhound"
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Shattered%20Web"
         },
         {
           "market": "Tradeit.GG",
           "price": 0.38,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Bloodhound"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web"
         },
         {
           "market": "CS.MONEY",
-          "price": 0.36,
+          "price": 0.69,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Bloodhound"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Shattered%20Web"
         },
         {
           "market": "PirateSwap",
-          "price": 0.43,
+          "price": 0.41,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Bloodhound"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Shattered%20Web"
         },
         {
           "market": "SkinSwap",
           "price": 0.35,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Bloodhound",
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web",
           "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 0.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Bloodhound?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Bloodhound?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.47,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Bloodhound"
-        },
-        {
-          "market": "DMarket",
           "price": 0.43,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Bloodhound"
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Shattered%20Web?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Shattered%20Web?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.51,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Shattered%20Web"
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.42,
+          "price": 0.37,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-bloodhound/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/patch-shattered-web/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/patches/patch-bloodhound/"
+      "url": "https://www.csgodatabase.com/patches/patch-shattered-web/"
+    },
+    {
+      "name": "PatchEasy Peasy",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$1.10 - $2.24",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 1.1,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 2.24,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 1.57,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Easy%20Peasy"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 1.1,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Easy%20Peasy"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 1.33,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Easy%20Peasy"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 1.12,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.15,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Easy%20Peasy?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 1.27,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Easy%20Peasy?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 1.66,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 1.14,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-easy-peasy/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-easy-peasy/"
+    },
+    {
+      "name": "PatchDanger Zone",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.73 - $1.50",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.73,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.5,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.96,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 1.31,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.89,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Danger%20Zone?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 1.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Danger%20Zone?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 1.37,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.82,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Danger%20Zone"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.75,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-danger-zone/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-danger-zone/"
+    },
+    {
+      "name": "PatchSustenance!",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$1.67 - $2.50",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 1.67,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 2.5,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 2.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Sustenance%21"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 1.67,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 2.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Sustenance%21"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Sustenance%21"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 1.7,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Sustenance%21?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 1.81,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Sustenance%21?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 2.4,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 1.78,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-sustenance!/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-sustenance/"
     },
     {
       "name": "PatchBlack Mesa",
@@ -2126,7 +1536,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -2204,112 +1614,16 @@
       "url": "https://www.csgodatabase.com/patches/patch-black-mesa/"
     },
     {
-      "name": "PatchChicken Lover",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$1.56 - $2.23",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 1.56,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 2.23,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 1.56,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Chicken%20Lover",
-          "lowest": true
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 1.61,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 1.6,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 1.87,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 1.66,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.7,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Chicken%20Lover?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 1.94,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Chicken%20Lover?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 1.97,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "DMarket",
-          "price": 2.23,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Chicken%20Lover"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 1.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-chicken-lover/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-chicken-lover/"
-    },
-    {
       "name": "PatchLambda",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$3.00 - $6.83",
+        "price_string": "$3.02 - $6.83",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 3,
+          "value": 3.02,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2318,7 +1632,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -2330,14 +1644,14 @@
         },
         {
           "market": "Tradeit.GG",
-          "price": 3.12,
+          "price": 3.15,
           "currency": "USD",
           "has_price": true,
           "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Lambda"
         },
         {
           "market": "CS.MONEY",
-          "price": 3.1,
+          "price": 3.06,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Lambda"
@@ -2351,7 +1665,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 3,
+          "price": 3.02,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Lambda",
@@ -2366,7 +1680,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 3.41,
+          "price": 3.4,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Lambda?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2380,7 +1694,7 @@
         },
         {
           "market": "LIS-SKINS",
-          "price": 3.21,
+          "price": 3.17,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-lambda/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2389,374 +1703,100 @@
       "url": "https://www.csgodatabase.com/patches/patch-lambda/"
     },
     {
-      "name": "PatchEasy Peasy",
+      "name": "PatchPhoenix",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$1.05 - $1.66",
+        "price_string": "$0.29 - $0.46",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 1.05,
+          "value": 0.29,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 1.66,
+          "value": 0.46,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 1.57,
+          "price": 0.46,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Easy%20Peasy"
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Phoenix"
         },
         {
           "market": "Tradeit.GG",
-          "price": 1.1,
+          "price": 0.33,
           "currency": "USD",
           "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy"
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
         },
         {
           "market": "CS.MONEY",
-          "price": 1.46,
+          "price": 0.34,
           "currency": "USD",
           "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Easy%20Peasy"
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Phoenix"
         },
         {
           "market": "PirateSwap",
-          "price": 1.33,
+          "price": 0.36,
           "currency": "USD",
           "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Easy%20Peasy"
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Phoenix"
         },
         {
           "market": "SkinSwap",
-          "price": 1.14,
+          "price": 0.32,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy"
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
         },
         {
           "market": "BUFF Market",
-          "price": 1.05,
+          "price": 0.4,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Easy%20Peasy?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings",
-          "lowest": true
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Phoenix?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 1.27,
+          "price": 0.37,
           "currency": "USD",
           "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Easy%20Peasy?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Phoenix?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 1.66,
+          "price": 0.38,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Easy%20Peasy"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 1.21,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-easy-peasy/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-easy-peasy/"
-    },
-    {
-      "name": "PatchDanger Zone",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$0.72 - $1.50",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 0.72,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 1.5,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 0.96,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Danger%20Zone"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 0.72,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone",
-          "lowest": true
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 1.31,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Danger%20Zone"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.89,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Danger%20Zone"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 0.73,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 1.5,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Danger%20Zone?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 0.81,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Danger%20Zone?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 1.37,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Danger%20Zone"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Phoenix"
         },
         {
           "market": "DMarket",
-          "price": 0.82,
+          "price": 0.29,
           "currency": "USD",
           "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Danger%20Zone"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 0.76,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-danger-zone/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-danger-zone/"
-    },
-    {
-      "name": "PatchSustenance!",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$1.63 - $2.40",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 1.63,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 2.4,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 2.39,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Sustenance%21"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 1.63,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21",
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Phoenix",
           "lowest": true
         },
         {
-          "market": "CS.MONEY",
-          "price": 1.76,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Sustenance%21"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 2,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Sustenance%21"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 1.67,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21"
-        },
-        {
-          "market": "BUFF Market",
-          "price": 2.3,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Sustenance%21?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 2.26,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Sustenance%21?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 2.4,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Sustenance%21"
-        },
-        {
           "market": "LIS-SKINS",
-          "price": 1.75,
+          "price": 0.32,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-sustenance!/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://lis-skins.com/market/csgo/patch-phoenix/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/patches/patch-sustenance/"
-    },
-    {
-      "name": "PatchDragon",
-      "type": "Patch",
-      "rarity": "",
-      "collection": "",
-      "price": {
-        "price_string": "$2.83 - $5.38",
-        "price_stattrak_string": "",
-        "currency": "USD",
-        "min": {
-          "value": 2.83,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "max": {
-          "value": 5.38,
-          "stattrak_value": 0,
-          "unit": "USD"
-        },
-        "updated_at": "2026-11-08T15:56:36Z"
-      },
-      "prices": [
-        {
-          "market": "Steam",
-          "price": 4.32,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "Tradeit.GG",
-          "price": 2.95,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 2.92,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 3.27,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "SkinSwap",
-          "price": 2.83,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Dragon",
-          "lowest": true
-        },
-        {
-          "market": "BUFF Market",
-          "price": 3.22,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Dragon?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        },
-        {
-          "market": "Market.CSGO",
-          "price": 4.02,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Dragon?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 5.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "DMarket",
-          "price": 4.94,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Dragon"
-        },
-        {
-          "market": "LIS-SKINS",
-          "price": 3.01,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-dragon/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
-        }
-      ],
-      "url": "https://www.csgodatabase.com/patches/patch-dragon/"
+      "url": "https://www.csgodatabase.com/patches/patch-phoenix/"
     },
     {
       "name": "PatchHydra",
@@ -2764,11 +1804,11 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.33 - $0.75",
+        "price_string": "$0.34 - $0.75",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.33,
+          "value": 0.34,
           "stattrak_value": 0,
           "unit": "USD"
         },
@@ -2777,7 +1817,7 @@
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -2810,7 +1850,7 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.33,
+          "price": 0.34,
           "currency": "USD",
           "has_price": true,
           "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Hydra",
@@ -2825,7 +1865,7 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.35,
+          "price": 0.39,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Hydra?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
@@ -2839,7 +1879,7 @@
         },
         {
           "market": "DMarket",
-          "price": 0.45,
+          "price": 0.44,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Hydra"
@@ -2860,20 +1900,20 @@
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.38 - $0.58",
+        "price_string": "$0.29 - $1.01",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.38,
+          "value": 0.29,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 0.58,
+          "value": 1.01,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
@@ -2892,7 +1932,7 @@
         },
         {
           "market": "CS.MONEY",
-          "price": 0.42,
+          "price": 1.01,
           "currency": "USD",
           "has_price": true,
           "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Wildfire"
@@ -2906,11 +1946,10 @@
         },
         {
           "market": "SkinSwap",
-          "price": 0.38,
+          "price": 0.36,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Wildfire",
-          "lowest": true
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Wildfire"
         },
         {
           "market": "BUFF Market",
@@ -2921,28 +1960,29 @@
         },
         {
           "market": "Market.CSGO",
-          "price": 0.42,
+          "price": 0.41,
           "currency": "USD",
           "has_price": true,
           "url": "https://market.csgo.com/en/Patch%20%7C%20Wildfire?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
         },
         {
           "market": "Skinport",
-          "price": 0.47,
+          "price": 0.29,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Wildfire"
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Wildfire",
+          "lowest": true
         },
         {
           "market": "DMarket",
-          "price": 0.47,
+          "price": 0.46,
           "currency": "USD",
           "has_price": true,
           "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Wildfire"
         },
         {
           "market": "LIS-SKINS",
-          "price": 0.41,
+          "price": 0.36,
           "currency": "USD",
           "has_price": true,
           "url": "https://lis-skins.com/market/csgo/patch-wildfire/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
@@ -2951,100 +1991,1060 @@
       "url": "https://www.csgodatabase.com/patches/patch-wildfire/"
     },
     {
-      "name": "PatchShattered Web",
+      "name": "PatchBloodhound",
       "type": "Patch",
       "rarity": "",
       "collection": "",
       "price": {
-        "price_string": "$0.37 - $0.69",
+        "price_string": "$0.33 - $0.56",
         "price_stattrak_string": "",
         "currency": "USD",
         "min": {
-          "value": 0.37,
+          "value": 0.33,
           "stattrak_value": 0,
           "unit": "USD"
         },
         "max": {
-          "value": 0.69,
+          "value": 0.56,
           "stattrak_value": 0,
           "unit": "USD"
         },
-        "updated_at": "2026-11-08T15:56:36Z"
+        "updated_at": "2026-11-09T00:53:43Z"
       },
       "prices": [
         {
           "market": "Steam",
-          "price": 0.62,
+          "price": 0.56,
           "currency": "USD",
           "has_price": true,
-          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Shattered%20Web"
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Bloodhound"
         },
         {
           "market": "Tradeit.GG",
-          "price": 0.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web"
-        },
-        {
-          "market": "CS.MONEY",
-          "price": 0.69,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Shattered%20Web"
-        },
-        {
-          "market": "PirateSwap",
-          "price": 0.41,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Shattered%20Web"
-        },
-        {
-          "market": "SkinSwap",
           "price": 0.37,
           "currency": "USD",
           "has_price": true,
-          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web",
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Bloodhound"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.38,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Bloodhound"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.43,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Bloodhound"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.33,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Bloodhound",
           "lowest": true
         },
         {
           "market": "BUFF Market",
-          "price": 0.43,
+          "price": 0.39,
           "currency": "USD",
           "has_price": true,
-          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Shattered%20Web?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Bloodhound?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         },
         {
           "market": "Market.CSGO",
-          "price": 0.38,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://market.csgo.com/en/Patch%20%7C%20Shattered%20Web?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
-        },
-        {
-          "market": "Skinport",
-          "price": 0.68,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Shattered%20Web"
-        },
-        {
-          "market": "DMarket",
-          "price": 0.51,
-          "currency": "USD",
-          "has_price": true,
-          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Shattered%20Web"
-        },
-        {
-          "market": "LIS-SKINS",
           "price": 0.37,
           "currency": "USD",
           "has_price": true,
-          "url": "https://lis-skins.com/market/csgo/patch-shattered-web/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Bloodhound?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.47,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Bloodhound"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.44,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Bloodhound"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.33,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-bloodhound/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
         }
       ],
-      "url": "https://www.csgodatabase.com/patches/patch-shattered-web/"
+      "url": "https://www.csgodatabase.com/patches/patch-bloodhound/"
+    },
+    {
+      "name": "PatchVanguard",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.18 - $0.73",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.18,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 0.73,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.25,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Vanguard",
+          "lowest": true
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Vanguard?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Vanguard?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Vanguard"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.73,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-vanguard/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-vanguard/"
+    },
+    {
+      "name": "PatchBreakout",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.16 - $1.65",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.16,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.65,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Breakout",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.65,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Breakout?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Breakout?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Breakout"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-breakout/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-breakout/"
+    },
+    {
+      "name": "PatchCity 17",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.21 - $1.21",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.21,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.21,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.34,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20City%2017",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20City%2017?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20City%2017?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.27,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20City%2017"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.43,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-city-17/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-city-17/"
+    },
+    {
+      "name": "PatchBravo",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.16 - $1.39",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.16,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.39,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.27,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Bravo",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Bravo?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Bravo?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.18,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Bravo"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.54,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-bravo/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-bravo/"
+    },
+    {
+      "name": "PatchVortigaunt",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.32 - $0.75",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.32,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 0.75,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.6,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.35,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.55,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Vortigaunt?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.36,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Vortigaunt?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.75,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.44,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Vortigaunt"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-vortigaunt/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-vortigaunt/"
+    },
+    {
+      "name": "PatchPayback",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.14 - $2.00",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.14,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 2,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Payback"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Payback"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.17,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Payback"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.19,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Payback"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.14,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Payback",
+          "lowest": true
+        },
+        {
+          "market": "BUFF Market",
+          "price": 2,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Payback?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.14,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Payback?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Payback"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.16,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Payback"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-payback/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-payback/"
+    },
+    {
+      "name": "PatchCMB",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.21 - $0.98",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.21,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 0.98,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.34,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20CMB"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20CMB"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20CMB"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.21,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20CMB",
+          "lowest": true
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20CMB"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.98,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20CMB?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.24,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20CMB?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20CMB"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.26,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20CMB"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.22,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-cmb/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-cmb/"
+    },
+    {
+      "name": "PatchHeadcrab Glyph",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.32 - $1.12",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.32,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.12,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Headcrab%20Glyph",
+          "lowest": true
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.44,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.39,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 0.55,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Headcrab%20Glyph?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.34,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Headcrab%20Glyph?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 1.12,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.43,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Headcrab%20Glyph"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-headcrab-glyph/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-headcrab-glyph/"
+    },
+    {
+      "name": "PatchCopper Lambda",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$9.02 - $12.23",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 9.02,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 12.23,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 9.3,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 9.47,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 9.65,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 9.32,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 9.74,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 12.23,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Copper%20Lambda?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 10.71,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Copper%20Lambda?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 10.93,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Copper%20Lambda"
+        },
+        {
+          "market": "DMarket",
+          "price": 9.02,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Copper%20Lambda",
+          "lowest": true
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 10.65,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-copper-lambda/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-copper-lambda/"
+    },
+    {
+      "name": "PatchCombine Helmet",
+      "type": "Patch",
+      "rarity": "",
+      "collection": "",
+      "price": {
+        "price_string": "$0.47 - $1.14",
+        "price_stattrak_string": "",
+        "currency": "USD",
+        "min": {
+          "value": 0.47,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "max": {
+          "value": 1.14,
+          "stattrak_value": 0,
+          "unit": "USD"
+        },
+        "updated_at": "2026-11-09T00:53:43Z"
+      },
+      "prices": [
+        {
+          "market": "Steam",
+          "price": 0.58,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://steamcommunity.com/market/listings/730/Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "Tradeit.GG",
+          "price": 0.47,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://tradeit.gg/csgo/store?aff=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet",
+          "lowest": true
+        },
+        {
+          "market": "CS.MONEY",
+          "price": 0.5,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://cs.money/market/buy?utm_source=mediabuy\u0026utm_medium=csgbs\u0026utm_campaign=market\u0026utm_content=link\u0026sort=price\u0026order=asc\u0026search=Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "PirateSwap",
+          "price": 0.56,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://pirateswap.com/store?ref=CSGODATABASE\u0026sort=priceAsc\u0026mhn=Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "SkinSwap",
+          "price": 0.49,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinswap.com/buy?r=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "BUFF Market",
+          "price": 1.14,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://buff.market/market/goods/cs2/Patch%20%7C%20Combine%20Helmet?ref=U1090910517\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        },
+        {
+          "market": "Market.CSGO",
+          "price": 0.59,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://market.csgo.com/en/Patch%20%7C%20Combine%20Helmet?utm_campaign=octoberpartner\u0026utm_source=csgodatabase\u0026cpid=45e1aa42-b27c-440d-a722-a3e0e35a95c4\u0026oid=4c69d079-ad2a-44b0-a9ac-d0afc2167ee7"
+        },
+        {
+          "market": "Skinport",
+          "price": 0.97,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://skinport.com/market/?r=csgodatabase\u0026search=Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "DMarket",
+          "price": 0.58,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://dmarket.com/ingame-items/item-list/csgo-skins?ref=dqO8cH3aM5\u0026title=Patch%20%7C%20Combine%20Helmet"
+        },
+        {
+          "market": "LIS-SKINS",
+          "price": 0.51,
+          "currency": "USD",
+          "has_price": true,
+          "url": "https://lis-skins.com/market/csgo/patch-combine-helmet/?rf=4494855\u0026utm_source=csgodatabase\u0026utm_medium=listings"
+        }
+      ],
+      "url": "https://www.csgodatabase.com/patches/patch-combine-helmet/"
     }
   ]
 }
